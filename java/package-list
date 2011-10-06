@@ -1,0 +1,15 @@
+org.mule.module.magento
+org.mule.module.magento.api
+org.mule.module.magento.api.catalog
+org.mule.module.magento.api.catalog.model
+org.mule.module.magento.api.customer
+org.mule.module.magento.api.directory
+org.mule.module.magento.api.internal
+org.mule.module.magento.api.inventory
+org.mule.module.magento.api.order
+org.mule.module.magento.api.order.model
+org.mule.module.magento.api.util
+org.mule.module.magento.config
+org.mule.module.magento.config.spring
+org.mule.module.magento.filters
+

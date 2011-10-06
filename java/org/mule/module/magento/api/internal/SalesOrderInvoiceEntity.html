@@ -1,0 +1,6670 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Magento Cloud Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../favicon.ico" />
+<title>
+
+  SalesOrderInvoiceEntity
+
+
+| Mule Magento Cloud Connector
+
+</title>
+<link href="../../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../../", "../../../../../../../assets/");
+</script>
+<script src="../../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Magento Cloud Connector</span>
+    
+    <ul id="header-tabs" class="">
+    	<li id="guide"><a href="../../../../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    	<li id="java"><a href="../../../../../../../java/packages.html">
+	    	<span class="en">Java API</span>
+    	</a></li>
+    	<li id="mule"><a href="../../../../../../../mule/modules.html">
+	    	<span class="en">Mule API</span>
+    	</a></li>
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../../java/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/package-summary.html">org.mule.module.magento.api</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/catalog/package-summary.html">org.mule.module.magento.api.catalog</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/package-summary.html">org.mule.module.magento.api.catalog.model</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/customer/package-summary.html">org.mule.module.magento.api.customer</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/directory/package-summary.html">org.mule.module.magento.api.directory</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/internal/package-summary.html">org.mule.module.magento.api.internal</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/inventory/package-summary.html">org.mule.module.magento.api.inventory</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/order/package-summary.html">org.mule.module.magento.api.order</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/order/model/package-summary.html">org.mule.module.magento.api.order.model</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/config/spring/package-summary.html">org.mule.module.magento.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/Mage_Api_Model_Server_V2_HandlerPortType.html">Mage_Api_Model_Server_V2_HandlerPortType</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/MagentoService.html">MagentoService</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ApiEntity.html">ApiEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ApiMethodEntity.html">ApiMethodEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/AssociativeEntity.html">AssociativeEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogAssignedProduct.html">CatalogAssignedProduct</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogAttributeEntity.html">CatalogAttributeEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogCategoryEntity.html">CatalogCategoryEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogCategoryEntityNoChildren.html">CatalogCategoryEntityNoChildren</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogCategoryInfo.html">CatalogCategoryInfo</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogCategoryTree.html">CatalogCategoryTree</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductAttributeMediaTypeEntity.html">CatalogProductAttributeMediaTypeEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductAttributeSetEntity.html">CatalogProductAttributeSetEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductEntity.html">CatalogProductEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductImageEntity.html">CatalogProductImageEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductImageFileEntity.html">CatalogProductImageFileEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductLinkAttributeEntity.html">CatalogProductLinkAttributeEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductRequestAttributes.html">CatalogProductRequestAttributes</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CatalogProductTypeEntity.html">CatalogProductTypeEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ComplexFilter.html">ComplexFilter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CustomerCustomerEntity.html">CustomerCustomerEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/CustomerGroupEntity.html">CustomerGroupEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/DirectoryCountryEntity.html">DirectoryCountryEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/DirectoryRegionEntity.html">DirectoryRegionEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ExistsFaltureEntity.html">ExistsFaltureEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/Filters.html">Filters</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/GiftMessageAssociativeProductsEntity.html">GiftMessageAssociativeProductsEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/GiftMessageEntity.html">GiftMessageEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/GiftMessageResponse.html">GiftMessageResponse</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/Mage_Api_Model_Server_V2_HandlerBindingStub.html">Mage_Api_Model_Server_V2_HandlerBindingStub</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/MagentoServiceLocator.html">MagentoServiceLocator</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/OrderItemIdQty.html">OrderItemIdQty</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderAddressEntity.html">SalesOrderAddressEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderEntity.html">SalesOrderEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderItemEntity.html">SalesOrderItemEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderListEntity.html">SalesOrderListEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderPaymentEntity.html">SalesOrderPaymentEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderShipmentCommentEntity.html">SalesOrderShipmentCommentEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderShipmentItemEntity.html">SalesOrderShipmentItemEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderShipmentTrackEntity.html">SalesOrderShipmentTrackEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderStatusHistoryEntity.html">SalesOrderStatusHistoryEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartAddressEntity.html">ShoppingCartAddressEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartCustomerAddressEntity.html">ShoppingCartCustomerAddressEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartCustomerEntity.html">ShoppingCartCustomerEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartInfoEntity.html">ShoppingCartInfoEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartItemEntity.html">ShoppingCartItemEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartLicenseEntity.html">ShoppingCartLicenseEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartPaymentEntity.html">ShoppingCartPaymentEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartPaymentMethodEntity.html">ShoppingCartPaymentMethodEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartPaymentMethodResponseEntityArray.html">ShoppingCartPaymentMethodResponseEntityArray</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartShippingMethodEntity.html">ShoppingCartShippingMethodEntity</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/internal/ShoppingCartTotalsEntity.html">ShoppingCartTotalsEntity</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../../classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+
+
+  <a href="#lfields">Fields</a>
+  
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1>SalesOrderInvoiceEntity</h1>
+
+
+
+  
+    extends Object<br/>
+  
+  
+  
+
+  
+  
+      implements 
+      
+        Serializable 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.api.internal.SalesOrderInvoiceEntity</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#__equalsCalc">__equalsCalc</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          boolean</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#__hashCodeCalc">__hashCodeCalc</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#base_currency_code">base_currency_code</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#base_discount_amount">base_discount_amount</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#base_grand_total">base_grand_total</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#base_shipping_amount">base_shipping_amount</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#base_subtotal">base_subtotal</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#base_tax_amount">base_tax_amount</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#base_to_global_rate">base_to_global_rate</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#base_to_order_rate">base_to_order_rate</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#billing_address_id">billing_address_id</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#billing_firstname">billing_firstname</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#billing_lastname">billing_lastname</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity[]</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#comments">comments</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#created_at">created_at</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#discount_amount">discount_amount</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#global_currency_code">global_currency_code</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#grand_total">grand_total</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#increment_id">increment_id</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#invoice_id">invoice_id</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#is_active">is_active</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity[]</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#items">items</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#order_created_at">order_created_at</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#order_currency_code">order_currency_code</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#order_id">order_id</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#order_increment_id">order_increment_id</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#parent_id">parent_id</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#shipping_amount">shipping_amount</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#state">state</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#store_currency_code">store_currency_code</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#store_id">store_id</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#store_to_base_rate">store_to_base_rate</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#store_to_order_rate">store_to_order_rate</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#subtotal">subtotal</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#tax_amount">tax_amount</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          static
+          
+          TypeDesc</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#typeDesc">typeDesc</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#updated_at">updated_at</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+
+</table>
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#SalesOrderInvoiceEntity()">SalesOrderInvoiceEntity</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#SalesOrderInvoiceEntity(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.magento.api.internal.SalesOrderInvoiceItemEntity[], org.mule.module.magento.api.internal.SalesOrderInvoiceCommentEntity[])">SalesOrderInvoiceEntity</a></span>(String increment_id, String parent_id, String store_id, String created_at, String updated_at, String is_active, String global_currency_code, String base_currency_code, String store_currency_code, String order_currency_code, String store_to_base_rate, String store_to_order_rate, String base_to_global_rate, String base_to_order_rate, String subtotal, String base_subtotal, String base_grand_total, String discount_amount, String base_discount_amount, String shipping_amount, String base_shipping_amount, String tax_amount, String base_tax_amount, String billing_address_id, String billing_firstname, String billing_lastname, String order_id, String order_increment_id, String order_created_at, String state, String grand_total, String invoice_id, <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity[]</a> items, <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity[]</a> comments)</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            synchronized
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#equals(java.lang.Object)">equals</a></span>(Object obj)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBase_currency_code()">getBase_currency_code</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the base_currency_code value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBase_discount_amount()">getBase_discount_amount</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the base_discount_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBase_grand_total()">getBase_grand_total</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the base_grand_total value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBase_shipping_amount()">getBase_shipping_amount</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the base_shipping_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBase_subtotal()">getBase_subtotal</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the base_subtotal value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBase_tax_amount()">getBase_tax_amount</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the base_tax_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBase_to_global_rate()">getBase_to_global_rate</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the base_to_global_rate value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBase_to_order_rate()">getBase_to_order_rate</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the base_to_order_rate value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBilling_address_id()">getBilling_address_id</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the billing_address_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBilling_firstname()">getBilling_firstname</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the billing_firstname value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getBilling_lastname()">getBilling_lastname</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the billing_lastname value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity[]</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getComments()">getComments</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the comments value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getCreated_at()">getCreated_at</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the created_at value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            Deserializer</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getDeserializer(java.lang.String, java.lang.Class, javax.xml.namespace.QName)">getDeserializer</a></span>(String mechType, Class _javaType, QName _xmlType)</nobr>
+        
+        <div class="jd-descrdiv">Get Custom Deserializer
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getDiscount_amount()">getDiscount_amount</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the discount_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getGlobal_currency_code()">getGlobal_currency_code</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the global_currency_code value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getGrand_total()">getGrand_total</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the grand_total value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getIncrement_id()">getIncrement_id</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the increment_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getInvoice_id()">getInvoice_id</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the invoice_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getIs_active()">getIs_active</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the is_active value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity[]</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getItems()">getItems</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the items value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getOrder_created_at()">getOrder_created_at</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the order_created_at value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getOrder_currency_code()">getOrder_currency_code</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the order_currency_code value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getOrder_id()">getOrder_id</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the order_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getOrder_increment_id()">getOrder_increment_id</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the order_increment_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getParent_id()">getParent_id</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the parent_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            Serializer</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getSerializer(java.lang.String, java.lang.Class, javax.xml.namespace.QName)">getSerializer</a></span>(String mechType, Class _javaType, QName _xmlType)</nobr>
+        
+        <div class="jd-descrdiv">Get Custom Serializer
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getShipping_amount()">getShipping_amount</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the shipping_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getState()">getState</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the state value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getStore_currency_code()">getStore_currency_code</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the store_currency_code value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getStore_id()">getStore_id</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the store_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getStore_to_base_rate()">getStore_to_base_rate</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the store_to_base_rate value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getStore_to_order_rate()">getStore_to_order_rate</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the store_to_order_rate value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getSubtotal()">getSubtotal</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the subtotal value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getTax_amount()">getTax_amount</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the tax_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            TypeDesc</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getTypeDesc()">getTypeDesc</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Return type metadata object
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#getUpdated_at()">getUpdated_at</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the updated_at value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            synchronized
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#hashCode()">hashCode</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBase_currency_code(java.lang.String)">setBase_currency_code</a></span>(String base_currency_code)</nobr>
+        
+        <div class="jd-descrdiv">Sets the base_currency_code value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBase_discount_amount(java.lang.String)">setBase_discount_amount</a></span>(String base_discount_amount)</nobr>
+        
+        <div class="jd-descrdiv">Sets the base_discount_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBase_grand_total(java.lang.String)">setBase_grand_total</a></span>(String base_grand_total)</nobr>
+        
+        <div class="jd-descrdiv">Sets the base_grand_total value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBase_shipping_amount(java.lang.String)">setBase_shipping_amount</a></span>(String base_shipping_amount)</nobr>
+        
+        <div class="jd-descrdiv">Sets the base_shipping_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBase_subtotal(java.lang.String)">setBase_subtotal</a></span>(String base_subtotal)</nobr>
+        
+        <div class="jd-descrdiv">Sets the base_subtotal value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBase_tax_amount(java.lang.String)">setBase_tax_amount</a></span>(String base_tax_amount)</nobr>
+        
+        <div class="jd-descrdiv">Sets the base_tax_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBase_to_global_rate(java.lang.String)">setBase_to_global_rate</a></span>(String base_to_global_rate)</nobr>
+        
+        <div class="jd-descrdiv">Sets the base_to_global_rate value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBase_to_order_rate(java.lang.String)">setBase_to_order_rate</a></span>(String base_to_order_rate)</nobr>
+        
+        <div class="jd-descrdiv">Sets the base_to_order_rate value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBilling_address_id(java.lang.String)">setBilling_address_id</a></span>(String billing_address_id)</nobr>
+        
+        <div class="jd-descrdiv">Sets the billing_address_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBilling_firstname(java.lang.String)">setBilling_firstname</a></span>(String billing_firstname)</nobr>
+        
+        <div class="jd-descrdiv">Sets the billing_firstname value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setBilling_lastname(java.lang.String)">setBilling_lastname</a></span>(String billing_lastname)</nobr>
+        
+        <div class="jd-descrdiv">Sets the billing_lastname value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setComments(org.mule.module.magento.api.internal.SalesOrderInvoiceCommentEntity[])">setComments</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity[]</a> comments)</nobr>
+        
+        <div class="jd-descrdiv">Sets the comments value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setCreated_at(java.lang.String)">setCreated_at</a></span>(String created_at)</nobr>
+        
+        <div class="jd-descrdiv">Sets the created_at value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setDiscount_amount(java.lang.String)">setDiscount_amount</a></span>(String discount_amount)</nobr>
+        
+        <div class="jd-descrdiv">Sets the discount_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setGlobal_currency_code(java.lang.String)">setGlobal_currency_code</a></span>(String global_currency_code)</nobr>
+        
+        <div class="jd-descrdiv">Sets the global_currency_code value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setGrand_total(java.lang.String)">setGrand_total</a></span>(String grand_total)</nobr>
+        
+        <div class="jd-descrdiv">Sets the grand_total value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setIncrement_id(java.lang.String)">setIncrement_id</a></span>(String increment_id)</nobr>
+        
+        <div class="jd-descrdiv">Sets the increment_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setInvoice_id(java.lang.String)">setInvoice_id</a></span>(String invoice_id)</nobr>
+        
+        <div class="jd-descrdiv">Sets the invoice_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setIs_active(java.lang.String)">setIs_active</a></span>(String is_active)</nobr>
+        
+        <div class="jd-descrdiv">Sets the is_active value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setItems(org.mule.module.magento.api.internal.SalesOrderInvoiceItemEntity[])">setItems</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity[]</a> items)</nobr>
+        
+        <div class="jd-descrdiv">Sets the items value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setOrder_created_at(java.lang.String)">setOrder_created_at</a></span>(String order_created_at)</nobr>
+        
+        <div class="jd-descrdiv">Sets the order_created_at value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setOrder_currency_code(java.lang.String)">setOrder_currency_code</a></span>(String order_currency_code)</nobr>
+        
+        <div class="jd-descrdiv">Sets the order_currency_code value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setOrder_id(java.lang.String)">setOrder_id</a></span>(String order_id)</nobr>
+        
+        <div class="jd-descrdiv">Sets the order_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setOrder_increment_id(java.lang.String)">setOrder_increment_id</a></span>(String order_increment_id)</nobr>
+        
+        <div class="jd-descrdiv">Sets the order_increment_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setParent_id(java.lang.String)">setParent_id</a></span>(String parent_id)</nobr>
+        
+        <div class="jd-descrdiv">Sets the parent_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setShipping_amount(java.lang.String)">setShipping_amount</a></span>(String shipping_amount)</nobr>
+        
+        <div class="jd-descrdiv">Sets the shipping_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setState(java.lang.String)">setState</a></span>(String state)</nobr>
+        
+        <div class="jd-descrdiv">Sets the state value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setStore_currency_code(java.lang.String)">setStore_currency_code</a></span>(String store_currency_code)</nobr>
+        
+        <div class="jd-descrdiv">Sets the store_currency_code value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setStore_id(java.lang.String)">setStore_id</a></span>(String store_id)</nobr>
+        
+        <div class="jd-descrdiv">Sets the store_id value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setStore_to_base_rate(java.lang.String)">setStore_to_base_rate</a></span>(String store_to_base_rate)</nobr>
+        
+        <div class="jd-descrdiv">Sets the store_to_base_rate value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setStore_to_order_rate(java.lang.String)">setStore_to_order_rate</a></span>(String store_to_order_rate)</nobr>
+        
+        <div class="jd-descrdiv">Sets the store_to_order_rate value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setSubtotal(java.lang.String)">setSubtotal</a></span>(String subtotal)</nobr>
+        
+        <div class="jd-descrdiv">Sets the subtotal value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setTax_amount(java.lang.String)">setTax_amount</a></span>(String tax_amount)</nobr>
+        
+        <div class="jd-descrdiv">Sets the tax_amount value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/internal/SalesOrderInvoiceEntity.html#setUpdated_at(java.lang.String)">setUpdated_at</a></span>(String updated_at)</nobr>
+        
+        <div class="jd-descrdiv">Sets the updated_at value for this SalesOrderInvoiceEntity.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="__equalsCalc"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        Object
+      </span>
+        __equalsCalc
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="__hashCodeCalc"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        boolean
+      </span>
+        __hashCodeCalc
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="base_currency_code"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        base_currency_code
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="base_discount_amount"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        base_discount_amount
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="base_grand_total"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        base_grand_total
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="base_shipping_amount"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        base_shipping_amount
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="base_subtotal"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        base_subtotal
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="base_tax_amount"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        base_tax_amount
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="base_to_global_rate"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        base_to_global_rate
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="base_to_order_rate"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        base_to_order_rate
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="billing_address_id"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        billing_address_id
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="billing_firstname"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        billing_firstname
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="billing_lastname"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        billing_lastname
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="comments"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity[]</a>
+      </span>
+        comments
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="created_at"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        created_at
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="discount_amount"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        discount_amount
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="global_currency_code"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        global_currency_code
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="grand_total"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        grand_total
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="increment_id"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        increment_id
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="invoice_id"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        invoice_id
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="is_active"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        is_active
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="items"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity[]</a>
+      </span>
+        items
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="order_created_at"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        order_created_at
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="order_currency_code"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        order_currency_code
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="order_id"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        order_id
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="order_increment_id"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        order_increment_id
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="parent_id"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        parent_id
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="shipping_amount"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        shipping_amount
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="state"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        state
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="store_currency_code"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        store_currency_code
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="store_id"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        store_id
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="store_to_base_rate"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        store_to_base_rate
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="store_to_order_rate"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        store_to_order_rate
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="subtotal"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        subtotal
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="tax_amount"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        tax_amount
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="typeDesc"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+        static 
+         
+        TypeDesc
+      </span>
+        typeDesc
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="updated_at"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        updated_at
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="SalesOrderInvoiceEntity()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">SalesOrderInvoiceEntity</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="SalesOrderInvoiceEntity(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.mule.module.magento.api.internal.SalesOrderInvoiceItemEntity[], org.mule.module.magento.api.internal.SalesOrderInvoiceCommentEntity[])"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">SalesOrderInvoiceEntity</span>
+      <span class="normal">(String increment_id, String parent_id, String store_id, String created_at, String updated_at, String is_active, String global_currency_code, String base_currency_code, String store_currency_code, String order_currency_code, String store_to_base_rate, String store_to_order_rate, String base_to_global_rate, String base_to_order_rate, String subtotal, String base_subtotal, String base_grand_total, String discount_amount, String base_discount_amount, String shipping_amount, String base_shipping_amount, String tax_amount, String base_tax_amount, String billing_address_id, String billing_firstname, String billing_lastname, String order_id, String order_increment_id, String order_created_at, String state, String grand_total, String invoice_id, <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity[]</a> items, <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity[]</a> comments)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>increment_id</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parent_id</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>store_id</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>created_at</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>updated_at</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>is_active</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>global_currency_code</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>base_currency_code</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>store_currency_code</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>order_currency_code</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>store_to_base_rate</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>store_to_order_rate</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>base_to_global_rate</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>base_to_order_rate</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>subtotal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>base_subtotal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>base_grand_total</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>discount_amount</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>base_discount_amount</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>shipping_amount</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>base_shipping_amount</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>tax_amount</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>base_tax_amount</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>billing_address_id</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>billing_firstname</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>billing_lastname</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>order_id</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>order_increment_id</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>order_created_at</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>state</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>grand_total</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>invoice_id</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>items</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>comments</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="equals(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+        synchronized 
+        boolean
+      </span>
+      <span class="sympad">equals</span>
+      <span class="normal">(Object obj)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>obj</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBase_currency_code()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBase_currency_code</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the base_currency_code value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>base_currency_code
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBase_discount_amount()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBase_discount_amount</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the base_discount_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>base_discount_amount
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBase_grand_total()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBase_grand_total</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the base_grand_total value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>base_grand_total
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBase_shipping_amount()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBase_shipping_amount</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the base_shipping_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>base_shipping_amount
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBase_subtotal()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBase_subtotal</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the base_subtotal value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>base_subtotal
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBase_tax_amount()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBase_tax_amount</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the base_tax_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>base_tax_amount
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBase_to_global_rate()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBase_to_global_rate</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the base_to_global_rate value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>base_to_global_rate
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBase_to_order_rate()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBase_to_order_rate</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the base_to_order_rate value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>base_to_order_rate
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBilling_address_id()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBilling_address_id</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the billing_address_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>billing_address_id
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBilling_firstname()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBilling_firstname</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the billing_firstname value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>billing_firstname
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBilling_lastname()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getBilling_lastname</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the billing_lastname value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>billing_lastname
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getComments()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity[]</a>
+      </span>
+      <span class="sympad">getComments</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the comments value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>comments
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCreated_at()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getCreated_at</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the created_at value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>created_at
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDeserializer(java.lang.String, java.lang.Class, javax.xml.namespace.QName)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        Deserializer
+      </span>
+      <span class="sympad">getDeserializer</span>
+      <span class="normal">(String mechType, Class _javaType, QName _xmlType)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get Custom Deserializer
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>mechType</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>_javaType</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>_xmlType</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDiscount_amount()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getDiscount_amount</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the discount_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>discount_amount
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getGlobal_currency_code()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getGlobal_currency_code</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the global_currency_code value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>global_currency_code
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getGrand_total()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getGrand_total</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the grand_total value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>grand_total
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getIncrement_id()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getIncrement_id</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the increment_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>increment_id
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getInvoice_id()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getInvoice_id</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the invoice_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>invoice_id
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getIs_active()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getIs_active</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the is_active value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>is_active
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getItems()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity[]</a>
+      </span>
+      <span class="sympad">getItems</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the items value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>items
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getOrder_created_at()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getOrder_created_at</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the order_created_at value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>order_created_at
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getOrder_currency_code()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getOrder_currency_code</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the order_currency_code value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>order_currency_code
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getOrder_id()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getOrder_id</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the order_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>order_id
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getOrder_increment_id()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getOrder_increment_id</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the order_increment_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>order_increment_id
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getParent_id()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getParent_id</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the parent_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>parent_id
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSerializer(java.lang.String, java.lang.Class, javax.xml.namespace.QName)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        Serializer
+      </span>
+      <span class="sympad">getSerializer</span>
+      <span class="normal">(String mechType, Class _javaType, QName _xmlType)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get Custom Serializer
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>mechType</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>_javaType</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>_xmlType</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getShipping_amount()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getShipping_amount</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the shipping_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>shipping_amount
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getState()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getState</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the state value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>state
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getStore_currency_code()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getStore_currency_code</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the store_currency_code value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>store_currency_code
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getStore_id()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getStore_id</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the store_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>store_id
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getStore_to_base_rate()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getStore_to_base_rate</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the store_to_base_rate value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>store_to_base_rate
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getStore_to_order_rate()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getStore_to_order_rate</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the store_to_order_rate value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>store_to_order_rate
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSubtotal()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getSubtotal</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the subtotal value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>subtotal
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getTax_amount()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getTax_amount</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the tax_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>tax_amount
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getTypeDesc()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        TypeDesc
+      </span>
+      <span class="sympad">getTypeDesc</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Return type metadata object
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getUpdated_at()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getUpdated_at</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the updated_at value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>updated_at
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="hashCode()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+        synchronized 
+        int
+      </span>
+      <span class="sympad">hashCode</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setBase_currency_code(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBase_currency_code</span>
+      <span class="normal">(String base_currency_code)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the base_currency_code value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>base_currency_code</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBase_discount_amount(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBase_discount_amount</span>
+      <span class="normal">(String base_discount_amount)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the base_discount_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>base_discount_amount</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBase_grand_total(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBase_grand_total</span>
+      <span class="normal">(String base_grand_total)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the base_grand_total value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>base_grand_total</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBase_shipping_amount(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBase_shipping_amount</span>
+      <span class="normal">(String base_shipping_amount)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the base_shipping_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>base_shipping_amount</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBase_subtotal(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBase_subtotal</span>
+      <span class="normal">(String base_subtotal)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the base_subtotal value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>base_subtotal</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBase_tax_amount(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBase_tax_amount</span>
+      <span class="normal">(String base_tax_amount)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the base_tax_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>base_tax_amount</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBase_to_global_rate(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBase_to_global_rate</span>
+      <span class="normal">(String base_to_global_rate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the base_to_global_rate value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>base_to_global_rate</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBase_to_order_rate(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBase_to_order_rate</span>
+      <span class="normal">(String base_to_order_rate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the base_to_order_rate value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>base_to_order_rate</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBilling_address_id(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBilling_address_id</span>
+      <span class="normal">(String billing_address_id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the billing_address_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>billing_address_id</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBilling_firstname(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBilling_firstname</span>
+      <span class="normal">(String billing_firstname)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the billing_firstname value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>billing_firstname</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBilling_lastname(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setBilling_lastname</span>
+      <span class="normal">(String billing_lastname)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the billing_lastname value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>billing_lastname</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setComments(org.mule.module.magento.api.internal.SalesOrderInvoiceCommentEntity[])"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setComments</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity[]</a> comments)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the comments value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>comments</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setCreated_at(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setCreated_at</span>
+      <span class="normal">(String created_at)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the created_at value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>created_at</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setDiscount_amount(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDiscount_amount</span>
+      <span class="normal">(String discount_amount)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the discount_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>discount_amount</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setGlobal_currency_code(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setGlobal_currency_code</span>
+      <span class="normal">(String global_currency_code)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the global_currency_code value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>global_currency_code</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setGrand_total(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setGrand_total</span>
+      <span class="normal">(String grand_total)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the grand_total value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>grand_total</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setIncrement_id(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setIncrement_id</span>
+      <span class="normal">(String increment_id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the increment_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>increment_id</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setInvoice_id(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setInvoice_id</span>
+      <span class="normal">(String invoice_id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the invoice_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>invoice_id</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setIs_active(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setIs_active</span>
+      <span class="normal">(String is_active)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the is_active value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>is_active</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setItems(org.mule.module.magento.api.internal.SalesOrderInvoiceItemEntity[])"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setItems</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/internal/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity[]</a> items)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the items value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>items</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOrder_created_at(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOrder_created_at</span>
+      <span class="normal">(String order_created_at)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the order_created_at value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>order_created_at</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOrder_currency_code(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOrder_currency_code</span>
+      <span class="normal">(String order_currency_code)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the order_currency_code value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>order_currency_code</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOrder_id(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOrder_id</span>
+      <span class="normal">(String order_id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the order_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>order_id</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setOrder_increment_id(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOrder_increment_id</span>
+      <span class="normal">(String order_increment_id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the order_increment_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>order_increment_id</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setParent_id(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setParent_id</span>
+      <span class="normal">(String parent_id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the parent_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parent_id</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setShipping_amount(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setShipping_amount</span>
+      <span class="normal">(String shipping_amount)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the shipping_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>shipping_amount</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setState(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setState</span>
+      <span class="normal">(String state)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the state value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>state</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setStore_currency_code(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setStore_currency_code</span>
+      <span class="normal">(String store_currency_code)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the store_currency_code value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>store_currency_code</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setStore_id(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setStore_id</span>
+      <span class="normal">(String store_id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the store_id value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>store_id</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setStore_to_base_rate(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setStore_to_base_rate</span>
+      <span class="normal">(String store_to_base_rate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the store_to_base_rate value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>store_to_base_rate</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setStore_to_order_rate(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setStore_to_order_rate</span>
+      <span class="normal">(String store_to_order_rate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the store_to_order_rate value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>store_to_order_rate</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSubtotal(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setSubtotal</span>
+      <span class="normal">(String subtotal)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the subtotal value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>subtotal</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setTax_amount(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setTax_amount</span>
+      <span class="normal">(String tax_amount)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the tax_amount value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>tax_amount</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setUpdated_at(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setUpdated_at</span>
+      <span class="normal">(String updated_at)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the updated_at value for this SalesOrderInvoiceEntity.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>updated_at</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>
