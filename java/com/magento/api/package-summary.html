@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Magento Cloud Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>
+
+  com.magento.api
+
+
+| Mule Magento Cloud Connector
+
+</title>
+<link href="../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../", "../../../../assets/");
+</script>
+<script src="../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Magento Cloud Connector</span>
+    
+    <ul id="header-tabs" class="java">
+    	<li id="guide"><a href="../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    	<li id="java"><a href="../../../../java/packages.html">
+	    	<span class="en">Java API</span>
+    	</a></li>
+    	<li id="mule"><a href="../../../../mule/modules.html">
+	    	<span class="en">Mule API</span>
+    	</a></li>
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../java/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="selected api apilevel-">
+  <a href="../../../../java/com/magento/api/package-summary.html">com.magento.api</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/api/package-summary.html">org.mule.module.magento.api</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/api/catalog/package-summary.html">org.mule.module.magento.api.catalog</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/api/catalog/model/package-summary.html">org.mule.module.magento.api.catalog.model</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/api/customer/package-summary.html">org.mule.module.magento.api.customer</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/api/directory/package-summary.html">org.mule.module.magento.api.directory</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/api/inventory/package-summary.html">org.mule.module.magento.api.inventory</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/api/order/package-summary.html">org.mule.module.magento.api.order</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/api/order/model/package-summary.html">org.mule.module.magento.api.order.model</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/config/spring/package-summary.html">org.mule.module.magento.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/Mage_Api_Model_Server_V2_HandlerPortType.html">Mage_Api_Model_Server_V2_HandlerPortType</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/MagentoService.html">MagentoService</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ApiEntity.html">ApiEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ApiMethodEntity.html">ApiMethodEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogAssignedProduct.html">CatalogAssignedProduct</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogCategoryEntity.html">CatalogCategoryEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogCategoryEntityNoChildren.html">CatalogCategoryEntityNoChildren</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogCategoryInfo.html">CatalogCategoryInfo</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogCategoryTree.html">CatalogCategoryTree</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductAttributeMediaTypeEntity.html">CatalogProductAttributeMediaTypeEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductAttributeSetEntity.html">CatalogProductAttributeSetEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductImageFileEntity.html">CatalogProductImageFileEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductLinkAttributeEntity.html">CatalogProductLinkAttributeEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductRequestAttributes.html">CatalogProductRequestAttributes</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CatalogProductTypeEntity.html">CatalogProductTypeEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ComplexFilter.html">ComplexFilter</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/CustomerGroupEntity.html">CustomerGroupEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/DirectoryCountryEntity.html">DirectoryCountryEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/DirectoryRegionEntity.html">DirectoryRegionEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ExistsFaltureEntity.html">ExistsFaltureEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/Filters.html">Filters</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/GiftMessageAssociativeProductsEntity.html">GiftMessageAssociativeProductsEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/GiftMessageEntity.html">GiftMessageEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/GiftMessageResponse.html">GiftMessageResponse</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/Mage_Api_Model_Server_V2_HandlerBindingStub.html">Mage_Api_Model_Server_V2_HandlerBindingStub</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/MagentoServiceLocator.html">MagentoServiceLocator</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/OrderItemIdQty.html">OrderItemIdQty</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderAddressEntity.html">SalesOrderAddressEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderEntity.html">SalesOrderEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderItemEntity.html">SalesOrderItemEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderListEntity.html">SalesOrderListEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderPaymentEntity.html">SalesOrderPaymentEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderShipmentCommentEntity.html">SalesOrderShipmentCommentEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderShipmentItemEntity.html">SalesOrderShipmentItemEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderShipmentTrackEntity.html">SalesOrderShipmentTrackEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/SalesOrderStatusHistoryEntity.html">SalesOrderStatusHistoryEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartAddressEntity.html">ShoppingCartAddressEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartCustomerAddressEntity.html">ShoppingCartCustomerAddressEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartCustomerEntity.html">ShoppingCartCustomerEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartInfoEntity.html">ShoppingCartInfoEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartItemEntity.html">ShoppingCartItemEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartLicenseEntity.html">ShoppingCartLicenseEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartPaymentEntity.html">ShoppingCartPaymentEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartPaymentMethodEntity.html">ShoppingCartPaymentMethodEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartPaymentMethodResponseEntityArray.html">ShoppingCartPaymentMethodResponseEntityArray</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartShippingMethodEntity.html">ShoppingCartShippingMethodEntity</a></li>
+        <li class="api apilevel-"><a href="../../../../java/com/magento/api/ShoppingCartTotalsEntity.html">ShoppingCartTotalsEntity</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div>
+
+<div id="jd-header">
+  package
+  <h1>com.magento.api</h1>
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+
+
+
+
+
+
+  
+    <h2>Interfaces</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/Mage_Api_Model_Server_V2_HandlerPortType.html">Mage_Api_Model_Server_V2_HandlerPortType</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/MagentoService.html">MagentoService</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+    <h2>Classes</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ApiEntity.html">ApiEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ApiMethodEntity.html">ApiMethodEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogAssignedProduct.html">CatalogAssignedProduct</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogCategoryEntity.html">CatalogCategoryEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogCategoryEntityNoChildren.html">CatalogCategoryEntityNoChildren</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogCategoryInfo.html">CatalogCategoryInfo</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogCategoryTree.html">CatalogCategoryTree</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductAttributeMediaTypeEntity.html">CatalogProductAttributeMediaTypeEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductAttributeSetEntity.html">CatalogProductAttributeSetEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductImageFileEntity.html">CatalogProductImageFileEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductLinkAttributeEntity.html">CatalogProductLinkAttributeEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductRequestAttributes.html">CatalogProductRequestAttributes</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CatalogProductTypeEntity.html">CatalogProductTypeEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ComplexFilter.html">ComplexFilter</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/CustomerGroupEntity.html">CustomerGroupEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/DirectoryCountryEntity.html">DirectoryCountryEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/DirectoryRegionEntity.html">DirectoryRegionEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ExistsFaltureEntity.html">ExistsFaltureEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/Filters.html">Filters</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/GiftMessageAssociativeProductsEntity.html">GiftMessageAssociativeProductsEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/GiftMessageEntity.html">GiftMessageEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/GiftMessageResponse.html">GiftMessageResponse</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/Mage_Api_Model_Server_V2_HandlerBindingStub.html">Mage_Api_Model_Server_V2_HandlerBindingStub</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/MagentoServiceLocator.html">MagentoServiceLocator</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/OrderItemIdQty.html">OrderItemIdQty</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderAddressEntity.html">SalesOrderAddressEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderEntity.html">SalesOrderEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderInvoiceCommentEntity.html">SalesOrderInvoiceCommentEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderInvoiceItemEntity.html">SalesOrderInvoiceItemEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderItemEntity.html">SalesOrderItemEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderListEntity.html">SalesOrderListEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderPaymentEntity.html">SalesOrderPaymentEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderShipmentCommentEntity.html">SalesOrderShipmentCommentEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderShipmentItemEntity.html">SalesOrderShipmentItemEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderShipmentTrackEntity.html">SalesOrderShipmentTrackEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/SalesOrderStatusHistoryEntity.html">SalesOrderStatusHistoryEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartAddressEntity.html">ShoppingCartAddressEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartCustomerAddressEntity.html">ShoppingCartCustomerAddressEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartCustomerEntity.html">ShoppingCartCustomerEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartInfoEntity.html">ShoppingCartInfoEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartItemEntity.html">ShoppingCartItemEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartLicenseEntity.html">ShoppingCartLicenseEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartPaymentEntity.html">ShoppingCartPaymentEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartPaymentMethodEntity.html">ShoppingCartPaymentMethodEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartPaymentMethodResponseEntityArray.html">ShoppingCartPaymentMethodResponseEntityArray</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartShippingMethodEntity.html">ShoppingCartShippingMethodEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../java/com/magento/api/ShoppingCartTotalsEntity.html">ShoppingCartTotalsEntity</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div><!-- doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

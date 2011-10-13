@@ -1,10 +1,10 @@
+com.magento.api
 org.mule.module.magento
 org.mule.module.magento.api
 org.mule.module.magento.api.catalog
 org.mule.module.magento.api.catalog.model
 org.mule.module.magento.api.customer
 org.mule.module.magento.api.directory
-org.mule.module.magento.api.internal
 org.mule.module.magento.api.inventory
 org.mule.module.magento.api.order
 org.mule.module.magento.api.order.model
