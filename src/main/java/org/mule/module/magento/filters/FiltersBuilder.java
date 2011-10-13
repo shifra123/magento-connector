@@ -10,9 +10,9 @@
 
 package org.mule.module.magento.filters;
 
-import org.mule.module.magento.api.internal.AssociativeEntity;
-import org.mule.module.magento.api.internal.ComplexFilter;
-import org.mule.module.magento.api.internal.Filters;
+import com.magento.api.AssociativeEntity;
+import com.magento.api.ComplexFilter;
+import com.magento.api.Filters;
 
 import java.util.LinkedList;
 import java.util.List;

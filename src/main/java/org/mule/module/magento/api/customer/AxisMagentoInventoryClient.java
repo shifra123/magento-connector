@@ -10,18 +10,17 @@
 
 package org.mule.module.magento.api.customer;
 
-import static org.mule.module.magento.api.util.MagentoObject.fromMap;
+import com.magento.api.CatalogInventoryStockItemUpdateEntity;
+import org.apache.commons.lang.Validate;
+import org.mule.module.magento.api.AbstractMagentoClient;
+import org.mule.module.magento.api.AxisPortProvider;
 
+import javax.validation.constraints.NotNull;
 import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.constraints.NotNull;
-
-import org.apache.commons.lang.Validate;
-import org.mule.module.magento.api.AbstractMagentoClient;
-import org.mule.module.magento.api.AxisPortProvider;
-import org.mule.module.magento.api.internal.CatalogInventoryStockItemUpdateEntity;
+import static org.mule.module.magento.api.util.MagentoObject.fromMap;
 
 public class AxisMagentoInventoryClient extends AbstractMagentoClient
     implements MagentoInventoryClient<Object[], RemoteException>

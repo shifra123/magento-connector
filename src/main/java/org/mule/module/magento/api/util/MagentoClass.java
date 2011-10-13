@@ -16,7 +16,7 @@ package org.mule.module.magento.api.util;
  */
 public final class MagentoClass
 {
-    private static final String MAGENTO_PACKAGE_NAME = "org.mule.module.magento.api.internal";
+    private static final String MAGENTO_PACKAGE_NAME = "com.magento.api";
     
     private MagentoClass()
     {

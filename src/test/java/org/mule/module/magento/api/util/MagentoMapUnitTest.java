@@ -10,19 +10,17 @@
 
 package org.mule.module.magento.api.util;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-
-import org.mule.module.magento.api.internal.SalesOrderEntity;
-import org.mule.module.magento.api.internal.SalesOrderStatusHistoryEntity;
-import org.mule.module.magento.api.util.MagentoMap;
+import com.magento.api.SalesOrderEntity;
+import com.magento.api.SalesOrderStatusHistoryEntity;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Test;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 
 public class MagentoMapUnitTest
 {

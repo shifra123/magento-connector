@@ -10,21 +10,19 @@
 
 package org.mule.module.magento.api.inventory;
 
-import static org.mule.module.magento.api.util.MagentoObject.fromMap;
-import static org.mule.module.magento.filters.FiltersParser.parse;
-
+import com.magento.api.CustomerAddressEntityCreate;
+import com.magento.api.CustomerCustomerEntityToCreate;
+import org.apache.commons.lang.Validate;
 import org.mule.module.magento.api.AbstractMagentoClient;
 import org.mule.module.magento.api.AxisPortProvider;
-import org.mule.module.magento.api.internal.CustomerAddressEntityCreate;
-import org.mule.module.magento.api.internal.CustomerCustomerEntityToCreate;
 
+import javax.validation.constraints.NotNull;
 import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.constraints.NotNull;
-
-import org.apache.commons.lang.Validate;
+import static org.mule.module.magento.api.util.MagentoObject.fromMap;
+import static org.mule.module.magento.filters.FiltersParser.parse;
 
 public class AxisMagentoCustomerClient extends AbstractMagentoClient
     implements MagentoCustomerClient<Object, Object[], RemoteException>

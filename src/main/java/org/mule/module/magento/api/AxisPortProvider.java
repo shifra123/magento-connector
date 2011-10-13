@@ -10,7 +10,7 @@
 
 package org.mule.module.magento.api;
 
-import org.mule.module.magento.api.internal.Mage_Api_Model_Server_V2_HandlerPortType;
+import com.magento.api.Mage_Api_Model_Server_V2_HandlerPortType;
 
 import java.rmi.RemoteException;
 

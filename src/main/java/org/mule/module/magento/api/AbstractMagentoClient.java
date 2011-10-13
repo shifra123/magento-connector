@@ -10,9 +10,8 @@
 
 package org.mule.module.magento.api;
 
-import static org.apache.commons.lang.BooleanUtils.toIntegerObject;
-
-import org.mule.module.magento.api.internal.Mage_Api_Model_Server_V2_HandlerPortType;
+import com.magento.api.Mage_Api_Model_Server_V2_HandlerPortType;
+import org.apache.commons.lang.BooleanUtils;
 
 import java.lang.reflect.Array;
 import java.rmi.RemoteException;
@@ -20,7 +19,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
-import org.apache.commons.lang.BooleanUtils;
+import static org.apache.commons.lang.BooleanUtils.toIntegerObject;
 
 /**
  * Base class for all Magento clients. Magento clients follow the following
