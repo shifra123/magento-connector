@@ -10,38 +10,35 @@
 
 package org.mule.module.magento.api.catalog;
 
-import static org.mule.module.magento.api.util.MagentoObject.fromMap;
-
-import org.mule.module.magento.api.AbstractMagentoClient;
-import org.mule.module.magento.api.AxisPortProvider;
-import org.mule.module.magento.api.catalog.model.MediaMimeType;
-import org.mule.module.magento.api.catalog.model.ProductIdentifier;
-import org.mule.module.magento.api.internal.CatalogCategoryEntityCreate;
-import org.mule.module.magento.api.internal.CatalogInventoryStockItemUpdateEntity;
-import org.mule.module.magento.api.internal.CatalogProductAttributeMediaCreateEntity;
-import org.mule.module.magento.api.internal.CatalogProductCreateEntity;
-import org.mule.module.magento.api.internal.CatalogProductImageFileEntity;
-import org.mule.module.magento.api.internal.CatalogProductLinkEntity;
-import org.mule.module.magento.api.internal.CatalogProductRequestAttributes;
-import org.mule.module.magento.api.internal.CatalogProductTierPriceEntity;
-import org.mule.module.magento.api.util.MagentoObject;
-import org.mule.module.magento.filters.FiltersParser;
-import org.mule.util.Base64;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.rmi.RemoteException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
-
+import com.magento.api.CatalogCategoryEntityCreate;
+import com.magento.api.CatalogInventoryStockItemUpdateEntity;
+import com.magento.api.CatalogProductAttributeMediaCreateEntity;
+import com.magento.api.CatalogProductCreateEntity;
+import com.magento.api.CatalogProductImageFileEntity;
+import com.magento.api.CatalogProductLinkEntity;
+import com.magento.api.CatalogProductRequestAttributes;
+import com.magento.api.CatalogProductTierPriceEntity;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.lang.Validate;
+import org.mule.module.magento.api.AbstractMagentoClient;
+import org.mule.module.magento.api.AxisPortProvider;
+import org.mule.module.magento.api.catalog.model.MediaMimeType;
+import org.mule.module.magento.api.catalog.model.ProductIdentifier;
+import org.mule.module.magento.api.util.MagentoObject;
+import org.mule.module.magento.filters.FiltersParser;
+import org.mule.util.Base64;
+
+import javax.validation.constraints.NotNull;
+import java.io.IOException;
+import java.io.InputStream;
+import java.rmi.RemoteException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import static org.mule.module.magento.api.util.MagentoObject.fromMap;
 
 
 public class AxisMagentoCatalogClient extends AbstractMagentoClient

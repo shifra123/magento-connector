@@ -10,26 +10,22 @@
 
 package org.mule.module.magento;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
+import com.magento.api.AssociativeEntity;
+import com.magento.api.ComplexFilter;
+import com.magento.api.Filters;
+import com.magento.api.Mage_Api_Model_Server_V2_HandlerPortType;
+import com.magento.api.OrderItemIdQty;
+import com.magento.api.SalesOrderEntity;
+import com.magento.api.SalesOrderListEntity;
+import com.magento.api.SalesOrderShipmentEntity;
+import edu.emory.mathcs.backport.java.util.Collections;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.mule.module.magento.api.AxisPortProvider;
 import org.mule.module.magento.api.catalog.AxisMagentoCatalogClient;
 import org.mule.module.magento.api.customer.AxisMagentoInventoryClient;
 import org.mule.module.magento.api.directory.AxisMagentoDirectoryClient;
-import org.mule.module.magento.api.internal.AssociativeEntity;
-import org.mule.module.magento.api.internal.ComplexFilter;
-import org.mule.module.magento.api.internal.Filters;
-import org.mule.module.magento.api.internal.Mage_Api_Model_Server_V2_HandlerPortType;
-import org.mule.module.magento.api.internal.OrderItemIdQty;
-import org.mule.module.magento.api.internal.SalesOrderEntity;
-import org.mule.module.magento.api.internal.SalesOrderListEntity;
-import org.mule.module.magento.api.internal.SalesOrderShipmentEntity;
 import org.mule.module.magento.api.inventory.AxisMagentoCustomerClient;
 import org.mule.module.magento.api.order.AxisMagentoOrderClient;
 import org.mule.module.magento.api.order.model.Carrier;
@@ -38,11 +34,13 @@ import java.rmi.RemoteException;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import edu.emory.mathcs.backport.java.util.Collections;
-
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 @SuppressWarnings("serial")
 public class MagentoCloudConnectorUnitTest
 {

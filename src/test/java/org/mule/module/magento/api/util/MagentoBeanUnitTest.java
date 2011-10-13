@@ -10,17 +10,16 @@
 
 package org.mule.module.magento.api.util;
 
-import static org.junit.Assert.assertEquals;
-
-import org.mule.module.magento.api.internal.AssociativeEntity;
-import org.mule.module.magento.api.internal.CatalogCategoryEntity;
-import org.mule.module.magento.api.internal.CatalogProductCreateEntity;
-import org.mule.module.magento.api.internal.SalesOrderEntity;
-
+import com.magento.api.AssociativeEntity;
+import com.magento.api.CatalogCategoryEntity;
+import com.magento.api.CatalogProductCreateEntity;
+import com.magento.api.SalesOrderEntity;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Theories.class)
 public class MagentoBeanUnitTest

@@ -10,15 +10,13 @@
 
 package org.mule.module.magento.api;
 
-import org.mule.module.magento.api.internal.Mage_Api_Model_Server_V2_HandlerPortType;
-import org.mule.module.magento.api.internal.MagentoServiceLocator;
-
-import java.rmi.RemoteException;
+import com.magento.api.Mage_Api_Model_Server_V2_HandlerPortType;
+import com.magento.api.MagentoServiceLocator;
+import org.apache.commons.lang.Validate;
 
 import javax.validation.constraints.NotNull;
 import javax.xml.rpc.ServiceException;
-
-import org.apache.commons.lang.Validate;
+import java.rmi.RemoteException;
 
 public class DefaultAxisPortProvider implements AxisPortProvider
 {

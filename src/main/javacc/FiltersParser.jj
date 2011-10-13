@@ -4,7 +4,7 @@ options {
 PARSER_BEGIN(FiltersParser)
     package org.mule.module.magento.filters;
     import  java.io.ByteArrayInputStream;
-    import  org.mule.module.magento.api.internal.Filters;
+    import  com.magento.api.Filters;
 
 	/**
 	 * A Magento's filter expression parser.

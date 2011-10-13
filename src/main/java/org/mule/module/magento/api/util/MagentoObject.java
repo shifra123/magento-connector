@@ -10,14 +10,7 @@
 
 package org.mule.module.magento.api.util;
 
-import org.mule.module.magento.api.internal.AssociativeEntity;
-
-import java.lang.reflect.Array;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
+import com.magento.api.AssociativeEntity;
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.ConvertUtilsBean;
 import org.apache.commons.beanutils.Converter;
@@ -25,6 +18,12 @@ import org.apache.commons.beanutils.LazyDynaMap;
 import org.apache.commons.beanutils.WrapDynaBean;
 import org.apache.commons.beanutils.WrapDynaClass;
 import org.apache.commons.lang.UnhandledException;
+
+import java.lang.reflect.Array;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * An utility class for converting a map of string and objects into a magento object,

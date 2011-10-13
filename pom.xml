@@ -123,26 +123,6 @@
                 <version>2.1</version>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>axistools-maven-plugin</artifactId>
-                <version>1.4</version>
-                <configuration>
-                    <sourceDirectory>src/main/resources</sourceDirectory>
-                    <wsdlFiles>
-                        <wsdlFile>magento_v2_soap.wsdl</wsdlFile>
-                    </wsdlFiles>
-                    <packageToNamespace>Magento=org.mule.module.magento.api.internal</packageToNamespace>
-                    <packageSpace>org.mule.module.magento.api.internal</packageSpace>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>wsdl2java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.6</version>
@@ -300,18 +280,46 @@
             <url>http://repository.mulesoft.org/snapshots/</url>
             <layout>default</layout>
         </repository>
+        <repository>
+            <id>codehaus-mule-repo</id>
+            <name>Codehaus Repository</name>
+            <url>http://dist.codehaus.org/mule/dependencies/maven2</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>ibiblio</id>
+            <name>ibiblio</name>
+            <url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+        </repository>
+        <repository>
+            <id>codehaus-repo</id>
+            <name>MuleForge Release Repository</name>
+            <url>http://repository.codehaus.org/</url>
+            <layout>default</layout>
+        </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <id>mulesoft-plugin-release</id>
+            <id>muleforge-plugin-releases</id>
             <name>Muleforge Release Repository</name>
-            <url>http://repository.mulesoft.org/release/</url>
+            <url>http://repository.mulesoft.org/releases/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
             <snapshots>
                 <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>muleforge-plugin-snapshots</id>
+            <name>Muleforge Snapshot Repository</name>
+            <url>http://repository.mulesoft.org/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
             </snapshots>
         </pluginRepository>
     </pluginRepositories>

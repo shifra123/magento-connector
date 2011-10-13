@@ -10,27 +10,25 @@
 
 package org.mule.module.magento.api.order;
 
-import static org.apache.commons.lang.BooleanUtils.toInteger;
-
+import com.magento.api.AssociativeEntity;
+import com.magento.api.OrderItemIdQty;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Transformer;
+import org.apache.commons.lang.BooleanUtils;
+import org.apache.commons.lang.Validate;
 import org.mule.module.magento.api.AbstractMagentoClient;
 import org.mule.module.magento.api.AxisPortProvider;
-import org.mule.module.magento.api.internal.AssociativeEntity;
-import org.mule.module.magento.api.internal.OrderItemIdQty;
 import org.mule.module.magento.api.order.model.Carrier;
 import org.mule.module.magento.filters.FiltersParser;
 
+import javax.validation.constraints.NotNull;
 import java.rmi.RemoteException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.validation.constraints.NotNull;
-
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Transformer;
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.Validate;
+import static org.apache.commons.lang.BooleanUtils.toInteger;
 
 public class AxisMagentoOrderClient extends AbstractMagentoClient
     implements MagentoOrderClient<Object, Object[], RemoteException>

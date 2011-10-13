@@ -10,10 +10,11 @@
 
 package org.mule.module.magento.api.util;
 
-import static org.mule.module.magento.api.util.MagentoClass.isMagentoArrayClass;
-import static org.mule.module.magento.api.util.MagentoClass.isMagentoClass;
-
-import org.mule.module.magento.api.internal.AssociativeEntity;
+import com.magento.api.AssociativeEntity;
+import org.apache.commons.beanutils.BeanMap;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Transformer;
+import org.apache.commons.lang.Validate;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -21,10 +22,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.beanutils.BeanMap;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Transformer;
-import org.apache.commons.lang.Validate;
+import static org.mule.module.magento.api.util.MagentoClass.isMagentoArrayClass;
+import static org.mule.module.magento.api.util.MagentoClass.isMagentoClass;
 
 /**
  * A delayed map that converts a magento object into a map. The logic is the
