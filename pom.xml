@@ -16,6 +16,10 @@
     <description>Mule Cloud connector to Magento</description>
     <url>http://www.mulesoft.org/documentation/display/MAGENTO/Home</url>
 
+    <properties>
+        <sonar.exclusions>com/magento/api/**</sonar.exclusions>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
