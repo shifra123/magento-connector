@@ -291,7 +291,7 @@ public class MagentoCloudConnectorTestDriver
                 put("description", description2);
                 put("short_description", shortDescription2);
             }
-        }, null);
+        }, null, null);
     }
 
     private Map<String, Object> getExistentProductWithDescriptions()
@@ -311,8 +311,8 @@ public class MagentoCloudConnectorTestDriver
         Integer productId2 = null;
         try
         {
-            productId = connector.createProduct("simple", 4, "FOOO457", null, null);
-            productId2 = connector.createProduct("simple", 4, "AOOO986", null, null);
+            productId = connector.createProduct("simple", 4, "FOOO457", null, null, null);
+            productId2 = connector.createProduct("simple", 4, "AOOO986", null, null, null);
             connector.addProductLink("related", productId, null, null, productId2.toString(), null);
         }
         finally
@@ -343,7 +343,7 @@ public class MagentoCloudConnectorTestDriver
                     put("qty", "10");
                     put("is_in_stock", true);
                 }
-            }), null);
+            }), null, null);
         try
         {
             List<Map<String, Object>> stockItems = connector.listStockItems(Arrays.asList("X8960"));
@@ -371,7 +371,7 @@ public class MagentoCloudConnectorTestDriver
         try
         {
             int originalProductsCount = connector.listProducts(null, null).size();
-            productId = connector.createProduct("simple", 4, "AK4596", null, null);
+            productId = connector.createProduct("simple", 4, "AK4596", null, null, null);
             assertEquals(originalProductsCount + 1, connector.listProducts(null, null).size());
             connector.updateProductSpecialPrice(null, null, productId.toString(), "6953.6", "2011-30-01", null, null);
             Map<String, Object> productSpecialPrice = connector.getProductSpecialPrice(productId, null, null,
@@ -396,7 +396,7 @@ public class MagentoCloudConnectorTestDriver
         String fileName = null;
         try
         {
-            productId = connector.createProduct("simple", 4, "W875651", null, null);
+            productId = connector.createProduct("simple", 4, "W875651", null, null, null);
             int originalMediaCount = connector.listProductAttributeMedia(productId, null, null, null).size();
 
             fileName = connector.createProductAttributeMedia(productId, null, null, null, null,
