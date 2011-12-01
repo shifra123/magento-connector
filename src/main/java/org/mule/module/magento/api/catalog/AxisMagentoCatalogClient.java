@@ -10,6 +10,7 @@
 
 package org.mule.module.magento.api.catalog;
 
+import com.magento.api.AssociativeEntity;
 import com.magento.api.CatalogCategoryEntityCreate;
 import com.magento.api.CatalogInventoryStockItemUpdateEntity;
 import com.magento.api.CatalogProductAttributeMediaCreateEntity;
@@ -230,19 +231,21 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
     
     /*Product*/
     
-   /**
+    /**
     * Creates a new product
     * 
     * @param type the new product's type
     * @param set the new product's set
     * @param sku the new product's sku
-    * @param attributes the attributes of the new product
+    * @param attributes the standard attributes of the new product
+    * @param additionalAttributes the non standard attributes of the new product
     * @return the new product's id
     */
     public int createProduct(@NotNull String type,
                              @NotNull int set,
                              @NotNull String sku,
-                             Map<String, Object> attributes
+                             Map<String, Object> attributes,
+                             Map<String, Object> additionalAttributes
                              , String storeView)
         throws RemoteException
     {
@@ -250,8 +253,16 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         Validate.notNull(set);
         Validate.notNull(sku);
         
+        AssociativeEntity[] additional_attributes;
+        CatalogProductCreateEntity productData = fromMap(CatalogProductCreateEntity.class, attributes);
+        
+        if(additionalAttributes!=null){
+            additional_attributes= fromMap(additionalAttributes);
+            productData.setAdditional_attributes(additional_attributes);
+        }
+
         return getPort().catalogProductCreate(getSessionId(), type, String.valueOf(set), sku,
-            fromMap(CatalogProductCreateEntity.class, attributes), storeView);
+            productData, storeView);
     }
 
 
@@ -349,19 +360,32 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
     }
     
     /**
-     * Updates a product. See catalog-category-updateProduct SOAP method 
+     * Updates a product. At least one of attributes or additionalAttributes 
+     * must be non null and non empty. See catalog-category-updateProduct SOAP method
      * 
-     * @param attributes
+     * @param attributes the map of standard product attributes to update
+     * @param additionalAttributes the map of non standard product attributes to update
      * @param storeViewIdOrCode optional store view
      */
     public void updateProduct(@NotNull ProductIdentifier productId,
-                              @NotNull Map<String, Object> attributes,
+                              Map<String, Object> attributes,
+                              Map<String, Object> additionalAttributes,
                               String storeView) throws RemoteException
     {
         Validate.notNull(productId);
-        Validate.notEmpty(attributes);
+        Validate.isTrue( (attributes != null && !attributes.isEmpty() ) || 
+                        (additionalAttributes!=null && !additionalAttributes.isEmpty()) );
+
+        AssociativeEntity[] additional_attributes;
+        CatalogProductCreateEntity productData = fromMap(CatalogProductCreateEntity.class, attributes);
+
+        if(additionalAttributes!=null){
+          additional_attributes= fromMap(additionalAttributes);
+          productData.setAdditional_attributes(additional_attributes);
+        }
+        
         getPort().catalogProductUpdate(getSessionId(), productId.getIdentifierAsString(),
-            fromMap(CatalogProductCreateEntity.class, attributes), storeView, productId.getIdentifierType());
+            productData, storeView, productId.getIdentifierType());
     }
     
     
