@@ -2546,13 +2546,22 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>attributes</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The attributes of the new product<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The standard attributes of the new product<br/></td>
                 </tr>
                 
                 
           
                 
                 <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>additionalAttributes</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The non standard attributes of the new product<br/></td>
+                </tr>
+                
+                
+          
+                
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>storeViewIdOrCode</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The id or code of the target store. Left unspecified for using current store<br/></td>
@@ -2561,7 +2570,7 @@ specify which configuration to use.</p>
                 
           
           
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
@@ -2576,6 +2585,8 @@ specify which configuration to use.</p>
 
       <table class="jd-tagtable">
           
+          
+            
           
             
           
@@ -6931,7 +6942,8 @@ specify which configuration to use.</p>
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Updates a product. See catalog-category-updateProduct SOAP method
+  <div class="jd-tagdata jd-tagdescr"><p>Updates a product. At least one of attributes or additionalAttributes 
+ must be non null and non empty. See catalog-category-updateProduct SOAP method
  <p/>
  <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:update-product productIdOrSku="#[map-payload:productIdOrSku]"&gt;
     &lt;magento:attributes&gt;
@@ -6952,7 +6964,7 @@ specify which configuration to use.</p>
                     <td class="jd-linkcol"><nobr>productId</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The id of the product. Use it instead of productIdOrSku in
-                          case you are sure the product identifier is a product id<br/></td>
+                             case you are sure the product identifier is a product id<br/></td>
                 </tr>
                 
                 
@@ -6962,7 +6974,7 @@ specify which configuration to use.</p>
                     <td class="jd-linkcol"><nobr>productSku</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The sku of the product. Use it instead of productIdOrSku in
-                          case you are sure the product identifier is a product sku<br/></td>
+                             case you are sure the product identifier is a product sku<br/></td>
                 </tr>
                 
                 
@@ -6980,13 +6992,22 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>attributes</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The not empty map of product attributes to update<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The map of standard product attributes to update<br/></td>
                 </tr>
                 
                 
           
                 
                 <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>additionalAttributes</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The map of non standard product attributes to update<br/></td>
+                </tr>
+                
+                
+          
+                
+                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>storeViewIdOrCode</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The id or code of the target store. Left unspecified for using current store
@@ -6996,7 +7017,7 @@ specify which configuration to use.</p>
                 
           
           
-            <tr class="alt-color api apilevel-" >
+            <tr class=" api apilevel-" >
                 <td class="jd-linkcol"><nobr>retryMax</nobr></td>
                 <td class="jd-descrcol">1</td>
                 <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
@@ -7011,6 +7032,8 @@ specify which configuration to use.</p>
 
       <table class="jd-tagtable">
           
+          
+            
           
             
           

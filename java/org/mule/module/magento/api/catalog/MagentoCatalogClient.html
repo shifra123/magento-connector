@@ -490,7 +490,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createProduct(java.lang.String, int, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">createProduct</a></span>(String type, int set, String sku, Map&lt;String,&nbsp;Object&gt; attributes, String storeView)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createProduct(java.lang.String, int, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">createProduct</a></span>(String type, int set, String sku, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeView)</nobr>
         
         <div class="jd-descrdiv">Creates a new product</div>
   
@@ -1098,7 +1098,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes, String storeView)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeView)</nobr>
         
         <div class="jd-descrdiv">Updates a product.</div>
   
@@ -1406,7 +1406,7 @@ Summary:
 </div>
 
 
-<A NAME="createProduct(java.lang.String, int, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="createProduct(java.lang.String, int, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1419,7 +1419,7 @@ Summary:
         int
       </span>
       <span class="sympad">createProduct</span>
-      <span class="normal">(String type, int set, String sku, Map&lt;String,&nbsp;Object&gt; attributes, String storeView)</span>
+      <span class="normal">(String type, int set, String sku, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeView)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1449,7 +1449,11 @@ Summary:
         </tr>
         <tr>
           <th>attributes</td>
-          <td>The attributes of the new product</td>
+          <td>The standard attributes of the new product</td>
+        </tr>
+        <tr>
+          <th>additionalAttributes</td>
+          <td>The non standard attributes of the new product</td>
         </tr>
         <tr>
           <th>storeView</td>
@@ -3289,7 +3293,7 @@ Summary:
 </div>
 
 
-<A NAME="updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3302,7 +3306,7 @@ Summary:
         void
       </span>
       <span class="sympad">updateProduct</span>
-      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes, String storeView)</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeView)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3314,7 +3318,8 @@ Summary:
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Updates a product. See catalog-category-updateProduct SOAP method</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Updates a product. At least one of attributes or additionalAttributes 
+ must be non null and non empty See catalog-category-updateProduct SOAP method</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -3324,7 +3329,11 @@ Summary:
         </tr>
         <tr>
           <th>attributes</td>
-          <td>Not empty</td>
+          <td>The map of standard product attributes to update</td>
+        </tr>
+        <tr>
+          <th>additionalAttributes</td>
+          <td>The map of non standard product attributes to update</td>
         </tr>
         <tr>
           <th>storeView</td>
