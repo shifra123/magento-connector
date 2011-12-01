@@ -1279,11 +1279,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createProduct}
      *
-     * @param type              the new product's type
-     * @param set               the new product's set
-     * @param sku               the new product's sku
-     * @param attributes        the attributes of the new product
-     * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
+     * @param type                 the new product's type
+     * @param set                  the new product's set
+     * @param sku                  the new product's sku
+     * @param attributes           the standard attributes of the new product
+     * @param additionalAttributes the non standard attributes of the new product
+     * @param storeViewIdOrCode    the id or code of the target store. Left unspecified for using current store
      * @return the new product's id
      */
     @Processor
@@ -1291,8 +1292,9 @@ public class MagentoCloudConnector {
                              int set,
                              String sku,
                              @Optional Map<String, Object> attributes,
+                             @Optional Map<String, Object> additionalAttributes,
                              @Optional String storeViewIdOrCode) {
-        return catalogClient.createProduct(type, set, sku, attributes, storeViewIdOrCode);
+        return catalogClient.createProduct(type, set, sku, attributes, additionalAttributes, storeViewIdOrCode);
     }
 
 
@@ -1413,25 +1415,28 @@ public class MagentoCloudConnector {
     }
 
     /**
-     * Updates a product. See catalog-category-updateProduct SOAP method
+     * Updates a product. At least one of attributes or additionalAttributes 
+     * must be non null and non empty. See catalog-category-updateProduct SOAP method
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:updateProduct}
      *
-     * @param productId         the id of the product. Use it instead of productIdOrSku in
-     *                          case you are sure the product identifier is a product id
-     * @param productSku        the sku of the product. Use it instead of productIdOrSku in
-     *                          case you are sure the product identifier is a product sku
-     * @param productIdOrSku    the id or sku of the product.
-     * @param attributes        the not empty map of product attributes to update
-     * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
+     * @param productId            the id of the product. Use it instead of productIdOrSku in
+     *                             case you are sure the product identifier is a product id
+     * @param productSku           the sku of the product. Use it instead of productIdOrSku in
+     *                             case you are sure the product identifier is a product sku
+     * @param productIdOrSku       the id or sku of the product.
+     * @param attributes           the map of standard product attributes to update
+     * @param additionalAttributes the map of non standard product attributes to update
+     * @param storeViewIdOrCode    the id or code of the target store. Left unspecified for using current store
      */
     @Processor
     public void updateProduct(@Optional Integer productId,
                               @Optional String productSku,
                               @Optional String productIdOrSku,
-                              Map<String, Object> attributes,
+                              @Optional Map<String, Object> attributes,
+                              @Optional Map<String, Object> additionalAttributes,
                               @Optional String storeViewIdOrCode) {
-        catalogClient.updateProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), attributes, storeViewIdOrCode);
+        catalogClient.updateProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), attributes, additionalAttributes, storeViewIdOrCode);
     }
 
     @SuppressWarnings("unchecked")

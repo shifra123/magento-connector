@@ -165,13 +165,15 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * @param type the new product's type
      * @param set the new product's set
      * @param sku the new product's sku
-     * @param attributes the attributes of the new product
+     * @param attributes the standard attributes of the new product
+     * @param additionalAttributes the non standard attributes of the new product
      * @return the new product's id
      */
     int createProduct(@NotNull String type,
                       @NotNull int set,
                       @NotNull String sku,
-                      Map<String, Object> attributes, 
+                      Map<String, Object> attributes,
+                      Map<String, Object> additionalAttributes,
                       String storeView) throws ExceptionType;
 
     /**
@@ -238,13 +240,16 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
                                    String storeView) throws ExceptionType;
 
     /**
-     * Updates a product. See catalog-category-updateProduct SOAP method
+     * Updates a product. At least one of attributes or additionalAttributes 
+     * must be non null and non empty See catalog-category-updateProduct SOAP method
      * 
-     * @param attributes not empty
+     * @param attributes the map of standard product attributes to update
+     * @param additionalAttributes the map of non standard product attributes to update
      * @param storeViewIdOrCode optional store view
      */
     void updateProduct(@NotNull ProductIdentifier productId,
-                       @NotNull Map<String, Object> attributes,
+                       Map<String, Object> attributes,
+                       Map<String, Object> additionalAttributes,
                        String storeView) throws ExceptionType;
 
     /**
