@@ -44,7 +44,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * A Cloud Connector for the Magento Order Sales API.
+ * Magento is a feature-rich eCommerce platform built on open-source technology that provides online merchants with
+ * unprecedented flexibility and control over the look, content and functionality of their eCommerce store.
  *
  * @author MuleSoft, Inc.
  */
