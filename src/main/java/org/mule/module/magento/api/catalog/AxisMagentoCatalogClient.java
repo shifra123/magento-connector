@@ -40,6 +40,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.mule.module.magento.api.util.MagentoObject.fromMap;
+import static org.mule.module.magento.api.util.MagentoObject.removeNullValues;
 
 
 public class AxisMagentoCatalogClient extends AbstractMagentoClient
@@ -255,8 +256,9 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         
         AssociativeEntity[] additional_attributes;
         CatalogProductCreateEntity productData = fromMap(CatalogProductCreateEntity.class, attributes);
-        
-        if(additionalAttributes!=null){
+
+        removeNullValues(additionalAttributes);
+        if(additionalAttributes!=null && !additionalAttributes.isEmpty()){
             additional_attributes= fromMap(additionalAttributes);
             productData.setAdditional_attributes(additional_attributes);
         }
@@ -372,6 +374,11 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
                               Map<String, Object> additionalAttributes,
                               String storeView) throws RemoteException
     {
+        if(attributes!=null)
+            removeNullValues(attributes);
+        if(additionalAttributes!=null)
+            removeNullValues(additionalAttributes);
+
         Validate.notNull(productId);
         Validate.isTrue( (attributes != null && !attributes.isEmpty() ) || 
                         (additionalAttributes!=null && !additionalAttributes.isEmpty()) );
@@ -379,7 +386,7 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         AssociativeEntity[] additional_attributes;
         CatalogProductCreateEntity productData = fromMap(CatalogProductCreateEntity.class, attributes);
 
-        if(additionalAttributes!=null){
+        if(additionalAttributes!=null && !additionalAttributes.isEmpty()){
           additional_attributes= fromMap(additionalAttributes);
           productData.setAdditional_attributes(additional_attributes);
         }
