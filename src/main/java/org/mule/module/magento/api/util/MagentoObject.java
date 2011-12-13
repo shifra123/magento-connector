@@ -92,6 +92,18 @@ public final class MagentoObject
         return (T[]) listConverter.convert(Array.newInstance(clazz, 0).getClass(), list);
     }
 
+    public static void removeNullValues(Map<String, Object> map){
+        Entry<String, Object> entry;
+        for (Iterator<Entry<String, Object>> i = map.entrySet().iterator(); i.hasNext(); )  
+        {  
+            entry = i.next();  
+            if (entry.getValue()==null) 
+            {  
+                i.remove();  
+            }  
+        }  
+    }
+
     /**
      * {@link Converter} that transforms a list of maps into an array of magento
      * object
@@ -130,7 +142,7 @@ public final class MagentoObject
                 int i = 0;
                 for (Entry<String, String> entry : map.entrySet())
                 {
-                    array[i++] = new AssociativeEntity(entry.getKey(), entry.getValue());
+                        array[i++] = new AssociativeEntity(entry.getKey(), entry.getValue());
                 }
                 return array;
             }
