@@ -13,11 +13,12 @@ package org.mule.module.magento;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
+import org.mule.api.annotations.display.Password;
+import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.lifecycle.Start;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.annotations.param.Payload;
-import org.mule.api.annotations.studio.Display;
 import org.mule.module.magento.api.AxisPortProvider;
 import org.mule.module.magento.api.DefaultAxisPortProvider;
 import org.mule.module.magento.api.MagentoClientAdaptor;
@@ -69,7 +70,7 @@ public class MagentoCloudConnector {
      * The password to access Magento Web Services
      */
     @Configurable
-    @Display(type = Display.Type.PASSWORD)
+    @Password
     private String password;
 
     /**
@@ -164,7 +165,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public String createOrderShipment(String orderId,
-                                      @Display(inputGroup = "Item Ids and Quantities") Map<Integer, Double> itemsQuantities,
+                                      @Placement(group = "Item Ids and Quantities") Map<Integer, Double> itemsQuantities,
                                       @Optional String comment,
                                       @Optional @Default("false") boolean sendEmail,
                                       @Optional @Default("false") boolean includeCommentInEmail) {
@@ -348,7 +349,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public String createOrderInvoice(String orderId,
-                                     @Display(inputGroup = "Item Ids and Quantities") Map<Integer, Double> itemsQuantities,
+                                     @Placement(group = "Item Ids and Quantities") Map<Integer, Double> itemsQuantities,
                                      @Optional String comment,
                                      @Optional @Default("false") boolean sendEmail,
                                      @Optional @Default("false") boolean includeCommentInEmail) {
@@ -421,7 +422,7 @@ public class MagentoCloudConnector {
      * @return a new customer address id
      */
     @Processor
-    public int createCustomerAddress(int customerId, @Display(inputGroup = "Address Attributes") Map<String, Object> attributes) {
+    public int createCustomerAddress(int customerId, @Placement(group = "Address Attributes") Map<String, Object> attributes) {
         return customerClient.createCustomerAddress(customerId, attributes);
     }
 
@@ -434,7 +435,7 @@ public class MagentoCloudConnector {
      * @return the new customer id
      */
     @Processor
-    public int createCustomer(@Display(inputGroup = "Customer Attributes") Map<String, Object> attributes) {
+    public int createCustomer(@Placement(group = "Customer Attributes") Map<String, Object> attributes) {
         return customerClient.createCustomer(attributes);
     }
 
@@ -473,7 +474,7 @@ public class MagentoCloudConnector {
      * @return the attributes map
      */
     @Processor
-    public Map<String, Object> getCustomer(int customerId, @Display(inputGroup = "Attributes to Retrieve") List<String> attributeNames) {
+    public Map<String, Object> getCustomer(int customerId, @Placement(group = "Attributes to Retrieve") List<String> attributeNames) {
         return customerClient.getCustomer(customerId, attributeNames);
     }
 
@@ -543,7 +544,7 @@ public class MagentoCloudConnector {
      * @param attributes the attributes map
      */
     @Processor
-    public void updateCustomer(int customerId, @Display(inputGroup = "Customer Attributes to Update") Map<String, Object> attributes) {
+    public void updateCustomer(int customerId, @Placement(group = "Customer Attributes to Update") Map<String, Object> attributes) {
         customerClient.updateCustomer(customerId, attributes);
     }
 
@@ -556,7 +557,7 @@ public class MagentoCloudConnector {
      * @param attributes the address attributes to update
      */
     @Processor
-    public void updateCustomerAddress(int addressId, @Display(inputGroup = "Address Attributes to Update") Map<String, Object> attributes) {
+    public void updateCustomerAddress(int addressId, @Placement(group = "Address Attributes to Update") Map<String, Object> attributes) {
         customerClient.updateCustomerAddress(addressId, attributes);
     }
 
@@ -569,7 +570,7 @@ public class MagentoCloudConnector {
      * @return a list of stock items attributes
      */
     @Processor
-    public List<Map<String, Object>> listStockItems(@Display(inputGroup = "Product Ids or SKUs") List<String> productIdOrSkus) {
+    public List<Map<String, Object>> listStockItems(@Placement(group = "Product Ids or SKUs") List<String> productIdOrSkus) {
         return inventoryClient.listStockItems(productIdOrSkus);
     }
 
@@ -583,7 +584,7 @@ public class MagentoCloudConnector {
      * @param attributes     the attributes to update
      */
     @Processor
-    public void updateStockItem(String productIdOrSku, @Display(inputGroup = "Attributes to Update") Map<String, Object> attributes) {
+    public void updateStockItem(String productIdOrSku, @Placement(group = "Attributes to Update") Map<String, Object> attributes) {
         inventoryClient.updateStockItem(productIdOrSku, attributes);
     }
 
@@ -635,7 +636,7 @@ public class MagentoCloudConnector {
                                @Optional String productSku,
                                @Optional String productIdOrSku,
                                String linkedProductIdOrSku,
-                               @Display(inputGroup = "Address Attributes to Update")  @Optional Map<String, Object> attributes) {
+                               @Placement(group = "Address Attributes to Update")  @Optional Map<String, Object> attributes) {
         catalogClient.addProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku,
                 attributes);
     }
@@ -665,7 +666,7 @@ public class MagentoCloudConnector {
     public String createProductAttributeMedia(@Optional Integer productId,
                                               @Optional String productSku,
                                               @Optional String productIdOrSku,
-                                              @Display(inputGroup = "Media Attributes") @Optional Map<String, Object> attributes,
+                                              @Placement(group = "Media Attributes") @Optional Map<String, Object> attributes,
                                               @Optional String storeViewIdOrCode,
                                               @Payload Object payload,
                                               MediaMimeType mimeType,
@@ -993,7 +994,7 @@ public class MagentoCloudConnector {
                                             @Optional String productSku,
                                             @Optional String productIdOrSku,
                                             String fileName,
-                                            @Display(inputGroup = "Media Attributes to Update") Map<String, Object> attributes,
+                                            @Placement(group = "Media Attributes to Update") Map<String, Object> attributes,
                                             @Optional String storeViewIdOrCode) {
         catalogClient.updateProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku), fileName,
                 attributes, storeViewIdOrCode);
@@ -1017,7 +1018,7 @@ public class MagentoCloudConnector {
     public void updateProductAttributeTierPrice(@Optional Integer productId,
                                                 @Optional String productSku,
                                                 @Optional String productIdOrSku,
-                                                @Display(inputGroup = "Tier Price Attributes to Update") Map<String, Object> attributes) {
+                                                @Placement(group = "Tier Price Attributes to Update") Map<String, Object> attributes) {
         catalogClient.updateProductAttributeTierPrice(ProductIdentifiers.from(productSku, productId, productIdOrSku), attributes);
     }
 
@@ -1044,7 +1045,7 @@ public class MagentoCloudConnector {
                                   @Optional String productSku,
                                   @Optional String productIdOrSku,
                                   String linkedProductIdOrSku,
-                                  @Display(inputGroup = "Link Attributes to Update") Map<String, Object> attributes) {
+                                  @Placement(group = "Link Attributes to Update") Map<String, Object> attributes) {
         catalogClient.updateProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku,
                 attributes);
     }
@@ -1096,7 +1097,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public int createCategory(int parentId,
-                              @Display(inputGroup = "Category Attributes") Map<String, Object> attributes,
+                              @Placement(group = "Category Attributes") Map<String, Object> attributes,
                               @Optional String storeViewIdOrCode) {
         return catalogClient.createCategory(parentId, attributes, storeViewIdOrCode);
     }
@@ -1127,7 +1128,7 @@ public class MagentoCloudConnector {
     @Processor
     public Map<String, Object> getCategory(int categoryId,
                                            @Optional String storeViewIdOrCode,
-                                           @Display(inputGroup = "Attribute Names to Retrieve") List<String> attributeNames) {
+                                           @Placement(group = "Attribute Names to Retrieve") List<String> attributeNames) {
         return catalogClient.getCategory(categoryId, storeViewIdOrCode, attributeNames);
     }
 
@@ -1217,7 +1218,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public void updateCategory(int categoryId,
-                               @Display(inputGroup = "Category Attributes to Update") Map<String, Object> attributes,
+                               @Placement(group = "Category Attributes to Update") Map<String, Object> attributes,
                                @Optional String storeViewIdOrCode) {
         catalogClient.updateCategory(categoryId, attributes, storeViewIdOrCode);
     }
@@ -1253,7 +1254,7 @@ public class MagentoCloudConnector {
      * @return the list of attributes
      */
     @Processor
-    public List<Map<String, Object>> listInventoryStockItems(@Display(inputGroup = "Product Ids or SKUs") List<String> productIdOrSkus) {
+    public List<Map<String, Object>> listInventoryStockItems(@Placement(group = "Product Ids or SKUs") List<String> productIdOrSkus) {
         return catalogClient.listInventoryStockItems(productIdOrSkus);
     }
 
@@ -1273,7 +1274,7 @@ public class MagentoCloudConnector {
     public void updateInventoryStockItem(@Optional Integer productId,
                                          @Optional String productSku,
                                          @Optional String productIdOrSku,
-                                         @Display(inputGroup = "Stock Item Attributes") Map<String, Object> attributes) {
+                                         @Placement(group = "Stock Item Attributes") Map<String, Object> attributes) {
         catalogClient.updateInventoryStockItem(ProductIdentifiers.from(productSku, productId, productIdOrSku), attributes);
     }
 
@@ -1294,8 +1295,8 @@ public class MagentoCloudConnector {
     public int createProduct(String type,
                              int set,
                              String sku,
-                             @Display(inputGroup = "Standard Product Attributes") @Optional Map<String, Object> attributes,
-                             @Display(inputGroup = "Non-standard Product Attributes") @Optional Map<String, Object> additionalAttributes,
+                             @Placement(group = "Standard Product Attributes") @Optional Map<String, Object> attributes,
+                             @Placement(group = "Non-standard Product Attributes") @Optional Map<String, Object> additionalAttributes,
                              @Optional String storeViewIdOrCode) {
         return catalogClient.createProduct(type, set, sku, attributes, additionalAttributes, storeViewIdOrCode);
     }
@@ -1364,8 +1365,8 @@ public class MagentoCloudConnector {
                                           @Optional String productSku,
                                           @Optional String productIdOrSku,
                                           @Optional String storeViewIdOrCode,
-                                          @Display(inputGroup = "Standard Product Attributes to Retrieve") @Optional List<String> attributesNames,
-                                          @Display(inputGroup = "Non-standard Product Attributes to Retrieve")@Optional List<String> additionalAttributeNames) {
+                                          @Placement(group = "Standard Product Attributes to Retrieve") @Optional List<String> attributesNames,
+                                          @Placement(group = "Non-standard Product Attributes to Retrieve")@Optional List<String> additionalAttributeNames) {
         return catalogClient.getProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), storeViewIdOrCode, attributesNames, additionalAttributeNames);
     }
 
@@ -1436,8 +1437,8 @@ public class MagentoCloudConnector {
     public void updateProduct(@Optional Integer productId,
                               @Optional String productSku,
                               @Optional String productIdOrSku,
-                              @Display(inputGroup = "Standard Product Attributes to Update") @Optional Map<String, Object> attributes,
-                              @Display(inputGroup = "Non-standard Product Attributes to Update")@Optional Map<String, Object> additionalAttributes,
+                              @Placement(group = "Standard Product Attributes to Update") @Optional Map<String, Object> attributes,
+                              @Placement(group = "Non-standard Product Attributes to Update")@Optional Map<String, Object> additionalAttributes,
                               @Optional String storeViewIdOrCode) {
         catalogClient.updateProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), attributes, additionalAttributes, storeViewIdOrCode);
     }
