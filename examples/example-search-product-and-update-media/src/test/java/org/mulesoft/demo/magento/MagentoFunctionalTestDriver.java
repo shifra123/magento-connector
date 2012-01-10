@@ -24,37 +24,36 @@ public class MagentoFunctionalTestDriver extends FunctionalTestCase
         return "mule-config.xml";
     }
 
-    /**
-     * Creates some products for this test. Run this test only once
-     */
-    public void testCreateProductsFlow() throws Exception
+    public void testSearchAndUploadMedia() throws Exception
     {
-        lookupFlowConstruct("CreateProductsFlow").process(getTestEvent(""));
+        System.out.println(lookupFlowConstruct("MainFlow").process(
+            getTestEvent(Collections.singletonMap("productType", "simple"))));
     }
     
     /**
      * Creates some products for this test. Run this test only 
      * once
      */
-    public void ignoretestSetupFlow() throws Exception
+    public void ignoreTestSetupS3BucketFlow() throws Exception
     {
-        lookupFlowConstruct("CreatePriceUpdatesFlow").process(getTestEvent(""));
+        lookupFlowConstruct("SetupMagentoFlow").process(getTestEvent(""));
     }
-
-    /**
-     * Creates an S3 bucket
-     */
-    public void testCreateS3BucketFlow() throws Exception
-    {
-        lookupFlowConstruct("CreateS3BucketFlow").process(getTestEvent(""));
-    }
-
+    
     /**
      * Uploads an image to S3. Run this test only once
      */
-    public void testUploadS3ImageFlow() throws Exception
+    public void ignoreTestSetupS3ImageFlow() throws Exception
     {
-        lookupFlowConstruct("UploadS3ImageFlow").process(getTestEvent(""));
+        lookupFlowConstruct("SetupS3ImageFlow").process(getTestEvent(""));
+    }
+    
+    /**
+     * Creates some images for this test. Run this test only 
+     * once
+     */
+    public void ignoreTestSetupS3Flow() throws Exception
+    {
+        lookupFlowConstruct("SetupS3BucketFlow").process(getTestEvent(""));
     }
 
     private SimpleFlowConstruct lookupFlowConstruct(final String name)
