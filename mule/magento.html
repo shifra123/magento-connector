@@ -64,6 +64,8 @@
 
 
 
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -85,6 +87,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -101,6 +104,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Magento Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 <body class="">
@@ -196,7 +220,6 @@ Summary:
 <div id="jd-header">
     org.mule.modules
 <h1>mule-module-magento</h1>
-    1.5-SNAPSHOT
 
 </div><!-- end header -->
 
@@ -205,15 +228,17 @@ Summary:
 <div id="jd-content" class="api apilevel-">
 
 
+<br/>
+
 <div class="jd-tagdata">
       <table class="jd-tagtable">
         <tbody><tr>
           <th>Namespace</th><td>http://www.mulesoft.org/schema/mule/magento</td>
         </tr><tr>
-          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/magento/1.1/mule-magento.xsd</td>
+          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/magento/current/mule-magento.xsd&nbsp;&nbsp;(<a href="magento-schema.html">View Schema</a>)</td>
         </tr>
 <tr>
-          <th>Version</th><td>1.1</td>
+          <th>Schema Version</th><td>1.1</td>
         </tr>
 <tr>
           <th>Minimum Mule Version</th><td>3.2</td>
@@ -272,7 +297,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#add-category-product">&lt;magento:add-category-product&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Assign product to category.<br/></div>
+        <div class="jd-descrdiv">Assign product to category.</div>
         
   </td></tr>
 
@@ -284,7 +309,7 @@ Summary:
         
         <div class="jd-descrdiv">Adds a comment to the given order id
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -296,7 +321,7 @@ Summary:
         
         <div class="jd-descrdiv">Adds a comment to the given order's invoice
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -306,7 +331,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#add-order-shipment-comment">&lt;magento:add-order-shipment-comment&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Adds a comment to the shipment.<br/></div>
+        <div class="jd-descrdiv">Adds a comment to the shipment.</div>
         
   </td></tr>
 
@@ -318,7 +343,7 @@ Summary:
         
         <div class="jd-descrdiv">Adds a new tracking number
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -328,7 +353,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#add-product-link">&lt;magento:add-product-link&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Links two products, given its source and destination productIdOrSku.<br/></div>
+        <div class="jd-descrdiv">Links two products, given its source and destination productIdOrSku.</div>
         
   </td></tr>
 
@@ -340,7 +365,7 @@ Summary:
         
         <div class="jd-descrdiv">Cancels an order
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -352,7 +377,7 @@ Summary:
         
         <div class="jd-descrdiv">Cancels an order's invoice
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -364,7 +389,7 @@ Summary:
         
         <div class="jd-descrdiv">Captures and invoice
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -374,7 +399,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#create-category">&lt;magento:create-category&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Creates a new category.<br/></div>
+        <div class="jd-descrdiv">Creates a new category.</div>
         
   </td></tr>
 
@@ -386,7 +411,7 @@ Summary:
         
         <div class="jd-descrdiv">Creates a customer with the given attributes
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -399,7 +424,7 @@ Summary:
         <div class="jd-descrdiv">Creates a new address for the given customer using the given address
  attributes
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -411,7 +436,7 @@ Summary:
         
         <div class="jd-descrdiv">Creates an invoice for the given order
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -423,7 +448,7 @@ Summary:
         
         <div class="jd-descrdiv">Creates a shipment for order
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -435,7 +460,7 @@ Summary:
         
         <div class="jd-descrdiv">Creates a new product
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -445,7 +470,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#create-product-attribute-media">&lt;magento:create-product-attribute-media&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Creates a new product media.<br/></div>
+        <div class="jd-descrdiv">Creates a new product media.</div>
         
   </td></tr>
 
@@ -455,7 +480,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#delete-category">&lt;magento:delete-category&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Deletes a category.<br/></div>
+        <div class="jd-descrdiv">Deletes a category.</div>
         
   </td></tr>
 
@@ -465,7 +490,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#delete-category-product">&lt;magento:delete-category-product&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Remove a product assignment.<br/></div>
+        <div class="jd-descrdiv">Remove a product assignment.</div>
         
   </td></tr>
 
@@ -477,7 +502,7 @@ Summary:
         
         <div class="jd-descrdiv">Deletes a customer given its id
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -489,7 +514,7 @@ Summary:
         
         <div class="jd-descrdiv">Deletes a Customer Address
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -501,7 +526,7 @@ Summary:
         
         <div class="jd-descrdiv">Deletes the given track of the given order's shipment
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -511,7 +536,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#delete-product">&lt;magento:delete-product&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Deletes a product.<br/></div>
+        <div class="jd-descrdiv">Deletes a product.</div>
         
   </td></tr>
 
@@ -521,7 +546,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#delete-product-attribute-media">&lt;magento:delete-product-attribute-media&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Removes a product image.<br/></div>
+        <div class="jd-descrdiv">Removes a product image.</div>
         
   </td></tr>
 
@@ -531,7 +556,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#delete-product-link">&lt;magento:delete-product-link&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Deletes a product's link.<br/></div>
+        <div class="jd-descrdiv">Deletes a product's link.</div>
         
   </td></tr>
 
@@ -543,7 +568,7 @@ Summary:
         
         <div class="jd-descrdiv">Answers the current default catalog store view id for this session
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -553,7 +578,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#get-category">&lt;magento:get-category&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Answers category attributes.<br/></div>
+        <div class="jd-descrdiv">Answers category attributes.</div>
         
   </td></tr>
 
@@ -563,7 +588,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#get-category-tree">&lt;magento:get-category-tree&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Answers the category tree.<br/></div>
+        <div class="jd-descrdiv">Answers the category tree.</div>
         
   </td></tr>
 
@@ -573,7 +598,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#get-customer">&lt;magento:get-customer&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Answers customer attributes for the given id.<br/></div>
+        <div class="jd-descrdiv">Answers customer attributes for the given id.</div>
         
   </td></tr>
 
@@ -585,7 +610,7 @@ Summary:
         
         <div class="jd-descrdiv">Answers the customer address attributes
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -597,7 +622,7 @@ Summary:
         
         <div class="jd-descrdiv">Answers the order properties for the given orderId
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -609,7 +634,7 @@ Summary:
         
         <div class="jd-descrdiv">Retrieves order invoice information
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -621,7 +646,7 @@ Summary:
         
         <div class="jd-descrdiv">Retrieves the order shipment attributes
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -631,7 +656,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#get-order-shipment-carriers">&lt;magento:get-order-shipment-carriers&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves the order shipment carriers.<br/></div>
+        <div class="jd-descrdiv">Retrieves the order shipment carriers.</div>
         
   </td></tr>
 
@@ -641,7 +666,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#get-product">&lt;magento:get-product&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Answers a product's specified attributes.<br/></div>
+        <div class="jd-descrdiv">Answers a product's specified attributes.</div>
         
   </td></tr>
 
@@ -651,7 +676,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#get-product-attribute-media">&lt;magento:get-product-attribute-media&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Lists linked products to the given product and for the given link type.<br/></div>
+        <div class="jd-descrdiv">Lists linked products to the given product and for the given link type.</div>
         
   </td></tr>
 
@@ -661,7 +686,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#get-product-special-price">&lt;magento:get-product-special-price&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Answers a product special price.<br/></div>
+        <div class="jd-descrdiv">Answers a product special price.</div>
         
   </td></tr>
 
@@ -671,7 +696,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#hold-order">&lt;magento:hold-order&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Puts order on hold.<br/></div>
+        <div class="jd-descrdiv">Puts order on hold.</div>
         
   </td></tr>
 
@@ -681,7 +706,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-category-attribute-options">&lt;magento:list-category-attribute-options&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves attribute options.<br/></div>
+        <div class="jd-descrdiv">Retrieves attribute options.</div>
         
   </td></tr>
 
@@ -691,7 +716,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-category-attributes">&lt;magento:list-category-attributes&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieve product image types.<br/></div>
+        <div class="jd-descrdiv">Retrieve product image types.</div>
         
   </td></tr>
 
@@ -703,7 +728,7 @@ Summary:
         
         <div class="jd-descrdiv">Answers levels of categories for a website, store view and parent category
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -713,7 +738,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-category-products">&lt;magento:list-category-products&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Lists product of a given category.<br/></div>
+        <div class="jd-descrdiv">Lists product of a given category.</div>
         
   </td></tr>
 
@@ -725,7 +750,7 @@ Summary:
         
         <div class="jd-descrdiv">Lists the customer address for a given customer id
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -737,7 +762,7 @@ Summary:
         
         <div class="jd-descrdiv">Lists all the customer groups
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -747,7 +772,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-customers">&lt;magento:list-customers&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Answers a list of customer attributes for the given filter expression.<br/></div>
+        <div class="jd-descrdiv">Answers a list of customer attributes for the given filter expression.</div>
         
   </td></tr>
 
@@ -759,7 +784,7 @@ Summary:
         
         <div class="jd-descrdiv">Answers the list of countries
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -771,7 +796,7 @@ Summary:
         
         <div class="jd-descrdiv">Answers a list of regions for the given county
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -781,7 +806,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-inventory-stock-items">&lt;magento:list-inventory-stock-items&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Lists inventory stock items.<br/></div>
+        <div class="jd-descrdiv">Lists inventory stock items.</div>
         
   </td></tr>
 
@@ -791,7 +816,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-orders">&lt;magento:list-orders&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Lists order attributes that match the given filtering expression.<br/></div>
+        <div class="jd-descrdiv">Lists order attributes that match the given filtering expression.</div>
         
   </td></tr>
 
@@ -803,7 +828,7 @@ Summary:
         
         <div class="jd-descrdiv">Lists order invoices that match the given filtering expression
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -816,7 +841,7 @@ Summary:
         <div class="jd-descrdiv">Lists order shipment atrributes that match the given
  optional filtering expression
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -826,7 +851,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-product-attribute-media">&lt;magento:list-product-attribute-media&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves product image list.<br/></div>
+        <div class="jd-descrdiv">Retrieves product image list.</div>
         
   </td></tr>
 
@@ -836,7 +861,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-product-attribute-media-types">&lt;magento:list-product-attribute-media-types&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieve product image types.<br/></div>
+        <div class="jd-descrdiv">Retrieve product image types.</div>
         
   </td></tr>
 
@@ -846,7 +871,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-product-attribute-options">&lt;magento:list-product-attribute-options&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Answers the product attribute options.<br/></div>
+        <div class="jd-descrdiv">Answers the product attribute options.</div>
         
   </td></tr>
 
@@ -856,7 +881,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-product-attribute-sets">&lt;magento:list-product-attribute-sets&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves product attribute sets.<br/></div>
+        <div class="jd-descrdiv">Retrieves product attribute sets.</div>
         
   </td></tr>
 
@@ -866,7 +891,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-product-attribute-tier-prices">&lt;magento:list-product-attribute-tier-prices&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieve product tier prices.<br/></div>
+        <div class="jd-descrdiv">Retrieve product tier prices.</div>
         
   </td></tr>
 
@@ -876,7 +901,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-product-attributes">&lt;magento:list-product-attributes&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieves product attributes list.<br/></div>
+        <div class="jd-descrdiv">Retrieves product attributes list.</div>
         
   </td></tr>
 
@@ -888,7 +913,7 @@ Summary:
         
         <div class="jd-descrdiv">Lists linked products to the given product and for the given link type
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -900,7 +925,7 @@ Summary:
         
         <div class="jd-descrdiv">Lists all the attributes for the given product link type
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -912,7 +937,7 @@ Summary:
         
         <div class="jd-descrdiv">Answers product link types
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -922,7 +947,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-product-types">&lt;magento:list-product-types&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Answers product types.<br/></div>
+        <div class="jd-descrdiv">Answers product types.</div>
         
   </td></tr>
 
@@ -932,7 +957,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#list-products">&lt;magento:list-products&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retrieve products list by filters.<br/></div>
+        <div class="jd-descrdiv">Retrieve products list by filters.</div>
         
   </td></tr>
 
@@ -944,7 +969,7 @@ Summary:
         
         <div class="jd-descrdiv">Retrieve stock data by product ids
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -954,7 +979,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#move-category">&lt;magento:move-category&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Move category in tree.<br/></div>
+        <div class="jd-descrdiv">Move category in tree.</div>
         
   </td></tr>
 
@@ -966,7 +991,7 @@ Summary:
         
         <div class="jd-descrdiv">Releases order
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -976,7 +1001,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#update-category">&lt;magento:update-category&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Updates a category.<br/></div>
+        <div class="jd-descrdiv">Updates a category.</div>
         
   </td></tr>
 
@@ -988,7 +1013,7 @@ Summary:
         
         <div class="jd-descrdiv">Set the default catalog store view for this session
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -998,7 +1023,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#update-category-product">&lt;magento:update-category-product&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Updates a category product.<br/></div>
+        <div class="jd-descrdiv">Updates a category product.</div>
         
   </td></tr>
 
@@ -1008,7 +1033,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#update-customer">&lt;magento:update-customer&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Updates the given customer attributes, for the given customer id.<br/></div>
+        <div class="jd-descrdiv">Updates the given customer attributes, for the given customer id.</div>
         
   </td></tr>
 
@@ -1020,7 +1045,7 @@ Summary:
         
         <div class="jd-descrdiv">Updates the given map of customer address attributes, for the given customer address
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -1032,7 +1057,7 @@ Summary:
         
         <div class="jd-descrdiv">Updates an stock inventory item
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -1042,7 +1067,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#update-product">&lt;magento:update-product&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Updates a product.<br/></div>
+        <div class="jd-descrdiv">Updates a product.</div>
         
   </td></tr>
 
@@ -1052,7 +1077,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#update-product-attribute-media">&lt;magento:update-product-attribute-media&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Updates product media.<br/></div>
+        <div class="jd-descrdiv">Updates product media.</div>
         
   </td></tr>
 
@@ -1062,7 +1087,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#update-product-attribute-tier-price">&lt;magento:update-product-attribute-tier-price&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Updates a single product tier price.<br/></div>
+        <div class="jd-descrdiv">Updates a single product tier price.</div>
         
   </td></tr>
 
@@ -1074,7 +1099,7 @@ Summary:
         
         <div class="jd-descrdiv">Update product link
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -1084,7 +1109,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#update-product-special-price">&lt;magento:update-product-special-price&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Sets a product special price.<br/></div>
+        <div class="jd-descrdiv">Sets a product special price.</div>
         
   </td></tr>
 
@@ -1096,7 +1121,7 @@ Summary:
         
         <div class="jd-descrdiv">Update product stock data given its id or sku
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -1108,7 +1133,7 @@ Summary:
         
         <div class="jd-descrdiv">Voids an invoice
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -1126,7 +1151,6 @@ Summary:
 </div><!-- jd-descr (summary) -->
 
 
-
 <!-- ========= CONFIGURATION DETAIL ======== -->
 <A NAME="config"></A>
 <h2>Configuration</h2>
@@ -1140,14 +1164,15 @@ similar to the following:</p>
                http://www.mulesoft.org/schema/mule/core
                http://www.mulesoft.org/schema/mule/core/current/mule.xsd
                http://www.mulesoft.org/schema/mule/magento
-               http://www.mulesoft.org/schema/mule/magento/1.1/mule-magento.xsd"&gt;
+               http://www.mulesoft.org/schema/mule/magento/current/mule-magento.xsd"&gt;
 
       &lt;!-- here goes your flows and configuration elements --&gt;
 
 &lt;/mule&gt;
 </pre>
+
 <p>This module is configured using the <i>config</i> element. This element must be placed outside of your flows and at
-the root of your Mule application. You can create as many configurations as you deem necesary as long as each carries
+the root of your Mule application. You can create as many configurations as you deem necessary as long as each carries
 its own name.</p>
 <p>Each message processor, message source or transformer carries a <i>config-ref</i> attribute that allows the invoker to
 specify which configuration to use.</p>
@@ -1191,6 +1216,7 @@ specify which configuration to use.</p>
       
     
 </table>
+
 
 
 
@@ -1370,7 +1396,7 @@ specify which configuration to use.</p>
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sendEmail</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If an email must be sent after shipment creation
 </td>
                 </tr>
@@ -1454,7 +1480,7 @@ specify which configuration to use.</p>
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sendEmail</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If an email must be sent after shipment creation</td>
                 </tr>
                 
@@ -1463,7 +1489,7 @@ specify which configuration to use.</p>
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>includeCommentInEmail</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If the comment must be sent in the email
 </td>
                 </tr>
@@ -1545,7 +1571,7 @@ specify which configuration to use.</p>
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sendEmail</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If an email must be sent after shipment creation</td>
                 </tr>
                 
@@ -1554,7 +1580,7 @@ specify which configuration to use.</p>
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>includeCommentInEmail</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If the comment must be sent in the email
 </td>
                 </tr>
@@ -2256,7 +2282,7 @@ specify which configuration to use.</p>
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sendEmail</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If an email must be sent after shipment creation</td>
                 </tr>
                 
@@ -2265,7 +2291,7 @@ specify which configuration to use.</p>
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>includeCommentInEmail</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If the comment must be sent in the email</td>
                 </tr>
                 
@@ -2283,7 +2309,7 @@ specify which configuration to use.</p>
             
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:itemsQuantities&gt;</nobr></br><span style="font-weight: normal;">A map containing an entry per each (orderItemId,
+            <tr><th colspan="12"><nobr>&lt;magento:items-quantities&gt;</nobr></br><span style="font-weight: normal;">A map containing an entry per each (orderItemId,
                               quantity) pair</span></th></tr>
             
             
@@ -2364,7 +2390,7 @@ specify which configuration to use.</p>
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sendEmail</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If an email must be sent after shipment creation</td>
                 </tr>
                 
@@ -2373,7 +2399,7 @@ specify which configuration to use.</p>
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>includeCommentInEmail</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If the comment must be sent in the email</td>
                 </tr>
                 
@@ -2391,7 +2417,7 @@ specify which configuration to use.</p>
             
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:itemsQuantities&gt;</nobr></br><span style="font-weight: normal;">A map containing an entry per each (orderItemId,
+            <tr><th colspan="12"><nobr>&lt;magento:items-quantities&gt;</nobr></br><span style="font-weight: normal;">A map containing an entry per each (orderItemId,
                               quantity) pair</span></th></tr>
             
             
@@ -2505,7 +2531,7 @@ specify which configuration to use.</p>
             
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:additionalAttributes&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The non standard attributes of the new product</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;magento:additional-attributes&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The non standard attributes of the new product</span></th></tr>
             
             
           
@@ -2669,10 +2695,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>FileNotFoundException</td>
+            <td>FileNotFoundException</td>
             <td></td>
         </tr>
       </table>
@@ -3426,7 +3454,7 @@ specify which configuration to use.</p>
             
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:attributeNames&gt;</nobr></br><span style="font-weight: normal;">The category attributes that will be retrieved</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;magento:attribute-names&gt;</nobr></br><span style="font-weight: normal;">The category attributes that will be retrieved</span></th></tr>
             
             
           
@@ -3575,7 +3603,7 @@ specify which configuration to use.</p>
             
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:attributeNames&gt;</nobr></br><span style="font-weight: normal;">The attributes to retrieve. Not empty</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;magento:attribute-names&gt;</nobr></br><span style="font-weight: normal;">The attributes to retrieve. Not empty</span></th></tr>
             
             
           
@@ -4001,12 +4029,12 @@ specify which configuration to use.</p>
             
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:attributesNames&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The list of standard attributes to be returned</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;magento:attributes-names&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The list of standard attributes to be returned</span></th></tr>
             
             
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:additionalAttributeNames&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The list of non standard attributes to be returned in the additionalAttributes attribute</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;magento:additional-attribute-names&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The list of non standard attributes to be returned in the additionalAttributes attribute</span></th></tr>
             
             
           
@@ -4900,7 +4928,7 @@ specify which configuration to use.</p>
           
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:productIdOrSkus&gt;</nobr></br><span style="font-weight: normal;">The list of product ids and/or skus whose attributes will be retrieved</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;magento:product-id-or-skus&gt;</nobr></br><span style="font-weight: normal;">The list of product ids and/or skus whose attributes will be retrieved</span></th></tr>
             
             
           
@@ -5943,7 +5971,7 @@ specify which configuration to use.</p>
           
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:productIdOrSkus&gt;</nobr></br><span style="font-weight: normal;">A not empty list of product ids or skus whose attributes to list</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;magento:product-id-or-skus&gt;</nobr></br><span style="font-weight: normal;">A not empty list of product ids or skus whose attributes to list</span></th></tr>
             
             
           
@@ -6676,7 +6704,7 @@ specify which configuration to use.</p>
             
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:additionalAttributes&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The map of non standard product attributes to update</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;magento:additional-attributes&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The map of non standard product attributes to update</span></th></tr>
             
             
           

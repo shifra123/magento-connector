@@ -63,6 +63,8 @@
 
 
 
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -84,6 +86,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -102,6 +105,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Magento Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 <body class="">
@@ -183,6 +207,8 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/adapters/package-summary.html">org.mule.module.magento.adapters</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/api/package-summary.html">org.mule.module.magento.api</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/api/catalog/package-summary.html">org.mule.module.magento.api.catalog</a></li>
@@ -206,6 +232,10 @@
   <a href="../../../../../../java/org/mule/module/magento/config/spring/package-summary.html">org.mule.module.magento.config.spring</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/processors/package-summary.html">org.mule.module.magento.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/transformers/package-summary.html">org.mule.module.magento.transformers</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -215,85 +245,164 @@
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddCategoryProductDefinitionParser.html">AddCategoryProductDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddCategoryProductMessageProcessor.html">AddCategoryProductMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderCommentDefinitionParser.html">AddOrderCommentDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderCommentMessageProcessor.html">AddOrderCommentMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderInvoiceCommentDefinitionParser.html">AddOrderInvoiceCommentDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderInvoiceCommentMessageProcessor.html">AddOrderInvoiceCommentMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderShipmentCommentDefinitionParser.html">AddOrderShipmentCommentDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderShipmentCommentMessageProcessor.html">AddOrderShipmentCommentMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderShipmentTrackDefinitionParser.html">AddOrderShipmentTrackDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderShipmentTrackMessageProcessor.html">AddOrderShipmentTrackMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddProductLinkDefinitionParser.html">AddProductLinkDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddProductLinkMessageProcessor.html">AddProductLinkMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CancelOrderDefinitionParser.html">CancelOrderDefinitionParser</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CancelOrderInvoiceDefinitionParser.html">CancelOrderInvoiceDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CancelOrderInvoiceMessageProcessor.html">CancelOrderInvoiceMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CancelOrderMessageProcessor.html">CancelOrderMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CaptureOrderInvoiceDefinitionParser.html">CaptureOrderInvoiceDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CaptureOrderInvoiceMessageProcessor.html">CaptureOrderInvoiceMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateCategoryDefinitionParser.html">CreateCategoryDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateCategoryMessageProcessor.html">CreateCategoryMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateCustomerAddressDefinitionParser.html">CreateCustomerAddressDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateCustomerAddressMessageProcessor.html">CreateCustomerAddressMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateCustomerDefinitionParser.html">CreateCustomerDefinitionParser</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateCustomerMessageProcessor.html">CreateCustomerMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateOrderInvoiceDefinitionParser.html">CreateOrderInvoiceDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateOrderInvoiceMessageProcessor.html">CreateOrderInvoiceMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateOrderShipmentDefinitionParser.html">CreateOrderShipmentDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateOrderShipmentMessageProcessor.html">CreateOrderShipmentMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateProductAttributeMediaDefinitionParser.html">CreateProductAttributeMediaDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateProductAttributeMediaMessageProcessor.html">CreateProductAttributeMediaMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateProductDefinitionParser.html">CreateProductDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/CreateProductMessageProcessor.html">CreateProductMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCategoryDefinitionParser.html">DeleteCategoryDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCategoryMessageProcessor.html">DeleteCategoryMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCategoryProductDefinitionParser.html">DeleteCategoryProductDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCategoryProductMessageProcessor.html">DeleteCategoryProductMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCustomerAddressDefinitionParser.html">DeleteCustomerAddressDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCustomerAddressMessageProcessor.html">DeleteCustomerAddressMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCustomerDefinitionParser.html">DeleteCustomerDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCustomerMessageProcessor.html">DeleteCustomerMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteOrderShipmentTrackDefinitionParser.html">DeleteOrderShipmentTrackDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteOrderShipmentTrackMessageProcessor.html">DeleteOrderShipmentTrackMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductAttributeMediaDefinitionParser.html">DeleteProductAttributeMediaDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductAttributeMediaMessageProcessor.html">DeleteProductAttributeMediaMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductDefinitionParser.html">DeleteProductDefinitionParser</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductLinkDefinitionParser.html">DeleteProductLinkDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductLinkMessageProcessor.html">DeleteProductLinkMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductMessageProcessor.html">DeleteProductMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetCatalogCurrentStoreViewDefinitionParser.html">GetCatalogCurrentStoreViewDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetCatalogCurrentStoreViewMessageProcessor.html">GetCatalogCurrentStoreViewMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetCategoryDefinitionParser.html">GetCategoryDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetCategoryMessageProcessor.html">GetCategoryMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetCategoryTreeDefinitionParser.html">GetCategoryTreeDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetCategoryTreeMessageProcessor.html">GetCategoryTreeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetCustomerAddressDefinitionParser.html">GetCustomerAddressDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetCustomerAddressMessageProcessor.html">GetCustomerAddressMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetCustomerDefinitionParser.html">GetCustomerDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetCustomerMessageProcessor.html">GetCustomerMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderDefinitionParser.html">GetOrderDefinitionParser</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderInvoiceDefinitionParser.html">GetOrderInvoiceDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderInvoiceMessageProcessor.html">GetOrderInvoiceMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderMessageProcessor.html">GetOrderMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderShipmentCarriersDefinitionParser.html">GetOrderShipmentCarriersDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderShipmentCarriersMessageProcessor.html">GetOrderShipmentCarriersMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderShipmentDefinitionParser.html">GetOrderShipmentDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderShipmentMessageProcessor.html">GetOrderShipmentMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetProductAttributeMediaDefinitionParser.html">GetProductAttributeMediaDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetProductAttributeMediaMessageProcessor.html">GetProductAttributeMediaMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetProductDefinitionParser.html">GetProductDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetProductMessageProcessor.html">GetProductMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetProductSpecialPriceDefinitionParser.html">GetProductSpecialPriceDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/GetProductSpecialPriceMessageProcessor.html">GetProductSpecialPriceMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/HoldOrderDefinitionParser.html">HoldOrderDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/HoldOrderMessageProcessor.html">HoldOrderMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryAttributeOptionsDefinitionParser.html">ListCategoryAttributeOptionsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryAttributeOptionsMessageProcessor.html">ListCategoryAttributeOptionsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryAttributesDefinitionParser.html">ListCategoryAttributesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryAttributesMessageProcessor.html">ListCategoryAttributesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryLevelsDefinitionParser.html">ListCategoryLevelsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryLevelsMessageProcessor.html">ListCategoryLevelsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryProductsDefinitionParser.html">ListCategoryProductsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryProductsMessageProcessor.html">ListCategoryProductsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomerAddressesDefinitionParser.html">ListCustomerAddressesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomerAddressesMessageProcessor.html">ListCustomerAddressesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomerGroupsDefinitionParser.html">ListCustomerGroupsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomerGroupsMessageProcessor.html">ListCustomerGroupsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomersDefinitionParser.html">ListCustomersDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomersMessageProcessor.html">ListCustomersMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListDirectoryCountriesDefinitionParser.html">ListDirectoryCountriesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListDirectoryCountriesMessageProcessor.html">ListDirectoryCountriesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListDirectoryRegionsDefinitionParser.html">ListDirectoryRegionsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListDirectoryRegionsMessageProcessor.html">ListDirectoryRegionsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListInventoryStockItemsDefinitionParser.html">ListInventoryStockItemsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListInventoryStockItemsMessageProcessor.html">ListInventoryStockItemsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersDefinitionParser.html">ListOrdersDefinitionParser</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersInvoicesDefinitionParser.html">ListOrdersInvoicesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersInvoicesMessageProcessor.html">ListOrdersInvoicesMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersMessageProcessor.html">ListOrdersMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersShipmentsDefinitionParser.html">ListOrdersShipmentsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersShipmentsMessageProcessor.html">ListOrdersShipmentsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeMediaDefinitionParser.html">ListProductAttributeMediaDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeMediaMessageProcessor.html">ListProductAttributeMediaMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeMediaTypesDefinitionParser.html">ListProductAttributeMediaTypesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeMediaTypesMessageProcessor.html">ListProductAttributeMediaTypesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeOptionsDefinitionParser.html">ListProductAttributeOptionsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeOptionsMessageProcessor.html">ListProductAttributeOptionsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributesDefinitionParser.html">ListProductAttributesDefinitionParser</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeSetsDefinitionParser.html">ListProductAttributeSetsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeSetsMessageProcessor.html">ListProductAttributeSetsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributesMessageProcessor.html">ListProductAttributesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeTierPricesDefinitionParser.html">ListProductAttributeTierPricesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeTierPricesMessageProcessor.html">ListProductAttributeTierPricesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkAttributesDefinitionParser.html">ListProductLinkAttributesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkAttributesMessageProcessor.html">ListProductLinkAttributesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkDefinitionParser.html">ListProductLinkDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkMessageProcessor.html">ListProductLinkMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkTypesDefinitionParser.html">ListProductLinkTypesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkTypesMessageProcessor.html">ListProductLinkTypesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductsDefinitionParser.html">ListProductsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductsMessageProcessor.html">ListProductsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductTypesDefinitionParser.html">ListProductTypesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListProductTypesMessageProcessor.html">ListProductTypesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListStockItemsDefinitionParser.html">ListStockItemsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/ListStockItemsMessageProcessor.html">ListStockItemsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorCapabilitiesAdapter.html">MagentoCloudConnectorCapabilitiesAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorConfigDefinitionParser.html">MagentoCloudConnectorConfigDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorLifecycleAdapter.html">MagentoCloudConnectorLifecycleAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorNamespaceHandler.html">MagentoCloudConnectorNamespaceHandler</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MediaMimeTypeEnumTransformer.html">MediaMimeTypeEnumTransformer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MoveCategoryDefinitionParser.html">MoveCategoryDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MoveCategoryMessageProcessor.html">MoveCategoryMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UnholdOrderDefinitionParser.html">UnholdOrderDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UnholdOrderMessageProcessor.html">UnholdOrderMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateCategoryAttributeStoreViewDefinitionParser.html">UpdateCategoryAttributeStoreViewDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateCategoryAttributeStoreViewMessageProcessor.html">UpdateCategoryAttributeStoreViewMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateCategoryDefinitionParser.html">UpdateCategoryDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateCategoryMessageProcessor.html">UpdateCategoryMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateCategoryProductDefinitionParser.html">UpdateCategoryProductDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateCategoryProductMessageProcessor.html">UpdateCategoryProductMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateCustomerAddressDefinitionParser.html">UpdateCustomerAddressDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateCustomerAddressMessageProcessor.html">UpdateCustomerAddressMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateCustomerDefinitionParser.html">UpdateCustomerDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateCustomerMessageProcessor.html">UpdateCustomerMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateInventoryStockItemDefinitionParser.html">UpdateInventoryStockItemDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateInventoryStockItemMessageProcessor.html">UpdateInventoryStockItemMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateProductAttributeMediaDefinitionParser.html">UpdateProductAttributeMediaDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateProductAttributeMediaMessageProcessor.html">UpdateProductAttributeMediaMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateProductAttributeTierPriceDefinitionParser.html">UpdateProductAttributeTierPriceDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateProductAttributeTierPriceMessageProcessor.html">UpdateProductAttributeTierPriceMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateProductDefinitionParser.html">UpdateProductDefinitionParser</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateProductLinkDefinitionParser.html">UpdateProductLinkDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateProductLinkMessageProcessor.html">UpdateProductLinkMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateProductMessageProcessor.html">UpdateProductMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateProductSpecialPriceDefinitionParser.html">UpdateProductSpecialPriceDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateProductSpecialPriceMessageProcessor.html">UpdateProductSpecialPriceMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateStockItemDefinitionParser.html">UpdateStockItemDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/UpdateStockItemMessageProcessor.html">UpdateStockItemMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/VoidOrderInvoiceDefinitionParser.html">VoidOrderInvoiceDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/VoidOrderInvoiceMessageProcessor.html">VoidOrderInvoiceMessageProcessor</a></li>
       </ul>
     </li>
