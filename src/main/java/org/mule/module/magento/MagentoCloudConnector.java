@@ -64,6 +64,7 @@ public class MagentoCloudConnector {
      * The user name to access Magento Web Services
      */
     @Configurable
+    @Placement(order = 1)
     private String username;
 
     /**
@@ -71,12 +72,14 @@ public class MagentoCloudConnector {
      */
     @Configurable
     @Password
+    @Placement(order = 2)
     private String password;
 
     /**
      * The address to access Magento Web Services
      */
     @Configurable
+    @Placement(order = 3)
     private String address;
 
     @Start
