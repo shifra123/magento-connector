@@ -94,14 +94,17 @@ public final class MagentoObject
 
     public static void removeNullValues(Map<String, Object> map){
         Entry<String, Object> entry;
-        for (Iterator<Entry<String, Object>> i = map.entrySet().iterator(); i.hasNext(); )  
-        {  
-            entry = i.next();  
-            if (entry.getValue()==null) 
+        if(map!=null)
+        {
+            for (Iterator<Entry<String, Object>> i = map.entrySet().iterator(); i.hasNext(); )  
             {  
-                i.remove();  
-            }  
-        }  
+                entry = i.next();  
+                if (entry.getValue()==null) 
+                {  
+                    i.remove();  
+                }  
+            } 
+        } 
     }
 
     /**

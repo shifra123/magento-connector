@@ -29,6 +29,14 @@ public class MagentoFunctionalTestDriver extends FunctionalTestCase
     {
         lookupFlowConstruct("CreateProductsFlow").process(getTestEvent(""));
     }
+
+    /**
+     * Creates some products for this test. Run this test only once
+     */
+    public void testCreateProductsWithoutAttributesFlow() throws Exception
+    {
+        lookupFlowConstruct("CreateProductsWithoutAttributesFlow").process(getTestEvent(""));
+    }
     
     /**
      * Creates some products for this test. Run this test only 

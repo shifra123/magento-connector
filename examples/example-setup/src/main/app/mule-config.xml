@@ -76,6 +76,16 @@
 		</magento:create-product>
 	</flow>
 
+	<flow name="CreateProductsWithoutAttributesFlow">
+		<description>Creates some products (without including attributes) in Magento for testing.</description>
+		
+		<http:inbound-endpoint host="localhost" port="9090" path="magento-demo-setup-create-products" />
+		
+		<magento:create-product set="4" sku="A04569" type="simple" />
+		<magento:create-product set="4" sku="FF0AS489" type="simple" />
+		<magento:create-product set="4" sku="1029H" type="simple" />
+	</flow>
+
 	<flow name="CreateS3BucketFlow">
 		<description>Creates a bucket in S3 for testing</description>
 		<http:inbound-endpoint host="localhost" port="9090"

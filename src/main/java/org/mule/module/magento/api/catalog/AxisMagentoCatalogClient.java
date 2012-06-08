@@ -374,10 +374,8 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
                               Map<String, Object> additionalAttributes,
                               String storeView) throws RemoteException
     {
-        if(attributes!=null)
-            removeNullValues(attributes);
-        if(additionalAttributes!=null)
-            removeNullValues(additionalAttributes);
+        removeNullValues(attributes);
+        removeNullValues(additionalAttributes);
 
         Validate.notNull(productId);
         Validate.isTrue( (attributes != null && !attributes.isEmpty() ) || 
