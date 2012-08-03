@@ -434,3 +434,136 @@
             </magento:attributes>
         </magento:update-product>
 <!-- END_INCLUDE(magento:updateProduct) -->
+
+<!-- BEGIN_INCLUDE(magento:createShoppingCart) -->
+        <magento:create-shopping-cart />
+<!-- END_INCLUDE(magento:createShoppingCart) -->
+
+<!-- BEGIN_INCLUDE(magento:getInfoShoppingCart) -->
+        <magento:get-info-shopping-cart quoteId="1" />
+<!-- END_INCLUDE(magento:getInfoShoppingCart) -->
+
+<!-- BEGIN_INCLUDE(magento:listShoppingCartTotals) -->
+        <magento:list-shopping-cart-totals quoteId="1" />
+<!-- END_INCLUDE(magento:listShoppingCartTotals) -->
+
+<!-- BEGIN_INCLUDE(magento:createShoppingCartOrder) -->
+        <magento:create-shopping-cart-order quoteId="1" />
+<!-- END_INCLUDE(magento:createShoppingCartOrder) -->
+
+<!-- BEGIN_INCLUDE(magento:listShoppingCartLicenses) -->
+        <magento:list-shopping-cart-licenses quoteId="1" />
+<!-- END_INCLUDE(magento:listShoppingCartLicenses) -->
+
+<!-- BEGIN_INCLUDE(magento:addShoppingCartProduct) -->
+        <magento:add-shopping-cart-product quoteId="1">
+            <magento:products-attributes>
+                <magento:products-attribute>
+                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
+                </magento:products-attribute>
+            </magento:products-attributes>
+        </magento:add-shopping-cart-product>
+<!-- END_INCLUDE(magento:addShoppingCartProduct) -->
+
+<!-- BEGIN_INCLUDE(magento:updateShoppingCartProduct) -->
+        <magento:update-shopping-cart-product quoteId="1">
+            <magento:products-attributes>
+                <magento:products-attribute>
+                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
+                </magento:products-attribute>
+            </magento:products-attributes>
+        </magento:update-shopping-cart-product>
+<!-- END_INCLUDE(magento:updateShoppingCartProduct) -->
+
+<!-- BEGIN_INCLUDE(magento:removeShoppingCartProduct) -->
+        <magento:remove-shopping-cart-product quoteId="1">
+            <magento:products-attributes>
+                <magento:products-attribute>
+                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
+                </magento:products-attribute>
+            </magento:products-attributes>
+        </magento:remove-shopping-cart-product>
+<!-- END_INCLUDE(magento:removeShoppingCartProduct) -->
+
+<!-- BEGIN_INCLUDE(magento:listShoppingCartProducts) -->
+        <magento:list-shopping-cart-products quoteId="1" />
+<!-- END_INCLUDE(magento:listShoppingCartProducts) -->
+
+<!-- BEGIN_INCLUDE(magento:moveShoppingCartProductToCustomerQuote) -->
+        <magento:move-shopping-cart-product-to-customer-quote quoteId="1">
+            <magento:products-attributes>
+                <magento:products-attribute>
+                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
+                </magento:products-attribute>
+            </magento:products-attributes>
+        </magento:move-shopping-cart-product-to-customer-quote>
+<!-- END_INCLUDE(magento:moveShoppingCartProductToCustomerQuote) -->
+
+<!-- BEGIN_INCLUDE(magento:setShoppingCartCustomer) -->
+        <magento:set-shopping-cart-customer quoteId="1" />
+<!-- END_INCLUDE(magento:setShoppingCartCustomer) -->
+
+<!-- BEGIN_INCLUDE(magento:setShoppingCartCustomerAddresses) -->
+        <magento:set-shopping-cart-customer-addresses quoteId="1">
+            <magento:addresses-attributes>
+                <magento:addresses-attribute>
+                    <magento:inner-addresses-attribute key="address_id">1</magento:inner-addresses-attribute>
+                    <magento:inner-addresses-attribute key="firstname">John</magento:inner-addresses-attribute>
+                    <magento:inner-addresses-attribute key="lastname">Doe</magento:inner-addresses-attribute>
+                    <magento:inner-addresses-attribute key="street">Fake St. 123</magento:inner-addresses-attribute>
+                    <magento:inner-addresses-attribute key="city">Buenos Aires</magento:inner-addresses-attribute>
+                    <magento:inner-addresses-attribute key="region">Buenos Aires</magento:inner-addresses-attribute>
+                    <magento:inner-addresses-attribute key="postcode">1425</magento:inner-addresses-attribute>
+                    <magento:inner-addresses-attribute key="country_id">AR</magento:inner-addresses-attribute>
+                    <magento:inner-addresses-attribute key="telephone">555-5555</magento:inner-addresses-attribute>
+                    <magento:inner-addresses-attribute key="is_default_billing">1</magento:inner-addresses-attribute>
+                    <magento:inner-addresses-attribute key="is_default_shipping">0</magento:inner-addresses-attribute>
+                </magento:addresses-attribute>
+            </magento:addresses-attributes>
+        </magento:set-shopping-cart-customer-addresses>
+<!-- END_INCLUDE(magento:setShoppingCartCustomerAddresses) -->
+
+<!-- BEGIN_INCLUDE(magento:setShoppingCartShippingMethod) -->
+        <magento:set-shopping-cart-shipping-method quoteId="1" method="air" />
+<!-- END_INCLUDE(magento:setShoppingCartShippingMethod) -->
+
+<!-- BEGIN_INCLUDE(magento:listShoppingCartShippingMethods) -->
+        <magento:list-shopping-cart-shipping-methods quoteId="1" />
+<!-- END_INCLUDE(magento:listShoppingCartShippingMethods) -->
+
+<!-- BEGIN_INCLUDE(magento:setShoppingCartPaymentMethod) -->
+        <magento:set-shopping-cart-payment-method quoteId="1">
+            <magento:method-attributes>
+                <magento:method-attribute>
+                    <magento:inner-method-attribute key="po_number">123</magento:inner-method-attribute>
+                    <magento:inner-method-attribute key="method">air</magento:inner-method-attribute>
+                    <magento:inner-method-attribute key="cc_cid">VISA</magento:inner-method-attribute>
+                    <magento:inner-method-attribute key="cc_owner">John Doe</magento:inner-method-attribute>
+                    <magento:inner-method-attribute key="cc_number">33333333333</magento:inner-method-attribute>
+                    <magento:inner-method-attribute key="cc_type">Visa</magento:inner-method-attribute>
+                    <magento:inner-method-attribute key="cc_exp_year">2018</magento:inner-method-attribute>
+                    <magento:inner-method-attribute key="cc_exp_month">2</magento:inner-method-attribute>
+                </magento:method-attribute>
+            </magento:method-attributes>
+        </magento:set-shopping-cart-payment-method>
+<!-- END_INCLUDE(magento:setShoppingCartPaymentMethod) -->
+
+<!-- BEGIN_INCLUDE(magento:listShoppingCartPaymentMethods) -->
+        <magento:list-shopping-cart-payment-methods quoteId="1" />
+<!-- END_INCLUDE(magento:listShoppingCartPaymentMethods) -->
+
+<!-- BEGIN_INCLUDE(magento:addShoppingCartCoupon) -->
+        <magento:add-shopping-cart-coupon quoteId="1" couponCode="MAY-DISC" />
+<!-- END_INCLUDE(magento:addShoppingCartCoupon) -->
+
+<!-- BEGIN_INCLUDE(magento:removeShoppingCartCoupon) -->
+        <magento:remove-shopping-cart-coupon quoteId="1" />
+<!-- END_INCLUDE(magento:removeShoppingCartCoupon) -->

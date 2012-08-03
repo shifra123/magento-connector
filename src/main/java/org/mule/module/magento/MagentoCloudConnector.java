@@ -36,6 +36,8 @@ import org.mule.module.magento.api.inventory.MagentoCustomerClient;
 import org.mule.module.magento.api.order.AxisMagentoOrderClient;
 import org.mule.module.magento.api.order.MagentoOrderClient;
 import org.mule.module.magento.api.order.model.Carrier;
+import org.mule.module.magento.api.shoppingCart.AxisMagentoShoppingCartClient;
+import org.mule.module.magento.api.shoppingCart.MagentoShoppingCartClient;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -59,6 +61,7 @@ public class MagentoCloudConnector {
     private MagentoInventoryClient<List<Map<String, Object>>, MagentoException> inventoryClient;
     private MagentoDirectoryClient<List<Map<String, Object>>, MagentoException> directoryClient;
     private MagentoCatalogClient<Map<String, Object>, List<Map<String, Object>>, MagentoException> catalogClient;
+    private MagentoShoppingCartClient<Map<String, Object>, List<Map<String, Object>>, MagentoException> shoppingCartClient;
 
     /**
      * The user name to access Magento Web Services
@@ -99,6 +102,9 @@ public class MagentoCloudConnector {
         }
         if (catalogClient == null) {
             setCatalogClient(new AxisMagentoCatalogClient(initializer.getPortProvider()));
+        }
+        if (shoppingCartClient == null) {
+            setShoppingCartClient(new AxisMagentoShoppingCartClient(initializer.getPortProvider()));
         }
     }
 
@@ -1446,6 +1452,281 @@ public class MagentoCloudConnector {
         catalogClient.updateProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), attributes, additionalAttributes, storeViewIdOrCode);
     }
 
+    /**
+     * Creates an empty shopping cart.
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createShoppingCart}
+     *
+     * @param storeId Store view ID or code
+     * @return ID of the created empty shopping cart
+     */
+    @Processor
+    public int createShoppingCart(@Optional String storeId) {
+        return shoppingCartClient.createShoppingCart(storeId);
+    }
+
+    /**
+     * Retrieves full information about the shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getInfoShoppingCart}
+     *
+     * @param quoteId Shopping cart ID (quote ID)
+     * @param storeId Store view ID or code
+     * @return shopping cart info
+     */
+    @Processor
+    public Map<String, Object> getInfoShoppingCart(int quoteId, @Optional String storeId) {
+        return shoppingCartClient.getShoppingCartInfo(quoteId, storeId);
+    }
+
+    /**
+     * Retrieves total prices for a shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartTotals}
+     *
+     * @param quoteId Shopping cart ID (quote identifier)
+     * @param storeId Store view ID or code
+     * @return shopping cart total prices
+     */
+    @Processor
+    public List<Map<String, Object>> listShoppingCartTotals(int quoteId, @Optional String storeId) {
+        return shoppingCartClient.listShoppingCartTotals(quoteId, storeId);
+    }
+
+    /**
+     * Creates an order from a shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createShoppingCartOrder}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param storeId Store view ID or code
+     * @param licenses Website license ID
+     * @return result code of order creation
+     */
+    @Processor
+    public String createShoppingCartOrder(int quoteId, @Optional String storeId, @Optional List<String> licenses) {
+        return shoppingCartClient.createShoppingCartOrder(quoteId, storeId, licenses);
+    }
+
+    /**
+     * Retrieves the website license agreement for the quote according to the website (store).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartLicenses}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param storeId Store view ID or code
+     * @return licences for the shopping cart
+     */
+    @Processor
+    public List<Map<String, Object>> listShoppingCartLicenses(int quoteId, @Optional String storeId) {
+        return shoppingCartClient.listShoppingCartLicenses(quoteId, storeId);
+    }
+
+    /**
+     * Adds one or more products to the shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:addShoppingCartProduct}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param productsAttributes Products data
+     * @param productsOptions Products options
+     * @param productsBundleOptions Products bundle options
+     * @param productsBundleOptionsQty Products bundle options quantities
+     * @param storeId Store view ID or code
+     * @return True on success (if the product is added to the shopping cart)
+     */
+    @Processor
+    public boolean addShoppingCartProduct(int quoteId,
+                                   List<Map<String, Object>> productsAttributes,
+                                   @Optional List<Map<String, Object>> productsOptions,
+                                   @Optional List<Map<String, Object>> productsBundleOptions,
+                                   @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                   @Optional String storeId) {
+        return shoppingCartClient.addShoppingCartProduct(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
+    }
+
+    /**
+     * Updates one or several products in the shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:updateShoppingCartProduct}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param productsAttributes Products data
+     * @param productsOptions Products options
+     * @param productsBundleOptions Products bundle options
+     * @param productsBundleOptionsQty Products bundle options quantities
+     * @param storeId Store view ID or code
+     * @return True if the product is updated
+     */
+    @Processor
+    public boolean updateShoppingCartProduct(int quoteId,
+                                      List<Map<String, Object>> productsAttributes,
+                                      @Optional List<Map<String, Object>> productsOptions,
+                                      @Optional List<Map<String, Object>> productsBundleOptions,
+                                      @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                      @Optional String storeId) {
+        return shoppingCartClient.updateShoppingCartProduct(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
+    }
+
+    /**
+     * Removes one or several products from a shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:removeShoppingCartProduct}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param productsAttributes Products data
+     * @param productsOptions Products options
+     * @param productsBundleOptions Products bundle options
+     * @param productsBundleOptionsQty Products bundle options quantities
+     * @param storeId Store view ID or code
+     * @return True if the product is removed
+     */
+    @Processor
+    public boolean removeShoppingCartProduct(int quoteId,
+                                      List<Map<String, Object>> productsAttributes,
+                                      @Optional List<Map<String, Object>> productsOptions,
+                                      @Optional List<Map<String, Object>> productsBundleOptions,
+                                      @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                      @Optional String storeId) {
+        return shoppingCartClient.removeShoppingCartProduct(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
+    }
+
+    /**
+     * Retrieves the list of products in the shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartProducts}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param storeId Store view ID or code
+     * @return products in the shopping cart.
+     */
+    @Processor
+    public List<Map<String, Object>> listShoppingCartProducts(int quoteId, @Optional String storeId) {
+        return shoppingCartClient.listShoppingCartProducts(quoteId, storeId);
+    }
+
+    /**
+     * Moves products from the current quote to a customer quote.
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:moveShoppingCartProductToCustomerQuote}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param productsAttributes Products data
+     * @param productsOptions Products options
+     * @param productsBundleOptions Products bundle options
+     * @param productsBundleOptionsQty Products bundle options quantities
+     * @param storeId Store view ID or code
+     * @return True if the product is moved to customer quote
+     */
+    @Processor
+    public boolean moveShoppingCartProductToCustomerQuote(int quoteId,
+                                                   List<Map<String, Object>> productsAttributes,
+                                                   @Optional List<Map<String, Object>> productsOptions,
+                                                   @Optional List<Map<String, Object>> productsBundleOptions,
+                                                   @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                                   @Optional String storeId) {
+        return shoppingCartClient.moveShoppingCartProductToCustomerQuote(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
+    }
+
+    /**
+     * Adds information about the customer to a shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:setShoppingCartCustomer}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param customer Cuestomer data
+     * @param storeId Store view ID or code
+     * @return True if information is added
+     */
+    @Processor
+    public boolean setShoppingCartCustomer(int quoteId, Map<String, Object> customer, @Optional String storeId) {
+        return shoppingCartClient.setShoppingCartCustomer(quoteId, customer, storeId);
+    }
+
+    /**
+     * Sets the customer addresses in the shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:setShoppingCartCustomerAddresses}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param addresses Addresses data
+     * @param storeId Store view ID or code
+     * @return True if information is added
+     */
+    @Processor
+    public boolean setShoppingCartCustomerAddresses(int quoteId, List<Map<String, Object>> addresses, @Optional String storeId) {
+        return shoppingCartClient.setShoppingCartCustomerAddresses(quoteId, addresses, storeId);
+    }
+
+    /**
+     * Retrieves a shipping method for a shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:setShoppingCartShippingMethod}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param method Shipping method code
+     * @param storeId Store view ID or code
+     * @return True if the shipping method is retrieved
+     */
+    @Processor
+    public boolean setShoppingCartShippingMethod(int quoteId, String method, @Optional String storeId) {
+        return shoppingCartClient.setShoppingCartShippingMethod(quoteId, method, storeId);
+    }
+
+    /**
+     * Retrieves the list of available shipping methods for a shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartShippingMethods}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param storeId Store view ID or code
+     * @return Shipping methods available
+     */
+    @Processor
+    public List<Map<String, Object>> listShoppingCartShippingMethods(int quoteId, @Optional String storeId) {
+        return shoppingCartClient.listShoppingCartShippingMethods(quoteId, storeId);
+    }
+
+    /**
+     * Sets a payment method for a shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:setShoppingCartPaymentMethod}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param method Payment mehthod data
+     * @param storeId Store view ID or code
+     * @return True on success
+     */
+    @Processor
+    public boolean setShoppingCartPaymentMethod(int quoteId, Map<String, Object> method, @Optional String storeId) {
+        return shoppingCartClient.setShoppingCartPaymentMethod(quoteId, method, storeId);
+    }
+
+    /**
+     * Retrieves a list of available payment methods for a shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartPaymentMethods}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param storeId Store view ID or code
+     * @return Payment methods available
+     */
+    @Processor
+    public Map<String, Object> listShoppingCartPaymentMethods(int quoteId, @Optional String storeId) {
+        return shoppingCartClient.listShoppingCartPaymentMethods(quoteId, storeId);
+    }
+
+    /**
+     * Adds a coupon code for a shopping cart (quote). The shopping cart must not be empty.
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:addShoppingCartCoupon}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param couponCode Coupon code
+     * @param storeId Store view ID or code
+     * @return True if the coupon code is added
+     */
+    @Processor
+    public boolean addShoppingCartCoupon(int quoteId, String couponCode, @Optional String storeId) {
+        return shoppingCartClient.addShoppingCartCoupon(quoteId, couponCode, storeId);
+    }
+
+    /**
+     * Removes a coupon code from a shopping cart (quote).
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:removeShoppingCartCoupon}
+     *
+     * @param quoteId Shopping Cart ID (quote ID)
+     * @param storeId Store view ID or code
+     * @return True if the coupon code is removed
+     */
+    @Processor
+    public boolean removeShoppingCartCoupon(int quoteId, @Optional String storeId) {
+        return shoppingCartClient.removeShoppingCartCoupon(quoteId, storeId);
+    }
+
     @SuppressWarnings("unchecked")
     public void setOrderClient(MagentoOrderClient<?, ?, ?> magentoOrderClient) {
         this.orderClient = MagentoClientAdaptor.adapt(MagentoOrderClient.class, magentoOrderClient);
@@ -1469,6 +1750,11 @@ public class MagentoCloudConnector {
     @SuppressWarnings("unchecked")
     public void setCatalogClient(MagentoCatalogClient<?, ?, ?> catalogClient) {
         this.catalogClient = MagentoClientAdaptor.adapt(MagentoCatalogClient.class, catalogClient);
+    }
+
+    @SuppressWarnings("unchecked")
+    public void setShoppingCartClient(MagentoShoppingCartClient<?, ?, ?> catalogClient) {
+        this.shoppingCartClient = MagentoClientAdaptor.adapt(MagentoShoppingCartClient.class, catalogClient);
     }
 
     public String getUsername() {
