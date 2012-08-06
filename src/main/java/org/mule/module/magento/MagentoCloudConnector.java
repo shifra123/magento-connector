@@ -1500,7 +1500,7 @@ public class MagentoCloudConnector {
      * @return result code of order creation
      */
     @Processor
-    public String createShoppingCartOrder(int quoteId, @Optional String storeId, @Optional List<String> licenses) {
+    public String createShoppingCartOrder(int quoteId, @Optional String storeId, @Placement(group = "Licenses") @Optional List<String> licenses) {
         return shoppingCartClient.createShoppingCartOrder(quoteId, storeId, licenses);
     }
 
@@ -1531,10 +1531,10 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean addShoppingCartProduct(int quoteId,
-                                   List<Map<String, Object>> productsAttributes,
-                                   @Optional List<Map<String, Object>> productsOptions,
-                                   @Optional List<Map<String, Object>> productsBundleOptions,
-                                   @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                   @Placement(group = "Products attributes") List<Map<String, Object>> productsAttributes,
+                                   @Placement(group = "Products options") @Optional List<Map<String, Object>> productsOptions,
+                                   @Placement(group = "Products bundle options") @Optional List<Map<String, Object>> productsBundleOptions,
+                                   @Placement(group = "Products bundle options quantities") @Optional List<Map<String, Object>> productsBundleOptionsQty,
                                    @Optional String storeId) {
         return shoppingCartClient.addShoppingCartProduct(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
     }
@@ -1553,10 +1553,10 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean updateShoppingCartProduct(int quoteId,
-                                      List<Map<String, Object>> productsAttributes,
-                                      @Optional List<Map<String, Object>> productsOptions,
-                                      @Optional List<Map<String, Object>> productsBundleOptions,
-                                      @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                      @Placement(group = "Products attributes") List<Map<String, Object>> productsAttributes,
+                                      @Placement(group = "Products options") @Optional List<Map<String, Object>> productsOptions,
+                                      @Placement(group = "Products bundle options") @Optional List<Map<String, Object>> productsBundleOptions,
+                                      @Placement(group = "Products bundle options quantities") @Optional List<Map<String, Object>> productsBundleOptionsQty,
                                       @Optional String storeId) {
         return shoppingCartClient.updateShoppingCartProduct(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
     }
@@ -1575,10 +1575,10 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean removeShoppingCartProduct(int quoteId,
-                                      List<Map<String, Object>> productsAttributes,
-                                      @Optional List<Map<String, Object>> productsOptions,
-                                      @Optional List<Map<String, Object>> productsBundleOptions,
-                                      @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                      @Placement(group = "Products attributes") List<Map<String, Object>> productsAttributes,
+                                      @Placement(group = "Products options") @Optional List<Map<String, Object>> productsOptions,
+                                      @Placement(group = "Products bundle options") @Optional List<Map<String, Object>> productsBundleOptions,
+                                      @Placement(group = "Products bundle options quantities") @Optional List<Map<String, Object>> productsBundleOptionsQty,
                                       @Optional String storeId) {
         return shoppingCartClient.removeShoppingCartProduct(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
     }
@@ -1610,10 +1610,10 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean moveShoppingCartProductToCustomerQuote(int quoteId,
-                                                   List<Map<String, Object>> productsAttributes,
-                                                   @Optional List<Map<String, Object>> productsOptions,
-                                                   @Optional List<Map<String, Object>> productsBundleOptions,
-                                                   @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                                   @Placement(group = "Products attributes") List<Map<String, Object>> productsAttributes,
+                                                   @Placement(group = "Products options") @Optional List<Map<String, Object>> productsOptions,
+                                                   @Placement(group = "Products bundle options") @Optional List<Map<String, Object>> productsBundleOptions,
+                                                   @Placement(group = "Products bundle options quantities") @Optional List<Map<String, Object>> productsBundleOptionsQty,
                                                    @Optional String storeId) {
         return shoppingCartClient.moveShoppingCartProductToCustomerQuote(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
     }
@@ -1628,7 +1628,7 @@ public class MagentoCloudConnector {
      * @return True if information is added
      */
     @Processor
-    public boolean setShoppingCartCustomer(int quoteId, Map<String, Object> customer, @Optional String storeId) {
+    public boolean setShoppingCartCustomer(int quoteId, @Placement(group = "Customer attributes") Map<String, Object> customer, @Optional String storeId) {
         return shoppingCartClient.setShoppingCartCustomer(quoteId, customer, storeId);
     }
 
@@ -1642,7 +1642,7 @@ public class MagentoCloudConnector {
      * @return True if information is added
      */
     @Processor
-    public boolean setShoppingCartCustomerAddresses(int quoteId, List<Map<String, Object>> addresses, @Optional String storeId) {
+    public boolean setShoppingCartCustomerAddresses(int quoteId, @Placement(group = "Addresses attributes") List<Map<String, Object>> addresses, @Optional String storeId) {
         return shoppingCartClient.setShoppingCartCustomerAddresses(quoteId, addresses, storeId);
     }
 
@@ -1683,7 +1683,7 @@ public class MagentoCloudConnector {
      * @return True on success
      */
     @Processor
-    public boolean setShoppingCartPaymentMethod(int quoteId, Map<String, Object> method, @Optional String storeId) {
+    public boolean setShoppingCartPaymentMethod(int quoteId, @Placement(group = "Method attributes") Map<String, Object> method, @Optional String storeId) {
         return shoppingCartClient.setShoppingCartPaymentMethod(quoteId, method, storeId);
     }
 
