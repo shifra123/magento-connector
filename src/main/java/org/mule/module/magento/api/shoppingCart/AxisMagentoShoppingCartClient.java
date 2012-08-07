@@ -51,7 +51,7 @@ public class AxisMagentoShoppingCartClient extends AbstractMagentoClient
     @Override
     public String createShoppingCartOrder(int quoteId, String storeId, List<String> licenses) throws RemoteException
     {
-        return getPort().shoppingCartOrder(getSessionId(), quoteId, storeId, licenses.toArray(new String[licenses.size()]));
+        return getPort().shoppingCartOrder(getSessionId(), quoteId, storeId, licenses == null ? null : toArray(licenses, String.class));
     }
 
     @Override
