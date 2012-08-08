@@ -29,6 +29,7 @@ import org.mule.module.magento.api.directory.AxisMagentoDirectoryClient;
 import org.mule.module.magento.api.inventory.AxisMagentoCustomerClient;
 import org.mule.module.magento.api.order.AxisMagentoOrderClient;
 import org.mule.module.magento.api.order.model.Carrier;
+import org.mule.module.magento.api.shoppingCart.AxisMagentoShoppingCartClient;
 
 import java.rmi.RemoteException;
 import java.util.Arrays;
@@ -60,6 +61,7 @@ public class MagentoCloudConnectorUnitTest
         connector.setCustomerClient(new AxisMagentoCustomerClient(portProvider));
         connector.setDirectoryClient(new AxisMagentoDirectoryClient(portProvider));
         connector.setInventoryClient(new AxisMagentoInventoryClient(portProvider));
+        connector.setShoppingCartClient(new AxisMagentoShoppingCartClient(portProvider));
         connector.initialise();
         when(portProvider.getPort()).thenReturn(port);
     }
