@@ -225,6 +225,8 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/api/order/model/package-summary.html">org.mule.module.magento.api.order.model</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/shoppingCart/package-summary.html">org.mule.module.magento.api.shoppingCart</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
@@ -620,6 +622,17 @@ Summary:
           private
           
           
+          <a href="../../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#shoppingCartClient">shoppingCartClient</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#username">username</a></td>
           <td class="jd-descrcol" width="100%">The user name to access Magento Web Services
@@ -852,6 +865,42 @@ From class
             
             
             
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addShoppingCartCoupon(int, java.lang.String, java.lang.String)">addShoppingCartCoupon</a></span>(int quoteId, String couponCode, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Adds a coupon code for a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">addShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Adds one or more products to the shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1037,6 +1086,42 @@ From class
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String, java.lang.Object, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String)">createProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode, Object payload, <a href="../../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName)</nobr>
         
         <div class="jd-descrdiv">Creates a new product media.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createShoppingCart(java.lang.String)">createShoppingCart</a></span>(String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Creates an empty shopping cart.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createShoppingCartOrder(int, java.lang.String, java.util.List<java.lang.String>)">createShoppingCartOrder</a></span>(int quoteId, String storeId, List&lt;String&gt; licenses)</nobr>
+        
+        <div class="jd-descrdiv">Creates an order from a shopping cart (quote).</div>
   
   </td></tr>
 
@@ -1312,6 +1397,24 @@ From class
             Map&lt;String,&nbsp;Object&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getInfoShoppingCart(int, java.lang.String)">getInfoShoppingCart</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves full information about the shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getOrder(java.lang.String)">getOrder</a></span>(String orderId)</nobr>
         
         <div class="jd-descrdiv">Answers the order properties for the given orderId
@@ -1322,7 +1425,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1342,7 +1445,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1362,7 +1465,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1380,7 +1483,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1396,7 +1499,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1414,7 +1517,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1432,7 +1535,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1450,7 +1553,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1466,7 +1569,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1484,7 +1587,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1500,7 +1603,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1518,7 +1621,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1536,7 +1639,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1556,7 +1659,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1574,7 +1677,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1594,7 +1697,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1614,7 +1717,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1632,7 +1735,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1652,7 +1755,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1672,7 +1775,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1690,7 +1793,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1708,7 +1811,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1728,7 +1831,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1749,7 +1852,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1767,7 +1870,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1785,7 +1888,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1803,7 +1906,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1821,7 +1924,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1839,7 +1942,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1857,7 +1960,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1877,7 +1980,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1897,7 +2000,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1917,7 +2020,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1935,7 +2038,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1948,6 +2051,96 @@ From class
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProducts(java.lang.String, java.lang.String)">listProducts</a></span>(String filter, String storeViewIdOrCode)</nobr>
         
         <div class="jd-descrdiv">Retrieve products list by filters.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartLicenses(int, java.lang.String)">listShoppingCartLicenses</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the website license agreement for the quote according to the website (store).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartPaymentMethods(int, java.lang.String)">listShoppingCartPaymentMethods</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a list of available payment methods for a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartProducts(int, java.lang.String)">listShoppingCartProducts</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the list of products in the shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartShippingMethods(int, java.lang.String)">listShoppingCartShippingMethods</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the list of available shipping methods for a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartTotals(int, java.lang.String)">listShoppingCartTotals</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves total prices for a shopping cart (quote).</div>
   
   </td></tr>
 
@@ -1998,6 +2191,60 @@ From class
             
             
             
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#moveShoppingCartProductToCustomerQuote(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">moveShoppingCartProductToCustomerQuote</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Moves products from the current quote to a customer quote.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#removeShoppingCartCoupon(int, java.lang.String)">removeShoppingCartCoupon</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Removes a coupon code from a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#removeShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">removeShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Removes one or several products from a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -2007,7 +2254,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2023,7 +2270,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2039,7 +2286,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2055,7 +2302,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2071,7 +2318,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2087,7 +2334,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2099,6 +2346,94 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setPassword(java.lang.String)">setPassword</a></span>(String password)</nobr>
         
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartClient(org.mule.module.magento.api.shoppingCart.MagentoShoppingCartClient<?, ?, ?>)">setShoppingCartClient</a></span>(<a href="../../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; catalogClient)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartCustomer(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">setShoppingCartCustomer</a></span>(int quoteId, Map&lt;String,&nbsp;Object&gt; customer, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Adds information about the customer to a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartCustomerAddresses(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">setShoppingCartCustomerAddresses</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; addresses, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Sets the customer addresses in the shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartPaymentMethod(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">setShoppingCartPaymentMethod</a></span>(int quoteId, Map&lt;String,&nbsp;Object&gt; method, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Sets a payment method for a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartShippingMethod(int, java.lang.String, java.lang.String)">setShoppingCartShippingMethod</a></span>(int quoteId, String method, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a shipping method for a shopping cart (quote).</div>
+  
   </td></tr>
 
 
@@ -2352,6 +2687,24 @@ From class
             
             
             
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">updateShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Updates one or several products in the shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -2365,7 +2718,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
