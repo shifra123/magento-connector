@@ -513,21 +513,32 @@
 
 <!-- BEGIN_INCLUDE(magento:setShoppingCartCustomerAddresses) -->
         <magento:set-shopping-cart-customer-addresses quoteId="1">
-            <magento:addresses-attributes>
-                <magento:addresses-attribute>
-                    <magento:inner-addresses-attribute key="address_id">1</magento:inner-addresses-attribute>
-                    <magento:inner-addresses-attribute key="firstname">John</magento:inner-addresses-attribute>
-                    <magento:inner-addresses-attribute key="lastname">Doe</magento:inner-addresses-attribute>
-                    <magento:inner-addresses-attribute key="street">Fake St. 123</magento:inner-addresses-attribute>
-                    <magento:inner-addresses-attribute key="city">Buenos Aires</magento:inner-addresses-attribute>
-                    <magento:inner-addresses-attribute key="region">Buenos Aires</magento:inner-addresses-attribute>
-                    <magento:inner-addresses-attribute key="postcode">1425</magento:inner-addresses-attribute>
-                    <magento:inner-addresses-attribute key="country_id">AR</magento:inner-addresses-attribute>
-                    <magento:inner-addresses-attribute key="telephone">555-5555</magento:inner-addresses-attribute>
-                    <magento:inner-addresses-attribute key="is_default_billing">1</magento:inner-addresses-attribute>
-                    <magento:inner-addresses-attribute key="is_default_shipping">0</magento:inner-addresses-attribute>
-                </magento:addresses-attribute>
-            </magento:addresses-attributes>
+            <magento:addresses>
+                <magento:address>
+                    <magento:inner-address key="mode">billing</magento:inner-address>
+                    <magento:inner-address key="firstname">customerName</magento:inner-address>
+                    <magento:inner-address key="lastname">customerLastname</magento:inner-address>
+                    <magento:inner-address key="street">billingAddressStreet</magento:inner-address>
+                    <magento:inner-address key="telephone">12341234</magento:inner-address>
+                    <magento:inner-address key="postcode">billingAddressZip</magento:inner-address>
+                    <magento:inner-address key="country_id">1</magento:inner-address>
+                    <magento:inner-address key="city">billingAddressCity</magento:inner-address>
+                    <magento:inner-address key="is_default_billing">1</magento:inner-address>
+                    <magento:inner-address key="is_default_shipping">0</magento:inner-address>
+                </magento:address>
+                <magento:address>
+                    <magento:inner-address key="mode">shipping</magento:inner-address>
+                    <magento:inner-address key="firstname">customerName</magento:inner-address>
+                    <magento:inner-address key="lastname">customerLastname</magento:inner-address>
+                    <magento:inner-address key="street">shippingAddressStreet</magento:inner-address>
+                    <magento:inner-address key="telephone">23452345</magento:inner-address>
+                    <magento:inner-address key="postcode">shippingAddressZip</magento:inner-address>
+                    <magento:inner-address key="country_id">1</magento:inner-address>
+                    <magento:inner-address key="city">shippingAddressCity</magento:inner-address>
+                    <magento:inner-address key="is_default_billing">0</magento:inner-address>
+                    <magento:inner-address key="is_default_shipping">1</magento:inner-address>
+                </magento:address>
+            </magento:addresses>
         </magento:set-shopping-cart-customer-addresses>
 <!-- END_INCLUDE(magento:setShoppingCartCustomerAddresses) -->
 
@@ -541,18 +552,16 @@
 
 <!-- BEGIN_INCLUDE(magento:setShoppingCartPaymentMethod) -->
         <magento:set-shopping-cart-payment-method quoteId="1">
-            <magento:method-attributes>
-                <magento:method-attribute>
-                    <magento:inner-method-attribute key="po_number">123</magento:inner-method-attribute>
-                    <magento:inner-method-attribute key="method">air</magento:inner-method-attribute>
-                    <magento:inner-method-attribute key="cc_cid">VISA</magento:inner-method-attribute>
-                    <magento:inner-method-attribute key="cc_owner">John Doe</magento:inner-method-attribute>
-                    <magento:inner-method-attribute key="cc_number">33333333333</magento:inner-method-attribute>
-                    <magento:inner-method-attribute key="cc_type">Visa</magento:inner-method-attribute>
-                    <magento:inner-method-attribute key="cc_exp_year">2018</magento:inner-method-attribute>
-                    <magento:inner-method-attribute key="cc_exp_month">2</magento:inner-method-attribute>
-                </magento:method-attribute>
-            </magento:method-attributes>
+            <magento:method>
+                <magento:inner-method key="po_number">123</magento:inner-method>
+                <magento:inner-method key="method">air</magento:inner-method>
+                <magento:inner-method key="cc_cid">VISA</magento:inner-method>
+                <magento:inner-method key="cc_owner">John Doe</magento:inner-method>
+                <magento:inner-method key="cc_number">33333333333</magento:inner-method>
+                <magento:inner-method key="cc_type">Visa</magento:inner-method>
+                <magento:inner-method key="cc_exp_year">2018</magento:inner-method>
+                <magento:inner-method key="cc_exp_month">2</magento:inner-method>
+            </magento:method>
         </magento:set-shopping-cart-payment-method>
 <!-- END_INCLUDE(magento:setShoppingCartPaymentMethod) -->
 

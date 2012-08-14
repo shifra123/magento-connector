@@ -182,6 +182,16 @@ public class AxisMagentoShoppingCartClient extends AbstractMagentoClient
     @Override
     public boolean setShoppingCartCustomerAddresses(int quoteId, List<Map<String, Object>> addresses, String storeId) throws RemoteException
     {
+        if (addresses != null)
+        {
+            for (Map<String, Object> address : addresses)
+            {
+                Validate.isTrue(
+                        address.containsKey("mode") &&
+                        (address.get("mode").toString().equals("shipping") ||
+                         address.get("mode").toString().equals("billing")), "A mode for each address is required and should be either \"shipping\" or \"billing\".");
+            }
+        }
         return getPort().shoppingCartCustomerAddresses(getSessionId(), quoteId, fromMap(ShoppingCartCustomerAddressEntity.class, addresses), storeId);
     }
 

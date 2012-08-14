@@ -1637,7 +1637,7 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:setShoppingCartCustomerAddresses}
      *
      * @param quoteId Shopping Cart ID (quote ID)
-     * @param addresses Addresses data
+     * @param addresses Addresses data (mode is required for each address and should be either "shipping" or "billing")
      * @param storeId Store view ID or code
      * @return True if information is added
      */
