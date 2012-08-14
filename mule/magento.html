@@ -7398,21 +7398,32 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the customer addresses in the shopping cart (quote).
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:set-shopping-cart-customer-addresses quoteId="1"&gt;
-    &lt;magento:addresses-attributes&gt;
-        &lt;magento:addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="address_id"&gt;1&lt;/magento:inner-addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="firstname"&gt;John&lt;/magento:inner-addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="lastname"&gt;Doe&lt;/magento:inner-addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="street"&gt;Fake St. 123&lt;/magento:inner-addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="city"&gt;Buenos Aires&lt;/magento:inner-addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="region"&gt;Buenos Aires&lt;/magento:inner-addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="postcode"&gt;1425&lt;/magento:inner-addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="country_id"&gt;AR&lt;/magento:inner-addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="telephone"&gt;555-5555&lt;/magento:inner-addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="is_default_billing"&gt;1&lt;/magento:inner-addresses-attribute&gt;
-            &lt;magento:inner-addresses-attribute key="is_default_shipping"&gt;0&lt;/magento:inner-addresses-attribute&gt;
-        &lt;/magento:addresses-attribute&gt;
-    &lt;/magento:addresses-attributes&gt;
+    &lt;magento:addresses&gt;
+        &lt;magento:address&gt;
+            &lt;magento:inner-address key="mode"&gt;billing&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="firstname"&gt;customerName&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="lastname"&gt;customerLastname&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="street"&gt;billingAddressStreet&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="telephone"&gt;12341234&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="postcode"&gt;billingAddressZip&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="country_id"&gt;1&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="city"&gt;billingAddressCity&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="is_default_billing"&gt;1&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="is_default_shipping"&gt;0&lt;/magento:inner-address&gt;
+        &lt;/magento:address&gt;
+        &lt;magento:address&gt;
+            &lt;magento:inner-address key="mode"&gt;shipping&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="firstname"&gt;customerName&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="lastname"&gt;customerLastname&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="street"&gt;shippingAddressStreet&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="telephone"&gt;23452345&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="postcode"&gt;shippingAddressZip&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="country_id"&gt;1&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="city"&gt;shippingAddressCity&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="is_default_billing"&gt;0&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key="is_default_shipping"&gt;1&lt;/magento:inner-address&gt;
+        &lt;/magento:address&gt;
+    &lt;/magento:addresses&gt;
 &lt;/magento:set-shopping-cart-customer-addresses&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -7457,7 +7468,7 @@ specify which configuration to use.</p>
             
           
             
-            <tr><th colspan="12"><nobr>&lt;magento:addresses&gt;</nobr></br><span style="font-weight: normal;">Addresses data</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;magento:addresses&gt;</nobr></br><span style="font-weight: normal;">Addresses data (mode is required for each address and should be either "shipping" or "billing")</span></th></tr>
             
             
           
@@ -7493,18 +7504,16 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets a payment method for a shopping cart (quote).
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:set-shopping-cart-payment-method quoteId="1"&gt;
-    &lt;magento:method-attributes&gt;
-        &lt;magento:method-attribute&gt;
-            &lt;magento:inner-method-attribute key="po_number"&gt;123&lt;/magento:inner-method-attribute&gt;
-            &lt;magento:inner-method-attribute key="method"&gt;air&lt;/magento:inner-method-attribute&gt;
-            &lt;magento:inner-method-attribute key="cc_cid"&gt;VISA&lt;/magento:inner-method-attribute&gt;
-            &lt;magento:inner-method-attribute key="cc_owner"&gt;John Doe&lt;/magento:inner-method-attribute&gt;
-            &lt;magento:inner-method-attribute key="cc_number"&gt;33333333333&lt;/magento:inner-method-attribute&gt;
-            &lt;magento:inner-method-attribute key="cc_type"&gt;Visa&lt;/magento:inner-method-attribute&gt;
-            &lt;magento:inner-method-attribute key="cc_exp_year"&gt;2018&lt;/magento:inner-method-attribute&gt;
-            &lt;magento:inner-method-attribute key="cc_exp_month"&gt;2&lt;/magento:inner-method-attribute&gt;
-        &lt;/magento:method-attribute&gt;
-    &lt;/magento:method-attributes&gt;
+    &lt;magento:method&gt;
+        &lt;magento:inner-method key="po_number"&gt;123&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key="method"&gt;air&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key="cc_cid"&gt;VISA&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key="cc_owner"&gt;John Doe&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key="cc_number"&gt;33333333333&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key="cc_type"&gt;Visa&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key="cc_exp_year"&gt;2018&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key="cc_exp_month"&gt;2&lt;/magento:inner-method&gt;
+    &lt;/magento:method&gt;
 &lt;/magento:set-shopping-cart-payment-method&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
