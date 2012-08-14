@@ -4505,7 +4505,7 @@ must be non null and non empty. See catalog-category-updateProduct SOAP method
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/magento&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;add-shopping-cart-coupon&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;AddShoppingCartCouponType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Adds a coupon code for a shopping cart (quote). The shopping cart must not be empty.&lt;/xs:documentation&gt;
+      &lt;xs:documentation&gt;Adds a coupon code for a shopping cart (quote). The shopping cart must not be empty. The shopping cart must be created with a storeId for this operation to work.&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
   &lt;xs:complexType name=&quot;AddShoppingCartCouponType&quot;&gt;
