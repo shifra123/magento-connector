@@ -1701,7 +1701,7 @@ public class MagentoCloudConnector {
     }
 
     /**
-     * Adds a coupon code for a shopping cart (quote). The shopping cart must not be empty.
+     * Adds a coupon code for a shopping cart (quote). The shopping cart must not be empty. The shopping cart must be created with a storeId for this operation to work.
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:addShoppingCartCoupon}
      *
      * @param quoteId Shopping Cart ID (quote ID)
