@@ -136,12 +136,12 @@ public class AxisMagentoOrderClient extends AbstractMagentoClient
     }
 
     public String createOrderShipment(@NotNull String orderId,
-                                      @NotNull Map<Integer, Double> itemsQuantities,
+                                      Map<Integer, Double> itemsQuantities,
                                       String comment,
                                       boolean sendEmail,
                                       boolean includeCommentInEmail) throws RemoteException
     {
-        return getPort().salesOrderShipmentCreate(getSessionId(), orderId, fromMap(itemsQuantities), comment,
+        return getPort().salesOrderShipmentCreate(getSessionId(), orderId, itemsQuantities == null ? null : fromMap(itemsQuantities), comment,
             toInteger(sendEmail), toInteger(includeCommentInEmail));
     }
 

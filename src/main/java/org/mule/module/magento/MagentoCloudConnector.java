@@ -174,7 +174,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public String createOrderShipment(String orderId,
-                                      @Placement(group = "Item Ids and Quantities") Map<Integer, Double> itemsQuantities,
+                                      @Optional @Placement(group = "Item Ids and Quantities") Map<Integer, Double> itemsQuantities,
                                       @Optional String comment,
                                       @Optional @Default("false") boolean sendEmail,
                                       @Optional @Default("false") boolean includeCommentInEmail) {
