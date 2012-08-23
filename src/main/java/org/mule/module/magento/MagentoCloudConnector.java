@@ -1674,7 +1674,7 @@ public class MagentoCloudConnector {
     }
 
     /**
-     * Sets a payment method for a shopping cart (quote).
+     * Sets a payment method for a shopping cart (quote), cart must not be empty.
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:setShoppingCartPaymentMethod}
      *
      * @param quoteId Shopping Cart ID (quote ID)
