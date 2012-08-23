@@ -4422,7 +4422,7 @@ must be non null and non empty. See catalog-category-updateProduct SOAP method
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/magento&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;set-shopping-cart-payment-method&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;SetShoppingCartPaymentMethodType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Sets a payment method for a shopping cart (quote).&lt;/xs:documentation&gt;
+      &lt;xs:documentation&gt;Sets a payment method for a shopping cart (quote), cart must not be empty.&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
   &lt;xs:complexType name=&quot;SetShoppingCartPaymentMethodType&quot;&gt;

@@ -1139,7 +1139,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/magento.html#set-shopping-cart-payment-method">&lt;magento:set-shopping-cart-payment-method&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Sets a payment method for a shopping cart (quote).</div>
+        <div class="jd-descrdiv">Sets a payment method for a shopping cart (quote), cart must not be empty.</div>
         
   </td></tr>
 
@@ -7502,7 +7502,7 @@ specify which configuration to use.</p>
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets a payment method for a shopping cart (quote).
+  <div class="jd-tagdata jd-tagdescr"><p>Sets a payment method for a shopping cart (quote), cart must not be empty.
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:set-shopping-cart-payment-method quoteId="1"&gt;
     &lt;magento:method&gt;
         &lt;magento:inner-method key="po_number"&gt;123&lt;/magento:inner-method&gt;
