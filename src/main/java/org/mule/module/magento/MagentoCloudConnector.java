@@ -1633,7 +1633,7 @@ public class MagentoCloudConnector {
     }
 
     /**
-     * Sets the customer addresses in the shopping cart (quote).
+     * Sets the customer addresses in the shopping cart (quote). Don't set a coupon to the cart before using this method, the address won't be set.
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:setShoppingCartCustomerAddresses}
      *
      * @param quoteId Shopping Cart ID (quote ID)
