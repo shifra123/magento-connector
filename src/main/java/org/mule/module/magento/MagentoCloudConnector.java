@@ -1453,7 +1453,7 @@ public class MagentoCloudConnector {
     }
 
     /**
-     * Creates an empty shopping cart.
+     * Creates an empty shopping cart. Store Id is optional, but some operations may not work correctly if isn't given in the cart creation.
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createShoppingCart}
      *
      * @param storeId Store view ID or code
@@ -1505,7 +1505,7 @@ public class MagentoCloudConnector {
     }
 
     /**
-     * Retrieves the website license agreement for the quote according to the website (store).
+     * Retrieves the website license agreement for the quote according to the website (store). Store id must be given in cart creation.
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartLicenses}
      *
      * @param quoteId Shopping Cart ID (quote ID)
