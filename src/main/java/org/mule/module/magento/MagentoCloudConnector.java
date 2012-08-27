@@ -86,7 +86,7 @@ public class MagentoCloudConnector {
     private String address;
 
     @Start
-    public void initialise() {
+    public void initialiseConnector() {
         PortProviderInitializer initializer = new PortProviderInitializer();
         if (orderClient == null) {
             setOrderClient(new AxisMagentoOrderClient(initializer.getPortProvider()));
@@ -669,7 +669,7 @@ public class MagentoCloudConnector {
      * @param mimeType          the mimetype
      * @param baseFileName      the base name of the new remote image
      * @return the new image filename
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException when the payload object is not a valid file
      */
     @Processor
     public String createProductAttributeMedia(@Optional Integer productId,

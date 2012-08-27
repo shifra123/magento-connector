@@ -62,7 +62,7 @@ public class MagentoCloudConnectorUnitTest
         connector.setDirectoryClient(new AxisMagentoDirectoryClient(portProvider));
         connector.setInventoryClient(new AxisMagentoInventoryClient(portProvider));
         connector.setShoppingCartClient(new AxisMagentoShoppingCartClient(portProvider));
-        connector.initialise();
+        connector.initialiseConnector();
         when(portProvider.getPort()).thenReturn(port);
     }
 
