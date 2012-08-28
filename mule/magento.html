@@ -2110,9 +2110,9 @@ specify which configuration to use.</p>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:add-shopping-cart-product quoteId="1"&gt;
     &lt;magento:products-attributes&gt;
         &lt;magento:products-attribute&gt;
-            &lt;magento:inner-products-attribute key="product_id"&gt;1&lt;/magento:inner-products-attribute&gt;
-            &lt;magento:inner-products-attribute key="sku"&gt;123&lt;/magento:inner-products-attribute&gt;
-            &lt;magento:inner-products-attribute key="qty"&gt;2&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="product_id"&gt;1&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="sku"&gt;123&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="qty"&gt;2&lt;/magento:inner-products-attribute&gt;
         &lt;/magento:products-attribute&gt;
     &lt;/magento:products-attributes&gt;
 &lt;/magento:add-shopping-cart-product&gt;</pre></div></p></div>
@@ -3072,7 +3072,8 @@ specify which configuration to use.</p>
         
         <tr>
             <td>FileNotFoundException</td>
-            <td></td>
+            <td>when the payload object is not a valid file
+</td>
         </tr>
       </table>
   </div>
@@ -7033,9 +7034,9 @@ specify which configuration to use.</p>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:move-shopping-cart-product-to-customer-quote quoteId="1"&gt;
     &lt;magento:products-attributes&gt;
         &lt;magento:products-attribute&gt;
-            &lt;magento:inner-products-attribute key="product_id"&gt;1&lt;/magento:inner-products-attribute&gt;
-            &lt;magento:inner-products-attribute key="sku"&gt;123&lt;/magento:inner-products-attribute&gt;
-            &lt;magento:inner-products-attribute key="qty"&gt;2&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="product_id"&gt;1&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="sku"&gt;123&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="qty"&gt;2&lt;/magento:inner-products-attribute&gt;
         &lt;/magento:products-attribute&gt;
     &lt;/magento:products-attributes&gt;
 &lt;/magento:move-shopping-cart-product-to-customer-quote&gt;</pre></div></p></div>
@@ -7213,9 +7214,9 @@ specify which configuration to use.</p>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:remove-shopping-cart-product quoteId="1"&gt;
     &lt;magento:products-attributes&gt;
         &lt;magento:products-attribute&gt;
-            &lt;magento:inner-products-attribute key="product_id"&gt;1&lt;/magento:inner-products-attribute&gt;
-            &lt;magento:inner-products-attribute key="sku"&gt;123&lt;/magento:inner-products-attribute&gt;
-            &lt;magento:inner-products-attribute key="qty"&gt;2&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="product_id"&gt;1&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="sku"&gt;123&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="qty"&gt;2&lt;/magento:inner-products-attribute&gt;
         &lt;/magento:products-attribute&gt;
     &lt;/magento:products-attributes&gt;
 &lt;/magento:remove-shopping-cart-product&gt;</pre></div></p></div>
@@ -7318,7 +7319,9 @@ specify which configuration to use.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds information about the customer to a shopping cart (quote).
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:set-shopping-cart-customer quoteId="1" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:set-shopping-cart-customer quoteId="1"&gt;
+&lt;magento:customer ref="#[payload]" /&gt;
+&lt;/magento:set-shopping-cart-customer&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -7400,28 +7403,28 @@ specify which configuration to use.</p>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:set-shopping-cart-customer-addresses quoteId="1"&gt;
     &lt;magento:addresses&gt;
         &lt;magento:address&gt;
-            &lt;magento:inner-address key="mode"&gt;billing&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="firstname"&gt;customerName&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="lastname"&gt;customerLastname&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="street"&gt;billingAddressStreet&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="telephone"&gt;12341234&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="postcode"&gt;billingAddressZip&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="country_id"&gt;1&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="city"&gt;billingAddressCity&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="is_default_billing"&gt;1&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="is_default_shipping"&gt;0&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="mode"&gt;billing&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="firstname"&gt;customerName&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="lastname"&gt;customerLastname&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="street"&gt;billingAddressStreet&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="telephone"&gt;12341234&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="postcode"&gt;billingAddressZip&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="country_id"&gt;1&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="city"&gt;billingAddressCity&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="is_default_billing"&gt;1&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="is_default_shipping"&gt;0&lt;/magento:inner-address&gt;
         &lt;/magento:address&gt;
         &lt;magento:address&gt;
-            &lt;magento:inner-address key="mode"&gt;shipping&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="firstname"&gt;customerName&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="lastname"&gt;customerLastname&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="street"&gt;shippingAddressStreet&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="telephone"&gt;23452345&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="postcode"&gt;shippingAddressZip&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="country_id"&gt;1&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="city"&gt;shippingAddressCity&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="is_default_billing"&gt;0&lt;/magento:inner-address&gt;
-            &lt;magento:inner-address key="is_default_shipping"&gt;1&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="mode"&gt;shipping&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="firstname"&gt;customerName&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="lastname"&gt;customerLastname&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="street"&gt;shippingAddressStreet&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="telephone"&gt;23452345&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="postcode"&gt;shippingAddressZip&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="country_id"&gt;1&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="city"&gt;shippingAddressCity&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="is_default_billing"&gt;0&lt;/magento:inner-address&gt;
+            &lt;magento:inner-address key-ref="is_default_shipping"&gt;1&lt;/magento:inner-address&gt;
         &lt;/magento:address&gt;
     &lt;/magento:addresses&gt;
 &lt;/magento:set-shopping-cart-customer-addresses&gt;</pre></div></p></div>
@@ -7505,14 +7508,14 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Sets a payment method for a shopping cart (quote), cart must not be empty.
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:set-shopping-cart-payment-method quoteId="1"&gt;
     &lt;magento:method&gt;
-        &lt;magento:inner-method key="po_number"&gt;123&lt;/magento:inner-method&gt;
-        &lt;magento:inner-method key="method"&gt;air&lt;/magento:inner-method&gt;
-        &lt;magento:inner-method key="cc_cid"&gt;VISA&lt;/magento:inner-method&gt;
-        &lt;magento:inner-method key="cc_owner"&gt;John Doe&lt;/magento:inner-method&gt;
-        &lt;magento:inner-method key="cc_number"&gt;33333333333&lt;/magento:inner-method&gt;
-        &lt;magento:inner-method key="cc_type"&gt;Visa&lt;/magento:inner-method&gt;
-        &lt;magento:inner-method key="cc_exp_year"&gt;2018&lt;/magento:inner-method&gt;
-        &lt;magento:inner-method key="cc_exp_month"&gt;2&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key-ref="po_number"&gt;123&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key-ref="method"&gt;air&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key-ref="cc_cid"&gt;VISA&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key-ref="cc_owner"&gt;John Doe&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key-ref="cc_number"&gt;33333333333&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key-ref="cc_type"&gt;Visa&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key-ref="cc_exp_year"&gt;2018&lt;/magento:inner-method&gt;
+        &lt;magento:inner-method key-ref="cc_exp_month"&gt;2&lt;/magento:inner-method&gt;
     &lt;/magento:method&gt;
 &lt;/magento:set-shopping-cart-payment-method&gt;</pre></div></p></div>
   <div class="jd-tagdata">
@@ -8785,9 +8788,9 @@ specify which configuration to use.</p>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;magento:update-shopping-cart-product quoteId="1"&gt;
     &lt;magento:products-attributes&gt;
         &lt;magento:products-attribute&gt;
-            &lt;magento:inner-products-attribute key="product_id"&gt;1&lt;/magento:inner-products-attribute&gt;
-            &lt;magento:inner-products-attribute key="sku"&gt;123&lt;/magento:inner-products-attribute&gt;
-            &lt;magento:inner-products-attribute key="qty"&gt;2&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="product_id"&gt;1&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="sku"&gt;123&lt;/magento:inner-products-attribute&gt;
+            &lt;magento:inner-products-attribute key-ref="qty"&gt;2&lt;/magento:inner-products-attribute&gt;
         &lt;/magento:products-attribute&gt;
     &lt;/magento:products-attributes&gt;
 &lt;/magento:update-shopping-cart-product&gt;</pre></div></p></div>
