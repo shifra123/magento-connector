@@ -53,7 +53,7 @@ import java.util.Map;
  *
  * @author MuleSoft, Inc.
  */
-@Module(name = "magento", schemaVersion = "1.1")
+@Module(name = "magento", schemaVersion = "1.1", friendlyName = "Magento")
 public class MagentoCloudConnector {
 
     private MagentoOrderClient<Map<String, Object>, List<Map<String, Object>>, MagentoException> orderClient;

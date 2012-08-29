@@ -459,9 +459,9 @@
         <magento:add-shopping-cart-product quoteId="1">
             <magento:products-attributes>
                 <magento:products-attribute>
-                    <magento:inner-products-attribute key-ref="product_id">1</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key-ref="sku">123</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key-ref="qty">2</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
                 </magento:products-attribute>
             </magento:products-attributes>
         </magento:add-shopping-cart-product>
@@ -471,9 +471,9 @@
         <magento:update-shopping-cart-product quoteId="1">
             <magento:products-attributes>
                 <magento:products-attribute>
-                    <magento:inner-products-attribute key-ref="product_id">1</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key-ref="sku">123</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key-ref="qty">2</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
                 </magento:products-attribute>
             </magento:products-attributes>
         </magento:update-shopping-cart-product>
@@ -483,9 +483,9 @@
         <magento:remove-shopping-cart-product quoteId="1">
             <magento:products-attributes>
                 <magento:products-attribute>
-                    <magento:inner-products-attribute key-ref="product_id">1</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key-ref="sku">123</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key-ref="qty">2</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
                 </magento:products-attribute>
             </magento:products-attributes>
         </magento:remove-shopping-cart-product>
@@ -499,9 +499,9 @@
         <magento:move-shopping-cart-product-to-customer-quote quoteId="1">
             <magento:products-attributes>
                 <magento:products-attribute>
-                    <magento:inner-products-attribute key-ref="product_id">1</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key-ref="sku">123</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key-ref="qty">2</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
+                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
                 </magento:products-attribute>
             </magento:products-attributes>
         </magento:move-shopping-cart-product-to-customer-quote>
@@ -517,28 +517,28 @@
         <magento:set-shopping-cart-customer-addresses quoteId="1">
             <magento:addresses>
                 <magento:address>
-                    <magento:inner-address key-ref="mode">billing</magento:inner-address>
-                    <magento:inner-address key-ref="firstname">customerName</magento:inner-address>
-                    <magento:inner-address key-ref="lastname">customerLastname</magento:inner-address>
-                    <magento:inner-address key-ref="street">billingAddressStreet</magento:inner-address>
-                    <magento:inner-address key-ref="telephone">12341234</magento:inner-address>
-                    <magento:inner-address key-ref="postcode">billingAddressZip</magento:inner-address>
-                    <magento:inner-address key-ref="country_id">1</magento:inner-address>
-                    <magento:inner-address key-ref="city">billingAddressCity</magento:inner-address>
-                    <magento:inner-address key-ref="is_default_billing">1</magento:inner-address>
-                    <magento:inner-address key-ref="is_default_shipping">0</magento:inner-address>
+                    <magento:inner-address key="mode">billing</magento:inner-address>
+                    <magento:inner-address key="firstname">customerName</magento:inner-address>
+                    <magento:inner-address key="lastname">customerLastname</magento:inner-address>
+                    <magento:inner-address key="street">billingAddressStreet</magento:inner-address>
+                    <magento:inner-address key="telephone">12341234</magento:inner-address>
+                    <magento:inner-address key="postcode">billingAddressZip</magento:inner-address>
+                    <magento:inner-address key="country_id">1</magento:inner-address>
+                    <magento:inner-address key="city">billingAddressCity</magento:inner-address>
+                    <magento:inner-address key="is_default_billing">1</magento:inner-address>
+                    <magento:inner-address key="is_default_shipping">0</magento:inner-address>
                 </magento:address>
                 <magento:address>
-                    <magento:inner-address key-ref="mode">shipping</magento:inner-address>
-                    <magento:inner-address key-ref="firstname">customerName</magento:inner-address>
-                    <magento:inner-address key-ref="lastname">customerLastname</magento:inner-address>
-                    <magento:inner-address key-ref="street">shippingAddressStreet</magento:inner-address>
-                    <magento:inner-address key-ref="telephone">23452345</magento:inner-address>
-                    <magento:inner-address key-ref="postcode">shippingAddressZip</magento:inner-address>
-                    <magento:inner-address key-ref="country_id">1</magento:inner-address>
-                    <magento:inner-address key-ref="city">shippingAddressCity</magento:inner-address>
-                    <magento:inner-address key-ref="is_default_billing">0</magento:inner-address>
-                    <magento:inner-address key-ref="is_default_shipping">1</magento:inner-address>
+                    <magento:inner-address key="mode">shipping</magento:inner-address>
+                    <magento:inner-address key="firstname">customerName</magento:inner-address>
+                    <magento:inner-address key="lastname">customerLastname</magento:inner-address>
+                    <magento:inner-address key="street">shippingAddressStreet</magento:inner-address>
+                    <magento:inner-address key="telephone">23452345</magento:inner-address>
+                    <magento:inner-address key="postcode">shippingAddressZip</magento:inner-address>
+                    <magento:inner-address key="country_id">1</magento:inner-address>
+                    <magento:inner-address key="city">shippingAddressCity</magento:inner-address>
+                    <magento:inner-address key="is_default_billing">0</magento:inner-address>
+                    <magento:inner-address key="is_default_shipping">1</magento:inner-address>
                 </magento:address>
             </magento:addresses>
         </magento:set-shopping-cart-customer-addresses>
@@ -555,14 +555,14 @@
 <!-- BEGIN_INCLUDE(magento:setShoppingCartPaymentMethod) -->
         <magento:set-shopping-cart-payment-method quoteId="1">
             <magento:method>
-                <magento:inner-method key-ref="po_number">123</magento:inner-method>
-                <magento:inner-method key-ref="method">air</magento:inner-method>
-                <magento:inner-method key-ref="cc_cid">VISA</magento:inner-method>
-                <magento:inner-method key-ref="cc_owner">John Doe</magento:inner-method>
-                <magento:inner-method key-ref="cc_number">33333333333</magento:inner-method>
-                <magento:inner-method key-ref="cc_type">Visa</magento:inner-method>
-                <magento:inner-method key-ref="cc_exp_year">2018</magento:inner-method>
-                <magento:inner-method key-ref="cc_exp_month">2</magento:inner-method>
+                <magento:inner-method key="po_number">123</magento:inner-method>
+                <magento:inner-method key="method">air</magento:inner-method>
+                <magento:inner-method key="cc_cid">VISA</magento:inner-method>
+                <magento:inner-method key="cc_owner">John Doe</magento:inner-method>
+                <magento:inner-method key="cc_number">33333333333</magento:inner-method>
+                <magento:inner-method key="cc_type">Visa</magento:inner-method>
+                <magento:inner-method key="cc_exp_year">2018</magento:inner-method>
+                <magento:inner-method key="cc_exp_month">2</magento:inner-method>
             </magento:method>
         </magento:set-shopping-cart-payment-method>
 <!-- END_INCLUDE(magento:setShoppingCartPaymentMethod) -->
