@@ -210,11 +210,15 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/adapters/package-summary.html">org.mule.module.magento.adapters</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/agents/package-summary.html">org.mule.module.magento.agents</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/api/package-summary.html">org.mule.module.magento.api</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/api/catalog/package-summary.html">org.mule.module.magento.api.catalog</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/api/catalog/model/package-summary.html">org.mule.module.magento.api.catalog.model</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/catalog/model/transformers/package-summary.html">org.mule.module.magento.api.catalog.model.transformers</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/api/customer/package-summary.html">org.mule.module.magento.api.customer</a></li>
     <li class="api apilevel-">
@@ -236,6 +240,8 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/processors/package-summary.html">org.mule.module.magento.processors</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/transformers/package-summary.html">org.mule.module.magento.transformers</a></li>
@@ -245,9 +251,15 @@
           <div id="classes-nav">
             <ul>
               
+    <li><h2>Interfaces</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AbstractDefinitionParser.ParseDelegate.html">AbstractDefinitionParser.ParseDelegate</a>&lt;T&gt;</li>
+      </ul>
+    </li>
               
     <li><h2>Classes</h2>
       <ul>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AbstractDefinitionParser.html">AbstractDefinitionParser</a></li>
         <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddCategoryProductDefinitionParser.html">AddCategoryProductDefinitionParser</a></li>
         <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddCategoryProductMessageProcessor.html">AddCategoryProductMessageProcessor</a></li>
         <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderCommentDefinitionParser.html">AddOrderCommentDefinitionParser</a></li>
@@ -386,6 +398,7 @@
         <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorConfigDefinitionParser.html">MagentoCloudConnectorConfigDefinitionParser</a></li>
         <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorLifecycleAdapter.html">MagentoCloudConnectorLifecycleAdapter</a></li>
         <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorNamespaceHandler.html">MagentoCloudConnectorNamespaceHandler</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MagentoNamespaceHandler.html">MagentoNamespaceHandler</a></li>
         <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MediaMimeTypeEnumTransformer.html">MediaMimeTypeEnumTransformer</a></li>
         <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MoveCategoryDefinitionParser.html">MoveCategoryDefinitionParser</a></li>
         <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/config/MoveCategoryMessageProcessor.html">MoveCategoryMessageProcessor</a></li>
@@ -490,6 +503,17 @@
 
 
   
+    <h2>Interfaces</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AbstractDefinitionParser.ParseDelegate.html">AbstractDefinitionParser.ParseDelegate</a>&lt;T&gt;</td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
 
 
   
@@ -498,555 +522,563 @@
     
   <table class="jd-sumtable-expando">
         <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AbstractDefinitionParser.html">AbstractDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddCategoryProductDefinitionParser.html">AddCategoryProductDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddCategoryProductMessageProcessor.html">AddCategoryProductMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">AddCategoryProductMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#addCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">addCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderCommentDefinitionParser.html">AddOrderCommentDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderCommentMessageProcessor.html">AddOrderCommentMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">AddOrderCommentMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#addOrderComment(java.lang.String, java.lang.String, java.lang.String, boolean)">addOrderComment(java.lang.String, java.lang.String, java.lang.String, boolean)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderInvoiceCommentDefinitionParser.html">AddOrderInvoiceCommentDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderInvoiceCommentMessageProcessor.html">AddOrderInvoiceCommentMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">AddOrderInvoiceCommentMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#addOrderInvoiceComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderInvoiceComment(java.lang.String, java.lang.String, boolean, boolean)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderShipmentCommentDefinitionParser.html">AddOrderShipmentCommentDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderShipmentCommentMessageProcessor.html">AddOrderShipmentCommentMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">AddOrderShipmentCommentMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#addOrderShipmentComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderShipmentComment(java.lang.String, java.lang.String, boolean, boolean)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderShipmentTrackDefinitionParser.html">AddOrderShipmentTrackDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddOrderShipmentTrackMessageProcessor.html">AddOrderShipmentTrackMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">AddOrderShipmentTrackMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#addOrderShipmentTrack(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">addOrderShipmentTrack(java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddProductLinkDefinitionParser.html">AddProductLinkDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddProductLinkMessageProcessor.html">AddProductLinkMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">AddProductLinkMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#addProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">addProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddShoppingCartCouponDefinitionParser.html">AddShoppingCartCouponDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/AddShoppingCartProductDefinitionParser.html">AddShoppingCartProductDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CancelOrderDefinitionParser.html">CancelOrderDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CancelOrderInvoiceDefinitionParser.html">CancelOrderInvoiceDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CancelOrderInvoiceMessageProcessor.html">CancelOrderInvoiceMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">CancelOrderInvoiceMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#cancelOrderInvoice(java.lang.String)">cancelOrderInvoice(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CancelOrderMessageProcessor.html">CancelOrderMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">CancelOrderMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#cancelOrder(java.lang.String)">cancelOrder(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CaptureOrderInvoiceDefinitionParser.html">CaptureOrderInvoiceDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CaptureOrderInvoiceMessageProcessor.html">CaptureOrderInvoiceMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">CaptureOrderInvoiceMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#captureOrderInvoice(java.lang.String)">captureOrderInvoice(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateCategoryDefinitionParser.html">CreateCategoryDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateCategoryMessageProcessor.html">CreateCategoryMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">CreateCategoryMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#createCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">createCategory(int, java.util.Map, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateCustomerAddressDefinitionParser.html">CreateCustomerAddressDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateCustomerAddressMessageProcessor.html">CreateCustomerAddressMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">CreateCustomerAddressMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#createCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)">createCustomerAddress(int, java.util.Map)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateCustomerDefinitionParser.html">CreateCustomerDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateCustomerMessageProcessor.html">CreateCustomerMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">CreateCustomerMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#createCustomer(java.util.Map<java.lang.String, java.lang.Object>)">createCustomer(java.util.Map)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateOrderInvoiceDefinitionParser.html">CreateOrderInvoiceDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateOrderInvoiceMessageProcessor.html">CreateOrderInvoiceMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">CreateOrderInvoiceMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#createOrderInvoice(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)">createOrderInvoice(java.lang.String, java.util.Map, java.lang.String, boolean, boolean)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateOrderShipmentDefinitionParser.html">CreateOrderShipmentDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateOrderShipmentMessageProcessor.html">CreateOrderShipmentMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">CreateOrderShipmentMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#createOrderShipment(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)">createOrderShipment(java.lang.String, java.util.Map, java.lang.String, boolean, boolean)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateProductAttributeMediaDefinitionParser.html">CreateProductAttributeMediaDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateProductAttributeMediaMessageProcessor.html">CreateProductAttributeMediaMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">CreateProductAttributeMediaMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#createProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String, java.lang.Object, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String)">createProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map, java.lang.String, java.lang.Object, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateProductDefinitionParser.html">CreateProductDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateProductMessageProcessor.html">CreateProductMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">CreateProductMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#createProduct(java.lang.String, int, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">createProduct(java.lang.String, int, java.lang.String, java.util.Map, java.util.Map, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateShoppingCartDefinitionParser.html">CreateShoppingCartDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/CreateShoppingCartOrderDefinitionParser.html">CreateShoppingCartOrderDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCategoryDefinitionParser.html">DeleteCategoryDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCategoryMessageProcessor.html">DeleteCategoryMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">DeleteCategoryMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#deleteCategory(int)">deleteCategory(int)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCategoryProductDefinitionParser.html">DeleteCategoryProductDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCategoryProductMessageProcessor.html">DeleteCategoryProductMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">DeleteCategoryProductMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#deleteCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String)">deleteCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCustomerAddressDefinitionParser.html">DeleteCustomerAddressDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCustomerAddressMessageProcessor.html">DeleteCustomerAddressMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">DeleteCustomerAddressMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#deleteCustomerAddress(int)">deleteCustomerAddress(int)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCustomerDefinitionParser.html">DeleteCustomerDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteCustomerMessageProcessor.html">DeleteCustomerMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">DeleteCustomerMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#deleteCustomer(int)">deleteCustomer(int)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteOrderShipmentTrackDefinitionParser.html">DeleteOrderShipmentTrackDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteOrderShipmentTrackMessageProcessor.html">DeleteOrderShipmentTrackMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">DeleteOrderShipmentTrackMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#deleteOrderShipmentTrack(java.lang.String, java.lang.String)">deleteOrderShipmentTrack(java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductAttributeMediaDefinitionParser.html">DeleteProductAttributeMediaDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductAttributeMediaMessageProcessor.html">DeleteProductAttributeMediaMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">DeleteProductAttributeMediaMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#deleteProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">deleteProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductDefinitionParser.html">DeleteProductDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductLinkDefinitionParser.html">DeleteProductLinkDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductLinkMessageProcessor.html">DeleteProductLinkMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">DeleteProductLinkMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#deleteProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">deleteProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/DeleteProductMessageProcessor.html">DeleteProductMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">DeleteProductMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#deleteProduct(java.lang.Integer, java.lang.String, java.lang.String)">deleteProduct(java.lang.Integer, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetCatalogCurrentStoreViewDefinitionParser.html">GetCatalogCurrentStoreViewDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetCatalogCurrentStoreViewMessageProcessor.html">GetCatalogCurrentStoreViewMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetCatalogCurrentStoreViewMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getCatalogCurrentStoreView()">getCatalogCurrentStoreView()</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetCategoryDefinitionParser.html">GetCategoryDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetCategoryMessageProcessor.html">GetCategoryMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetCategoryMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getCategory(int, java.lang.String, java.util.List<java.lang.String>)">getCategory(int, java.lang.String, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetCategoryTreeDefinitionParser.html">GetCategoryTreeDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetCategoryTreeMessageProcessor.html">GetCategoryTreeMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetCategoryTreeMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getCategoryTree(java.lang.String, java.lang.String)">getCategoryTree(java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetCustomerAddressDefinitionParser.html">GetCustomerAddressDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetCustomerAddressMessageProcessor.html">GetCustomerAddressMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetCustomerAddressMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getCustomerAddress(int)">getCustomerAddress(int)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetCustomerDefinitionParser.html">GetCustomerDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetCustomerMessageProcessor.html">GetCustomerMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetCustomerMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getCustomer(int, java.util.List<java.lang.String>)">getCustomer(int, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetInfoShoppingCartDefinitionParser.html">GetInfoShoppingCartDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderDefinitionParser.html">GetOrderDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderInvoiceDefinitionParser.html">GetOrderInvoiceDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderInvoiceMessageProcessor.html">GetOrderInvoiceMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetOrderInvoiceMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getOrderInvoice(java.lang.String)">getOrderInvoice(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderMessageProcessor.html">GetOrderMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetOrderMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getOrder(java.lang.String)">getOrder(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderShipmentCarriersDefinitionParser.html">GetOrderShipmentCarriersDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderShipmentCarriersMessageProcessor.html">GetOrderShipmentCarriersMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetOrderShipmentCarriersMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getOrderShipmentCarriers(java.lang.String)">getOrderShipmentCarriers(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderShipmentDefinitionParser.html">GetOrderShipmentDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetOrderShipmentMessageProcessor.html">GetOrderShipmentMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetOrderShipmentMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getOrderShipment(java.lang.String)">getOrderShipment(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetProductAttributeMediaDefinitionParser.html">GetProductAttributeMediaDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetProductAttributeMediaMessageProcessor.html">GetProductAttributeMediaMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetProductAttributeMediaMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">getProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetProductDefinitionParser.html">GetProductDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetProductMessageProcessor.html">GetProductMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetProductMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getProduct(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)">getProduct(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.List, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetProductSpecialPriceDefinitionParser.html">GetProductSpecialPriceDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/GetProductSpecialPriceMessageProcessor.html">GetProductSpecialPriceMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">GetProductSpecialPriceMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#getProductSpecialPrice(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">getProductSpecialPrice(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/HoldOrderDefinitionParser.html">HoldOrderDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/HoldOrderMessageProcessor.html">HoldOrderMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">HoldOrderMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#holdOrder(java.lang.String)">holdOrder(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryAttributeOptionsDefinitionParser.html">ListCategoryAttributeOptionsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryAttributeOptionsMessageProcessor.html">ListCategoryAttributeOptionsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListCategoryAttributeOptionsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listCategoryAttributeOptions(java.lang.String, java.lang.String)">listCategoryAttributeOptions(java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryAttributesDefinitionParser.html">ListCategoryAttributesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryAttributesMessageProcessor.html">ListCategoryAttributesMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListCategoryAttributesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listCategoryAttributes()">listCategoryAttributes()</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryLevelsDefinitionParser.html">ListCategoryLevelsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryLevelsMessageProcessor.html">ListCategoryLevelsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListCategoryLevelsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listCategoryLevels(java.lang.String, java.lang.String, java.lang.String)">listCategoryLevels(java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryProductsDefinitionParser.html">ListCategoryProductsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCategoryProductsMessageProcessor.html">ListCategoryProductsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListCategoryProductsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listCategoryProducts(int)">listCategoryProducts(int)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomerAddressesDefinitionParser.html">ListCustomerAddressesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomerAddressesMessageProcessor.html">ListCustomerAddressesMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListCustomerAddressesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listCustomerAddresses(int)">listCustomerAddresses(int)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomerGroupsDefinitionParser.html">ListCustomerGroupsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomerGroupsMessageProcessor.html">ListCustomerGroupsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListCustomerGroupsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listCustomerGroups()">listCustomerGroups()</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomersDefinitionParser.html">ListCustomersDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListCustomersMessageProcessor.html">ListCustomersMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListCustomersMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listCustomers(java.lang.String)">listCustomers(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListDirectoryCountriesDefinitionParser.html">ListDirectoryCountriesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListDirectoryCountriesMessageProcessor.html">ListDirectoryCountriesMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListDirectoryCountriesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listDirectoryCountries()">listDirectoryCountries()</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListDirectoryRegionsDefinitionParser.html">ListDirectoryRegionsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListDirectoryRegionsMessageProcessor.html">ListDirectoryRegionsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListDirectoryRegionsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listDirectoryRegions(java.lang.String)">listDirectoryRegions(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListInventoryStockItemsDefinitionParser.html">ListInventoryStockItemsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListInventoryStockItemsMessageProcessor.html">ListInventoryStockItemsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListInventoryStockItemsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listInventoryStockItems(java.util.List<java.lang.String>)">listInventoryStockItems(java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersDefinitionParser.html">ListOrdersDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersInvoicesDefinitionParser.html">ListOrdersInvoicesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersInvoicesMessageProcessor.html">ListOrdersInvoicesMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListOrdersInvoicesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listOrdersInvoices(java.lang.String)">listOrdersInvoices(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersMessageProcessor.html">ListOrdersMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListOrdersMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listOrders(java.lang.String)">listOrders(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersShipmentsDefinitionParser.html">ListOrdersShipmentsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListOrdersShipmentsMessageProcessor.html">ListOrdersShipmentsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListOrdersShipmentsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listOrdersShipments(java.lang.String)">listOrdersShipments(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeMediaDefinitionParser.html">ListProductAttributeMediaDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeMediaMessageProcessor.html">ListProductAttributeMediaMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductAttributeMediaMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">listProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeMediaTypesDefinitionParser.html">ListProductAttributeMediaTypesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeMediaTypesMessageProcessor.html">ListProductAttributeMediaTypesMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductAttributeMediaTypesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeMediaTypes(int)">listProductAttributeMediaTypes(int)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeOptionsDefinitionParser.html">ListProductAttributeOptionsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeOptionsMessageProcessor.html">ListProductAttributeOptionsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductAttributeOptionsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeOptions(java.lang.String, java.lang.String)">listProductAttributeOptions(java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributesDefinitionParser.html">ListProductAttributesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeSetsDefinitionParser.html">ListProductAttributeSetsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeSetsMessageProcessor.html">ListProductAttributeSetsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductAttributeSetsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeSets()">listProductAttributeSets()</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributesMessageProcessor.html">ListProductAttributesMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductAttributesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProductAttributes(int)">listProductAttributes(int)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeTierPricesDefinitionParser.html">ListProductAttributeTierPricesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductAttributeTierPricesMessageProcessor.html">ListProductAttributeTierPricesMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductAttributeTierPricesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeTierPrices(java.lang.Integer, java.lang.String, java.lang.String)">listProductAttributeTierPrices(java.lang.Integer, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkAttributesDefinitionParser.html">ListProductLinkAttributesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkAttributesMessageProcessor.html">ListProductLinkAttributesMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductLinkAttributesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProductLinkAttributes(java.lang.String)">listProductLinkAttributes(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkDefinitionParser.html">ListProductLinkDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkMessageProcessor.html">ListProductLinkMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductLinkMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String)">listProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkTypesDefinitionParser.html">ListProductLinkTypesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductLinkTypesMessageProcessor.html">ListProductLinkTypesMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductLinkTypesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProductLinkTypes()">listProductLinkTypes()</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductsDefinitionParser.html">ListProductsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductsMessageProcessor.html">ListProductsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProducts(java.lang.String, java.lang.String)">listProducts(java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductTypesDefinitionParser.html">ListProductTypesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListProductTypesMessageProcessor.html">ListProductTypesMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListProductTypesMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listProductTypes()">listProductTypes()</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListShoppingCartLicensesDefinitionParser.html">ListShoppingCartLicensesDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListShoppingCartPaymentMethodsDefinitionParser.html">ListShoppingCartPaymentMethodsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListShoppingCartProductsDefinitionParser.html">ListShoppingCartProductsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListShoppingCartShippingMethodsDefinitionParser.html">ListShoppingCartShippingMethodsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListShoppingCartTotalsDefinitionParser.html">ListShoppingCartTotalsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListStockItemsDefinitionParser.html">ListStockItemsDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/ListStockItemsMessageProcessor.html">ListStockItemsMessageProcessor</a></td>
               <td class="jd-descrcol" width="100%">ListStockItemsMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html#listStockItems(java.util.List<java.lang.String>)">listStockItems(java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code>.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorCapabilitiesAdapter.html">MagentoCloudConnectorCapabilitiesAdapter</a></td>
               <td class="jd-descrcol" width="100%">A <code>MagentoCloudConnectorCapabilitiesAdapter</code> is a wrapper around <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code> that implements org.mule.api.Capabilities interface.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorConfigDefinitionParser.html">MagentoCloudConnectorConfigDefinitionParser</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorLifecycleAdapter.html">MagentoCloudConnectorLifecycleAdapter</a></td>
               <td class="jd-descrcol" width="100%">A <code>MagentoCloudConnectorLifecycleAdapter</code> is a wrapper around <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code> that adds lifecycle methods to the pojo.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/MagentoCloudConnectorNamespaceHandler.html">MagentoCloudConnectorNamespaceHandler</a></td>
+              <td class="jd-descrcol" width="100%">Registers bean definitions parsers for handling elements in <code>http://www.mulesoft.org/schema/mule/magento</code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/module/magento/config/MagentoNamespaceHandler.html">MagentoNamespaceHandler</a></td>
               <td class="jd-descrcol" width="100%">Registers bean definitions parsers for handling elements in <code>http://www.mulesoft.org/schema/mule/magento</code>.&nbsp;</td>
           </tr>
         <tr class="alt-color api apilevel-" >

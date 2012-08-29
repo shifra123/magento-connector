@@ -1,0 +1,3971 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Magento Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
+<title>
+
+  MagentoCloudConnectorProcessAdapter
+
+
+| Mule Magento Connector
+
+</title>
+<link href="../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-toc.js" type="text/javascript"></script>
+<script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../", "../../../../../../assets/");
+</script>
+<script src="../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Magento Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Magento Connector</span>
+    
+    <ul id="header-tabs" class="">
+    
+    	<li id="guide"><a href="../../../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    
+    	<li id="java"><a href="../../../../../../java/packages.html">
+	    	<span class="en">Java API Reference</span>
+    	</a></li>
+    
+    	<li id="mule"><a href="../../../../../../mule/modules.html">
+	    	<span class="en">Mule API Reference</span>
+    	</a></li>
+    
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../java/classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/magento/api/package-summary.html">com.magento.api</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/adapters/package-summary.html">org.mule.module.magento.adapters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/agents/package-summary.html">org.mule.module.magento.agents</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/package-summary.html">org.mule.module.magento.api</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/catalog/package-summary.html">org.mule.module.magento.api.catalog</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/catalog/model/package-summary.html">org.mule.module.magento.api.catalog.model</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/catalog/model/transformers/package-summary.html">org.mule.module.magento.api.catalog.model.transformers</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/customer/package-summary.html">org.mule.module.magento.api.customer</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/directory/package-summary.html">org.mule.module.magento.api.directory</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/inventory/package-summary.html">org.mule.module.magento.api.inventory</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/order/package-summary.html">org.mule.module.magento.api.order</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/order/model/package-summary.html">org.mule.module.magento.api.order.model</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/shoppingCart/package-summary.html">org.mule.module.magento.api.shoppingCart</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/config/spring/package-summary.html">org.mule.module.magento.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/processors/package-summary.html">org.mule.module.magento.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/transformers/package-summary.html">org.mule.module.magento.transformers</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorCapabilitiesAdapter.html">MagentoCloudConnectorCapabilitiesAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorLifecycleAdapter.html">MagentoCloudConnectorLifecycleAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html">MagentoCloudConnectorMetadataAdapater</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorProcessAdapter.html">MagentoCloudConnectorProcessAdapter</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+   
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+
+  <a href="#inhconstants">Inherited Constants</a>
+  
+
+
+
+  &#124; <a href="#inhfields">Inherited Fields</a>
+  
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1>MagentoCloudConnectorProcessAdapter</h1>
+
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+    extends <a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorLifecycleAdapter.html">MagentoCloudConnectorLifecycleAdapter</a><br/>
+  
+  
+  
+
+  
+  
+      implements 
+      
+        ProcessAdapter&lt;O&gt; 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="6" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="5" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">org.mule.module.magento.MagentoCloudConnector</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="4" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorCapabilitiesAdapter.html">org.mule.module.magento.adapters.MagentoCloudConnectorCapabilitiesAdapter</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html">org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorLifecycleAdapter.html">org.mule.module.magento.adapters.MagentoCloudConnectorLifecycleAdapter</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.adapters.MagentoCloudConnectorProcessAdapter</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>A <code>MagentoCloudConnectorProcessAdapter</code> is a wrapper around <code><a href="../../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code> that enables custom processing strategies.
+ 
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="inhconstants" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html">org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater</a>
+<div id="inherited-constants-org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater">
+  <div id="inherited-constants-org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#DEVKIT_BUILD">DEVKIT_BUILD</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#DEVKIT_VERSION">DEVKIT_VERSION</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#MODULE_NAME">MODULE_NAME</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#MODULE_VERSION">MODULE_VERSION</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-org.mule.api.lifecycle.Disposable" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-org.mule.api.lifecycle.Disposable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From interface
+org.mule.api.lifecycle.Disposable
+<div id="inherited-constants-org.mule.api.lifecycle.Disposable">
+  <div id="inherited-constants-org.mule.api.lifecycle.Disposable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-org.mule.api.lifecycle.Disposable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol">PHASE_NAME</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-org.mule.api.lifecycle.Initialisable" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-org.mule.api.lifecycle.Initialisable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From interface
+org.mule.api.lifecycle.Initialisable
+<div id="inherited-constants-org.mule.api.lifecycle.Initialisable">
+  <div id="inherited-constants-org.mule.api.lifecycle.Initialisable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-org.mule.api.lifecycle.Initialisable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol">PHASE_NAME</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-org.mule.api.lifecycle.Startable" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-org.mule.api.lifecycle.Startable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From interface
+org.mule.api.lifecycle.Startable
+<div id="inherited-constants-org.mule.api.lifecycle.Startable">
+  <div id="inherited-constants-org.mule.api.lifecycle.Startable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-org.mule.api.lifecycle.Startable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol">PHASE_NAME</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-org.mule.api.lifecycle.Stoppable" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-org.mule.api.lifecycle.Stoppable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From interface
+org.mule.api.lifecycle.Stoppable
+<div id="inherited-constants-org.mule.api.lifecycle.Stoppable">
+  <div id="inherited-constants-org.mule.api.lifecycle.Stoppable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-org.mule.api.lifecycle.Stoppable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol">PHASE_NAME</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="inhfields" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Fields</div></th></tr>
+
+
+
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-org.mule.module.magento.MagentoCloudConnector" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-org.mule.module.magento.MagentoCloudConnector-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html">org.mule.module.magento.MagentoCloudConnector</a>
+<div id="inherited-fields-org.mule.module.magento.MagentoCloudConnector">
+  <div id="inherited-fields-org.mule.module.magento.MagentoCloudConnector-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-fields-org.mule.module.magento.MagentoCloudConnector-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#address">address</a></td>
+          <td class="jd-descrcol" width="100%">The address to access Magento Web Services
+</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#catalogClient">catalogClient</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#customerClient">customerClient</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../../java/org/mule/module/magento/api/directory/MagentoDirectoryClient.html">MagentoDirectoryClient</a>&lt;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#directoryClient">directoryClient</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../../java/org/mule/module/magento/api/customer/MagentoInventoryClient.html">MagentoInventoryClient</a>&lt;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#inventoryClient">inventoryClient</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#orderClient">orderClient</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#password">password</a></td>
+          <td class="jd-descrcol" width="100%">The password to access Magento Web Services
+</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#shoppingCartClient">shoppingCartClient</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#username">username</a></td>
+          <td class="jd-descrcol" width="100%">The user name to access Magento Web Services
+</td>
+      </tr>
+      
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorProcessAdapter.html#MagentoCloudConnectorProcessAdapter()">MagentoCloudConnectorProcessAdapter</a></span>()</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            &lt;P&gt;
+            ProcessTemplate&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorCapabilitiesAdapter.html">MagentoCloudConnectorCapabilitiesAdapter</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorProcessAdapter.html#getProcessTemplate()">getProcessTemplate</a></span>()</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorLifecycleAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorLifecycleAdapter-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorLifecycleAdapter.html">org.mule.module.magento.adapters.MagentoCloudConnectorLifecycleAdapter</a>
+
+<div id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorLifecycleAdapter">
+  <div id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorLifecycleAdapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorLifecycleAdapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorLifecycleAdapter.html#dispose()">dispose</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorLifecycleAdapter.html#initialise()">initialise</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorLifecycleAdapter.html#start()">start</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorLifecycleAdapter.html#stop()">stop</a></span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html">org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater</a>
+
+<div id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater">
+  <div id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorMetadataAdapater-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#getDevkitBuild()">getDevkitBuild</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#getDevkitVersion()">getDevkitVersion</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#getModuleName()">getModuleName</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#getModuleVersion()">getModuleVersion</a></span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorCapabilitiesAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorCapabilitiesAdapter-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorCapabilitiesAdapter.html">org.mule.module.magento.adapters.MagentoCloudConnectorCapabilitiesAdapter</a>
+
+<div id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorCapabilitiesAdapter">
+  <div id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorCapabilitiesAdapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.module.magento.adapters.MagentoCloudConnectorCapabilitiesAdapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorCapabilitiesAdapter.html#isCapableOf(org.mule.api.Capability)">isCapableOf</a></span>(Capability capability)</nobr>
+        
+        <div class="jd-descrdiv">Returns true if this module implements such capability
+ 
+</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.MagentoCloudConnector" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.module.magento.MagentoCloudConnector-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html">org.mule.module.magento.MagentoCloudConnector</a>
+
+<div id="inherited-methods-org.mule.module.magento.MagentoCloudConnector">
+  <div id="inherited-methods-org.mule.module.magento.MagentoCloudConnector-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.module.magento.MagentoCloudConnector-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">addCategoryProduct</a></span>(int categoryId, Integer productId, String productSku, String productIdOrSku, String position)</nobr>
+        
+        <div class="jd-descrdiv">Assign product to category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addOrderComment(java.lang.String, java.lang.String, java.lang.String, boolean)">addOrderComment</a></span>(String orderId, String status, String comment, boolean sendEmail)</nobr>
+        
+        <div class="jd-descrdiv">Adds a comment to the given order id
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addOrderInvoiceComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderInvoiceComment</a></span>(String invoiceId, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
+        
+        <div class="jd-descrdiv">Adds a comment to the given order's invoice
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addOrderShipmentComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderShipmentComment</a></span>(String shipmentId, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
+        
+        <div class="jd-descrdiv">Adds a comment to the shipment.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addOrderShipmentTrack(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">addOrderShipmentTrack</a></span>(String shipmentId, String carrierCode, String title, String trackId)</nobr>
+        
+        <div class="jd-descrdiv">Adds a new tracking number
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">addProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        
+        <div class="jd-descrdiv">Links two products, given its source and destination productIdOrSku.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addShoppingCartCoupon(int, java.lang.String, java.lang.String)">addShoppingCartCoupon</a></span>(int quoteId, String couponCode, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Adds a coupon code for a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">addShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Adds one or more products to the shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#cancelOrder(java.lang.String)">cancelOrder</a></span>(String orderId)</nobr>
+        
+        <div class="jd-descrdiv">Cancels an order
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#cancelOrderInvoice(java.lang.String)">cancelOrderInvoice</a></span>(String invoiceId)</nobr>
+        
+        <div class="jd-descrdiv">Cancels an order's invoice
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#captureOrderInvoice(java.lang.String)">captureOrderInvoice</a></span>(String invoiceId)</nobr>
+        
+        <div class="jd-descrdiv">Captures and invoice
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">createCategory</a></span>(int parentId, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createCustomer(java.util.Map<java.lang.String, java.lang.Object>)">createCustomer</a></span>(Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        
+        <div class="jd-descrdiv">Creates a customer with the given attributes
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)">createCustomerAddress</a></span>(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new address for the given customer using the given address
+ attributes
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createOrderInvoice(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)">createOrderInvoice</a></span>(String orderId, Map&lt;Integer,&nbsp;Double&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
+        
+        <div class="jd-descrdiv">Creates an invoice for the given order
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createOrderShipment(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)">createOrderShipment</a></span>(String orderId, Map&lt;Integer,&nbsp;Double&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
+        
+        <div class="jd-descrdiv">Creates a shipment for order
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createProduct(java.lang.String, int, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">createProduct</a></span>(String type, int set, String sku, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new product
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String, java.lang.Object, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String)">createProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode, Object payload, <a href="../../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new product media.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createShoppingCart(java.lang.String)">createShoppingCart</a></span>(String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Creates an empty shopping cart.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#createShoppingCartOrder(int, java.lang.String, java.util.List<java.lang.String>)">createShoppingCartOrder</a></span>(int quoteId, String storeId, List&lt;String&gt; licenses)</nobr>
+        
+        <div class="jd-descrdiv">Creates an order from a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteCategory(int)">deleteCategory</a></span>(int categoryId)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String)">deleteCategoryProduct</a></span>(int categoryId, Integer productId, String productSku, String productIdOrSku)</nobr>
+        
+        <div class="jd-descrdiv">Remove a product assignment.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteCustomer(int)">deleteCustomer</a></span>(int customerId)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a customer given its id
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteCustomerAddress(int)">deleteCustomerAddress</a></span>(int addressId)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a Customer Address
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteOrderShipmentTrack(java.lang.String, java.lang.String)">deleteOrderShipmentTrack</a></span>(String shipmentId, String trackId)</nobr>
+        
+        <div class="jd-descrdiv">Deletes the given track of the given order's shipment
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteProduct(java.lang.Integer, java.lang.String, java.lang.String)">deleteProduct</a></span>(Integer productId, String productSku, String productIdOrSku)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a product.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">deleteProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName)</nobr>
+        
+        <div class="jd-descrdiv">Removes a product image.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">deleteProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a product's link.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getAddress()">getAddress</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCatalogCurrentStoreView()">getCatalogCurrentStoreView</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Answers the current default catalog store view id for this session
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCategory(int, java.lang.String, java.util.List<java.lang.String>)">getCategory</a></span>(int categoryId, String storeViewIdOrCode, List&lt;String&gt; attributeNames)</nobr>
+        
+        <div class="jd-descrdiv">Answers category attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCategoryTree(java.lang.String, java.lang.String)">getCategoryTree</a></span>(String parentId, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Answers the category tree.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCustomer(int, java.util.List<java.lang.String>)">getCustomer</a></span>(int customerId, List&lt;String&gt; attributeNames)</nobr>
+        
+        <div class="jd-descrdiv">Answers customer attributes for the given id.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCustomerAddress(int)">getCustomerAddress</a></span>(int addressId)</nobr>
+        
+        <div class="jd-descrdiv">Answers the customer address attributes
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getInfoShoppingCart(int, java.lang.String)">getInfoShoppingCart</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves full information about the shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getOrder(java.lang.String)">getOrder</a></span>(String orderId)</nobr>
+        
+        <div class="jd-descrdiv">Answers the order properties for the given orderId
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getOrderInvoice(java.lang.String)">getOrderInvoice</a></span>(String invoiceId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves order invoice information
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getOrderShipment(java.lang.String)">getOrderShipment</a></span>(String shipmentId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the order shipment attributes
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../java/org/mule/module/magento/api/order/model/Carrier.html">Carrier</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getOrderShipmentCarriers(java.lang.String)">getOrderShipmentCarriers</a></span>(String orderId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the order shipment carriers.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getPassword()">getPassword</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getProduct(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)">getProduct</a></span>(Integer productId, String productSku, String productIdOrSku, String storeViewIdOrCode, List&lt;String&gt; attributesNames, List&lt;String&gt; additionalAttributeNames)</nobr>
+        
+        <div class="jd-descrdiv">Answers a product's specified attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">getProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Lists linked products to the given product and for the given link type.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getProductSpecialPrice(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">getProductSpecialPrice</a></span>(Integer productId, String productSku, String productIdOrSku, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Answers a product special price.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getUsername()">getUsername</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#holdOrder(java.lang.String)">holdOrder</a></span>(String orderId)</nobr>
+        
+        <div class="jd-descrdiv">Puts order on hold.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#initialiseConnector()">initialiseConnector</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCategoryAttributeOptions(java.lang.String, java.lang.String)">listCategoryAttributeOptions</a></span>(String attributeId, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves attribute options.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCategoryAttributes()">listCategoryAttributes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieve product image types.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCategoryLevels(java.lang.String, java.lang.String, java.lang.String)">listCategoryLevels</a></span>(String website, String storeViewIdOrCode, String parentCategoryId)</nobr>
+        
+        <div class="jd-descrdiv">Answers levels of categories for a website, store view and parent category
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCategoryProducts(int)">listCategoryProducts</a></span>(int categoryId)</nobr>
+        
+        <div class="jd-descrdiv">Lists product of a given category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCustomerAddresses(int)">listCustomerAddresses</a></span>(int customerId)</nobr>
+        
+        <div class="jd-descrdiv">Lists the customer address for a given customer id
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCustomerGroups()">listCustomerGroups</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Lists all the customer groups
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCustomers(java.lang.String)">listCustomers</a></span>(String filter)</nobr>
+        
+        <div class="jd-descrdiv">Answers a list of customer attributes for the given filter expression.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listDirectoryCountries()">listDirectoryCountries</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Answers the list of countries
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listDirectoryRegions(java.lang.String)">listDirectoryRegions</a></span>(String countryId)</nobr>
+        
+        <div class="jd-descrdiv">Answers a list of regions for the given county
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listInventoryStockItems(java.util.List<java.lang.String>)">listInventoryStockItems</a></span>(List&lt;String&gt; productIdOrSkus)</nobr>
+        
+        <div class="jd-descrdiv">Lists inventory stock items.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listOrders(java.lang.String)">listOrders</a></span>(String filter)</nobr>
+        
+        <div class="jd-descrdiv">Lists order attributes that match the given filtering expression.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listOrdersInvoices(java.lang.String)">listOrdersInvoices</a></span>(String filter)</nobr>
+        
+        <div class="jd-descrdiv">Lists order invoices that match the given filtering expression
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listOrdersShipments(java.lang.String)">listOrdersShipments</a></span>(String filter)</nobr>
+        
+        <div class="jd-descrdiv">Lists order shipment atrributes that match the given
+ optional filtering expression
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">listProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product image list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeMediaTypes(int)">listProductAttributeMediaTypes</a></span>(int setId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve product image types.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeOptions(java.lang.String, java.lang.String)">listProductAttributeOptions</a></span>(String attributeId, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Answers the product attribute options.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeSets()">listProductAttributeSets</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product attribute sets.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeTierPrices(java.lang.Integer, java.lang.String, java.lang.String)">listProductAttributeTierPrices</a></span>(Integer productId, String productSku, String productIdOrSku)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve product tier prices.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributes(int)">listProductAttributes</a></span>(int setId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product attributes list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String)">listProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku)</nobr>
+        
+        <div class="jd-descrdiv">Lists linked products to the given product and for the given link type
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductLinkAttributes(java.lang.String)">listProductLinkAttributes</a></span>(String type)</nobr>
+        
+        <div class="jd-descrdiv">Lists all the attributes for the given product link type
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;String&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductLinkTypes()">listProductLinkTypes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Answers product link types
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductTypes()">listProductTypes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Answers product types.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProducts(java.lang.String, java.lang.String)">listProducts</a></span>(String filter, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve products list by filters.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartLicenses(int, java.lang.String)">listShoppingCartLicenses</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the website license agreement for the quote according to the website (store).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Map&lt;String,&nbsp;Object&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartPaymentMethods(int, java.lang.String)">listShoppingCartPaymentMethods</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a list of available payment methods for a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartProducts(int, java.lang.String)">listShoppingCartProducts</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the list of products in the shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartShippingMethods(int, java.lang.String)">listShoppingCartShippingMethods</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the list of available shipping methods for a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartTotals(int, java.lang.String)">listShoppingCartTotals</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves total prices for a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#listStockItems(java.util.List<java.lang.String>)">listStockItems</a></span>(List&lt;String&gt; productIdOrSkus)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve stock data by product ids
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#moveCategory(int, int, java.lang.String)">moveCategory</a></span>(int categoryId, int parentId, String afterId)</nobr>
+        
+        <div class="jd-descrdiv">Move category in tree.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#moveShoppingCartProductToCustomerQuote(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">moveShoppingCartProductToCustomerQuote</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Moves products from the current quote to a customer quote.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#removeShoppingCartCoupon(int, java.lang.String)">removeShoppingCartCoupon</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Removes a coupon code from a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#removeShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">removeShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Removes one or several products from a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setAddress(java.lang.String)">setAddress</a></span>(String address)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setCatalogClient(org.mule.module.magento.api.catalog.MagentoCatalogClient<?, ?, ?>)">setCatalogClient</a></span>(<a href="../../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; catalogClient)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setCustomerClient(org.mule.module.magento.api.inventory.MagentoCustomerClient<?, ?, ?>)">setCustomerClient</a></span>(<a href="../../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; customerClient)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setDirectoryClient(org.mule.module.magento.api.directory.MagentoDirectoryClient<?, ?>)">setDirectoryClient</a></span>(<a href="../../../../../../java/org/mule/module/magento/api/directory/MagentoDirectoryClient.html">MagentoDirectoryClient</a>&lt;?,&nbsp;?&gt; directoryClient)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setInventoryClient(org.mule.module.magento.api.customer.MagentoInventoryClient<?, ?>)">setInventoryClient</a></span>(<a href="../../../../../../java/org/mule/module/magento/api/customer/MagentoInventoryClient.html">MagentoInventoryClient</a>&lt;?,&nbsp;?&gt; inventoryClient)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setOrderClient(org.mule.module.magento.api.order.MagentoOrderClient<?, ?, ?>)">setOrderClient</a></span>(<a href="../../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; magentoOrderClient)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setPassword(java.lang.String)">setPassword</a></span>(String password)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartClient(org.mule.module.magento.api.shoppingCart.MagentoShoppingCartClient<?, ?, ?>)">setShoppingCartClient</a></span>(<a href="../../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; catalogClient)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartCustomer(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">setShoppingCartCustomer</a></span>(int quoteId, Map&lt;String,&nbsp;Object&gt; customer, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Adds information about the customer to a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartCustomerAddresses(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">setShoppingCartCustomerAddresses</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; addresses, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Sets the customer addresses in the shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartPaymentMethod(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">setShoppingCartPaymentMethod</a></span>(int quoteId, Map&lt;String,&nbsp;Object&gt; method, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Sets a payment method for a shopping cart (quote), cart must not be empty.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartShippingMethod(int, java.lang.String, java.lang.String)">setShoppingCartShippingMethod</a></span>(int quoteId, String method, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a shipping method for a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#setUsername(java.lang.String)">setUsername</a></span>(String username)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#unholdOrder(java.lang.String)">unholdOrder</a></span>(String orderId)</nobr>
+        
+        <div class="jd-descrdiv">Releases order
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateCategory</a></span>(int categoryId, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Updates a category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategoryAttributeStoreView(java.lang.String)">updateCategoryAttributeStoreView</a></span>(String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Set the default catalog store view for this session
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">updateCategoryProduct</a></span>(int categoryId, Integer productId, String productSku, String productIdOrSku, String position)</nobr>
+        
+        <div class="jd-descrdiv">Updates a category product.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomer(int, java.util.Map<java.lang.String, java.lang.Object>)">updateCustomer</a></span>(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        
+        <div class="jd-descrdiv">Updates the given customer attributes, for the given customer id.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)">updateCustomerAddress</a></span>(int addressId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        
+        <div class="jd-descrdiv">Updates the given map of customer address attributes, for the given customer address
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateInventoryStockItem(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">updateInventoryStockItem</a></span>(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        
+        <div class="jd-descrdiv">Updates an stock inventory item
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProduct(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateProduct</a></span>(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Updates a product.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Updates product media.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeTierPrice(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">updateProductAttributeTierPrice</a></span>(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        
+        <div class="jd-descrdiv">Updates a single product tier price.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">updateProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        
+        <div class="jd-descrdiv">Update product link
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductSpecialPrice(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">updateProductSpecialPrice</a></span>(Integer productId, String productSku, String productIdOrSku, String specialPrice, String fromDate, String toDate, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Sets a product special price.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">updateShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Updates one or several products in the shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateStockItem(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">updateStockItem</a></span>(String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        
+        <div class="jd-descrdiv">Update product stock data given its id or sku
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#voidOrderInvoice(java.lang.String)">voidOrderInvoice</a></span>(String invoiceId)</nobr>
+        
+        <div class="jd-descrdiv">Voids an invoice
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.Capabilities" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.Capabilities-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.Capabilities
+
+<div id="inherited-methods-org.mule.api.Capabilities">
+  <div id="inherited-methods-org.mule.api.Capabilities-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.Capabilities-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">isCapableOf</span>(Capability arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.MetadataAware" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.MetadataAware-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.MetadataAware
+
+<div id="inherited-methods-org.mule.api.MetadataAware">
+  <div id="inherited-methods-org.mule.api.MetadataAware-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.MetadataAware-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getDevkitBuild</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getDevkitVersion</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getModuleName</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getModuleVersion</span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.lifecycle.Disposable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.lifecycle.Disposable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.lifecycle.Disposable
+
+<div id="inherited-methods-org.mule.api.lifecycle.Disposable">
+  <div id="inherited-methods-org.mule.api.lifecycle.Disposable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.lifecycle.Disposable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">dispose</span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.lifecycle.Initialisable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.lifecycle.Initialisable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.lifecycle.Initialisable
+
+<div id="inherited-methods-org.mule.api.lifecycle.Initialisable">
+  <div id="inherited-methods-org.mule.api.lifecycle.Initialisable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.lifecycle.Initialisable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">initialise</span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.lifecycle.Startable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.lifecycle.Startable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.lifecycle.Startable
+
+<div id="inherited-methods-org.mule.api.lifecycle.Startable">
+  <div id="inherited-methods-org.mule.api.lifecycle.Startable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.lifecycle.Startable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">start</span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.lifecycle.Stoppable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.lifecycle.Stoppable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.lifecycle.Stoppable
+
+<div id="inherited-methods-org.mule.api.lifecycle.Stoppable">
+  <div id="inherited-methods-org.mule.api.lifecycle.Stoppable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.lifecycle.Stoppable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">stop</span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.process.ProcessAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.process.ProcessAdapter-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.process.ProcessAdapter
+
+<div id="inherited-methods-org.mule.api.process.ProcessAdapter">
+  <div id="inherited-methods-org.mule.api.process.ProcessAdapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.process.ProcessAdapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            &lt;T&gt;
+            ProcessTemplate&lt;T,&nbsp;O&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getProcessTemplate</span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="MagentoCloudConnectorProcessAdapter()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">MagentoCloudConnectorProcessAdapter</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="getProcessTemplate()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        ProcessTemplate&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorCapabilitiesAdapter.html">MagentoCloudConnectorCapabilitiesAdapter</a>&gt;
+      </span>
+      <span class="sympad">getProcessTemplate</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

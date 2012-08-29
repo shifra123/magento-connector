@@ -1,9 +1,11 @@
 com.magento.api
 org.mule.module.magento
 org.mule.module.magento.adapters
+org.mule.module.magento.agents
 org.mule.module.magento.api
 org.mule.module.magento.api.catalog
 org.mule.module.magento.api.catalog.model
+org.mule.module.magento.api.catalog.model.transformers
 org.mule.module.magento.api.customer
 org.mule.module.magento.api.directory
 org.mule.module.magento.api.inventory
@@ -14,6 +16,7 @@ org.mule.module.magento.api.util
 org.mule.module.magento.config
 org.mule.module.magento.config.spring
 org.mule.module.magento.filters
+org.mule.module.magento.process
 org.mule.module.magento.processors
 org.mule.module.magento.transformers
 
