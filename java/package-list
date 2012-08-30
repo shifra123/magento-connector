@@ -14,7 +14,6 @@ org.mule.module.magento.api.order.model
 org.mule.module.magento.api.shoppingCart
 org.mule.module.magento.api.util
 org.mule.module.magento.config
-org.mule.module.magento.config.spring
 org.mule.module.magento.filters
 org.mule.module.magento.process
 org.mule.module.magento.processors
