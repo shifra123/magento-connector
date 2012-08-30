@@ -17,6 +17,7 @@
     <url>http://www.mulesoft.org/muleforge/magento-cloud-connector</url>
 
     <properties>
+    <category>Community</category>
       <devkit.studio.package.skip>false</devkit.studio.package.skip>
     </properties>
 
