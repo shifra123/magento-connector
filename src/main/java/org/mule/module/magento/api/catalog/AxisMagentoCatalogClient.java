@@ -109,10 +109,11 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
      * Deletes a category. See  catalog-category-delete SOAP method
      *  
      * @param categoryId
+     * @return a boolean value indicating whether the category was deleted or not
      */
-    public void deleteCategory(int categoryId) throws RemoteException
+    public boolean deleteCategory(int categoryId) throws RemoteException
     {
-        getPort().catalogCategoryDelete(getSessionId(), categoryId);
+        return getPort().catalogCategoryDelete(getSessionId(), categoryId);
     }
 
     /**

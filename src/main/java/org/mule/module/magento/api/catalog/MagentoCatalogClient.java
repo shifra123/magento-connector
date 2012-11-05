@@ -69,8 +69,9 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * Deletes a category. See catalog-category-delete SOAP method
      * 
      * @param categoryId
+     * @return a boolean value indicating whether the category was deleted or not
      */
-    void deleteCategory(int categoryId) throws ExceptionType;
+    boolean deleteCategory(int categoryId) throws ExceptionType;
 
     /**
      * Answers category attributes. See catalog-category-info SOAP method.

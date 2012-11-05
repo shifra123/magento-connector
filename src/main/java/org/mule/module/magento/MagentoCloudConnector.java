@@ -1115,10 +1115,11 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:deleteCategory}
      *
      * @param categoryId the category to delete
+     * @return a boolean value indicating whether the category was deleted or not
      */
     @Processor
-    public void deleteCategory(int categoryId) {
-        catalogClient.deleteCategory(categoryId);
+    public boolean deleteCategory(int categoryId) {
+        return catalogClient.deleteCategory(categoryId);
     }
 
     /**
