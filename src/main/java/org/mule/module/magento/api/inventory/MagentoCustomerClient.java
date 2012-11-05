@@ -29,8 +29,9 @@ public interface MagentoCustomerClient<AttributesType, AttributesCollectionType,
      * Deletes a customer given its id
      * 
      * @param customerId
+     * @return if the customer is deleted
      */
-    void deleteCustomer(int customerId) throws ExceptionType;
+    boolean deleteCustomer(int customerId) throws ExceptionType;
 
     /**
      * Answers customer attributes for the given id. Only the selected attributes are
@@ -79,8 +80,9 @@ public interface MagentoCustomerClient<AttributesType, AttributesCollectionType,
      * Deletes a Customer Address
      * 
      * @param addressId
+     * @return if the customer address is deleted
      */
-    void deleteCustomerAddress(int addressId) throws ExceptionType;
+    boolean deleteCustomerAddress(int addressId) throws ExceptionType;
 
     /**
      * Answers the customer address attributes

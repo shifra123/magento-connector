@@ -69,7 +69,7 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * Deletes a category. See catalog-category-delete SOAP method
      * 
      * @param categoryId
-     * @return a boolean value indicating whether the category was deleted or not
+     * @return if the category is deleted
      */
     boolean deleteCategory(int categoryId) throws ExceptionType;
 
@@ -113,8 +113,9 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * 
      * @param categoryId
      * @param productId
+     * @return if the product is removed from the category
      */
-    void deleteCategoryProduct(int categoryId, @NotNull ProductIdentifier productId) throws ExceptionType;
+    boolean deleteCategoryProduct(int categoryId, @NotNull ProductIdentifier productId) throws ExceptionType;
 
     /**
      * Retrieve hierarchical tree. See catalog-category-tree SOAP method.
@@ -179,8 +180,9 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * Deletes a product. See catalog-product-delete SOAP method.
      * 
      * @param productId the product identifier
+     * @return if the product is deleted
      */
-    void deleteProduct(ProductIdentifier productId) throws ExceptionType;
+    int deleteProduct(ProductIdentifier productId) throws ExceptionType;
 
     /**
      * Answers a product special price. See catalog-product-getSpecialPrice SOAP
@@ -297,8 +299,9 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * 
      * @param product
      * @param file
+     * @return if the image is removed from a product
      */
-    void deleteProductAttributeMedia(@NotNull ProductIdentifier productId, @NotNull String file)
+    int deleteProductAttributeMedia(@NotNull ProductIdentifier productId, @NotNull String file)
         throws ExceptionType;
 
     /**
@@ -438,8 +441,9 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * @param type link type
      * @param productId
      * @param linkedProductIdOrSku
+     * @return if the link is removed from a product
      */
-    void deleteProductLink(@NotNull String type,
+    java.lang.String deleteProductLink(@NotNull String type,
                            @NotNull ProductIdentifier productId,
                            @NotNull String linkedProductIdOrSku) throws ExceptionType;
 

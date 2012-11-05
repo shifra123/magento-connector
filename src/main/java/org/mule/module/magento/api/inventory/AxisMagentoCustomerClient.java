@@ -36,9 +36,9 @@ public class AxisMagentoCustomerClient extends AbstractMagentoClient
             fromMap(CustomerCustomerEntityToCreate.class, attributes));
     }
 
-    public void deleteCustomer(int customerId) throws RemoteException
+    public boolean deleteCustomer(int customerId) throws RemoteException
     {
-        getPort().customerCustomerDelete(getSessionId(), customerId);
+        return getPort().customerCustomerDelete(getSessionId(), customerId);
     }
 
     @NotNull
@@ -70,9 +70,9 @@ public class AxisMagentoCustomerClient extends AbstractMagentoClient
             fromMap(CustomerAddressEntityCreate.class, attributes));
     }
 
-    public void deleteCustomerAddress(int addressId) throws RemoteException
+    public boolean deleteCustomerAddress(int addressId) throws RemoteException
     {
-        getPort().customerAddressDelete(getSessionId(), addressId);
+        return getPort().customerAddressDelete(getSessionId(), addressId);
     }
 
     public Object getCustomerAddress(int addressId) throws RemoteException

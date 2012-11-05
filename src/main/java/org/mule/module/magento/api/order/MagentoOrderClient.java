@@ -141,8 +141,9 @@ public interface MagentoOrderClient<AttributesType, AttributesCollectionType, Ex
      * 
      * @param shipmentId the target shipment id
      * @param trackId the id of the track to delete
+     * @return if the tracking number is removed from the shipment
      */
-    void deleteOrderShipmentTrack(@NotNull String shipmentId, @NotNull String trackId) throws ExceptionType;
+    int deleteOrderShipmentTrack(@NotNull String shipmentId, @NotNull String trackId) throws ExceptionType;
 
     /**
      * Creates a shipment for order

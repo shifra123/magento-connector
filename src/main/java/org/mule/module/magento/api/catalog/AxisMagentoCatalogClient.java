@@ -109,7 +109,7 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
      * Deletes a category. See  catalog-category-delete SOAP method
      *  
      * @param categoryId
-     * @return a boolean value indicating whether the category was deleted or not
+     * @return if the category is deleted
      */
     public boolean deleteCategory(int categoryId) throws RemoteException
     {
@@ -153,13 +153,13 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
      *   
      * @param categoryId
      * @param productId
-     * @return
+     * @return if the product is removed from the category
      * 
      */
-    public void deleteCategoryProduct(int categoryId, @NotNull ProductIdentifier productId)
+    public boolean deleteCategoryProduct(int categoryId, @NotNull ProductIdentifier productId)
         throws RemoteException
     {
-        getPort().catalogCategoryRemoveProduct(getSessionId(), categoryId, productId.getIdentifierAsString(),
+        return getPort().catalogCategoryRemoveProduct(getSessionId(), categoryId, productId.getIdentifierAsString(),
             productId.getIdentifierType());
     }
 
@@ -272,10 +272,11 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
      *  See catalog-product-delete SOAP method. 
      * 
      * @param productId the product identifier
+     * @return if the product is deleted
      */
-    public void deleteProduct(ProductIdentifier productId) throws RemoteException
+    public int deleteProduct(ProductIdentifier productId) throws RemoteException
     {
-        getPort().catalogProductDelete(getSessionId(), 
+        return getPort().catalogProductDelete(getSessionId(), 
             productId.getIdentifierAsString(),
             productId.getIdentifierType());
     }
@@ -449,12 +450,12 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
             productId.getIdentifierType());
     }
 
-    public void deleteProductAttributeMedia(@NotNull ProductIdentifier productId, @NotNull  String file)
+    public int deleteProductAttributeMedia(@NotNull ProductIdentifier productId, @NotNull  String file)
         throws RemoteException
     {
         Validate.notNull(productId);
         Validate.notNull(file);
-        getPort().catalogProductAttributeMediaRemove(getSessionId(), productId.getIdentifierAsString(), file,
+        return getPort().catalogProductAttributeMediaRemove(getSessionId(), productId.getIdentifierAsString(), file,
             productId.getIdentifierType());
     }
 
@@ -570,11 +571,11 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         return getPort().catalogProductLinkList(getSessionId(), type, productId.getIdentifierAsString(), productId.getIdentifierType());
     }
 
-    public void deleteProductLink(@NotNull String type,
+    public java.lang.String deleteProductLink(@NotNull String type,
                                     @NotNull ProductIdentifier productId,
                                     @NotNull String linkedProductIdOrSku) throws RemoteException
     {
-        getPort().catalogProductLinkRemove(getSessionId(), type, productId.getIdentifierAsString(), linkedProductIdOrSku,
+        return getPort().catalogProductLinkRemove(getSessionId(), type, productId.getIdentifierAsString(), linkedProductIdOrSku,
             productId.getIdentifierType());
     }
 

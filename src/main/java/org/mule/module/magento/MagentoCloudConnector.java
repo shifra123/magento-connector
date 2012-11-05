@@ -305,10 +305,11 @@ public class MagentoCloudConnector {
      *
      * @param shipmentId the target shipment id
      * @param trackId    the id of the track to delete
+     * @return if the tracking number is removed from the shipment
      */
     @Processor
-    public void deleteOrderShipmentTrack(String shipmentId, String trackId) {
-        orderClient.deleteOrderShipmentTrack(shipmentId, trackId);
+    public int deleteOrderShipmentTrack(String shipmentId, String trackId) {
+        return orderClient.deleteOrderShipmentTrack(shipmentId, trackId);
     }
 
     /**
@@ -452,10 +453,11 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:deleteCustomer}
      *
      * @param customerId the customer to delete
+     * @return if the customer is deleted
      */
     @Processor
-    public void deleteCustomer(int customerId) {
-        customerClient.deleteCustomer(customerId);
+    public boolean deleteCustomer(int customerId) {
+        return customerClient.deleteCustomer(customerId);
     }
 
     /**
@@ -464,10 +466,11 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:deleteCustomerAddress}
      *
      * @param addressId the address id to delete
+     * @return if the customer address is deleted
      */
     @Processor
-    public void deleteCustomerAddress(int addressId) {
-        customerClient.deleteCustomerAddress(addressId);
+    public boolean deleteCustomerAddress(int addressId) {
+        return customerClient.deleteCustomerAddress(addressId);
     }
 
     /**
@@ -709,15 +712,16 @@ public class MagentoCloudConnector {
      *                       product sku
      * @param productIdOrSku the id or sku of the product.
      * @param fileName       the remote media file to delete
+     * @return if the image is removed from a product
      */
     @Processor
-    public void deleteProductAttributeMedia(@Optional Integer productId,
+    public int deleteProductAttributeMedia(@Optional Integer productId,
                                             @Optional String productSku,
                                             @Optional String productIdOrSku,
                                             String fileName)
 
     {
-        catalogClient.deleteProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku), fileName);
+        return catalogClient.deleteProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku), fileName);
     }
 
     /**
@@ -734,14 +738,15 @@ public class MagentoCloudConnector {
      *                             product sku
      * @param productIdOrSku       the id or sku of the source product.
      * @param linkedProductIdOrSku the linked product id or sku
+     * @return if the link is removed from a product
      */
     @Processor
-    public void deleteProductLink(String type,
+    public java.lang.String deleteProductLink(String type,
                                   @Optional Integer productId,
                                   @Optional String productSku,
                                   @Optional String productIdOrSku,
                                   String linkedProductIdOrSku) {
-        catalogClient.deleteProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku);
+        return catalogClient.deleteProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku);
     }
 
     /**
@@ -1115,7 +1120,7 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:deleteCategory}
      *
      * @param categoryId the category to delete
-     * @return a boolean value indicating whether the category was deleted or not
+     * @return if the category is deleted
      */
     @Processor
     public boolean deleteCategory(int categoryId) {
@@ -1189,13 +1194,14 @@ public class MagentoCloudConnector {
      * @param productSku     the sku of the product. Use it instead of productIdOrSku in
      *                       case you are sure the product identifier is a product sku
      * @param productIdOrSku the id or sku of the product.
+     * @return if the product is removed from the category
      */
     @Processor
-    public void deleteCategoryProduct(int categoryId,
+    public boolean deleteCategoryProduct(int categoryId,
                                       @Optional Integer productId,
                                       @Optional String productSku,
                                       @Optional String productIdOrSku) {
-        catalogClient.deleteCategoryProduct(categoryId, ProductIdentifiers.from(productSku, productId, productIdOrSku));
+        return catalogClient.deleteCategoryProduct(categoryId, ProductIdentifiers.from(productSku, productId, productIdOrSku));
     }
 
     /**
@@ -1320,12 +1326,13 @@ public class MagentoCloudConnector {
      * @param productSku     the sku of the product. Use it instead of productIdOrSku in
      *                       case you are sure the product identifier is a product sku
      * @param productIdOrSku the id or sku of the product.
+     * @return if the product is deleted
      */
     @Processor
-    public void deleteProduct(@Optional Integer productId,
+    public int deleteProduct(@Optional Integer productId,
                               @Optional String productSku,
                               @Optional String productIdOrSku) {
-        catalogClient.deleteProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku));
+        return catalogClient.deleteProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku));
     }
 
 
