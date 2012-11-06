@@ -1063,7 +1063,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteCategory(int)">deleteCategory</a></span>(int categoryId)</nobr>
@@ -1081,7 +1081,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String)">deleteCategoryProduct</a></span>(int categoryId, Integer productId, String productSku, String productIdOrSku)</nobr>
@@ -1099,7 +1099,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteCustomer(int)">deleteCustomer</a></span>(int customerId)</nobr>
@@ -1119,7 +1119,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteCustomerAddress(int)">deleteCustomerAddress</a></span>(int addressId)</nobr>
@@ -1139,7 +1139,7 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteOrderShipmentTrack(java.lang.String, java.lang.String)">deleteOrderShipmentTrack</a></span>(String shipmentId, String trackId)</nobr>
@@ -1159,7 +1159,7 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteProduct(java.lang.Integer, java.lang.String, java.lang.String)">deleteProduct</a></span>(Integer productId, String productSku, String productIdOrSku)</nobr>
@@ -1177,7 +1177,7 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">deleteProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName)</nobr>
@@ -1195,7 +1195,7 @@ Summary:
             
             
             
-            void</nobr>
+            String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">deleteProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku)</nobr>
@@ -4391,7 +4391,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">deleteCategory</span>
       <span class="normal">(int categoryId)</span>
@@ -4414,10 +4414,14 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>categoryId</td>
-          <td>The category to delete
-</td>
+          <td>The category to delete</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the category is deleted
+</li></ul>
   </div>
 
     </div>
@@ -4434,7 +4438,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">deleteCategoryProduct</span>
       <span class="normal">(int categoryId, Integer productId, String productSku, String productIdOrSku)</span>
@@ -4471,10 +4475,14 @@ From class
         </tr>
         <tr>
           <th>productIdOrSku</td>
-          <td>The id or sku of the product.
-</td>
+          <td>The id or sku of the product.</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the product is removed from the category
+</li></ul>
   </div>
 
     </div>
@@ -4491,7 +4499,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">deleteCustomer</span>
       <span class="normal">(int customerId)</span>
@@ -4514,10 +4522,14 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>customerId</td>
-          <td>The customer to delete
-</td>
+          <td>The customer to delete</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the customer is deleted
+</li></ul>
   </div>
 
     </div>
@@ -4534,7 +4546,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">deleteCustomerAddress</span>
       <span class="normal">(int addressId)</span>
@@ -4557,10 +4569,14 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>addressId</td>
-          <td>The address id to delete
-</td>
+          <td>The address id to delete</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the customer address is deleted
+</li></ul>
   </div>
 
     </div>
@@ -4577,7 +4593,7 @@ From class
          
          
          
-        void
+        int
       </span>
       <span class="sympad">deleteOrderShipmentTrack</span>
       <span class="normal">(String shipmentId, String trackId)</span>
@@ -4604,10 +4620,14 @@ From class
         </tr>
         <tr>
           <th>trackId</td>
-          <td>The id of the track to delete
-</td>
+          <td>The id of the track to delete</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the tracking number is removed from the shipment
+</li></ul>
   </div>
 
     </div>
@@ -4624,7 +4644,7 @@ From class
          
          
          
-        void
+        int
       </span>
       <span class="sympad">deleteProduct</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku)</span>
@@ -4657,10 +4677,14 @@ From class
         </tr>
         <tr>
           <th>productIdOrSku</td>
-          <td>The id or sku of the product.
-</td>
+          <td>The id or sku of the product.</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the product is deleted
+</li></ul>
   </div>
 
     </div>
@@ -4677,7 +4701,7 @@ From class
          
          
          
-        void
+        int
       </span>
       <span class="sympad">deleteProductAttributeMedia</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, String fileName)</span>
@@ -4717,10 +4741,14 @@ From class
         </tr>
         <tr>
           <th>fileName</td>
-          <td>The remote media file to delete
-</td>
+          <td>The remote media file to delete</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the image is removed from a product
+</li></ul>
   </div>
 
     </div>
@@ -4737,7 +4765,7 @@ From class
          
          
          
-        void
+        String
       </span>
       <span class="sympad">deleteProductLink</span>
       <span class="normal">(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku)</span>
@@ -4780,10 +4808,14 @@ From class
         </tr>
         <tr>
           <th>linkedProductIdOrSku</td>
-          <td>The linked product id or sku
-</td>
+          <td>The linked product id or sku</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the link is removed from a product
+</li></ul>
   </div>
 
     </div>

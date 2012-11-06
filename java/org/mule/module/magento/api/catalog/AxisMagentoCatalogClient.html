@@ -668,7 +668,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteCategory(int)">deleteCategory</a></span>(int categoryId)</nobr>
@@ -686,7 +686,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier)">deleteCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
@@ -704,7 +704,7 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier)">deleteProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
@@ -722,7 +722,7 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file)</nobr>
@@ -740,7 +740,7 @@ Summary:
             
             
             
-            void</nobr>
+            String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku)</nobr>
@@ -1795,7 +1795,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteCategory(int)">deleteCategory</a></span>(int categoryId)</nobr>
@@ -1813,7 +1813,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier)">deleteCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
@@ -1831,7 +1831,7 @@ From interface
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier)">deleteProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
@@ -1849,7 +1849,7 @@ From interface
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file)</nobr>
@@ -1867,7 +1867,7 @@ From interface
             
             
             
-            void</nobr>
+            String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku)</nobr>
@@ -2884,7 +2884,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">deleteCategory</span>
       <span class="normal">(int categoryId)</span>
@@ -2910,6 +2910,11 @@ From interface
       </table>
   </div>
   <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the category is deleted
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
         <tr>
@@ -2933,7 +2938,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">deleteCategoryProduct</span>
       <span class="normal">(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</span>
@@ -2963,6 +2968,12 @@ From interface
       </table>
   </div>
   <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the product is removed from the category
+ 
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
         <tr>
@@ -2986,7 +2997,7 @@ From interface
          
          
          
-        void
+        int
       </span>
       <span class="sympad">deleteProduct</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</span>
@@ -3008,10 +3019,14 @@ From interface
       <table class="jd-tagtable">
         <tr>
           <th>productId</td>
-          <td>The product identifier
-</td>
+          <td>The product identifier</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the product is deleted
+</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3037,7 +3052,7 @@ From interface
          
          
          
-        void
+        int
       </span>
       <span class="sympad">deleteProductAttributeMedia</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file)</span>
@@ -3068,6 +3083,11 @@ From interface
       </table>
   </div>
   <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the image is removed from a product
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
         <tr>
@@ -3091,7 +3111,7 @@ From interface
          
          
          
-        void
+        String
       </span>
       <span class="sympad">deleteProductLink</span>
       <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku)</span>
@@ -3123,6 +3143,11 @@ From interface
           <td></td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the link is removed from a product
+</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
