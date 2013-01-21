@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:magento="http://www.mulesoft.org/schema/mule/magento" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.3.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/magento http://www.mulesoft.org/schema/mule/magento/1.1/mule-magento.xsd 
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd ">
+
+	<magento:config name="Magento" username="${magento.username}"
+		password="${magento.password}" address="${magento.address}" doc:name="Magento" />
+
+	<context:property-placeholder location="automation-credentials.properties" />
+
+	<!-- Create operations -->
+
+	<flow name="create-category-attributes-from-message" doc:name="create-category-attributes-from-message">
+		<magento:create-category config-ref="Magento"
+			parentId="#[payload.parentId]" storeViewIdOrCode="#[payload.storeViewIdOrCode]"
+			doc:name="Create category">
+			<magento:attributes ref="#[map-payload:categoryAttributes]">
+			</magento:attributes>
+		</magento:create-category>
+		<logger level="INFO"
+			message="### create-category-attributes-from-message #[payload]" />
+	</flow>
+
+	<flow name="create-category-attributes-as-list" doc:name="create-category-attributes-as-list">
+		<magento:create-category config-ref="Magento"
+			parentId="#[payload.parentId]" storeViewIdOrCode="#[payload.storeViewIdOrCode]"
+			doc:name="Create category">
+			<magento:attributes>
+				<magento:attribute key="name" value-ref="#[payload.name]" />
+				<magento:attribute key="is_active" value-ref="#[payload.is_active]" />
+				<magento:attribute key="available_sort_by"
+					value-ref="#[payload.available_sort_by]" />
+				<magento:attribute key="default_sort_by"
+					value-ref="#[payload.default_sort_by]" />
+				<magento:attribute key="include_in_menu"
+					value-ref="#[payload.include_in_menu]" />
+			</magento:attributes>
+		</magento:create-category>
+		<logger level="INFO"
+			message="### create-category-attributes-as-list #[payload]" />
+	</flow>
+
+	<!-- Delete operations -->
+
+	<flow name="delete-category" doc:name="delete-category">
+		<magento:delete-category config-ref="Magento"
+			categoryId="#[payload]" doc:name="Delete category" />
+		<logger level="INFO" message="### delete-category #[payload]" />
+	</flow>
+
+	<!-- Get operations -->
+
+	<flow name="get-category-tree" doc:name="get-category-tree">
+		<magento:get-category-tree config-ref="Magento"
+			parentId="#[payload]" storeViewIdOrCode="default" doc:name="Get category tree" />
+		<logger level="INFO" doc:name="get-category-tree #[payload]" />
+	</flow>
+
+	<flow name="get-category-default-values" doc:name="get-category-default-values">
+		<logger level="INFO" doc:name="get-category-default-values #[map-payload]" />
+		<magento:get-category config-ref="Magento"
+			doc:name="Get category" categoryId="#[payload.categoryId]"
+			storeViewIdOrCode="#[payload.storeViewIdOrCode]">
+			<magento:attribute-names />
+		</magento:get-category>
+		<logger level="INFO" doc:name="get-category-default-values #[payload]" />
+	</flow>
+
+	<flow name="get-category-attributes-from-message" doc:name="get-category-attributes-from-message">
+		<magento:get-category config-ref="Magento"
+			doc:name="Get category" categoryId="#[payload.categoryId]"
+			storeViewIdOrCode="#[payload.storeViewIdOrCode]">
+			<magento:attribute-names
+				ref="#[map-payload:categoryAttributesToRetrieve]">
+			</magento:attribute-names>
+		</magento:get-category>
+		<logger level="INFO" doc:name="get-category-attributes-from-message #[payload]" />
+	</flow>
+
+	<flow name="get-category-attributes-as-list" doc:name="get-category-attributes-as-list">
+		<magento:get-category config-ref="Magento"
+			doc:name="Get category" categoryId="#[payload.categoryId]"
+			storeViewIdOrCode="#[payload.storeViewIdOrCode]">
+			<magento:attribute-names>
+				<magento:attribute-name>name</magento:attribute-name>
+				<magento:attribute-name>is_active</magento:attribute-name>
+			</magento:attribute-names>
+		</magento:get-category>
+		<logger level="INFO" doc:name="get-category-attributes-as-list #[payload]" />
+	</flow>
+
+</mule>

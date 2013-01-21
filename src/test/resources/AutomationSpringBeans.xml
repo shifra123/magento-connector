@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>automation-credentials.properties</value>
+		</property>
+	</bean>
+	
+	<bean id="categoryTreeParentId" class="java.lang.String">
+        <constructor-arg value="1" />
+    </bean>
+	
+	<!--     Create operations -->
+	
+	<util:map id="createCategoryAttributesMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="name" value="categoryName"/>
+		<entry key="is_active" value="1"/>
+        <entry key="available_sort_by" value="price"/>
+        <entry key="default_sort_by" value="price"/>
+        <entry key="include_in_menu" value="1"/>
+    </util:map>
+	
+	<util:map id="createCategoryAttributesFromMessage" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="parentId" value="2"/>
+        <entry key="storeViewIdOrCode" value="default" />
+        <entry key="categoryAttributes" value-ref="createCategoryAttributesMap" />
+    </util:map>
+
+    <util:map id="createCategoryAttributesAsList" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="parentId" value="2" />
+        <entry key="storeViewIdOrCode" value="default" />
+        <entry key="name" value="categoryName"/>
+		<entry key="is_active" value="1"/>
+        <entry key="available_sort_by" value="price"/>
+        <entry key="default_sort_by" value="price"/>
+        <entry key="include_in_menu" value="1"/>
+    </util:map>
+
+    <!--   	Get operations -->
+	
+	<util:map id="getCategoryAttributesMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="name" value="categoryName"/>
+		<entry key="is_active" value="1"/>
+        <entry key="available_sort_by" value="price"/>
+        <entry key="default_sort_by" value="price"/>
+        <entry key="include_in_menu" value="1"/>
+    </util:map>
+    
+    <util:list id="categoryAttributesToRetrieve">
+   		<value>name</value>
+		<value>is_active</value>
+    </util:list>
+	
+	<util:map id="categoryForGetCategoryOperations" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="parentId" value="2"/>
+        <entry key="storeViewIdOrCode" value="default" />
+        <entry key="categoryAttributes" value-ref="getCategoryAttributesMap" />
+        <entry key="categoryAttributesToRetrieve" value-ref="categoryAttributesToRetrieve" />
+    </util:map>
+	
+	<!--   	Message source -->
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+				<value>automation-error-messages</value>
+		</property>
+	</bean>
+
+</beans>
