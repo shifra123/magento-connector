@@ -9,6 +9,7 @@
 package org.mule.module.magento;
 
 import org.mule.api.annotations.Configurable;
+import org.mule.api.annotations.ConnectivityTesting;
 import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.display.Password;
@@ -17,6 +18,10 @@ import org.mule.api.annotations.lifecycle.Start;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.annotations.param.Payload;
+import org.mule.common.DefaultTestResult;
+import org.mule.common.Result;
+import org.mule.common.TestResult;
+import org.mule.common.Testable;
 import org.mule.module.magento.api.AxisPortProvider;
 import org.mule.module.magento.api.DefaultAxisPortProvider;
 import org.mule.module.magento.api.MagentoClientAdaptor;
@@ -51,8 +56,8 @@ import java.util.Map;
  *
  * @author MuleSoft, Inc.
  */
-@Module(name = "magento", schemaVersion = "1.1", friendlyName = "Magento")
-public class MagentoCloudConnector {
+@Module(name = "magento", schemaVersion = "1.1", friendlyName = "Magento", connectivityTesting = ConnectivityTesting.ON)
+public class MagentoCloudConnector implements Testable {
 
     private MagentoOrderClient<Map<String, Object>, List<Map<String, Object>>, MagentoException> orderClient;
     private MagentoCustomerClient<Map<String, Object>, List<Map<String, Object>>, MagentoException> customerClient;
@@ -1785,6 +1790,22 @@ public class MagentoCloudConnector {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    /**
+     * Method used by Mule Studio's connectivy testing
+     * @return testing results
+     */
+    @Override
+    public TestResult test() {
+        try {
+            initialiseConnector();
+            getCatalogCurrentStoreView();
+        }
+        catch (Exception e) {
+            return new DefaultTestResult(TestResult.Status.FAILURE, "Bad credentials");
+        }
+        return new DefaultTestResult(TestResult.Status.SUCCESS);
     }
 
     private class PortProviderInitializer {
