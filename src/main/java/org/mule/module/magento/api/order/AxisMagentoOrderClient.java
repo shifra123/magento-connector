@@ -8,8 +8,7 @@
 
 package org.mule.module.magento.api.order;
 
-import com.magento.api.AssociativeEntity;
-import com.magento.api.OrderItemIdQty;
+import com.magento.api.*;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Transformer;
 import org.apache.commons.lang.BooleanUtils;
@@ -29,7 +28,7 @@ import java.util.Map.Entry;
 import static org.apache.commons.lang.BooleanUtils.toInteger;
 
 public class AxisMagentoOrderClient extends AbstractMagentoClient
-    implements MagentoOrderClient<Object, Object[], RemoteException>
+    implements MagentoOrderClient<RemoteException>
 {
 
     public AxisMagentoOrderClient(AxisPortProvider provider)
@@ -37,12 +36,12 @@ public class AxisMagentoOrderClient extends AbstractMagentoClient
         super(provider);
     }
 
-    public Object[] listOrders(String filter) throws RemoteException
+    public List<SalesOrderListEntity> listOrders(String filter) throws RemoteException
     {
-        return getPort().salesOrderList(getSessionId(), FiltersParser.parse(filter));
+        return Arrays.asList(getPort().salesOrderList(getSessionId(), FiltersParser.parse(filter)));
     }
 
-    public Object getOrder(String orderId) throws RemoteException
+    public com.magento.api.SalesOrderEntity getOrder(String orderId) throws RemoteException
     {
         return getPort().salesOrderInfo(getSessionId(), orderId);
     }
@@ -76,12 +75,12 @@ public class AxisMagentoOrderClient extends AbstractMagentoClient
     }
 
     @NotNull
-    public Object[] listOrdersShipments(String filter) throws RemoteException
+    public List<SalesOrderShipmentEntity> listOrdersShipments(String filter) throws RemoteException
     {
-        return getPort().salesOrderShipmentList(getSessionId(), FiltersParser.parse(filter));
+        return Arrays.asList(getPort().salesOrderShipmentList(getSessionId(), FiltersParser.parse(filter)));
     }
 
-    public Object getOrderShipment(String shipmentId) throws RemoteException
+    public SalesOrderShipmentEntity getOrderShipment(String shipmentId) throws RemoteException
     {
         return getPort().salesOrderShipmentInfo(getSessionId(), shipmentId);
     }
@@ -134,34 +133,34 @@ public class AxisMagentoOrderClient extends AbstractMagentoClient
     }
 
     public String createOrderShipment(@NotNull String orderId,
-                                      Map<Integer, Double> itemsQuantities,
+                                      List<OrderItemIdQty> itemsQuantities,
                                       String comment,
                                       boolean sendEmail,
                                       boolean includeCommentInEmail) throws RemoteException
     {
-        return getPort().salesOrderShipmentCreate(getSessionId(), orderId, itemsQuantities == null ? null : fromMap(itemsQuantities), comment,
-            toInteger(sendEmail), toInteger(includeCommentInEmail));
+        return getPort().salesOrderShipmentCreate(getSessionId(), orderId, itemsQuantities == null ? null : itemsQuantities.toArray(new OrderItemIdQty[itemsQuantities.size()]), comment,
+                toInteger(sendEmail), toInteger(includeCommentInEmail));
     }
 
-    public Object[] listOrdersInvoices(String filter) throws RemoteException
+    public List<SalesOrderInvoiceEntity> listOrdersInvoices(String filter) throws RemoteException
     {
-        return getPort().salesOrderInvoiceList(getSessionId(), FiltersParser.parse(filter));
+        return Arrays.asList(getPort().salesOrderInvoiceList(getSessionId(), FiltersParser.parse(filter)));
     }
 
-    public Object getOrderInvoice(@NotNull String invoiceId) throws RemoteException
+    public SalesOrderInvoiceEntity getOrderInvoice(@NotNull String invoiceId) throws RemoteException
     {
         Validate.notNull(invoiceId);
         return getPort().salesOrderInvoiceInfo(getSessionId(), invoiceId);
     }
 
     public String createOrderInvoice(@NotNull String orderId,
-                                     @NotNull Map<Integer, Double> itemsQuantities,
+                                     @NotNull List<OrderItemIdQty> itemsQuantities,
                                      String comment,
                                      boolean sendEmail,
                                      boolean includeCommentInEmail) throws RemoteException
     {
         Validate.notNull(orderId);
-        return getPort().salesOrderInvoiceCreate(getSessionId(), orderId, fromMap(itemsQuantities), comment,
+        return getPort().salesOrderInvoiceCreate(getSessionId(), orderId, itemsQuantities.toArray(new OrderItemIdQty[itemsQuantities.size()]), comment,
             toIntegerString(sendEmail), toIntegerString(includeCommentInEmail));
     }
 

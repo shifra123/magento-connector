@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * An utility class for creating proxies that handle {@link AxisFault}s by converting them into {@link MagentoException}
- * s, and return Maps of objects instead of magento objects
+ * s
  */
 public final class MagentoClientAdaptor
 {
@@ -49,7 +49,7 @@ public final class MagentoClientAdaptor
                         {
                             log.debug("Entering {} with args {}", method.getName(), args);
                         }
-                        final Object ret = new MagentoMap(new Holder(method.invoke(receptor, args))).get("value");
+                        final Object ret = method.invoke(receptor, args);
                         if (log.isDebugEnabled())
                         {
                             log.debug("Returning from {} with value {}", method.getName(), ret);

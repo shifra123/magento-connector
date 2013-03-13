@@ -8,14 +8,7 @@
 
 package org.mule.module.magento;
 
-import com.magento.api.AssociativeEntity;
-import com.magento.api.ComplexFilter;
-import com.magento.api.Filters;
-import com.magento.api.Mage_Api_Model_Server_V2_HandlerPortType;
-import com.magento.api.OrderItemIdQty;
-import com.magento.api.SalesOrderEntity;
-import com.magento.api.SalesOrderListEntity;
-import com.magento.api.SalesOrderShipmentEntity;
+import com.magento.api.*;
 import edu.emory.mathcs.backport.java.util.Collections;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -30,8 +23,9 @@ import org.mule.module.magento.api.order.model.Carrier;
 import org.mule.module.magento.api.shoppingCart.AxisMagentoShoppingCartClient;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -45,14 +39,13 @@ public class MagentoCloudConnectorUnitTest
 {
     private static final String ORDER_ID = "10001";
     private MagentoCloudConnector connector;
-    private AxisPortProvider portProvider;
     private Mage_Api_Model_Server_V2_HandlerPortType port;
 
     @Before
     public void setup() throws Exception
     {
         connector = new MagentoCloudConnector();
-        portProvider = mock(AxisPortProvider.class);
+        AxisPortProvider portProvider = mock(AxisPortProvider.class);
         port = mock(Mage_Api_Model_Server_V2_HandlerPortType.class);
         connector.setOrderClient(new AxisMagentoOrderClient(portProvider));
         connector.setCatalogClient(new AxisMagentoCatalogClient(portProvider));
@@ -60,7 +53,6 @@ public class MagentoCloudConnectorUnitTest
         connector.setDirectoryClient(new AxisMagentoDirectoryClient(portProvider));
         connector.setInventoryClient(new AxisMagentoInventoryClient(portProvider));
         connector.setShoppingCartClient(new AxisMagentoShoppingCartClient(portProvider));
-        connector.initialiseConnector();
         when(portProvider.getPort()).thenReturn(port);
     }
 
@@ -169,12 +161,13 @@ public class MagentoCloudConnectorUnitTest
     @Test
     public void testSalesOrderShipmentCreate() throws RemoteException
     {
-        connector.createOrderShipment("foo", new HashMap<Integer, Double>()
-        {
-            {
-                put(100, 10.0);
-            }
-        }, "comment", true, false);
+        List<OrderItemIdQty> itemIdQtyList = new ArrayList<OrderItemIdQty>();
+        OrderItemIdQty itemIdQty = new OrderItemIdQty();
+        itemIdQty.setQty(10.0);
+        itemIdQty.setOrder_item_id(100);
+        itemIdQtyList.add(itemIdQty);
+
+        connector.createOrderShipment("foo", itemIdQtyList, "comment", true, false);
         verify(port).salesOrderShipmentCreate(anyString(), eq("foo"),
             eq(new OrderItemIdQty[]{new OrderItemIdQty(100, 10)}), eq("comment"), eq(1), eq(0));
     }
@@ -182,6 +175,7 @@ public class MagentoCloudConnectorUnitTest
     @Test
     public void testSalesOrderInvoicesList() throws RemoteException
     {
+        when(port.salesOrderInvoiceList(anyString(), eq(new Filters()))).thenReturn(new SalesOrderInvoiceEntity[]{});
         connector.listOrdersInvoices("");
         verify(port).salesOrderInvoiceList(anyString(), eq(new Filters()));
     }
@@ -204,6 +198,8 @@ public class MagentoCloudConnectorUnitTest
     public void testListInventoryStockItems() throws Exception
     {
         String[] idsOrSkus = new String[]{"SK100", "155600", "7896"};
+        when(port.catalogInventoryStockItemList(anyString(), eq(idsOrSkus))).
+                thenReturn(new CatalogInventoryStockItemEntity[]{});
         connector.listInventoryStockItems(Arrays.asList(idsOrSkus));
         verify(port).catalogInventoryStockItemList(anyString(), eq(idsOrSkus));
     }

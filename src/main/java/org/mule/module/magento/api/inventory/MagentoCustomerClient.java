@@ -8,22 +8,23 @@
 
 package org.mule.module.magento.api.inventory;
 
+import com.magento.api.*;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.validation.constraints.NotNull;
 
-public interface MagentoCustomerClient<AttributesType, AttributesCollectionType, ExceptionType extends Exception>
+public interface MagentoCustomerClient<ExceptionType extends Exception>
 {
 
     /**
      * Creates a customer with th given attributes
      * 
-     * @param attributes the attributes of the new customer
+     * @param customerToCreate the attributes of the new customer
      * @return the new customer id
      * 
      */
-    int createCustomer(@NotNull Map<String, Object> attributes) throws ExceptionType;
+    int createCustomer(@NotNull CustomerCustomerEntityToCreate customerToCreate) throws ExceptionType;
 
     /**
      * Deletes a customer given its id
@@ -37,23 +38,25 @@ public interface MagentoCustomerClient<AttributesType, AttributesCollectionType,
      * Answers customer attributes for the given id. Only the selected attributes are
      * retrieved
      * 
+     *
      * @param customerId
      * @param attributeNames the attributes to retrieve. Not empty
      * @return the attributes map
      * 
      */
     @NotNull
-    AttributesType getCustomer(int customerId, @NotNull List<String> attributeNames) throws ExceptionType;
+    CustomerCustomerEntity getCustomer(int customerId, @NotNull List<String> attributeNames) throws ExceptionType;
 
     /**
      * Answers a list of customer attributes for the given filter expression.
      * 
+     *
      * @param filters a filtering expression.
      * @return the attributes map
      * 
      */
     @NotNull
-    AttributesCollectionType listCustomers(String filters) throws ExceptionType;
+    List<CustomerCustomerEntity> listCustomers(String filters) throws ExceptionType;
 
     /**
      * Updates the given customer attributes, for the given customer id. Password can
@@ -63,7 +66,7 @@ public interface MagentoCustomerClient<AttributesType, AttributesCollectionType,
      * @param attributes the attributes map
      * 
      */
-    void updateCustomer(int customerId, @NotNull Map<String, Object> attributes) throws ExceptionType;
+    void updateCustomer(int customerId, @NotNull CustomerCustomerEntityToCreate attributes) throws ExceptionType;
 
     /**
      * Creates a new address for the given customer using the given address
@@ -74,7 +77,7 @@ public interface MagentoCustomerClient<AttributesType, AttributesCollectionType,
      * @return a new customer address id
      * 
      */
-    int createCustomerAddress(int customerId, @NotNull Map<String, Object> attributes) throws ExceptionType;
+    int createCustomerAddress(int customerId, @NotNull CustomerAddressEntityCreate attributes) throws ExceptionType;
 
     /**
      * Deletes a Customer Address
@@ -86,19 +89,21 @@ public interface MagentoCustomerClient<AttributesType, AttributesCollectionType,
 
     /**
      * Answers the customer address attributes
+     *
      * @param addressId
      * @return the customer address attributes
      * 
      */
-    AttributesType getCustomerAddress(int addressId) throws ExceptionType;
+    CustomerAddressEntityItem getCustomerAddress(int addressId) throws ExceptionType;
 
     /**
      * Lists the customer address for a given customer id
      * 
+     *
      * @param customerId the id of the customer
      * @return a listing of addresses
      */
-    AttributesCollectionType listCustomerAddresses(int customerId) throws ExceptionType;
+    List<CustomerAddressEntityItem> listCustomerAddresses(int customerId) throws ExceptionType;
 
     /**
      * Updates the given map of customer address attributes, for the given customer address
@@ -106,13 +111,13 @@ public interface MagentoCustomerClient<AttributesType, AttributesCollectionType,
      * @param addressId the customer address to update
      * @param attributes  the address attributes to update
      */
-    void updateCustomerAddress(int addressId, @NotNull Map<String, Object> attributes) throws ExceptionType;
+    void updateCustomerAddress(int addressId, @NotNull CustomerAddressEntityCreate attributes) throws ExceptionType;
 
     /**
      * Lists all the customer groups
      * 
      * @return a listing of groups attributes
      */
-    AttributesCollectionType listCustomerGroups() throws ExceptionType;
+    List<CustomerGroupEntity> listCustomerGroups() throws ExceptionType;
 
 }

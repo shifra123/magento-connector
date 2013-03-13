@@ -14,14 +14,14 @@ import org.mule.module.magento.api.AbstractMagentoClient;
 import org.mule.module.magento.api.AxisPortProvider;
 
 import java.rmi.RemoteException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 import static org.mule.module.magento.api.util.MagentoObject.fromMap;
-import static org.mule.module.magento.api.util.MagentoObject.removeNullValues;
 
 public class AxisMagentoShoppingCartClient extends AbstractMagentoClient
-    implements MagentoShoppingCartClient<Object, Object[], RemoteException>
+    implements MagentoShoppingCartClient<RemoteException>
 {
     public AxisMagentoShoppingCartClient(AxisPortProvider provider)
     {
@@ -35,15 +35,15 @@ public class AxisMagentoShoppingCartClient extends AbstractMagentoClient
     }
 
     @Override
-    public Object getShoppingCartInfo(int quoteId, String storeId) throws RemoteException
+    public ShoppingCartInfoEntity getShoppingCartInfo(int quoteId, String storeId) throws RemoteException
     {
         return getPort().shoppingCartInfo(getSessionId(), quoteId, storeId);
     }
 
     @Override
-    public Object[] listShoppingCartTotals(int quoteId, String storeId) throws RemoteException
+    public List<ShoppingCartTotalsEntity> listShoppingCartTotals(int quoteId, String storeId) throws RemoteException
     {
-        return getPort().shoppingCartTotals(getSessionId(), quoteId, storeId);
+        return Arrays.asList(getPort().shoppingCartTotals(getSessionId(), quoteId, storeId));
     }
 
     @Override
@@ -53,144 +53,60 @@ public class AxisMagentoShoppingCartClient extends AbstractMagentoClient
     }
 
     @Override
-    public Object[] listShoppingCartLicenses(int quoteId, String storeId) throws RemoteException
+    public List<ShoppingCartLicenseEntity> listShoppingCartLicenses(int quoteId, String storeId) throws RemoteException
     {
-        return getPort().shoppingCartLicense(getSessionId(), quoteId, storeId);
-    }
-
-    private ShoppingCartProductEntity[] buildProductsArrayWithOptions(List<Map<String, Object>> productsAttributes,
-                                                                      List<Map<String, Object>> productsOptions,
-                                                                      List<Map<String, Object>> productsBundleOptions,
-                                                                      List<Map<String, Object>> productsBundleOptionsQty)
-    {
-        if (productsOptions != null)
-        {
-            Validate.isTrue(productsAttributes.size() == productsOptions.size(), "Options size must be equal to products size");
-        }
-        if (productsBundleOptions != null)
-        {
-            Validate.isTrue(productsAttributes.size() == productsBundleOptions.size(), "Bundle options size must be equal to products size");
-        }
-        if (productsBundleOptionsQty != null)
-        {
-            Validate.isTrue(productsAttributes.size() == productsBundleOptionsQty.size(), "Bundle options quantity size must be equal to products size");
-        }
-
-        ShoppingCartProductEntity[] products = fromMap(ShoppingCartProductEntity.class, productsAttributes);
-
-        for (int i = 0; i < productsAttributes.size(); i++)
-        {
-            if (productsOptions != null)
-            {
-                Map<String, Object> productOptions = productsOptions.get(i);
-                removeNullValues(productOptions);
-                if (productOptions != null && !productOptions.isEmpty())
-                {
-                    products[i].setOptions(fromMap(productOptions));
-                }
-            }
-            if (productsBundleOptions != null)
-            {
-                Map<String, Object> productBundleOption = productsBundleOptions.get(i);
-                removeNullValues(productBundleOption);
-                if (productBundleOption != null && !productBundleOption.isEmpty())
-                {
-                    products[i].setBundle_option(fromMap(productBundleOption));
-                }
-            }
-            if (productsBundleOptionsQty != null)
-            {
-                Map<String, Object> productBundleOptionQty = productsBundleOptionsQty.get(i);
-                removeNullValues(productBundleOptionQty);
-                if (productBundleOptionQty != null && !productBundleOptionQty.isEmpty())
-                {
-                    products[i].setBundle_option_qty(fromMap(productBundleOptionQty));
-                }
-            }
-        }
-
-        return products;
+        return Arrays.asList(getPort().shoppingCartLicense(getSessionId(), quoteId, storeId));
     }
 
     @Override
     public boolean addShoppingCartProduct(int quoteId,
-                                          List<Map<String, Object>> productsAttributes,
-                                          List<Map<String, Object>> productsOptions,
-                                          List<Map<String, Object>> productsBundleOptions,
-                                          List<Map<String, Object>> productsBundleOptionsQty,
+                                          List<ShoppingCartProductEntity> products,
                                           String storeId) throws RemoteException
     {
-        ShoppingCartProductEntity[] products = buildProductsArrayWithOptions(productsAttributes,
-                productsOptions, productsBundleOptions, productsBundleOptionsQty);
-        return getPort().shoppingCartProductAdd(getSessionId(), quoteId, products, storeId);
+        return getPort().shoppingCartProductAdd(getSessionId(), quoteId, products.toArray(new ShoppingCartProductEntity[products.size()]), storeId);
     }
 
     @Override
     public boolean updateShoppingCartProduct(int quoteId,
-                                             List<Map<String, Object>> productsAttributes,
-                                             List<Map<String, Object>> productsOptions,
-                                             List<Map<String, Object>> productsBundleOptions,
-                                             List<Map<String, Object>> productsBundleOptionsQty,
+                                             List<ShoppingCartProductEntity> products,
                                              String storeId) throws RemoteException
     {
 
-        ShoppingCartProductEntity[] products = buildProductsArrayWithOptions(productsAttributes,
-                productsOptions, productsBundleOptions, productsBundleOptionsQty);
-        return getPort().shoppingCartProductUpdate(getSessionId(), quoteId, products, storeId);
+        return getPort().shoppingCartProductUpdate(getSessionId(), quoteId, products.toArray(new ShoppingCartProductEntity[products.size()]), storeId);
     }
 
     @Override
     public boolean removeShoppingCartProduct(int quoteId,
-                                             List<Map<String, Object>> productsAttributes,
-                                             List<Map<String, Object>> productsOptions,
-                                             List<Map<String, Object>> productsBundleOptions,
-                                             List<Map<String, Object>> productsBundleOptionsQty,
+                                             List<ShoppingCartProductEntity> products,
                                              String storeId) throws RemoteException
     {
-        ShoppingCartProductEntity[] products = buildProductsArrayWithOptions(productsAttributes,
-                productsOptions, productsBundleOptions, productsBundleOptionsQty);
-        return getPort().shoppingCartProductRemove(getSessionId(), quoteId, products, storeId);
+        return getPort().shoppingCartProductRemove(getSessionId(), quoteId, products.toArray(new ShoppingCartProductEntity[products.size()]), storeId);
     }
 
     @Override
-    public Object[] listShoppingCartProducts(int quoteId, String storeId) throws RemoteException
+    public List<CatalogProductEntity> listShoppingCartProducts(int quoteId, String storeId) throws RemoteException
     {
-        return getPort().shoppingCartProductList(getSessionId(), quoteId, storeId);
+        return Arrays.asList(getPort().shoppingCartProductList(getSessionId(), quoteId, storeId));
     }
 
     @Override
     public boolean moveShoppingCartProductToCustomerQuote(int quoteId,
-                                                          List<Map<String, Object>> productsAttributes,
-                                                          List<Map<String, Object>> productsOptions,
-                                                          List<Map<String, Object>> productsBundleOptions,
-                                                          List<Map<String, Object>> productsBundleOptionsQty,
+                                                          List<ShoppingCartProductEntity> products,
                                                           String storeId) throws RemoteException
     {
-        ShoppingCartProductEntity[] products = buildProductsArrayWithOptions(productsAttributes,
-                productsOptions, productsBundleOptions, productsBundleOptionsQty);
-        return getPort().shoppingCartProductMoveToCustomerQuote(getSessionId(), quoteId, products, storeId);
+        return getPort().shoppingCartProductMoveToCustomerQuote(getSessionId(), quoteId, products.toArray(new ShoppingCartProductEntity[products.size()]), storeId);
     }
 
     @Override
-    public boolean setShoppingCartCustomer(int quoteId, Map<String, Object> customer, String storeId) throws RemoteException
+    public boolean setShoppingCartCustomer(int quoteId, ShoppingCartCustomerEntity customer, String storeId) throws RemoteException
     {
-        return getPort().shoppingCartCustomerSet(getSessionId(), quoteId, fromMap(ShoppingCartCustomerEntity.class, customer), storeId);
+        return getPort().shoppingCartCustomerSet(getSessionId(), quoteId, customer, storeId);
     }
 
     @Override
-    public boolean setShoppingCartCustomerAddresses(int quoteId, List<Map<String, Object>> addresses, String storeId) throws RemoteException
+    public boolean setShoppingCartCustomerAddresses(int quoteId, List<ShoppingCartCustomerAddressEntity> addresses, String storeId) throws RemoteException
     {
-        if (addresses != null)
-        {
-            for (Map<String, Object> address : addresses)
-            {
-                Validate.isTrue(
-                        address.containsKey("mode") &&
-                        (address.get("mode").toString().equals("shipping") ||
-                         address.get("mode").toString().equals("billing")), "A mode for each address is required and should be either \"shipping\" or \"billing\".");
-            }
-        }
-        return getPort().shoppingCartCustomerAddresses(getSessionId(), quoteId, fromMap(ShoppingCartCustomerAddressEntity.class, addresses), storeId);
+        return getPort().shoppingCartCustomerAddresses(getSessionId(), quoteId, addresses.toArray(new ShoppingCartCustomerAddressEntity[addresses.size()]), storeId);
     }
 
     @Override
@@ -200,19 +116,19 @@ public class AxisMagentoShoppingCartClient extends AbstractMagentoClient
     }
 
     @Override
-    public Object[] listShoppingCartShippingMethods(int quoteId, String storeId) throws RemoteException
+    public List<ShoppingCartShippingMethodEntity> listShoppingCartShippingMethods(int quoteId, String storeId) throws RemoteException
     {
-        return getPort().shoppingCartShippingList(getSessionId(), quoteId, storeId);
+        return Arrays.asList(getPort().shoppingCartShippingList(getSessionId(), quoteId, storeId));
     }
 
     @Override
-    public boolean setShoppingCartPaymentMethod(int quoteId, Map<String, Object> method, String storeId) throws RemoteException
+    public boolean setShoppingCartPaymentMethod(int quoteId, ShoppingCartPaymentMethodEntity method, String storeId) throws RemoteException
     {
-        return getPort().shoppingCartPaymentMethod(getSessionId(), quoteId, fromMap(ShoppingCartPaymentMethodEntity.class, method), storeId);
+        return getPort().shoppingCartPaymentMethod(getSessionId(), quoteId, method, storeId);
     }
 
     @Override
-    public Object listShoppingCartPaymentMethods(int quoteId, String storeId) throws RemoteException
+    public ShoppingCartPaymentMethodResponseEntityArray listShoppingCartPaymentMethods(int quoteId, String storeId) throws RemoteException
     {
         return getPort().shoppingCartPaymentList(getSessionId(), quoteId, storeId);
     }

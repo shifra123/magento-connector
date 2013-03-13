@@ -8,6 +8,7 @@
 
 package org.mule.module.magento.api.catalog;
 
+import com.magento.api.*;
 import org.mule.module.magento.api.catalog.model.MediaMimeType;
 import org.mule.module.magento.api.catalog.model.ProductIdentifier;
 
@@ -17,17 +18,18 @@ import java.util.Map;
 
 import javax.validation.constraints.NotNull;
 
-public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, ExceptionType extends Exception>
+public interface MagentoCatalogClient<ExceptionType extends Exception>
 {
 
     /**
      * Lists product of a given category. See catalog-category-assignedProducts SOAP
      * method.
      * 
+     *
      * @param categoryId
      * @return the listing of category products
      */
-    AttributesCollectionType listCategoryProducts(int categoryId) throws ExceptionType;
+    List<CatalogAssignedProduct> listCategoryProducts(int categoryId) throws ExceptionType;
 
     /**
      * Assign product to category. See catalog-category-assignProduct SOAP method
@@ -47,7 +49,7 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * @param storeView
      * @return the new category id
      */
-    int createCategory(int parentId, @NotNull Map<String, Object> attributes, String storeView)
+    int createCategory(int parentId, @NotNull CatalogCategoryEntityCreate attributes, String storeView)
         throws ExceptionType;
 
     /**
@@ -76,24 +78,26 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
     /**
      * Answers category attributes. See catalog-category-info SOAP method.
      * 
+     *
      * @param categoryId
      * @param storeView
      * @param attributeNames
      * @return the category attributes
      */
-    AttributesType getCategory(int categoryId, String storeView, List<String> attributeNames)
+    CatalogCategoryInfo getCategory(int categoryId, String storeView, List<String> attributeNames)
         throws ExceptionType;
 
     /**
      * Answers levels of categories for a website, store view and parente category
      * 
+     *
      * @param website
      * @param storeView
-     * @param parentCategoryId
+     * @param parentCategory
      * @return
      * @throws ExceptionType
      */
-    AttributesCollectionType listCategoryLevels(String website, String storeView, String parentCategoryId)
+    List<CatalogCategoryEntityNoChildren> listCategoryLevels(String website, String storeView, String parentCategory)
         throws ExceptionType;
 
     /**
@@ -120,11 +124,12 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
     /**
      * Retrieve hierarchical tree. See catalog-category-tree SOAP method.
      * 
+     *
      * @param parentId
      * @param storeView
      * @return
      */
-    AttributesType getCategoryTree(String parentId, String storeView) throws ExceptionType;
+    CatalogCategoryTree getCategoryTree(String parentId, String storeView) throws ExceptionType;
 
     /**
      * Updates a category. See catalog-category-update SOAP method
@@ -133,7 +138,7 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * @param attributes
      * @param storeView
      */
-    void updateCategory(int categoryId, @NotNull Map<String, Object> attributes, String storeView)
+    void updateCategory(int categoryId, @NotNull CatalogCategoryEntityCreate attributes, String storeView)
         throws ExceptionType;
 
     /**
@@ -145,10 +150,11 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
         throws ExceptionType;
 
     /**
+     *
      * @param products
      * @return
      */
-    AttributesCollectionType listInventoryStockItems(@NotNull List<String> products) throws ExceptionType;
+    List<CatalogInventoryStockItemEntity> listInventoryStockItems(@NotNull List<String> products) throws ExceptionType;
 
     /**
      * Updates an stock inventory item
@@ -157,7 +163,7 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * @param attributes
      */
     void updateInventoryStockItem(@NotNull ProductIdentifier productId,
-                                  @NotNull Map<String, Object> attributes) throws ExceptionType;
+                                  @NotNull CatalogInventoryStockItemUpdateEntity attributes) throws ExceptionType;
 
     /**
      * Creates a new product
@@ -172,8 +178,8 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
     int createProduct(@NotNull String type,
                       @NotNull int set,
                       @NotNull String sku,
-                      Map<String, Object> attributes,
-                      Map<String, Object> additionalAttributes,
+                      CatalogProductCreateEntity attributes,
+                      List<AssociativeEntity> additionalAttributes,
                       String storeView) throws ExceptionType;
 
     /**
@@ -188,12 +194,11 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * Answers a product special price. See catalog-product-getSpecialPrice SOAP
      * method.
      * 
-     * @param product
+     *
      * @param storeView
-     * @param productId.getIdentifierType()
      * @return
      */
-    AttributesType getProductSpecialPrice(@NotNull ProductIdentifier productId, String storeView)
+    CatalogProductReturnEntity getProductSpecialPrice(@NotNull ProductIdentifier productId, String storeView)
         throws ExceptionType;
 
     /**
@@ -201,6 +206,7 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * additionalAttributeNames must be non null and non empty. See
      * catalog-product-info SOAP method.
      * 
+     *
      * @param productId
      * @param storeView
      * @param attributeNames the list of standard attributes to be returned
@@ -208,20 +214,20 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      *            returned in the additionalAttributes attribute
      * @return the product attributes
      */
-    AttributesType getProduct(@NotNull ProductIdentifier productId,
-                              String storeView,
-                              List<String> attributeNames,
-                              List<String> additionalAttributeNames) throws ExceptionType;
+    CatalogProductReturnEntity getProduct(@NotNull ProductIdentifier productId,
+                                          String storeView,
+                                          List<String> attributeNames,
+                                          List<String> additionalAttributeNames) throws ExceptionType;
 
     /**
      * Retrieve products list by filters See catalog-product-list SOAP method.
      * 
+     *
      * @param filters an optional filtering expression
-     * @param storeViewIdOrCode an optional storeView
      * @return the list of product attributes that match the given optional filtering
      *         expression
      */
-    AttributesCollectionType listProducts(String filters, String storeView) throws ExceptionType;
+    List<CatalogProductEntity> listProducts(String filters, String storeView) throws ExceptionType;
 
     /**
      * Sets a product special price. See catalog-product-setSpecialPrice SOAP method
@@ -244,13 +250,12 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * Updates a product. At least one of attributes or additionalAttributes 
      * must be non null and non empty See catalog-category-updateProduct SOAP method
      * 
-     * @param attributes the map of standard product attributes to update
-     * @param additionalAttributes the map of non standard product attributes to update
-     * @param storeViewIdOrCode optional store view
+     * @param attributes standard product attributes to update
+     * @param additionalAttributes non standard product attributes to update
      */
     void updateProduct(@NotNull ProductIdentifier productId,
-                       Map<String, Object> attributes,
-                       Map<String, Object> additionalAttributes,
+                       CatalogProductCreateEntity attributes,
+                       List<AssociativeEntity> additionalAttributes,
                        String storeView) throws ExceptionType;
 
     /**
@@ -263,7 +268,7 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * @return the new image filename
      */
     String createProductAttributeMedia(@NotNull ProductIdentifier productId,
-                                       Map<String, Object> attributes,
+                                       CatalogProductAttributeMediaCreateEntity attributes,
                                        @NotNull InputStream content,
                                        @NotNull MediaMimeType mimeType,
                                        @NotNull String baseFileName,
@@ -273,24 +278,24 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * Answers product image attributes. See catalog-product-attribute-media-info
      * SOAP method
      * 
+     *
      * @param productId
      * @param file
      * @param storeView
      * @return the product attributes
      */
-    AttributesType getProductAttributeMedia(@NotNull ProductIdentifier productId,
-                                            @NotNull String file,
-                                            String storeView) throws ExceptionType;
+    CatalogProductImageEntity getProductAttributeMedia(@NotNull ProductIdentifier productId,
+                                                       @NotNull String file,
+                                                       String storeView) throws ExceptionType;
 
     /**
      * Retrieves product image list. See catalog-product-attribute-media-list SOAP
      * method
      * 
-     * @param product
-     * @param storeView
-     * @return the list of product images attributes
+     *
+     * @param storeViewIdOrCode@return the list of product images attributes
      */
-    AttributesCollectionType listProductAttributeMedia(@NotNull ProductIdentifier productId, String storeView)
+    List<CatalogProductImageEntity> listProductAttributeMedia(@NotNull ProductIdentifier productId, String storeViewIdOrCode)
         throws ExceptionType;
 
     /**
@@ -308,10 +313,11 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * Retrieve product image types. See catalog-product-attribute-media-types SOAP
      * method.
      * 
+     *
      * @param setId
      * @return
      */
-    AttributesCollectionType listProductAttributeMediaTypes(int setId) throws ExceptionType;
+    List<CatalogProductAttributeMediaTypeEntity> listProductAttributeMediaTypes(int setId) throws ExceptionType;
 
     /**
      * Updates product media. See catalog-product-attribute-media-update
@@ -323,7 +329,7 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      */
     void updateProductAttributeMedia(@NotNull ProductIdentifier productId,
                                      String fileName,
-                                     @NotNull Map<String, Object> attributes,
+                                     @NotNull CatalogProductAttributeMediaCreateEntity attributes,
                                      String storeView) throws ExceptionType;
 
     /**
@@ -332,38 +338,39 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * 
      * @return the list of attributes
      */
-    AttributesCollectionType listCategoryAttributes() throws ExceptionType;
+    List<CatalogAttributeEntity> listCategoryAttributes() throws ExceptionType;
 
     /**
      * Retrieves attribute options. See catalog-category-attribute-options SOAP
      * method.
      * 
+     *
      * @param attributeId
-     * @param storeViewIdOrCode optinal
      * @return the list of attributes
      */
-    AttributesCollectionType listCategoryAttributeOptions(@NotNull String attributeId, String storeView)
+    List<CatalogAttributeOptionEntity> listCategoryAttributeOptions(@NotNull String attributeId, String storeView)
         throws ExceptionType;
 
     /**
      * Retrieves product attributes list. See catalog-product-attribute-list SOAP
      * methods
      * 
+     *
      * @param setId
      * @return the list of product attributes
      */
-    AttributesCollectionType listProductAttributes(int setId) throws ExceptionType;
+    List<CatalogAttributeEntity> listProductAttributes(int setId) throws ExceptionType;
 
     /**
      * Answers the product attribute options. See catalog-product-attribute-options
      * SOAP method.
      * 
+     *
      * @param attributeId
-     * @param storeViewIdOrCode optional
      * @return the attributes list
      */
     @NotNull
-    AttributesCollectionType listProductAttributeOptions(@NotNull String attributeId, String storeView)
+    List<CatalogAttributeOptionEntity> listProductAttributeOptions(@NotNull String attributeId, String storeView)
         throws ExceptionType;
 
     /**
@@ -373,7 +380,7 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * @return The list of product attributes sets
      */
     @NotNull
-    AttributesCollectionType listProductAttributeSets() throws ExceptionType;
+    List<CatalogProductAttributeSetEntity> listProductAttributeSets() throws ExceptionType;
 
     /**
      * Retrieves product types. See catalog-product-type-list SOAP method
@@ -381,17 +388,18 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * @return the list of product types
      */
     @NotNull
-    AttributesCollectionType listProductTypes() throws ExceptionType;
+    List<CatalogProductTypeEntity> listProductTypes() throws ExceptionType;
 
     /**
      * Retrieve product tier prices. See catalog-product-attribute-tier-price-info
      * SOAP Method.
      * 
+     *
      * @param productId
      * @return the list of product attributes
      */
     @NotNull
-    AttributesCollectionType listProductAttributeTierPrices(@NotNull ProductIdentifier productId)
+    List<CatalogProductTierPriceEntity> listProductAttributeTierPrices(@NotNull ProductIdentifier productId)
         throws ExceptionType;
 
     /**
@@ -402,7 +410,7 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * @param attributes
      */
     void updateProductAttributeTierPrice(@NotNull ProductIdentifier productId,
-                                          @NotNull Map<String, Object> attributes) throws ExceptionType;
+                                          @NotNull CatalogProductTierPriceEntity attributes) throws ExceptionType;
 
     /**
      * Links two products
@@ -415,24 +423,26 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
     void addProductLink(@NotNull String type,
                         @NotNull ProductIdentifier productId,
                         @NotNull String linkedProductIdOrSku,
-                        Map<String, Object> attributes) throws ExceptionType;
+                        CatalogProductLinkEntity attributes) throws ExceptionType;
 
     /**
      * Lists all the attributes for the given product link type
      * 
+     *
      * @param type the product type
      * @return the listing of product attributes
      */
-    AttributesCollectionType listProductLinkAttributes(@NotNull String type) throws ExceptionType;
+    List<CatalogProductLinkAttributeEntity> listProductLinkAttributes(@NotNull String type) throws ExceptionType;
 
     /**
      * Lists linked products to the given product and for the given link type
      * 
+     *
      * @param type the link type
      * @param productId the linked product
      * @return the list of links to the product
      */
-    AttributesCollectionType listProductLink(@NotNull String type, @NotNull ProductIdentifier productId)
+    List<CatalogProductLinkEntity> listProductLink(@NotNull String type, @NotNull ProductIdentifier productId)
         throws ExceptionType;
 
     /**
@@ -458,13 +468,12 @@ public interface MagentoCatalogClient<AttributesType, AttributesCollectionType, 
      * Update product link
      * 
      * @param type
-     * @param product
      * @param linkedProduct
      * @param attributes
      */
     void updateProductLink(@NotNull String type,
                            @NotNull ProductIdentifier productId,
                            @NotNull String linkedProduct,
-                           @NotNull Map<String, Object> attributes) throws ExceptionType;
+                           @NotNull CatalogProductLinkEntity attributes) throws ExceptionType;
 
 }

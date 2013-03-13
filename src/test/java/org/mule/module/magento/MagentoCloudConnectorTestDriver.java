@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
+import com.magento.api.*;
 import org.mule.module.magento.api.MagentoException;
 import org.mule.module.magento.api.catalog.model.MediaMimeType;
 
@@ -35,10 +36,10 @@ public class MagentoCloudConnectorTestDriver
 {
     private static final int EXISTENT_PRODUCT_ID = 11;
     /**A category that is supposed to exist, as a workaround to the create category magento bug*/
-    private static final Integer ROOT_CATEGORY_ID = 3;
-    private static final Integer CATEGORY_ID_1 = 4;
-    private static final Integer CATEGORY_ID_2 = 5;
-    private static final Integer CATEGORY_ID_3 = 6;
+    private static final int ROOT_CATEGORY_ID = 3;
+    private static final int CATEGORY_ID_1 = 4;
+    private static final int CATEGORY_ID_2 = 5;
+    private static final int CATEGORY_ID_3 = 6;
     
     private static final String ORDER_ID = "100000001";
     private MagentoCloudConnector connector;
@@ -48,10 +49,8 @@ public class MagentoCloudConnectorTestDriver
     {
         connector = new MagentoCloudConnector();
         //it looks like http://<host>/index.php/api/v2_soap
-        connector.setAddress(System.getenv("magentoHost"));
-        connector.setPassword(System.getenv("magentoPassword"));
-        connector.setUsername(System.getenv("magentoUsername"));
-        connector.initialiseConnector();
+        connector.initialiseConnector("magento", "magento",
+                "http://172.16.20.35/magento/index.php/api/v2_soap");
     }
 
     @Test
@@ -76,7 +75,7 @@ public class MagentoCloudConnectorTestDriver
     @Test
     public void getOrder() throws Exception
     {
-        Map<String, Object> orderInfo = connector.getOrder(ORDER_ID);
+        SalesOrderEntity orderInfo = connector.getOrder(ORDER_ID);
         assertNotNull(orderInfo);
         System.out.println(ToStringBuilder.reflectionToString(orderInfo));
     }
@@ -108,13 +107,12 @@ public class MagentoCloudConnectorTestDriver
     @Test
     public void updateStockItem() throws Exception
     {
-        connector.updateStockItem(String.valueOf(EXISTENT_PRODUCT_ID), new HashMap<String, Object>()
-        {
-            {
-                put("manage_stock", "0");
-                put("use_config_manage_stock", "0");
-            }
-        });
+
+        CatalogInventoryStockItemUpdateEntity entity = new CatalogInventoryStockItemUpdateEntity();
+        entity.setManage_stock(0);
+        entity.setUse_config_manage_stock(0);
+
+        connector.updateStockItem(String.valueOf(EXISTENT_PRODUCT_ID), entity);
     }
 
     /**
@@ -151,22 +149,20 @@ public class MagentoCloudConnectorTestDriver
         final String firstname = "John";
         final String lastname = "Doe";
         assertEquals(0, countCustomers(email, firstname, lastname));
+
+        CustomerCustomerEntityToCreate customer = new CustomerCustomerEntityToCreate();
+        customer.setEmail(email);
+        customer.setFirstname(firstname);
+        customer.setLastname(lastname);
+        customer.setPassword("123456");
+        customer.setGroup_id(1);
         
-        int customerId = connector.createCustomer(new HashMap<String, Object>()
-        {
-            {
-                put("email", email);
-                put("firstname", firstname);
-                put("lastname", lastname);
-                put("password", "123456");
-                put("group_id", "1");
-            }
-        });
+        int customerId = connector.createCustomer(customer);
         try
         {
             assertEquals(1, countCustomers(email, firstname, lastname));
             assertEquals(firstname, 
-                connector.getCustomer(customerId, Arrays.asList("firstname")).get("firstname"));
+                connector.getCustomer(customerId, Arrays.asList("firstname")).getFirstname());
         }
         finally
         {
@@ -181,26 +177,25 @@ public class MagentoCloudConnectorTestDriver
     @Test
     public void updateCustomer() throws Exception
     {
-        int customerId = connector.createCustomer(new HashMap<String, Object>()
-        {
-            {
-                put("email", "johndoe@mycia.com");
-                put("firstname", "John");
-                put("lastname", "Doe");
-                put("password", "123456");
-                put("group_id", "1");
-            }
-        });
+        final String email = "johndoe@mycia.com";
+        final String firstname = "John";
+        final String lastname = "Doe";
+        assertEquals(0, countCustomers(email, firstname, lastname));
+
+        CustomerCustomerEntityToCreate customer = new CustomerCustomerEntityToCreate();
+        customer.setEmail(email);
+        customer.setFirstname(firstname);
+        customer.setLastname(lastname);
+        customer.setPassword("123456");
+        customer.setGroup_id(1);
+
+        int customerId = connector.createCustomer(customer);
         try
         {
-            connector.updateCustomer(customerId, new HashMap<String, Object>()
-            {
-                {
-                    put("firstname", "Tom");
-                }
-            });
+            customer.setFirstname("Tom");
+            connector.updateCustomer(customer.getCustomer_id(), customer);
             assertEquals("Tom", 
-                connector.getCustomer(customerId, Arrays.asList("firstname")).get("firstname"));
+                connector.getCustomer(customerId, Arrays.asList("firstname")).getFirstname());
         }
         finally
         {
@@ -241,10 +236,10 @@ public class MagentoCloudConnectorTestDriver
     @Test @Ignore("Broken since Magento 1.5.1.0")
     public void getExistentProductBySku() throws Exception
     {
-        Map<String, Object> product = getExistentProductWithDescriptions();
-        Map<String, Object> product2 = connector.getProduct(null, (String) product.get("sku"), null, null,
-            Arrays.asList("description"), Collections.<String> emptyList());
-        assertEquals(product.get("id"), product2.get("id"));
+        CatalogProductReturnEntity product = getExistentProductWithDescriptions();
+        CatalogProductReturnEntity product2 = connector.getProduct(null, (String) product.getSku(), null, null,
+                Arrays.asList("description"), Collections.<String>emptyList());
+        assertEquals(product.getProduct_id(), product2.getProduct_id());
     }
     
     /**
@@ -254,10 +249,10 @@ public class MagentoCloudConnectorTestDriver
     @Test
     public void getExistentProductByIdOrSku() throws Exception
     {
-        Map<String, Object> product = getExistentProductWithDescriptions();
-        Map<String, Object> product2 = connector.getProduct(null,  null, (String) product.get("sku"), null,
-            Arrays.asList("description"), Collections.<String> emptyList());
-        assertEquals(product.get("id"), product2.get("id"));
+        CatalogProductReturnEntity product = getExistentProductWithDescriptions();
+        CatalogProductReturnEntity product2 = connector.getProduct(null, null, (String) product.getSku(), null,
+                Arrays.asList("description"), Collections.<String>emptyList());
+        assertEquals(product.getProduct_id(), product2.getProduct_id());
     }
 
     /**
@@ -269,30 +264,28 @@ public class MagentoCloudConnectorTestDriver
         final String description = "A great wood kitchen table";
         final String shortDescription = "Best Product ever!";
         updateDescriptions(description, shortDescription);
-        Map<String, Object> product = getExistentProductWithDescriptions();
-        assertEquals(description, product.get("description"));
-        assertEquals(shortDescription, product.get("short_description"));
+        CatalogProductReturnEntity product = getExistentProductWithDescriptions();
+        assertEquals(description, product.getDescription());
+        assertEquals(shortDescription, product.getDescription());
         
         final Object description2 = "An acceptable kitchen table";
         final Object shortDescription2 = "A good product";
         updateDescriptions(description2, shortDescription2);
         product = getExistentProductWithDescriptions();
-        assertEquals(description2, product.get("description"));
-        assertEquals(shortDescription2, product.get("short_description"));
+        assertEquals(description2, product.getDescription());
+        assertEquals(shortDescription2, product.getDescription());
     }
     
     private void updateDescriptions(final Object description2, final Object shortDescription2)
     {
-        connector.updateProduct(null, null, String.valueOf(EXISTENT_PRODUCT_ID), new HashMap<String, Object>()
-        {
-            {
-                put("description", description2);
-                put("short_description", shortDescription2);
-            }
-        }, null, null);
+
+        CatalogProductCreateEntity entity = new CatalogProductCreateEntity();
+        entity.setDescription(description2.toString());
+        entity.setShort_description(shortDescription2.toString());
+        connector.updateProduct(null, null, String.valueOf(EXISTENT_PRODUCT_ID), entity, null, null);
     }
 
-    private Map<String, Object> getExistentProductWithDescriptions()
+    private CatalogProductReturnEntity getExistentProductWithDescriptions()
     {
         return connector.getProduct(EXISTENT_PRODUCT_ID, null, null, null, Arrays.asList("sku",
             "description", "short_description"), null);
@@ -333,21 +326,18 @@ public class MagentoCloudConnectorTestDriver
     public void productInventory() throws Exception
     {
         Integer productId = null;
-        productId = connector.createProduct("simple", 4, "X8960",
-            Collections.singletonMap("stock_data",
-            (Object) new HashMap<String, Object>()
-            {
-                {
-                    put("qty", "10");
-                    put("is_in_stock", true);
-                }
-            }), null, null);
+        CatalogProductCreateEntity entity = new CatalogProductCreateEntity();
+        CatalogInventoryStockItemUpdateEntity stock = new CatalogInventoryStockItemUpdateEntity();
+        stock.setQty("10");
+        stock.setIs_in_stock(1);
+        entity.setStock_data(stock);
+        productId = connector.createProduct("simple", 4, "X8960", entity, null, null);
         try
         {
-            List<Map<String, Object>> stockItems = connector.listStockItems(Arrays.asList("X8960"));
+            List<CatalogInventoryStockItemEntity> stockItems = connector.listStockItems(Arrays.asList("X8960"));
             assertEquals(1, stockItems.size());
-            assertEquals("10.0000", stockItems.get(0).get("qty"));
-            assertEquals("1", stockItems.get(0).get("is_in_stock"));
+            assertEquals("10.0000", stockItems.get(0).getQty());
+            assertEquals("1", stockItems.get(0).getIs_in_stock());
         }
         finally
         {
@@ -372,10 +362,10 @@ public class MagentoCloudConnectorTestDriver
             productId = connector.createProduct("simple", 4, "AK4596", null, null, null);
             assertEquals(originalProductsCount + 1, connector.listProducts(null, null).size());
             connector.updateProductSpecialPrice(null, null, productId.toString(), "6953.6", "2011-30-01", null, null);
-            Map<String, Object> productSpecialPrice = connector.getProductSpecialPrice(productId, null, null,
-                null);
+            CatalogProductReturnEntity productSpecialPrice = connector.getProductSpecialPrice(productId, null, null,
+                    null);
             assertNotNull(productSpecialPrice);
-            System.out.println("Special price:" + productSpecialPrice);
+            System.out.printf("Special price:%s%n", productSpecialPrice);
         }
         finally
         {
@@ -421,20 +411,13 @@ public class MagentoCloudConnectorTestDriver
     public void createCategory() throws Exception
     {
         Integer categoryId = null;
+
+        CatalogCategoryEntityCreate entity = new CatalogCategoryEntityCreate();
+        entity.setName("Hardware");
+        entity.setIs_active(1);
         try
         {
-            categoryId = connector.createCategory(1, new HashMap<String, Object>()
-            {
-                {
-                    put("name", "Hardware");
-                    put("is_active", true);
-                    put("level", 1);
-                    put("available_sort_by", false);
-                    put("default_sort_by", false);
-                    put("include_in_menu", 1);
-                    put("meta_title", "Hardware and similar stuff");
-                }
-            }, null);
+            categoryId = connector.createCategory(1,  entity, null);
         }
         finally
         {
@@ -451,10 +434,10 @@ public class MagentoCloudConnectorTestDriver
     @Test
     public void directory() throws Exception
     {
-        List<Map<String, Object>> countries = connector.listDirectoryCountries();
+        List<DirectoryCountryEntity> countries = connector.listDirectoryCountries();
         assertFalse(countries.isEmpty());
-        assertEquals("Andorra", countries.get(0).get("name"));
-        assertEquals("United Arab Emirates", countries.get(1).get("name"));
+        assertEquals("Andorra", countries.get(0).getName());
+        assertEquals("United Arab Emirates", countries.get(1).getName());
         assertFalse(connector.listDirectoryRegions("US").isEmpty());
     }
     
@@ -470,11 +453,11 @@ public class MagentoCloudConnectorTestDriver
     @Test
     public void getCategory() throws Exception
     {
-        Map<String, Object> attributes = connector.getCategory(CATEGORY_ID_1, null, Arrays.asList("name", "is_active",
-            "description"));
-        assertEquals(attributes.get("name"), "SubCategory1");
-        assertEquals(1, attributes.get("is_active"));
-        assertEquals(attributes.get("description"), "This a subcategory!");
+        CatalogCategoryInfo attributes = connector.getCategory(CATEGORY_ID_1, null, Arrays.asList("name", "is_active",
+                "description"));
+        assertEquals(attributes.getName(), "SubCategory1");
+        assertEquals(1, attributes.getIs_active());
+        assertEquals(attributes.getDescription(), "This a subcategory!");
     }
     
     /**
@@ -491,11 +474,11 @@ public class MagentoCloudConnectorTestDriver
     @Test
     public void getCategoryTree() throws Exception
     {
-        Map<String, Object> categoryTree = connector.getCategoryTree(ROOT_CATEGORY_ID.toString(), null);
-        assertEquals(ROOT_CATEGORY_ID, categoryTree.get("category_id"));
-        assertEquals(CATEGORY_ID_1, getChildren(categoryTree, 0).get("category_id"));
-        assertEquals(CATEGORY_ID_3, getChildren(categoryTree, 1).get("category_id"));
-        assertEquals(CATEGORY_ID_2, getChildren(categoryTree, 2).get("category_id"));
+        CatalogCategoryTree categoryTree = connector.getCategoryTree(String.valueOf(ROOT_CATEGORY_ID), null);
+        assertEquals(ROOT_CATEGORY_ID, categoryTree.getCategory_id());
+        assertEquals(CATEGORY_ID_1, categoryTree.getChildren()[0].getCategory_id());
+        assertEquals(CATEGORY_ID_3, categoryTree.getChildren()[1].getCategory_id());
+        assertEquals(CATEGORY_ID_2, categoryTree.getChildren()[2].getCategory_id());
     }
     
     /**
@@ -513,13 +496,17 @@ public class MagentoCloudConnectorTestDriver
     @Test
     public void move() throws Exception
     {
-        assertEquals(ROOT_CATEGORY_ID.toString(), connector.getCategory(CATEGORY_ID_2, null, Arrays.asList("parent_id")).get("parent_id"));
+        assertEquals(ROOT_CATEGORY_ID, connector.getCategory(CATEGORY_ID_2, null, Arrays.asList("parent_id")).getParent_id());
         
         connector.moveCategory(CATEGORY_ID_2, CATEGORY_ID_3, null);
-        assertEquals(CATEGORY_ID_3.toString(), connector.getCategory(CATEGORY_ID_2, null, Arrays.asList("parent_id")).get("parent_id"));
+        assertEquals(CATEGORY_ID_3, connector.getCategory(CATEGORY_ID_2, null, Arrays.asList("parent_id")).getParent_id());
         
         connector.moveCategory(CATEGORY_ID_2, ROOT_CATEGORY_ID, null);
-        assertEquals(ROOT_CATEGORY_ID.toString(), connector.getCategory(CATEGORY_ID_2, null, Arrays.asList("parent_id")).get("parent_id"));
+        assertEquals(ROOT_CATEGORY_ID, connector.getCategory(CATEGORY_ID_2, null, Arrays.asList("parent_id")).getParent_id());
     }
-    
+
+    @Test
+    public void listShoppingCartPaymentMethods() {
+        connector.listShoppingCartPaymentMethods(34, "1");
+    }
 }

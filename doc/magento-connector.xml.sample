@@ -16,7 +16,7 @@
         <magento:create-order-shipment orderId="#[map-payload:orderId]"
                                        comment="HelloWorld">
             <magento:items-quantities>
-                <magento:items-quantity key="2">3.5</magento:items-quantity>
+                <magento:items-quantity order_item_id="1" qty="10" />
             </magento:items-quantities>
         </magento:create-order-shipment>
 <!-- END_INCLUDE(magento:createOrderShipment) -->
@@ -70,7 +70,7 @@
 <!-- BEGIN_INCLUDE(magento:createOrderInvoice) -->
         <magento:create-order-invoice orderId="#[map-payload:orderId]">
             <magento:items-quantities>
-                <magento:items-quantity key="2">3.5</magento:items-quantity>
+              <magento:items-quantity order_item_id="1" qty="10" />
             </magento:items-quantities>
         </magento:create-order-invoice>
 <!-- END_INCLUDE(magento:createOrderInvoice) -->
@@ -95,20 +95,14 @@
 
 <!-- BEGIN_INCLUDE(magento:createCustomerAddress) -->
         <magento:create-customer-address customerId="#[map-payload:customerId]">
-            <magento:attributes>
-                <magento:attribute key="city_code">#[map-payload:cityCode]</magento:attribute>
-            </magento:attributes>
+            <magento:customer-address postcode="#[map-payload:postCode]" />
         </magento:create-customer-address>
 <!-- END_INCLUDE(magento:createCustomerAddress) -->
 
 <!-- BEGIN_INCLUDE(magento:createCustomer) -->
         <magento:create-customer>
-            <magento:attributes>
-                <magento:attribute key="email">#[map-payload:email]</magento:attribute>
-                <magento:attribute key="firstname">#[map-payload:firstname]</magento:attribute>
-                <magento:attribute key="lastname">#[map-payload:lastname]</magento:attribute>
-                <magento:attribute key="password">#[map-payload:password]</magento:attribute>
-            </magento:attributes>
+            <magento:customer email="#[map-payload:email]" firstname="#[map-payload:firstname]"
+                   lastname="#[map-payload:lastname]" password="#[map-payload:password]" />
         </magento:create-customer>
 <!-- END_INCLUDE(magento:createCustomer) -->
 
@@ -148,18 +142,14 @@
 
 <!-- BEGIN_INCLUDE(magento:updateCustomer) -->
         <magento:update-customer customerId="#[map-payload:customerId]">
-            <magento:attributes>
-                <magento:attribute key="lastname">#[map-payload:lastname]</magento:attribute>
-            </magento:attributes>
+            <magento:customer firstname="#[map-payload:firstname]"
+                               lastname="#[map-payload:lastname]" />
         </magento:update-customer>
 <!-- END_INCLUDE(magento:updateCustomer) -->
 
 <!-- BEGIN_INCLUDE(magento:updateCustomerAddress) -->
         <magento:update-customer-address addressId="#[map-payload:addressId]">
-            <magento:attributes>
-                <magento:attribute key="street">#[map-payload:street]</magento:attribute>
-                <magento:attribute key="region">#[map-payload:region]</magento:attribute>
-            </magento:attributes>
+            <magento:customer-address postcode="#[map-payload:postCode]" region="#[map-payload:region]" />
         </magento:update-customer-address>
 <!-- END_INCLUDE(magento:updateCustomerAddress) -->
 
@@ -174,9 +164,7 @@
 
 <!-- BEGIN_INCLUDE(magento:updateStockItem) -->
         <magento:update-stock-item productIdOrSku="#[map-payload:productIdOrSku]">
-            <magento:attributes>
-                <magento:attribute key="qty">#[map-payload:quantity]</magento:attribute>
-            </magento:attributes>
+            <magento:stock-item qty="2" />
         </magento:update-stock-item>
 <!-- END_INCLUDE(magento:updateStockItem) -->
 
@@ -192,9 +180,7 @@
         <magento:add-product-link type="#[map-payload:type]"
                                   productId="#[map-payload:productId]"
                                   linkedProductIdOrSku="#[map-payload:linkedProductId]">
-            <magento:attributes>
-                <magento:attribute key="qty">#[map-payload:qty]</magento:attribute>
-            </magento:attributes>
+            <magento:product-link-entity qty="#[map-payload:qty]"/>
         </magento:add-product-link>
 <!-- END_INCLUDE(magento:addProductLink) -->
 
@@ -203,10 +189,7 @@
                 productId="#[map-payload:productId]"
                 baseFileName="#[map-payload:baseFileName]"
                 mimeType="JPEG">
-            <magento:attributes>
-                <magento:attribute key="label">#[map-payload:label]</magento:attribute>
-                <magento:attribute key="position">#[map-payload:position]</magento:attribute>
-            </magento:attributes>
+            <magento:catalog-product-attribute-media-entity label="#[map-payload:label]" position="#[map-payload:position]" />
         </magento:create-product-attribute-media>
 <!-- END_INCLUDE(magento:createProductAttributeMedia) -->
 
@@ -288,20 +271,14 @@
 <!-- BEGIN_INCLUDE(magento:updateProductAttributeMedia) -->
         <magento:update-product-attribute-media fileName="#[map-payload:fileName]"
                                                 productId="#[map-payload:productId]">
-            <magento:attributes>
-                <magento:attribute key="label">#[map-payload:label]</magento:attribute>
-            </magento:attributes>
+            <magento:catalog-product-attribute-media-entity label="#[map-payload:label]" position="#[map-payload:position]" />
         </magento:update-product-attribute-media>
 <!-- END_INCLUDE(magento:updateProductAttributeMedia) -->
 
 <!-- BEGIN_INCLUDE(magento:updateProductAttributeTierPrice) -->
         <magento:update-product-attribute-tier-price productSku="#[map-payload:productSku]">
-            <magento:attributes>
-                <magento:attribute key="price">#[map-payload:price]</magento:attribute>
-                <magento:attribute key="qty">#[map-payload:qty]</magento:attribute>
-                <magento:attribute key="website">#[map-payload:website]</magento:attribute>
-                <magento:attribute key="customer_group_id">#[map-payload:customerGroupId]</magento:attribute>
-            </magento:attributes>
+            <magento:catalog-product-tier-price-entity price="#[map-payload:price]" qty="#[map-payload:qty]"
+            website="#[map-payload:website]" customer_group_id="#[map-payload:customerGroupId]" />
         </magento:update-product-attribute-tier-price>
 <!-- END_INCLUDE(magento:updateProductAttributeTierPrice) -->
 
@@ -309,9 +286,7 @@
         <magento:update-product-link type="#[map-payload:type]"
                                      productId="#[map-payload:productId]"
                                      linkedProductIdOrSku="#[map-payload:linkedProductId]">
-            <magento:attributes>
-                <magento:attribute key="qty">#[map-payload:qty]</magento:attribute>
-            </magento:attributes>
+            <magento:catalog-product-link-entity qty="#[map-payload:qty]" />
         </magento:update-product-link>
 <!-- END_INCLUDE(magento:updateProductLink) -->
 
@@ -325,10 +300,7 @@
 
 <!-- BEGIN_INCLUDE(magento:createCategory) -->
         <magento:create-category parentId="#[map-payload:parentId]">
-            <magento:attributes>
-                <magento:attribute key="price">#[map-payload:price]</magento:attribute>
-                <magento:attribute key="qty">#[map-payload:quantity]</magento:attribute>
-            </magento:attributes>
+            <magento:catalog-category-entity description="#[map-payload:description]" is_active="#[map-payload:isActive]" />
         </magento:create-category>
 <!-- END_INCLUDE(magento:createCategory) -->
 
@@ -366,9 +338,7 @@
 
 <!-- BEGIN_INCLUDE(magento:updateCategory) -->
         <magento:update-category categoryId="#[map-payload:categoryId]">
-            <magento:attributes>
-                <magento:attribute key="name">#[map-payload:categoryName]</magento:attribute>
-            </magento:attributes>
+            <magento:catalog-category-entity description="#[map-payload:description]" is_active="#[map-payload:isActive]" />
         </magento:update-category>
 <!-- END_INCLUDE(magento:updateCategory) -->
 
@@ -388,9 +358,7 @@
 
 <!-- BEGIN_INCLUDE(magento:updateInventoryStockItem) -->
         <magento:update-inventory-stock-item productIdOrSku="#[map-payload:productIdOrSku]">
-            <magento:attributes>
-                <magento:attribute key="qty">#[map-payload:quantity]</magento:attribute>
-            </magento:attributes>
+            <magento:catalog-inventory-stock-item qty="#[map-payload:quantity]" />
         </magento:update-inventory-stock-item>
 <!-- END_INCLUDE(magento:updateInventoryStockItem) -->
 
@@ -429,9 +397,7 @@
 
 <!-- BEGIN_INCLUDE(magento:updateProduct) -->
         <magento:update-product productIdOrSku="#[map-payload:productIdOrSku]">
-            <magento:attributes>
-                <magento:attribute key="name">#[map-payload:name]</magento:attribute>
-            </magento:attributes>
+            <magento:catalog-product-entity name="#[map-payload:name]" />
         </magento:update-product>
 <!-- END_INCLUDE(magento:updateProduct) -->
 
@@ -457,37 +423,25 @@
 
 <!-- BEGIN_INCLUDE(magento:addShoppingCartProduct) -->
         <magento:add-shopping-cart-product quoteId="1">
-            <magento:products-attributes>
-                <magento:products-attribute>
-                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
-                </magento:products-attribute>
-            </magento:products-attributes>
+            <magento:products>
+                <magento:product product_id="1" sku="123" qty="2" />
+            </magento:products>
         </magento:add-shopping-cart-product>
 <!-- END_INCLUDE(magento:addShoppingCartProduct) -->
 
 <!-- BEGIN_INCLUDE(magento:updateShoppingCartProduct) -->
         <magento:update-shopping-cart-product quoteId="1">
-            <magento:products-attributes>
-                <magento:products-attribute>
-                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
-                </magento:products-attribute>
-            </magento:products-attributes>
+            <magento:products>
+                  <magento:product product_id="1" sku="123" qty="2" />
+            </magento:products>
         </magento:update-shopping-cart-product>
 <!-- END_INCLUDE(magento:updateShoppingCartProduct) -->
 
 <!-- BEGIN_INCLUDE(magento:removeShoppingCartProduct) -->
         <magento:remove-shopping-cart-product quoteId="1">
-            <magento:products-attributes>
-                <magento:products-attribute>
-                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
-                </magento:products-attribute>
-            </magento:products-attributes>
+            <magento:products>
+               <magento:product product_id="1" sku="123" qty="2" />
+            </magento:products>
         </magento:remove-shopping-cart-product>
 <!-- END_INCLUDE(magento:removeShoppingCartProduct) -->
 
@@ -497,13 +451,9 @@
 
 <!-- BEGIN_INCLUDE(magento:moveShoppingCartProductToCustomerQuote) -->
         <magento:move-shopping-cart-product-to-customer-quote quoteId="1">
-            <magento:products-attributes>
-                <magento:products-attribute>
-                    <magento:inner-products-attribute key="product_id">1</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key="sku">123</magento:inner-products-attribute>
-                    <magento:inner-products-attribute key="qty">2</magento:inner-products-attribute>
-                </magento:products-attribute>
-            </magento:products-attributes>
+            <magento:products>
+               <magento:product product_id="1" sku="123" qty="2" />
+            </magento:products>
         </magento:move-shopping-cart-product-to-customer-quote>
 <!-- END_INCLUDE(magento:moveShoppingCartProductToCustomerQuote) -->
 
@@ -515,32 +465,10 @@
 
 <!-- BEGIN_INCLUDE(magento:setShoppingCartCustomerAddresses) -->
         <magento:set-shopping-cart-customer-addresses quoteId="1">
-            <magento:addresses>
-                <magento:address>
-                    <magento:inner-address key="mode">billing</magento:inner-address>
-                    <magento:inner-address key="firstname">customerName</magento:inner-address>
-                    <magento:inner-address key="lastname">customerLastname</magento:inner-address>
-                    <magento:inner-address key="street">billingAddressStreet</magento:inner-address>
-                    <magento:inner-address key="telephone">12341234</magento:inner-address>
-                    <magento:inner-address key="postcode">billingAddressZip</magento:inner-address>
-                    <magento:inner-address key="country_id">1</magento:inner-address>
-                    <magento:inner-address key="city">billingAddressCity</magento:inner-address>
-                    <magento:inner-address key="is_default_billing">1</magento:inner-address>
-                    <magento:inner-address key="is_default_shipping">0</magento:inner-address>
-                </magento:address>
-                <magento:address>
-                    <magento:inner-address key="mode">shipping</magento:inner-address>
-                    <magento:inner-address key="firstname">customerName</magento:inner-address>
-                    <magento:inner-address key="lastname">customerLastname</magento:inner-address>
-                    <magento:inner-address key="street">shippingAddressStreet</magento:inner-address>
-                    <magento:inner-address key="telephone">23452345</magento:inner-address>
-                    <magento:inner-address key="postcode">shippingAddressZip</magento:inner-address>
-                    <magento:inner-address key="country_id">1</magento:inner-address>
-                    <magento:inner-address key="city">shippingAddressCity</magento:inner-address>
-                    <magento:inner-address key="is_default_billing">0</magento:inner-address>
-                    <magento:inner-address key="is_default_shipping">1</magento:inner-address>
-                </magento:address>
-            </magento:addresses>
+            <magento:shopping-cart-customer-addresses>
+                <magento:shopping-cart-customer-address mode="billing" firstname="customername" lastname="customerlastname" street="customerStreet" />
+                <magento:shopping-cart-customer-address mode="billing" firstname="customername2" lastname="customerlastname2" street="customerStreet2" />
+            </magento:shopping-cart-customer-addresses>
         </magento:set-shopping-cart-customer-addresses>
 <!-- END_INCLUDE(magento:setShoppingCartCustomerAddresses) -->
 
@@ -554,16 +482,8 @@
 
 <!-- BEGIN_INCLUDE(magento:setShoppingCartPaymentMethod) -->
         <magento:set-shopping-cart-payment-method quoteId="1">
-            <magento:method>
-                <magento:inner-method key="po_number">123</magento:inner-method>
-                <magento:inner-method key="method">air</magento:inner-method>
-                <magento:inner-method key="cc_cid">VISA</magento:inner-method>
-                <magento:inner-method key="cc_owner">John Doe</magento:inner-method>
-                <magento:inner-method key="cc_number">33333333333</magento:inner-method>
-                <magento:inner-method key="cc_type">Visa</magento:inner-method>
-                <magento:inner-method key="cc_exp_year">2018</magento:inner-method>
-                <magento:inner-method key="cc_exp_month">2</magento:inner-method>
-            </magento:method>
+            <magento:shopping-cart-payment-method po_number="123" method="air" cc_cid="VISA" cc_owner="John Doe"
+                cc_number="112123123" cc_type="Visa" cc_exp_year="2018" cc_exp_month="2" />
         </magento:set-shopping-cart-payment-method>
 <!-- END_INCLUDE(magento:setShoppingCartPaymentMethod) -->
 
