@@ -51,7 +51,7 @@ import java.util.List;
  *
  * @author MuleSoft, Inc.
  */
-@Connector(name = "magento", schemaVersion = "1.1", friendlyName = "Magento")
+@Connector(name = "magento", schemaVersion = "1.1", friendlyName = "Magento", minMuleVersion = "3.4")
 public class MagentoCloudConnector {
 
     private MagentoOrderClient<MagentoException> orderClient;
