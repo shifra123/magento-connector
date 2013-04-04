@@ -10,6 +10,7 @@ package org.mule.module.magento;
 
 import com.magento.api.*;
 import org.mule.api.ConnectionException;
+import org.mule.api.ConnectionExceptionCode;
 import org.mule.api.annotations.*;
 import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
@@ -89,6 +90,13 @@ public class MagentoCloudConnector {
         setDirectoryClient(new AxisMagentoDirectoryClient(initializer.getPortProvider()));
         setCatalogClient(new AxisMagentoCatalogClient(initializer.getPortProvider()));
         setShoppingCartClient(new AxisMagentoShoppingCartClient(initializer.getPortProvider()));
+
+        //Dummy operation for connectivity testing
+        try {
+            getCatalogCurrentStoreView();
+        } catch (Exception e) {
+            throw new ConnectionException(ConnectionExceptionCode.INCORRECT_CREDENTIALS, null, e.getMessage());
+        }
     }
 
     @SuppressWarnings("unused")
