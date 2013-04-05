@@ -204,8 +204,14 @@
                 
     <li class="api apilevel-">
   <a href="../../../../../java/com/magento/api/package-summary.html">com.magento.api</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/com/magento/api/holders/package-summary.html">com.magento.api.holders</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/com/magento/api/transformers/package-summary.html">com.magento.api.transformers</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/magento/adapter/package-summary.html">org.mule.module.magento.adapter</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/module/magento/adapters/package-summary.html">org.mule.module.magento.adapters</a></li>
     <li class="api apilevel-">
@@ -233,9 +239,21 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/magento/basic/package-summary.html">org.mule.module.magento.basic</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/magento/callback/package-summary.html">org.mule.module.magento.callback</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/magento/connection/package-summary.html">org.mule.module.magento.connection</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/magento/connectivity/package-summary.html">org.mule.module.magento.connectivity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/magento/devkit/package-summary.html">org.mule.module.magento.devkit</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/magento/oauth/package-summary.html">org.mule.module.magento.oauth</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
     <li class="api apilevel-">
@@ -442,6 +460,8 @@ Summary:
               >
           
             
+              <a href="../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorConnectionIdentifierAdapter.html">MagentoCloudConnectorConnectionIdentifierAdapter</a>,
+            
               <a href="../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorLifecycleAdapter.html">MagentoCloudConnectorLifecycleAdapter</a>,
             
               <a href="../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html">MagentoCloudConnectorMetadataAdapater</a>,
@@ -455,14 +475,18 @@ Summary:
               >
   <table class="jd-sumtable-expando">
         <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorConnectionIdentifierAdapter.html">MagentoCloudConnectorConnectionIdentifierAdapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>MagentoCloudConnectorConnectionIdentifierAdapter</code> is a wrapper around <code><a href="../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code> that implements org.mule.devkit.dynamic.api.helper.Connection interface.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorLifecycleAdapter.html">MagentoCloudConnectorLifecycleAdapter</a></td>
               <td class="jd-descrcol" width="100%">A <code>MagentoCloudConnectorLifecycleAdapter</code> is a wrapper around <code><a href="../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code> that adds lifecycle methods to the pojo.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html">MagentoCloudConnectorMetadataAdapater</a></td>
               <td class="jd-descrcol" width="100%">A <code>MagentoCloudConnectorMetadataAdapater</code> is a wrapper around <code><a href="../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code> that adds support for querying metadata about the extension.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorProcessAdapter.html">MagentoCloudConnectorProcessAdapter</a></td>
               <td class="jd-descrcol" width="100%">A <code>MagentoCloudConnectorProcessAdapter</code> is a wrapper around <code><a href="../../../../../java/org/mule/module/magento/MagentoCloudConnector.html">MagentoCloudConnector</a></code> that enables custom processing strategies.&nbsp;</td>
           </tr>
@@ -532,77 +556,76 @@ Summary:
           private
           
           
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#address">address</a></td>
-          <td class="jd-descrcol" width="100%">The address to access Magento Web Services
-</td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          <a href="../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <a href="../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#catalogClient">catalogClient</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
-          <a href="../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <a href="../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#customerClient">customerClient</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
-          <a href="../../../../../java/org/mule/module/magento/api/directory/MagentoDirectoryClient.html">MagentoDirectoryClient</a>&lt;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <a href="../../../../../java/org/mule/module/magento/api/directory/MagentoDirectoryClient.html">MagentoDirectoryClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#directoryClient">directoryClient</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
-          <a href="../../../../../java/org/mule/module/magento/api/customer/MagentoInventoryClient.html">MagentoInventoryClient</a>&lt;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <a href="../../../../../java/org/mule/module/magento/api/customer/MagentoInventoryClient.html">MagentoInventoryClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#inventoryClient">inventoryClient</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
-          <a href="../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <a href="../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#orderClient">orderClient</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#password">password</a></td>
-          <td class="jd-descrcol" width="100%">The password to access Magento Web Services
+          <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#serverAddress">serverAddress</a></td>
+          <td class="jd-descrcol" width="100%">The address to access Magento Web Services
 </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#shoppingCartClient">shoppingCartClient</a></td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -611,21 +634,9 @@ Summary:
           private
           
           
-          <a href="../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#shoppingCartClient">shoppingCartClient</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#username">username</a></td>
-          <td class="jd-descrcol" width="100%">The user name to access Magento Web Services
-</td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#user">user</a></td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -779,7 +790,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#addProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">addProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#addProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductLinkEntity)">addProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> productLinkEntity)</nobr>
         
         <div class="jd-descrdiv">Links two products, given its source and destination productIdOrSku.</div>
   
@@ -815,7 +826,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#addShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">addShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#addShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)">addShoppingCartProduct</a></span>(int quoteId, List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</nobr>
         
         <div class="jd-descrdiv">Adds one or more products to the shopping cart (quote).</div>
   
@@ -890,13 +901,11 @@ Summary:
             
             
             
-            int</nobr>
+            String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">createCategory</a></span>(int parentId, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#connectionId()">connectionId</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates a new category.</div>
-  
   </td></tr>
 
 
@@ -911,11 +920,9 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createCustomer(java.util.Map<java.lang.String, java.lang.Object>)">createCustomer</a></span>(Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">createCategory</a></span>(int parentId, <a href="../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> catalogCategoryEntity, String storeViewIdOrCode)</nobr>
         
-        <div class="jd-descrdiv">Creates a customer with the given attributes
- <p/>
- </div>
+        <div class="jd-descrdiv">Creates a new category.</div>
   
   </td></tr>
 
@@ -931,7 +938,27 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)">createCustomerAddress</a></span>(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createCustomer(com.magento.api.CustomerCustomerEntityToCreate)">createCustomer</a></span>(<a href="../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customer)</nobr>
+        
+        <div class="jd-descrdiv">Creates a customer with the given attributes
+ <p/>
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)">createCustomerAddress</a></span>(int customerId, <a href="../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> customerAddress)</nobr>
         
         <div class="jd-descrdiv">Creates a new address for the given customer using the given address
  attributes
@@ -942,7 +969,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -952,7 +979,7 @@ Summary:
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createOrderInvoice(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)">createOrderInvoice</a></span>(String orderId, Map&lt;Integer,&nbsp;Double&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createOrderInvoice(java.lang.String, java.util.List<com.magento.api.OrderItemIdQty>, java.lang.String, boolean, boolean)">createOrderInvoice</a></span>(String orderId, List&lt;<a href="../../../../../java/com/magento/api/OrderItemIdQty.html">OrderItemIdQty</a>&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
         
         <div class="jd-descrdiv">Creates an invoice for the given order
  <p/>
@@ -962,7 +989,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -972,7 +999,7 @@ Summary:
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createOrderShipment(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)">createOrderShipment</a></span>(String orderId, Map&lt;Integer,&nbsp;Double&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createOrderShipment(java.lang.String, java.util.List<com.magento.api.OrderItemIdQty>, java.lang.String, boolean, boolean)">createOrderShipment</a></span>(String orderId, List&lt;<a href="../../../../../java/com/magento/api/OrderItemIdQty.html">OrderItemIdQty</a>&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
         
         <div class="jd-descrdiv">Creates a shipment for order
  <p/>
@@ -982,7 +1009,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -992,7 +1019,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createProduct(java.lang.String, int, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">createProduct</a></span>(String type, int set, String sku, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeViewIdOrCode)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createProduct(java.lang.String, int, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">createProduct</a></span>(String type, int set, String sku, <a href="../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeViewIdOrCode)</nobr>
         
         <div class="jd-descrdiv">Creates a new product
  <p/>
@@ -1002,7 +1029,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1012,7 +1039,7 @@ Summary:
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String, java.lang.Object, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String)">createProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode, Object payload, <a href="../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#createProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String, java.lang.Object, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String)">createProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> catalogProductAttributeMediaEntity, String storeViewIdOrCode, Object payload, <a href="../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName)</nobr>
         
         <div class="jd-descrdiv">Creates a new product media.</div>
   
@@ -1020,7 +1047,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1038,7 +1065,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1056,7 +1083,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1074,7 +1101,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1092,7 +1119,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1112,7 +1139,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1132,7 +1159,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1152,7 +1179,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1170,7 +1197,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1188,7 +1215,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1206,23 +1233,23 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            String</nobr>
+            void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getAddress()">getAddress</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#disconnect()">disconnect</a></span>()</nobr>
         
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1242,14 +1269,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/CatalogCategoryInfo.html">CatalogCategoryInfo</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCategory(int, java.lang.String, java.util.List<java.lang.String>)">getCategory</a></span>(int categoryId, String storeViewIdOrCode, List&lt;String&gt; attributeNames)</nobr>
@@ -1260,6 +1287,24 @@ Summary:
 
 
 	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../java/com/magento/api/CatalogCategoryTree.html">CatalogCategoryTree</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCategoryTree(java.lang.String, java.lang.String)">getCategoryTree</a></span>(String parentId, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Answers the category tree.</div>
+  
+  </td></tr>
+
+
+	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -1267,12 +1312,12 @@ Summary:
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCategoryTree(java.lang.String, java.lang.String)">getCategoryTree</a></span>(String parentId, String storeViewIdOrCode)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCustomer(int, java.util.List<java.lang.String>)">getCustomer</a></span>(int customerId, List&lt;String&gt; attributeNames)</nobr>
         
-        <div class="jd-descrdiv">Answers the category tree.</div>
+        <div class="jd-descrdiv">Answers customer attributes for the given id.</div>
   
   </td></tr>
 
@@ -1285,25 +1330,7 @@ Summary:
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCustomer(int, java.util.List<java.lang.String>)">getCustomer</a></span>(int customerId, List&lt;String&gt; attributeNames)</nobr>
-        
-        <div class="jd-descrdiv">Answers customer attributes for the given id.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getCustomerAddress(int)">getCustomerAddress</a></span>(int addressId)</nobr>
@@ -1316,14 +1343,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/ShoppingCartInfoEntity.html">ShoppingCartInfoEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getInfoShoppingCart(int, java.lang.String)">getInfoShoppingCart</a></span>(int quoteId, String storeId)</nobr>
@@ -1334,14 +1361,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/SalesOrderEntity.html">SalesOrderEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getOrder(java.lang.String)">getOrder</a></span>(String orderId)</nobr>
@@ -1354,14 +1381,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getOrderInvoice(java.lang.String)">getOrderInvoice</a></span>(String invoiceId)</nobr>
@@ -1374,14 +1401,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getOrderShipment(java.lang.String)">getOrderShipment</a></span>(String shipmentId)</nobr>
@@ -1394,7 +1421,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1412,22 +1439,6 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getPassword()">getPassword</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -1435,7 +1446,7 @@ Summary:
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getProduct(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)">getProduct</a></span>(Integer productId, String productSku, String productIdOrSku, String storeViewIdOrCode, List&lt;String&gt; attributesNames, List&lt;String&gt; additionalAttributeNames)</nobr>
@@ -1453,7 +1464,7 @@ Summary:
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">getProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName, String storeViewIdOrCode)</nobr>
@@ -1471,7 +1482,7 @@ Summary:
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getProductSpecialPrice(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">getProductSpecialPrice</a></span>(Integer productId, String productSku, String productIdOrSku, String storeViewIdOrCode)</nobr>
@@ -1492,13 +1503,29 @@ Summary:
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getUsername()">getUsername</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getServerAddress()">getServerAddress</a></span>()</nobr>
         
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getUser()">getUser</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1516,7 +1543,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1526,20 +1553,20 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#initialiseConnector()">initialiseConnector</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#initialiseConnector(java.lang.String, java.lang.String, java.lang.String)">initialiseConnector</a></span>(String username, String password, String address)</nobr>
         
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCategoryAttributeOptions(java.lang.String, java.lang.String)">listCategoryAttributeOptions</a></span>(String attributeId, String storeViewIdOrCode)</nobr>
@@ -1550,14 +1577,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCategoryAttributes()">listCategoryAttributes</a></span>()</nobr>
@@ -1568,14 +1595,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogCategoryEntityNoChildren.html">CatalogCategoryEntityNoChildren</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCategoryLevels(java.lang.String, java.lang.String, java.lang.String)">listCategoryLevels</a></span>(String website, String storeViewIdOrCode, String parentCategoryId)</nobr>
@@ -1588,14 +1615,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogAssignedProduct.html">CatalogAssignedProduct</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCategoryProducts(int)">listCategoryProducts</a></span>(int categoryId)</nobr>
@@ -1606,14 +1633,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCustomerAddresses(int)">listCustomerAddresses</a></span>(int customerId)</nobr>
@@ -1626,14 +1653,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CustomerGroupEntity.html">CustomerGroupEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCustomerGroups()">listCustomerGroups</a></span>()</nobr>
@@ -1646,14 +1673,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listCustomers(java.lang.String)">listCustomers</a></span>(String filter)</nobr>
@@ -1664,14 +1691,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/DirectoryCountryEntity.html">DirectoryCountryEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listDirectoryCountries()">listDirectoryCountries</a></span>()</nobr>
@@ -1684,14 +1711,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/DirectoryRegionEntity.html">DirectoryRegionEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listDirectoryRegions(java.lang.String)">listDirectoryRegions</a></span>(String countryId)</nobr>
@@ -1704,6 +1731,24 @@ Summary:
 
 
 	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listInventoryStockItems(java.util.List<java.lang.String>)">listInventoryStockItems</a></span>(List&lt;String&gt; productIdOrSkus)</nobr>
+        
+        <div class="jd-descrdiv">Lists inventory stock items.</div>
+  
+  </td></tr>
+
+
+	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -1711,12 +1756,12 @@ Summary:
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/SalesOrderListEntity.html">SalesOrderListEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listInventoryStockItems(java.util.List<java.lang.String>)">listInventoryStockItems</a></span>(List&lt;String&gt; productIdOrSkus)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listOrders(java.lang.String)">listOrders</a></span>(String filter)</nobr>
         
-        <div class="jd-descrdiv">Lists inventory stock items.</div>
+        <div class="jd-descrdiv">Lists order attributes that match the given filtering expression.</div>
   
   </td></tr>
 
@@ -1729,25 +1774,7 @@ Summary:
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listOrders(java.lang.String)">listOrders</a></span>(String filter)</nobr>
-        
-        <div class="jd-descrdiv">Lists order attributes that match the given filtering expression.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listOrdersInvoices(java.lang.String)">listOrdersInvoices</a></span>(String filter)</nobr>
@@ -1760,14 +1787,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listOrdersShipments(java.lang.String)">listOrdersShipments</a></span>(String filter)</nobr>
@@ -1781,14 +1808,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">listProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String storeViewIdOrCode)</nobr>
@@ -1799,14 +1826,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogProductAttributeMediaTypeEntity.html">CatalogProductAttributeMediaTypeEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeMediaTypes(int)">listProductAttributeMediaTypes</a></span>(int setId)</nobr>
@@ -1817,14 +1844,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeOptions(java.lang.String, java.lang.String)">listProductAttributeOptions</a></span>(String attributeId, String storeViewIdOrCode)</nobr>
@@ -1835,14 +1862,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogProductAttributeSetEntity.html">CatalogProductAttributeSetEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeSets()">listProductAttributeSets</a></span>()</nobr>
@@ -1853,6 +1880,24 @@ Summary:
 
 
 	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeTierPrices(java.lang.Integer, java.lang.String, java.lang.String)">listProductAttributeTierPrices</a></span>(Integer productId, String productSku, String productIdOrSku)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve product tier prices.</div>
+  
+  </td></tr>
+
+
+	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -1860,12 +1905,12 @@ Summary:
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributeTierPrices(java.lang.Integer, java.lang.String, java.lang.String)">listProductAttributeTierPrices</a></span>(Integer productId, String productSku, String productIdOrSku)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributes(int)">listProductAttributes</a></span>(int setId)</nobr>
         
-        <div class="jd-descrdiv">Retrieve product tier prices.</div>
+        <div class="jd-descrdiv">Retrieves product attributes list.</div>
   
   </td></tr>
 
@@ -1878,25 +1923,7 @@ Summary:
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductAttributes(int)">listProductAttributes</a></span>(int setId)</nobr>
-        
-        <div class="jd-descrdiv">Retrieves product attributes list.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String)">listProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku)</nobr>
@@ -1909,14 +1936,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogProductLinkAttributeEntity.html">CatalogProductLinkAttributeEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductLinkAttributes(java.lang.String)">listProductLinkAttributes</a></span>(String type)</nobr>
@@ -1929,7 +1956,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1949,14 +1976,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogProductTypeEntity.html">CatalogProductTypeEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProductTypes()">listProductTypes</a></span>()</nobr>
@@ -1967,14 +1994,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listProducts(java.lang.String, java.lang.String)">listProducts</a></span>(String filter, String storeViewIdOrCode)</nobr>
@@ -1985,14 +2012,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartLicenseEntity.html">ShoppingCartLicenseEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartLicenses(int, java.lang.String)">listShoppingCartLicenses</a></span>(int quoteId, String storeId)</nobr>
@@ -2003,14 +2030,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            Map&lt;String,&nbsp;Object&gt;</nobr>
+            <a href="../../../../../java/com/magento/api/ShoppingCartPaymentMethodResponseEntityArray.html">ShoppingCartPaymentMethodResponseEntityArray</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartPaymentMethods(int, java.lang.String)">listShoppingCartPaymentMethods</a></span>(int quoteId, String storeId)</nobr>
@@ -2021,14 +2048,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartProducts(int, java.lang.String)">listShoppingCartProducts</a></span>(int quoteId, String storeId)</nobr>
@@ -2039,6 +2066,24 @@ Summary:
 
 
 	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartShippingMethodEntity.html">ShoppingCartShippingMethodEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartShippingMethods(int, java.lang.String)">listShoppingCartShippingMethods</a></span>(int quoteId, String storeId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the list of available shipping methods for a shopping cart (quote).</div>
+  
+  </td></tr>
+
+
+	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -2046,12 +2091,12 @@ Summary:
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartTotalsEntity.html">ShoppingCartTotalsEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartShippingMethods(int, java.lang.String)">listShoppingCartShippingMethods</a></span>(int quoteId, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartTotals(int, java.lang.String)">listShoppingCartTotals</a></span>(int quoteId, String storeId)</nobr>
         
-        <div class="jd-descrdiv">Retrieves the list of available shipping methods for a shopping cart (quote).</div>
+        <div class="jd-descrdiv">Retrieves total prices for a shopping cart (quote).</div>
   
   </td></tr>
 
@@ -2064,25 +2109,7 @@ Summary:
             
             
             
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listShoppingCartTotals(int, java.lang.String)">listShoppingCartTotals</a></span>(int quoteId, String storeId)</nobr>
-        
-        <div class="jd-descrdiv">Retrieves total prices for a shopping cart (quote).</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            List&lt;Map&lt;String,&nbsp;Object&gt;&gt;</nobr>
+            List&lt;<a href="../../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#listStockItems(java.util.List<java.lang.String>)">listStockItems</a></span>(List&lt;String&gt; productIdOrSkus)</nobr>
@@ -2095,7 +2122,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2113,7 +2140,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2123,7 +2150,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#moveShoppingCartProductToCustomerQuote(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">moveShoppingCartProductToCustomerQuote</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#moveShoppingCartProductToCustomerQuote(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)">moveShoppingCartProductToCustomerQuote</a></span>(int quoteId, List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</nobr>
         
         <div class="jd-descrdiv">Moves products from the current quote to a customer quote.</div>
   
@@ -2131,7 +2158,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2149,7 +2176,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2159,7 +2186,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#removeShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">removeShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#removeShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)">removeShoppingCartProduct</a></span>(int quoteId, List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</nobr>
         
         <div class="jd-descrdiv">Removes one or several products from a shopping cart (quote).</div>
   
@@ -2167,22 +2194,6 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setAddress(java.lang.String)">setAddress</a></span>(String address)</nobr>
-        
-  </td></tr>
-
-
-	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -2193,7 +2204,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setCatalogClient(org.mule.module.magento.api.catalog.MagentoCatalogClient<?, ?, ?>)">setCatalogClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; catalogClient)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setCatalogClient(org.mule.module.magento.api.catalog.MagentoCatalogClient<?>)">setCatalogClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;?&gt; catalogClient)</nobr>
         
   </td></tr>
 
@@ -2209,7 +2220,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setCustomerClient(org.mule.module.magento.api.inventory.MagentoCustomerClient<?, ?, ?>)">setCustomerClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; customerClient)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setCustomerClient(org.mule.module.magento.api.inventory.MagentoCustomerClient<?>)">setCustomerClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;?&gt; customerClient)</nobr>
         
   </td></tr>
 
@@ -2225,7 +2236,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setDirectoryClient(org.mule.module.magento.api.directory.MagentoDirectoryClient<?, ?>)">setDirectoryClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/directory/MagentoDirectoryClient.html">MagentoDirectoryClient</a>&lt;?,&nbsp;?&gt; directoryClient)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setDirectoryClient(org.mule.module.magento.api.directory.MagentoDirectoryClient<?>)">setDirectoryClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/directory/MagentoDirectoryClient.html">MagentoDirectoryClient</a>&lt;?&gt; directoryClient)</nobr>
         
   </td></tr>
 
@@ -2241,7 +2252,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setInventoryClient(org.mule.module.magento.api.customer.MagentoInventoryClient<?, ?>)">setInventoryClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/customer/MagentoInventoryClient.html">MagentoInventoryClient</a>&lt;?,&nbsp;?&gt; inventoryClient)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setInventoryClient(org.mule.module.magento.api.customer.MagentoInventoryClient<?>)">setInventoryClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/customer/MagentoInventoryClient.html">MagentoInventoryClient</a>&lt;?&gt; inventoryClient)</nobr>
         
   </td></tr>
 
@@ -2257,7 +2268,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setOrderClient(org.mule.module.magento.api.order.MagentoOrderClient<?, ?, ?>)">setOrderClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; magentoOrderClient)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setOrderClient(org.mule.module.magento.api.order.MagentoOrderClient<?>)">setOrderClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;?&gt; magentoOrderClient)</nobr>
         
   </td></tr>
 
@@ -2273,7 +2284,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setPassword(java.lang.String)">setPassword</a></span>(String password)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setServerAddress(java.lang.String)">setServerAddress</a></span>(String serverAddress)</nobr>
         
   </td></tr>
 
@@ -2289,7 +2300,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartClient(org.mule.module.magento.api.shoppingCart.MagentoShoppingCartClient<?, ?, ?>)">setShoppingCartClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; catalogClient)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartClient(org.mule.module.magento.api.shoppingCart.MagentoShoppingCartClient<?>)">setShoppingCartClient</a></span>(<a href="../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;?&gt; catalogClient)</nobr>
         
   </td></tr>
 
@@ -2305,7 +2316,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartCustomer(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">setShoppingCartCustomer</a></span>(int quoteId, Map&lt;String,&nbsp;Object&gt; customer, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartCustomer(int, com.magento.api.ShoppingCartCustomerEntity, java.lang.String)">setShoppingCartCustomer</a></span>(int quoteId, <a href="../../../../../java/com/magento/api/ShoppingCartCustomerEntity.html">ShoppingCartCustomerEntity</a> customer, String storeId)</nobr>
         
         <div class="jd-descrdiv">Adds information about the customer to a shopping cart (quote).</div>
   
@@ -2323,7 +2334,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartCustomerAddresses(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">setShoppingCartCustomerAddresses</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; addresses, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartCustomerAddresses(int, java.util.List<com.magento.api.ShoppingCartCustomerAddressEntity>, java.lang.String)">setShoppingCartCustomerAddresses</a></span>(int quoteId, List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartCustomerAddressEntity.html">ShoppingCartCustomerAddressEntity</a>&gt; shoppingCartCustomerAddresses, String storeId)</nobr>
         
         <div class="jd-descrdiv">Sets the customer addresses in the shopping cart (quote).</div>
   
@@ -2341,7 +2352,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartPaymentMethod(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">setShoppingCartPaymentMethod</a></span>(int quoteId, Map&lt;String,&nbsp;Object&gt; method, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setShoppingCartPaymentMethod(int, com.magento.api.ShoppingCartPaymentMethodEntity, java.lang.String)">setShoppingCartPaymentMethod</a></span>(int quoteId, <a href="../../../../../java/com/magento/api/ShoppingCartPaymentMethodEntity.html">ShoppingCartPaymentMethodEntity</a> shoppingCartPaymentMethod, String storeId)</nobr>
         
         <div class="jd-descrdiv">Sets a payment method for a shopping cart (quote), cart must not be empty.</div>
   
@@ -2377,7 +2388,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setUsername(java.lang.String)">setUsername</a></span>(String username)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#setUser(java.lang.String)">setUser</a></span>(String user)</nobr>
         
   </td></tr>
 
@@ -2413,7 +2424,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateCategory</a></span>(int categoryId, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">updateCategory</a></span>(int categoryId, <a href="../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> catalogCategoryEntity, String storeViewIdOrCode)</nobr>
         
         <div class="jd-descrdiv">Updates a category.</div>
   
@@ -2469,7 +2480,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomer(int, java.util.Map<java.lang.String, java.lang.Object>)">updateCustomer</a></span>(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomer(int, com.magento.api.CustomerCustomerEntityToCreate)">updateCustomer</a></span>(int customerId, <a href="../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customer)</nobr>
         
         <div class="jd-descrdiv">Updates the given customer attributes, for the given customer id.</div>
   
@@ -2487,7 +2498,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)">updateCustomerAddress</a></span>(int addressId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)">updateCustomerAddress</a></span>(int addressId, <a href="../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> customerAddress)</nobr>
         
         <div class="jd-descrdiv">Updates the given map of customer address attributes, for the given customer address
  <p/>
@@ -2507,7 +2518,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateInventoryStockItem(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">updateInventoryStockItem</a></span>(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateInventoryStockItem(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateInventoryStockItem</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> catalogInventoryStockItem)</nobr>
         
         <div class="jd-descrdiv">Updates an stock inventory item
  <p/>
@@ -2527,7 +2538,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProduct(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateProduct</a></span>(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeViewIdOrCode)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProduct(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">updateProduct</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> catalogProductEntity, List&lt;<a href="../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeViewIdOrCode)</nobr>
         
         <div class="jd-descrdiv">Updates a product.</div>
   
@@ -2545,7 +2556,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)">updateProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName, <a href="../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> catalogProductAttributeMediaEntity, String storeViewIdOrCode)</nobr>
         
         <div class="jd-descrdiv">Updates product media.</div>
   
@@ -2563,7 +2574,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeTierPrice(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">updateProductAttributeTierPrice</a></span>(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeTierPrice(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductTierPriceEntity)">updateProductAttributeTierPrice</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> catalogProductTierPriceEntity)</nobr>
         
         <div class="jd-descrdiv">Updates a single product tier price.</div>
   
@@ -2581,7 +2592,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">updateProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductLinkEntity)">updateProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> catalogProductLinkEntity)</nobr>
         
         <div class="jd-descrdiv">Update product link
  <p/>
@@ -2619,7 +2630,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">updateShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)">updateShoppingCartProduct</a></span>(int quoteId, List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</nobr>
         
         <div class="jd-descrdiv">Updates one or several products in the shopping cart (quote).</div>
   
@@ -2637,7 +2648,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateStockItem(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">updateStockItem</a></span>(String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateStockItem(java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateStockItem</a></span>(String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> stockItem)</nobr>
         
         <div class="jd-descrdiv">Update product stock data given its id or sku
  <p/>
@@ -2648,6 +2659,22 @@ Summary:
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#validateConnection()">validateConnection</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2914,37 +2941,6 @@ From class
 
 
 
-<A NAME="address"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        String
-      </span>
-        address
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>The address to access Magento Web Services
-</p></div>
-
-    
-    </div>
-</div>
-
-
-
 <A NAME="catalogClient"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2953,7 +2949,7 @@ From class
         private 
          
          
-        <a href="../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
+        <a href="../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
       </span>
         catalogClient
     </h4>
@@ -2983,7 +2979,7 @@ From class
         private 
          
          
-        <a href="../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
+        <a href="../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
       </span>
         customerClient
     </h4>
@@ -3013,7 +3009,7 @@ From class
         private 
          
          
-        <a href="../../../../../java/org/mule/module/magento/api/directory/MagentoDirectoryClient.html">MagentoDirectoryClient</a>&lt;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
+        <a href="../../../../../java/org/mule/module/magento/api/directory/MagentoDirectoryClient.html">MagentoDirectoryClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
       </span>
         directoryClient
     </h4>
@@ -3043,7 +3039,7 @@ From class
         private 
          
          
-        <a href="../../../../../java/org/mule/module/magento/api/customer/MagentoInventoryClient.html">MagentoInventoryClient</a>&lt;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
+        <a href="../../../../../java/org/mule/module/magento/api/customer/MagentoInventoryClient.html">MagentoInventoryClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
       </span>
         inventoryClient
     </h4>
@@ -3073,7 +3069,7 @@ From class
         private 
          
          
-        <a href="../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
+        <a href="../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
       </span>
         orderClient
     </h4>
@@ -3095,7 +3091,7 @@ From class
 
 
 
-<A NAME="password"></A>
+<A NAME="serverAddress"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3105,7 +3101,7 @@ From class
          
         String
       </span>
-        password
+        serverAddress
     </h4>
       <div class="api-level">
         
@@ -3117,7 +3113,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>The password to access Magento Web Services
+  <div class="jd-tagdata jd-tagdescr"><p>The address to access Magento Web Services
 </p></div>
 
     
@@ -3134,7 +3130,7 @@ From class
         private 
          
          
-        <a href="../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;Map&lt;String,&nbsp;Object&gt;,&nbsp;List&lt;Map&lt;String,&nbsp;Object&gt;&gt;,&nbsp;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
+        <a href="../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;<a href="../../../../../java/org/mule/module/magento/api/MagentoException.html">MagentoException</a>&gt;
       </span>
         shoppingCartClient
     </h4>
@@ -3156,7 +3152,7 @@ From class
 
 
 
-<A NAME="username"></A>
+<A NAME="user"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3166,7 +3162,7 @@ From class
          
         String
       </span>
-        username
+        user
     </h4>
       <div class="api-level">
         
@@ -3178,8 +3174,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>The user name to access Magento Web Services
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -3527,7 +3522,7 @@ From class
 </div>
 
 
-<A NAME="addProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="addProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductLinkEntity)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3540,7 +3535,7 @@ From class
         void
       </span>
       <span class="sympad">addProductLink</span>
-      <span class="normal">(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> productLinkEntity)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3583,7 +3578,7 @@ From class
           <td>The destination product id or sku.</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>productLinkEntity</td>
           <td>The link attributes
 </td>
         </tr>
@@ -3648,7 +3643,7 @@ From class
 </div>
 
 
-<A NAME="addShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)"></A>
+<A NAME="addShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3661,7 +3656,7 @@ From class
         boolean
       </span>
       <span class="sympad">addShoppingCartProduct</span>
-      <span class="normal">(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</span>
+      <span class="normal">(int quoteId, List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3683,20 +3678,8 @@ From class
           <td>Shopping Cart ID (quote ID)</td>
         </tr>
         <tr>
-          <th>productsAttributes</td>
+          <th>products</td>
           <td>Products data</td>
-        </tr>
-        <tr>
-          <th>productsOptions</td>
-          <td>Products options</td>
-        </tr>
-        <tr>
-          <th>productsBundleOptions</td>
-          <td>Products bundle options</td>
-        </tr>
-        <tr>
-          <th>productsBundleOptionsQty</td>
-          <td>Products bundle options quantities</td>
         </tr>
         <tr>
           <th>storeId</td>
@@ -3843,7 +3826,38 @@ From class
 </div>
 
 
-<A NAME="createCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="connectionId()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">connectionId</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="createCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3856,7 +3870,7 @@ From class
         int
       </span>
       <span class="sympad">createCategory</span>
-      <span class="normal">(int parentId, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode)</span>
+      <span class="normal">(int parentId, <a href="../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> catalogCategoryEntity, String storeViewIdOrCode)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3879,7 +3893,7 @@ From class
           <td>The parent category id</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>catalogCategoryEntity</td>
           <td>The new category attributes</td>
         </tr>
         <tr>
@@ -3898,7 +3912,7 @@ From class
 </div>
 
 
-<A NAME="createCustomer(java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="createCustomer(com.magento.api.CustomerCustomerEntityToCreate)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3911,7 +3925,7 @@ From class
         int
       </span>
       <span class="sympad">createCustomer</span>
-      <span class="normal">(Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(<a href="../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customer)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3930,7 +3944,7 @@ From class
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>attributes</td>
+          <th>customer</td>
           <td>The attributes of the new customer</td>
         </tr>
       </table>
@@ -3945,7 +3959,7 @@ From class
 </div>
 
 
-<A NAME="createCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="createCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3958,7 +3972,7 @@ From class
         int
       </span>
       <span class="sympad">createCustomerAddress</span>
-      <span class="normal">(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(int customerId, <a href="../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> customerAddress)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3982,7 +3996,7 @@ From class
           <td>The customer</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>customerAddress</td>
           <td>The address attributes</td>
         </tr>
       </table>
@@ -3997,7 +4011,7 @@ From class
 </div>
 
 
-<A NAME="createOrderInvoice(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)"></A>
+<A NAME="createOrderInvoice(java.lang.String, java.util.List<com.magento.api.OrderItemIdQty>, java.lang.String, boolean, boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4010,7 +4024,7 @@ From class
         String
       </span>
       <span class="sympad">createOrderInvoice</span>
-      <span class="normal">(String orderId, Map&lt;Integer,&nbsp;Double&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
+      <span class="normal">(String orderId, List&lt;<a href="../../../../../java/com/magento/api/OrderItemIdQty.html">OrderItemIdQty</a>&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4034,8 +4048,7 @@ From class
         </tr>
         <tr>
           <th>itemsQuantities</td>
-          <td>A map containing an entry per each (orderItemId,
-                              quantity) pair</td>
+          <td>OrderItemId quantity</td>
         </tr>
         <tr>
           <th>comment</td>
@@ -4061,7 +4074,7 @@ From class
 </div>
 
 
-<A NAME="createOrderShipment(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)"></A>
+<A NAME="createOrderShipment(java.lang.String, java.util.List<com.magento.api.OrderItemIdQty>, java.lang.String, boolean, boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4074,7 +4087,7 @@ From class
         String
       </span>
       <span class="sympad">createOrderShipment</span>
-      <span class="normal">(String orderId, Map&lt;Integer,&nbsp;Double&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
+      <span class="normal">(String orderId, List&lt;<a href="../../../../../java/com/magento/api/OrderItemIdQty.html">OrderItemIdQty</a>&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4098,8 +4111,7 @@ From class
         </tr>
         <tr>
           <th>itemsQuantities</td>
-          <td>A map containing an entry per each (orderItemId,
-                              quantity) pair</td>
+          <td>OrderItemId quantity</td>
         </tr>
         <tr>
           <th>comment</td>
@@ -4125,7 +4137,7 @@ From class
 </div>
 
 
-<A NAME="createProduct(java.lang.String, int, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="createProduct(java.lang.String, int, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4138,7 +4150,7 @@ From class
         int
       </span>
       <span class="sympad">createProduct</span>
-      <span class="normal">(String type, int set, String sku, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeViewIdOrCode)</span>
+      <span class="normal">(String type, int set, String sku, <a href="../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeViewIdOrCode)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4192,7 +4204,7 @@ From class
 </div>
 
 
-<A NAME="createProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String, java.lang.Object, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String)"></A>
+<A NAME="createProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String, java.lang.Object, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4205,7 +4217,7 @@ From class
         String
       </span>
       <span class="sympad">createProductAttributeMedia</span>
-      <span class="normal">(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode, Object payload, <a href="../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName)</span>
+      <span class="normal">(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> catalogProductAttributeMediaEntity, String storeViewIdOrCode, Object payload, <a href="../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4241,7 +4253,7 @@ From class
           <td>The id or sku of the product.</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>catalogProductAttributeMediaEntity</td>
           <td>The media attributes</td>
         </tr>
         <tr>
@@ -4822,7 +4834,7 @@ From class
 </div>
 
 
-<A NAME="getAddress()"></A>
+<A NAME="disconnect()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4832,9 +4844,9 @@ From class
          
          
          
-        String
+        void
       </span>
-      <span class="sympad">getAddress</span>
+      <span class="sympad">disconnect</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -4901,7 +4913,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/CatalogCategoryInfo.html">CatalogCategoryInfo</a>
       </span>
       <span class="sympad">getCategory</span>
       <span class="normal">(int categoryId, String storeViewIdOrCode, List&lt;String&gt; attributeNames)</span>
@@ -4957,7 +4969,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/CatalogCategoryTree.html">CatalogCategoryTree</a>
       </span>
       <span class="sympad">getCategoryTree</span>
       <span class="normal">(String parentId, String storeViewIdOrCode)</span>
@@ -5008,7 +5020,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a>
       </span>
       <span class="sympad">getCustomer</span>
       <span class="normal">(int customerId, List&lt;String&gt; attributeNames)</span>
@@ -5060,7 +5072,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a>
       </span>
       <span class="sympad">getCustomerAddress</span>
       <span class="normal">(int addressId)</span>
@@ -5107,7 +5119,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/ShoppingCartInfoEntity.html">ShoppingCartInfoEntity</a>
       </span>
       <span class="sympad">getInfoShoppingCart</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -5157,7 +5169,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/SalesOrderEntity.html">SalesOrderEntity</a>
       </span>
       <span class="sympad">getOrder</span>
       <span class="normal">(String orderId)</span>
@@ -5204,7 +5216,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a>
       </span>
       <span class="sympad">getOrderInvoice</span>
       <span class="normal">(String invoiceId)</span>
@@ -5251,7 +5263,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a>
       </span>
       <span class="sympad">getOrderShipment</span>
       <span class="normal">(String shipmentId)</span>
@@ -5335,37 +5347,6 @@ From class
 </div>
 
 
-<A NAME="getPassword()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">getPassword</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
 <A NAME="getProduct(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -5376,7 +5357,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a>
       </span>
       <span class="sympad">getProduct</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, String storeViewIdOrCode, List&lt;String&gt; attributesNames, List&lt;String&gt; additionalAttributeNames)</span>
@@ -5447,7 +5428,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a>
       </span>
       <span class="sympad">getProductAttributeMedia</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, String fileName, String storeViewIdOrCode)</span>
@@ -5512,7 +5493,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a>
       </span>
       <span class="sympad">getProductSpecialPrice</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, String storeViewIdOrCode)</span>
@@ -5563,7 +5544,7 @@ From class
 </div>
 
 
-<A NAME="getUsername()"></A>
+<A NAME="getServerAddress()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -5575,7 +5556,38 @@ From class
          
         String
       </span>
-      <span class="sympad">getUsername</span>
+      <span class="sympad">getServerAddress</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getUser()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getUser</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -5637,7 +5649,7 @@ From class
 </div>
 
 
-<A NAME="initialiseConnector()"></A>
+<A NAME="initialiseConnector(java.lang.String, java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -5650,7 +5662,7 @@ From class
         void
       </span>
       <span class="sympad">initialiseConnector</span>
-      <span class="normal">()</span>
+      <span class="normal">(String username, String password, String address)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -5663,6 +5675,33 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>username</td>
+          <td>The user name to access Magento Web Services</td>
+        </tr>
+        <tr>
+          <th>password</td>
+          <td>The password to access Magento Web Services</td>
+        </tr>
+        <tr>
+          <th>address</td>
+          <td>The address to access Magento Web Services
+</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>ConnectionException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -5678,7 +5717,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;
       </span>
       <span class="sympad">listCategoryAttributeOptions</span>
       <span class="normal">(String attributeId, String storeViewIdOrCode)</span>
@@ -5730,7 +5769,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;
       </span>
       <span class="sympad">listCategoryAttributes</span>
       <span class="normal">()</span>
@@ -5769,7 +5808,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogCategoryEntityNoChildren.html">CatalogCategoryEntityNoChildren</a>&gt;
       </span>
       <span class="sympad">listCategoryLevels</span>
       <span class="normal">(String website, String storeViewIdOrCode, String parentCategoryId)</span>
@@ -5824,7 +5863,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogAssignedProduct.html">CatalogAssignedProduct</a>&gt;
       </span>
       <span class="sympad">listCategoryProducts</span>
       <span class="normal">(int categoryId)</span>
@@ -5871,7 +5910,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a>&gt;
       </span>
       <span class="sympad">listCustomerAddresses</span>
       <span class="normal">(int customerId)</span>
@@ -5918,7 +5957,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CustomerGroupEntity.html">CustomerGroupEntity</a>&gt;
       </span>
       <span class="sympad">listCustomerGroups</span>
       <span class="normal">()</span>
@@ -5956,7 +5995,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a>&gt;
       </span>
       <span class="sympad">listCustomers</span>
       <span class="normal">(String filter)</span>
@@ -6008,7 +6047,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/DirectoryCountryEntity.html">DirectoryCountryEntity</a>&gt;
       </span>
       <span class="sympad">listDirectoryCountries</span>
       <span class="normal">()</span>
@@ -6046,7 +6085,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/DirectoryRegionEntity.html">DirectoryRegionEntity</a>&gt;
       </span>
       <span class="sympad">listDirectoryRegions</span>
       <span class="normal">(String countryId)</span>
@@ -6093,7 +6132,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a>&gt;
       </span>
       <span class="sympad">listInventoryStockItems</span>
       <span class="normal">(List&lt;String&gt; productIdOrSkus)</span>
@@ -6140,7 +6179,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/SalesOrderListEntity.html">SalesOrderListEntity</a>&gt;
       </span>
       <span class="sympad">listOrders</span>
       <span class="normal">(String filter)</span>
@@ -6192,7 +6231,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a>&gt;
       </span>
       <span class="sympad">listOrdersInvoices</span>
       <span class="normal">(String filter)</span>
@@ -6244,7 +6283,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a>&gt;
       </span>
       <span class="sympad">listOrdersShipments</span>
       <span class="normal">(String filter)</span>
@@ -6297,7 +6336,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributeMedia</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, String storeViewIdOrCode)</span>
@@ -6359,7 +6398,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogProductAttributeMediaTypeEntity.html">CatalogProductAttributeMediaTypeEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributeMediaTypes</span>
       <span class="normal">(int setId)</span>
@@ -6407,7 +6446,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributeOptions</span>
       <span class="normal">(String attributeId, String storeViewIdOrCode)</span>
@@ -6459,7 +6498,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogProductAttributeSetEntity.html">CatalogProductAttributeSetEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributeSets</span>
       <span class="normal">()</span>
@@ -6498,7 +6537,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributeTierPrices</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku)</span>
@@ -6556,7 +6595,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributes</span>
       <span class="normal">(int setId)</span>
@@ -6604,7 +6643,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a>&gt;
       </span>
       <span class="sympad">listProductLink</span>
       <span class="normal">(String type, Integer productId, String productSku, String productIdOrSku)</span>
@@ -6665,7 +6704,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogProductLinkAttributeEntity.html">CatalogProductLinkAttributeEntity</a>&gt;
       </span>
       <span class="sympad">listProductLinkAttributes</span>
       <span class="normal">(String type)</span>
@@ -6750,7 +6789,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogProductTypeEntity.html">CatalogProductTypeEntity</a>&gt;
       </span>
       <span class="sympad">listProductTypes</span>
       <span class="normal">()</span>
@@ -6788,7 +6827,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;
       </span>
       <span class="sympad">listProducts</span>
       <span class="normal">(String filter, String storeViewIdOrCode)</span>
@@ -6844,7 +6883,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartLicenseEntity.html">ShoppingCartLicenseEntity</a>&gt;
       </span>
       <span class="sympad">listShoppingCartLicenses</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -6894,7 +6933,7 @@ From class
          
          
          
-        Map&lt;String,&nbsp;Object&gt;
+        <a href="../../../../../java/com/magento/api/ShoppingCartPaymentMethodResponseEntityArray.html">ShoppingCartPaymentMethodResponseEntityArray</a>
       </span>
       <span class="sympad">listShoppingCartPaymentMethods</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -6944,7 +6983,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;
       </span>
       <span class="sympad">listShoppingCartProducts</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -6994,7 +7033,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartShippingMethodEntity.html">ShoppingCartShippingMethodEntity</a>&gt;
       </span>
       <span class="sympad">listShoppingCartShippingMethods</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -7044,7 +7083,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartTotalsEntity.html">ShoppingCartTotalsEntity</a>&gt;
       </span>
       <span class="sympad">listShoppingCartTotals</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -7094,7 +7133,7 @@ From class
          
          
          
-        List&lt;Map&lt;String,&nbsp;Object&gt;&gt;
+        List&lt;<a href="../../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a>&gt;
       </span>
       <span class="sympad">listStockItems</span>
       <span class="normal">(List&lt;String&gt; productIdOrSkus)</span>
@@ -7185,7 +7224,7 @@ From class
 </div>
 
 
-<A NAME="moveShoppingCartProductToCustomerQuote(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)"></A>
+<A NAME="moveShoppingCartProductToCustomerQuote(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7198,7 +7237,7 @@ From class
         boolean
       </span>
       <span class="sympad">moveShoppingCartProductToCustomerQuote</span>
-      <span class="normal">(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</span>
+      <span class="normal">(int quoteId, List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7220,20 +7259,8 @@ From class
           <td>Shopping Cart ID (quote ID)</td>
         </tr>
         <tr>
-          <th>productsAttributes</td>
+          <th>products</td>
           <td>Products data</td>
-        </tr>
-        <tr>
-          <th>productsOptions</td>
-          <td>Products options</td>
-        </tr>
-        <tr>
-          <th>productsBundleOptions</td>
-          <td>Products bundle options</td>
-        </tr>
-        <tr>
-          <th>productsBundleOptionsQty</td>
-          <td>Products bundle options quantities</td>
         </tr>
         <tr>
           <th>storeId</td>
@@ -7301,7 +7328,7 @@ From class
 </div>
 
 
-<A NAME="removeShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)"></A>
+<A NAME="removeShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7314,7 +7341,7 @@ From class
         boolean
       </span>
       <span class="sympad">removeShoppingCartProduct</span>
-      <span class="normal">(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</span>
+      <span class="normal">(int quoteId, List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7336,20 +7363,8 @@ From class
           <td>Shopping Cart ID (quote ID)</td>
         </tr>
         <tr>
-          <th>productsAttributes</td>
+          <th>products</td>
           <td>Products data</td>
-        </tr>
-        <tr>
-          <th>productsOptions</td>
-          <td>Products options</td>
-        </tr>
-        <tr>
-          <th>productsBundleOptions</td>
-          <td>Products bundle options</td>
-        </tr>
-        <tr>
-          <th>productsBundleOptionsQty</td>
-          <td>Products bundle options quantities</td>
         </tr>
         <tr>
           <th>storeId</td>
@@ -7367,47 +7382,7 @@ From class
 </div>
 
 
-<A NAME="setAddress(java.lang.String)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setAddress</span>
-      <span class="normal">(String address)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>address</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setCatalogClient(org.mule.module.magento.api.catalog.MagentoCatalogClient<?, ?, ?>)"></A>
+<A NAME="setCatalogClient(org.mule.module.magento.api.catalog.MagentoCatalogClient<?>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7420,7 +7395,7 @@ From class
         void
       </span>
       <span class="sympad">setCatalogClient</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; catalogClient)</span>
+      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;?&gt; catalogClient)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7447,7 +7422,7 @@ From class
 </div>
 
 
-<A NAME="setCustomerClient(org.mule.module.magento.api.inventory.MagentoCustomerClient<?, ?, ?>)"></A>
+<A NAME="setCustomerClient(org.mule.module.magento.api.inventory.MagentoCustomerClient<?>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7460,7 +7435,7 @@ From class
         void
       </span>
       <span class="sympad">setCustomerClient</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; customerClient)</span>
+      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;?&gt; customerClient)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7487,7 +7462,7 @@ From class
 </div>
 
 
-<A NAME="setDirectoryClient(org.mule.module.magento.api.directory.MagentoDirectoryClient<?, ?>)"></A>
+<A NAME="setDirectoryClient(org.mule.module.magento.api.directory.MagentoDirectoryClient<?>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7500,7 +7475,7 @@ From class
         void
       </span>
       <span class="sympad">setDirectoryClient</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/directory/MagentoDirectoryClient.html">MagentoDirectoryClient</a>&lt;?,&nbsp;?&gt; directoryClient)</span>
+      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/directory/MagentoDirectoryClient.html">MagentoDirectoryClient</a>&lt;?&gt; directoryClient)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7527,7 +7502,7 @@ From class
 </div>
 
 
-<A NAME="setInventoryClient(org.mule.module.magento.api.customer.MagentoInventoryClient<?, ?>)"></A>
+<A NAME="setInventoryClient(org.mule.module.magento.api.customer.MagentoInventoryClient<?>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7540,7 +7515,7 @@ From class
         void
       </span>
       <span class="sympad">setInventoryClient</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/customer/MagentoInventoryClient.html">MagentoInventoryClient</a>&lt;?,&nbsp;?&gt; inventoryClient)</span>
+      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/customer/MagentoInventoryClient.html">MagentoInventoryClient</a>&lt;?&gt; inventoryClient)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7567,7 +7542,7 @@ From class
 </div>
 
 
-<A NAME="setOrderClient(org.mule.module.magento.api.order.MagentoOrderClient<?, ?, ?>)"></A>
+<A NAME="setOrderClient(org.mule.module.magento.api.order.MagentoOrderClient<?>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7580,7 +7555,7 @@ From class
         void
       </span>
       <span class="sympad">setOrderClient</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; magentoOrderClient)</span>
+      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;?&gt; magentoOrderClient)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7607,7 +7582,7 @@ From class
 </div>
 
 
-<A NAME="setPassword(java.lang.String)"></A>
+<A NAME="setServerAddress(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7619,8 +7594,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setPassword</span>
-      <span class="normal">(String password)</span>
+      <span class="sympad">setServerAddress</span>
+      <span class="normal">(String serverAddress)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7637,7 +7612,7 @@ From class
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>password</td>
+          <th>serverAddress</td>
           <td></td>
         </tr>
       </table>
@@ -7647,7 +7622,7 @@ From class
 </div>
 
 
-<A NAME="setShoppingCartClient(org.mule.module.magento.api.shoppingCart.MagentoShoppingCartClient<?, ?, ?>)"></A>
+<A NAME="setShoppingCartClient(org.mule.module.magento.api.shoppingCart.MagentoShoppingCartClient<?>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7660,7 +7635,7 @@ From class
         void
       </span>
       <span class="sympad">setShoppingCartClient</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;?,&nbsp;?,&nbsp;?&gt; catalogClient)</span>
+      <span class="normal">(<a href="../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;?&gt; catalogClient)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7687,7 +7662,7 @@ From class
 </div>
 
 
-<A NAME="setShoppingCartCustomer(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="setShoppingCartCustomer(int, com.magento.api.ShoppingCartCustomerEntity, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7700,7 +7675,7 @@ From class
         boolean
       </span>
       <span class="sympad">setShoppingCartCustomer</span>
-      <span class="normal">(int quoteId, Map&lt;String,&nbsp;Object&gt; customer, String storeId)</span>
+      <span class="normal">(int quoteId, <a href="../../../../../java/com/magento/api/ShoppingCartCustomerEntity.html">ShoppingCartCustomerEntity</a> customer, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7741,7 +7716,7 @@ From class
 </div>
 
 
-<A NAME="setShoppingCartCustomerAddresses(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)"></A>
+<A NAME="setShoppingCartCustomerAddresses(int, java.util.List<com.magento.api.ShoppingCartCustomerAddressEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7754,7 +7729,7 @@ From class
         boolean
       </span>
       <span class="sympad">setShoppingCartCustomerAddresses</span>
-      <span class="normal">(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; addresses, String storeId)</span>
+      <span class="normal">(int quoteId, List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartCustomerAddressEntity.html">ShoppingCartCustomerAddressEntity</a>&gt; shoppingCartCustomerAddresses, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7776,7 +7751,7 @@ From class
           <td>Shopping Cart ID (quote ID)</td>
         </tr>
         <tr>
-          <th>addresses</td>
+          <th>shoppingCartCustomerAddresses</td>
           <td>Addresses data (mode is required for each address and should be either "shipping" or "billing")</td>
         </tr>
         <tr>
@@ -7795,7 +7770,7 @@ From class
 </div>
 
 
-<A NAME="setShoppingCartPaymentMethod(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="setShoppingCartPaymentMethod(int, com.magento.api.ShoppingCartPaymentMethodEntity, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7808,7 +7783,7 @@ From class
         boolean
       </span>
       <span class="sympad">setShoppingCartPaymentMethod</span>
-      <span class="normal">(int quoteId, Map&lt;String,&nbsp;Object&gt; method, String storeId)</span>
+      <span class="normal">(int quoteId, <a href="../../../../../java/com/magento/api/ShoppingCartPaymentMethodEntity.html">ShoppingCartPaymentMethodEntity</a> shoppingCartPaymentMethod, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7830,7 +7805,7 @@ From class
           <td>Shopping Cart ID (quote ID)</td>
         </tr>
         <tr>
-          <th>method</td>
+          <th>shoppingCartPaymentMethod</td>
           <td>Payment mehthod data</td>
         </tr>
         <tr>
@@ -7903,7 +7878,7 @@ From class
 </div>
 
 
-<A NAME="setUsername(java.lang.String)"></A>
+<A NAME="setUser(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7915,8 +7890,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setUsername</span>
-      <span class="normal">(String username)</span>
+      <span class="sympad">setUser</span>
+      <span class="normal">(String user)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -7933,7 +7908,7 @@ From class
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>username</td>
+          <th>user</td>
           <td></td>
         </tr>
       </table>
@@ -7986,7 +7961,7 @@ From class
 </div>
 
 
-<A NAME="updateCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -7999,7 +7974,7 @@ From class
         void
       </span>
       <span class="sympad">updateCategory</span>
-      <span class="normal">(int categoryId, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode)</span>
+      <span class="normal">(int categoryId, <a href="../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> catalogCategoryEntity, String storeViewIdOrCode)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8022,7 +7997,7 @@ From class
           <td>The category to update</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>catalogCategoryEntity</td>
           <td>The category new attributes</td>
         </tr>
         <tr>
@@ -8143,7 +8118,7 @@ From class
 </div>
 
 
-<A NAME="updateCustomer(int, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateCustomer(int, com.magento.api.CustomerCustomerEntityToCreate)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -8156,7 +8131,7 @@ From class
         void
       </span>
       <span class="sympad">updateCustomer</span>
-      <span class="normal">(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(int customerId, <a href="../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customer)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8180,8 +8155,8 @@ From class
           <td>The target customer to update</td>
         </tr>
         <tr>
-          <th>attributes</td>
-          <td>The attributes map
+          <th>customer</td>
+          <td>The customer attributes
 </td>
         </tr>
       </table>
@@ -8191,7 +8166,7 @@ From class
 </div>
 
 
-<A NAME="updateCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -8204,7 +8179,7 @@ From class
         void
       </span>
       <span class="sympad">updateCustomerAddress</span>
-      <span class="normal">(int addressId, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(int addressId, <a href="../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> customerAddress)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8227,7 +8202,7 @@ From class
           <td>The customer address to update</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>customerAddress</td>
           <td>The address attributes to update
 </td>
         </tr>
@@ -8238,7 +8213,7 @@ From class
 </div>
 
 
-<A NAME="updateInventoryStockItem(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateInventoryStockItem(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -8251,7 +8226,7 @@ From class
         void
       </span>
       <span class="sympad">updateInventoryStockItem</span>
-      <span class="normal">(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> catalogInventoryStockItem)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8284,7 +8259,7 @@ From class
           <td>The id or sku of the product.</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>catalogInventoryStockItem</td>
           <td>The new attributes of the stock item
 </td>
         </tr>
@@ -8295,7 +8270,7 @@ From class
 </div>
 
 
-<A NAME="updateProduct(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="updateProduct(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -8308,7 +8283,7 @@ From class
         void
       </span>
       <span class="sympad">updateProduct</span>
-      <span class="normal">(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeViewIdOrCode)</span>
+      <span class="normal">(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> catalogProductEntity, List&lt;<a href="../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeViewIdOrCode)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8342,12 +8317,12 @@ From class
           <td>The id or sku of the product.</td>
         </tr>
         <tr>
-          <th>attributes</td>
-          <td>The map of standard product attributes to update</td>
+          <th>catalogProductEntity</td>
+          <td>Standard product attributes to update</td>
         </tr>
         <tr>
           <th>additionalAttributes</td>
-          <td>The map of non standard product attributes to update</td>
+          <td>Non standard product attributes to update</td>
         </tr>
         <tr>
           <th>storeViewIdOrCode</td>
@@ -8361,7 +8336,7 @@ From class
 </div>
 
 
-<A NAME="updateProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="updateProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -8374,7 +8349,7 @@ From class
         void
       </span>
       <span class="sympad">updateProductAttributeMedia</span>
-      <span class="normal">(Integer productId, String productSku, String productIdOrSku, String fileName, Map&lt;String,&nbsp;Object&gt; attributes, String storeViewIdOrCode)</span>
+      <span class="normal">(Integer productId, String productSku, String productIdOrSku, String fileName, <a href="../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> catalogProductAttributeMediaEntity, String storeViewIdOrCode)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8411,7 +8386,7 @@ From class
           <td>The name of the remote media file to update</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>catalogProductAttributeMediaEntity</td>
           <td>The attributes to update</td>
         </tr>
         <tr>
@@ -8426,7 +8401,7 @@ From class
 </div>
 
 
-<A NAME="updateProductAttributeTierPrice(java.lang.Integer, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateProductAttributeTierPrice(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductTierPriceEntity)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -8439,7 +8414,7 @@ From class
         void
       </span>
       <span class="sympad">updateProductAttributeTierPrice</span>
-      <span class="normal">(Integer productId, String productSku, String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> catalogProductTierPriceEntity)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8473,7 +8448,7 @@ From class
           <td>The id or sku of the product.</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>catalogProductTierPriceEntity</td>
           <td>The tier price to update.
 </td>
         </tr>
@@ -8484,7 +8459,7 @@ From class
 </div>
 
 
-<A NAME="updateProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductLinkEntity)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -8497,7 +8472,7 @@ From class
         void
       </span>
       <span class="sympad">updateProductLink</span>
-      <span class="normal">(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> catalogProductLinkEntity)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8540,7 +8515,7 @@ From class
           <td>The destination product id or sku.</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>catalogProductLinkEntity</td>
           <td>The link attributes
 </td>
         </tr>
@@ -8620,7 +8595,7 @@ From class
 </div>
 
 
-<A NAME="updateShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)"></A>
+<A NAME="updateShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -8633,7 +8608,7 @@ From class
         boolean
       </span>
       <span class="sympad">updateShoppingCartProduct</span>
-      <span class="normal">(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</span>
+      <span class="normal">(int quoteId, List&lt;<a href="../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8655,20 +8630,8 @@ From class
           <td>Shopping Cart ID (quote ID)</td>
         </tr>
         <tr>
-          <th>productsAttributes</td>
+          <th>products</td>
           <td>Products data</td>
-        </tr>
-        <tr>
-          <th>productsOptions</td>
-          <td>Products options</td>
-        </tr>
-        <tr>
-          <th>productsBundleOptions</td>
-          <td>Products bundle options</td>
-        </tr>
-        <tr>
-          <th>productsBundleOptionsQty</td>
-          <td>Products bundle options quantities</td>
         </tr>
         <tr>
           <th>storeId</td>
@@ -8686,7 +8649,7 @@ From class
 </div>
 
 
-<A NAME="updateStockItem(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateStockItem(java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -8699,7 +8662,7 @@ From class
         void
       </span>
       <span class="sympad">updateStockItem</span>
-      <span class="normal">(String productIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> stockItem)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8722,12 +8685,43 @@ From class
           <td>The product id or sku of the product to update</td>
         </tr>
         <tr>
-          <th>attributes</td>
+          <th>stockItem</td>
           <td>The attributes to update
 </td>
         </tr>
       </table>
   </div>
+
+    </div>
+</div>
+
+
+<A NAME="validateConnection()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">validateConnection</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>

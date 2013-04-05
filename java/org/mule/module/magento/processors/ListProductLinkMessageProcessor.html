@@ -205,7 +205,13 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/com/magento/api/package-summary.html">com.magento.api</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/com/magento/api/holders/package-summary.html">com.magento.api.holders</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/magento/api/transformers/package-summary.html">com.magento.api.transformers</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/adapter/package-summary.html">org.mule.module.magento.adapter</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/adapters/package-summary.html">org.mule.module.magento.adapters</a></li>
     <li class="api apilevel-">
@@ -233,9 +239,21 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/basic/package-summary.html">org.mule.module.magento.basic</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/callback/package-summary.html">org.mule.module.magento.callback</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/connection/package-summary.html">org.mule.module.magento.connection</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/connectivity/package-summary.html">org.mule.module.magento.connectivity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/devkit/package-summary.html">org.mule.module.magento.devkit</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/oauth/package-summary.html">org.mule.module.magento.oauth</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
     <li class="selected api apilevel-">
@@ -251,6 +269,7 @@
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/processors/AbstractConnectedProcessor.html">AbstractConnectedProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/processors/AbstractExpressionEvaluator.html">AbstractExpressionEvaluator</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/processors/AbstractListeningMessageProcessor.html">AbstractListeningMessageProcessor</a>&lt;O&gt;</li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/processors/AbstractMessageProcessor.html">AbstractMessageProcessor</a>&lt;O&gt;</li>
@@ -406,6 +425,8 @@
   
   
   
+   
+  
   
 
   
@@ -433,17 +454,6 @@
    
   
   
-   
-  
-  
-  
-
-  
-   
-  
-  
-   
-  
   
   
 
@@ -467,6 +477,41 @@
 
   
    
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
   
   
   
@@ -542,6 +587,10 @@ Summary:
   
 
   
+  
+  
+
+  
     extends <a href="../../../../../../java/org/mule/module/magento/processors/AbstractMessageProcessor.html">AbstractMessageProcessor</a>&lt;O&gt;<br/>
   
   
@@ -561,6 +610,8 @@ Summary:
       
         MessageProcessor 
       
+        OperationMetaDataEnabled 
+      
   
   
 
@@ -575,7 +626,7 @@ Summary:
 
     <tr>
         
-        <td colspan="4" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="5" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -583,11 +634,23 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/magento/processors/AbstractExpressionEvaluator.html">org.mule.module.magento.processors.AbstractExpressionEvaluator</a></td>
+        <td colspan="4" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/magento/processors/AbstractExpressionEvaluator.html">org.mule.module.magento.processors.AbstractExpressionEvaluator</a></td>
     </tr>
     
 
     <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/magento/processors/AbstractConnectedProcessor.html">org.mule.module.magento.processors.AbstractConnectedProcessor</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
@@ -598,6 +661,8 @@ Summary:
     
 
     <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
@@ -670,6 +735,8 @@ Summary:
 <table id="inhconstants" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
 
 
 
@@ -803,6 +870,12 @@ org.mule.api.lifecycle.Stoppable
   </div>
 </div>
 </td></tr>
+
+
+
+
+
+
 
 
 
@@ -981,6 +1054,102 @@ org.mule.api.lifecycle.Stoppable
 
 
 
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-org.mule.module.magento.processors.AbstractConnectedProcessor" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-org.mule.module.magento.processors.AbstractConnectedProcessor-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html">org.mule.module.magento.processors.AbstractConnectedProcessor</a>
+<div id="inherited-fields-org.mule.module.magento.processors.AbstractConnectedProcessor">
+  <div id="inherited-fields-org.mule.module.magento.processors.AbstractConnectedProcessor-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-fields-org.mule.module.magento.processors.AbstractConnectedProcessor-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#_addressType">_addressType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#_passwordType">_passwordType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#_usernameType">_usernameType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#address">address</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#password">password</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#username">username</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1049,6 +1218,38 @@ org.mule.api.lifecycle.Stoppable
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/processors/ListProductLinkMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/processors/ListProductLinkMessageProcessor.html#getInputMetaData()">getInputMetaData</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/processors/ListProductLinkMessageProcessor.html#getOutputMetaData(org.mule.common.metadata.MetaData)">getOutputMetaData</a></span>(MetaData inputMetadata)</nobr>
         
   </td></tr>
 
@@ -1391,6 +1592,146 @@ From class
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/processors/AbstractMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext value)</nobr>
         
         <div class="jd-descrdiv">Sets muleContext</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.processors.AbstractConnectedProcessor" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.module.magento.processors.AbstractConnectedProcessor-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html">org.mule.module.magento.processors.AbstractConnectedProcessor</a>
+
+<div id="inherited-methods-org.mule.module.magento.processors.AbstractConnectedProcessor">
+  <div id="inherited-methods-org.mule.module.magento.processors.AbstractConnectedProcessor-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.module.magento.processors.AbstractConnectedProcessor-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#getAddress()">getAddress</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves address
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#getPassword()">getPassword</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves password
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#getUsername()">getUsername</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves username
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#setAddress(java.lang.Object)">setAddress</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets address</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets password</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/processors/AbstractConnectedProcessor.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets username</div>
   
   </td></tr>
 
@@ -2121,6 +2462,68 @@ From interface
 </td></tr>
 
 
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.common.metadata.MetaDataDescriptor
+
+<div id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor">
+  <div id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getInputMetaData</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getOutputMetaData</span>(MetaData arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
 </table>
 
 
@@ -2474,6 +2877,77 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getInputMetaData()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Result&lt;MetaData&gt;
+      </span>
+      <span class="sympad">getInputMetaData</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getOutputMetaData(org.mule.common.metadata.MetaData)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Result&lt;MetaData&gt;
+      </span>
+      <span class="sympad">getOutputMetaData</span>
+      <span class="normal">(MetaData inputMetadata)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>inputMetadata</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>

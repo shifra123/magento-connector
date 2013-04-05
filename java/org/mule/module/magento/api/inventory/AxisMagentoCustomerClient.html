@@ -205,7 +205,13 @@
     <li class="api apilevel-">
   <a href="../../../../../../../java/com/magento/api/package-summary.html">com.magento.api</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/holders/package-summary.html">com.magento.api.holders</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/transformers/package-summary.html">com.magento.api.transformers</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/adapter/package-summary.html">org.mule.module.magento.adapter</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/adapters/package-summary.html">org.mule.module.magento.adapters</a></li>
     <li class="api apilevel-">
@@ -233,9 +239,21 @@
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/basic/package-summary.html">org.mule.module.magento.basic</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/callback/package-summary.html">org.mule.module.magento.callback</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/connection/package-summary.html">org.mule.module.magento.connection</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/connectivity/package-summary.html">org.mule.module.magento.connectivity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/devkit/package-summary.html">org.mule.module.magento.devkit</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/oauth/package-summary.html">org.mule.module.magento.oauth</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
     <li class="api apilevel-">
@@ -250,7 +268,7 @@
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;AttributesType,&nbsp;AttributesCollectionType,&nbsp;ExceptionType&nbsp;extends&nbsp;Exception&gt;</li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;ExceptionType&nbsp;extends&nbsp;Exception&gt;</li>
       </ul>
     </li>
               
@@ -392,7 +410,7 @@ Summary:
   
       implements 
       
-        <a href="../../../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;AttributesType,&nbsp;AttributesCollectionType,&nbsp;ExceptionType&nbsp;extends&nbsp;Exception&gt; 
+        <a href="../../../../../../../java/org/mule/module/magento/api/inventory/MagentoCustomerClient.html">MagentoCustomerClient</a>&lt;ExceptionType&nbsp;extends&nbsp;Exception&gt; 
       
   
   
@@ -581,7 +599,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#createCustomer(java.util.Map<java.lang.String, java.lang.Object>)">createCustomer</a></span>(Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#createCustomer(com.magento.api.CustomerCustomerEntityToCreate)">createCustomer</a></span>(<a href="../../../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customerEntityToCreate)</nobr>
         
         <div class="jd-descrdiv">Creates a customer with th given attributes</div>
   
@@ -599,7 +617,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#createCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)">createCustomerAddress</a></span>(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#createCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)">createCustomerAddress</a></span>(int customerId, <a href="../../../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Creates a new address for the given customer using the given address
  attributes</div>
@@ -651,7 +669,7 @@ Summary:
             
             
             
-            Object</nobr>
+            <a href="../../../../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#getCustomer(int, java.util.List<java.lang.String>)">getCustomer</a></span>(int customerId, List&lt;String&gt; attributeNames)</nobr>
@@ -669,7 +687,7 @@ Summary:
             
             
             
-            Object</nobr>
+            <a href="../../../../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#getCustomerAddress(int)">getCustomerAddress</a></span>(int addressId)</nobr>
@@ -687,7 +705,7 @@ Summary:
             
             
             
-            Object[]</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#listCustomerAddresses(int)">listCustomerAddresses</a></span>(int customerId)</nobr>
@@ -705,7 +723,7 @@ Summary:
             
             
             
-            Object[]</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CustomerGroupEntity.html">CustomerGroupEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#listCustomerGroups()">listCustomerGroups</a></span>()</nobr>
@@ -723,7 +741,7 @@ Summary:
             
             
             
-            Object[]</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#listCustomers(java.lang.String)">listCustomers</a></span>(String filters)</nobr>
@@ -744,7 +762,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#updateCustomer(int, java.util.Map<java.lang.String, java.lang.Object>)">updateCustomer</a></span>(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#updateCustomer(int, com.magento.api.CustomerCustomerEntityToCreate)">updateCustomer</a></span>(int customerId, <a href="../../../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Updates the given customer attributes, for the given customer id.</div>
   
@@ -762,7 +780,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#updateCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)">updateCustomerAddress</a></span>(int addressId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/AxisMagentoCustomerClient.html#updateCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)">updateCustomerAddress</a></span>(int addressId, <a href="../../../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Updates the given map of customer address attributes, for the given customer address</div>
   
@@ -1154,7 +1172,7 @@ From interface
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#createCustomer(java.util.Map<java.lang.String, java.lang.Object>)">createCustomer</a></span>(Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#createCustomer(com.magento.api.CustomerCustomerEntityToCreate)">createCustomer</a></span>(<a href="../../../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customerToCreate)</nobr>
         
         <div class="jd-descrdiv">Creates a customer with th given attributes</div>
   
@@ -1172,7 +1190,7 @@ From interface
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#createCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)">createCustomerAddress</a></span>(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#createCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)">createCustomerAddress</a></span>(int customerId, <a href="../../../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Creates a new address for the given customer using the given address
  attributes</div>
@@ -1224,7 +1242,7 @@ From interface
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#getCustomer(int, java.util.List<java.lang.String>)">getCustomer</a></span>(int customerId, List&lt;String&gt; attributeNames)</nobr>
@@ -1242,7 +1260,7 @@ From interface
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#getCustomerAddress(int)">getCustomerAddress</a></span>(int addressId)</nobr>
@@ -1260,7 +1278,7 @@ From interface
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#listCustomerAddresses(int)">listCustomerAddresses</a></span>(int customerId)</nobr>
@@ -1278,7 +1296,7 @@ From interface
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CustomerGroupEntity.html">CustomerGroupEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#listCustomerGroups()">listCustomerGroups</a></span>()</nobr>
@@ -1296,7 +1314,7 @@ From interface
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#listCustomers(java.lang.String)">listCustomers</a></span>(String filters)</nobr>
@@ -1317,7 +1335,7 @@ From interface
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#updateCustomer(int, java.util.Map<java.lang.String, java.lang.Object>)">updateCustomer</a></span>(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#updateCustomer(int, com.magento.api.CustomerCustomerEntityToCreate)">updateCustomer</a></span>(int customerId, <a href="../../../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Updates the given customer attributes, for the given customer id.</div>
   
@@ -1335,7 +1353,7 @@ From interface
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#updateCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)">updateCustomerAddress</a></span>(int addressId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/inventory/MagentoCustomerClient.html#updateCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)">updateCustomerAddress</a></span>(int addressId, <a href="../../../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Updates the given map of customer address attributes, for the given customer address</div>
   
@@ -1437,7 +1455,7 @@ From interface
 
 
 
-<A NAME="createCustomer(java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="createCustomer(com.magento.api.CustomerCustomerEntityToCreate)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1450,7 +1468,7 @@ From interface
         int
       </span>
       <span class="sympad">createCustomer</span>
-      <span class="normal">(Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(<a href="../../../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customerEntityToCreate)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1467,7 +1485,7 @@ From interface
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>attributes</td>
+          <th>customerEntityToCreate</td>
           <td>The attributes of the new customer</td>
         </tr>
       </table>
@@ -1492,7 +1510,7 @@ From interface
 </div>
 
 
-<A NAME="createCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="createCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1505,7 +1523,7 @@ From interface
         int
       </span>
       <span class="sympad">createCustomerAddress</span>
-      <span class="normal">(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(int customerId, <a href="../../../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> attributes)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1670,7 +1688,7 @@ From interface
          
          
          
-        Object
+        <a href="../../../../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a>
       </span>
       <span class="sympad">getCustomer</span>
       <span class="normal">(int customerId, List&lt;String&gt; attributeNames)</span>
@@ -1730,7 +1748,7 @@ From interface
          
          
          
-        Object
+        <a href="../../../../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a>
       </span>
       <span class="sympad">getCustomerAddress</span>
       <span class="normal">(int addressId)</span>
@@ -1785,7 +1803,7 @@ From interface
          
          
          
-        Object[]
+        List&lt;<a href="../../../../../../../java/com/magento/api/CustomerAddressEntityItem.html">CustomerAddressEntityItem</a>&gt;
       </span>
       <span class="sympad">listCustomerAddresses</span>
       <span class="normal">(int customerId)</span>
@@ -1839,7 +1857,7 @@ From interface
          
          
          
-        Object[]
+        List&lt;<a href="../../../../../../../java/com/magento/api/CustomerGroupEntity.html">CustomerGroupEntity</a>&gt;
       </span>
       <span class="sympad">listCustomerGroups</span>
       <span class="normal">()</span>
@@ -1884,7 +1902,7 @@ From interface
          
          
          
-        Object[]
+        List&lt;<a href="../../../../../../../java/com/magento/api/CustomerCustomerEntity.html">CustomerCustomerEntity</a>&gt;
       </span>
       <span class="sympad">listCustomers</span>
       <span class="normal">(String filters)</span>
@@ -1929,7 +1947,7 @@ From interface
 </div>
 
 
-<A NAME="updateCustomer(int, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateCustomer(int, com.magento.api.CustomerCustomerEntityToCreate)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1942,7 +1960,7 @@ From interface
         void
       </span>
       <span class="sympad">updateCustomer</span>
-      <span class="normal">(int customerId, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(int customerId, <a href="../../../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> attributes)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1985,7 +2003,7 @@ From interface
 </div>
 
 
-<A NAME="updateCustomerAddress(int, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1998,7 +2016,7 @@ From interface
         void
       </span>
       <span class="sympad">updateCustomerAddress</span>
-      <span class="normal">(int addressId, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(int addressId, <a href="../../../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> attributes)</span>
     </h4>
       <div class="api-level">
         <div>

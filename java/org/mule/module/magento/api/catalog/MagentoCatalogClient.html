@@ -205,7 +205,13 @@
     <li class="api apilevel-">
   <a href="../../../../../../../java/com/magento/api/package-summary.html">com.magento.api</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/holders/package-summary.html">com.magento.api.holders</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/transformers/package-summary.html">com.magento.api.transformers</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/adapter/package-summary.html">org.mule.module.magento.adapter</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/adapters/package-summary.html">org.mule.module.magento.adapters</a></li>
     <li class="api apilevel-">
@@ -233,9 +239,21 @@
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/basic/package-summary.html">org.mule.module.magento.basic</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/callback/package-summary.html">org.mule.module.magento.callback</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/connection/package-summary.html">org.mule.module.magento.connection</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/connectivity/package-summary.html">org.mule.module.magento.connectivity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/devkit/package-summary.html">org.mule.module.magento.devkit</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/oauth/package-summary.html">org.mule.module.magento.oauth</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
     <li class="api apilevel-">
@@ -250,7 +268,7 @@
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;AttributesType,&nbsp;AttributesCollectionType,&nbsp;ExceptionType&nbsp;extends&nbsp;Exception&gt;</li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;ExceptionType&nbsp;extends&nbsp;Exception&gt;</li>
       </ul>
     </li>
               
@@ -362,7 +380,7 @@ Summary:
 
     <tr>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.api.catalog.MagentoCatalogClient&lt;AttributesType,&nbsp;AttributesCollectionType,&nbsp;ExceptionType&nbsp;extends&nbsp;java.lang.Exception&gt;</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.api.catalog.MagentoCatalogClient&lt;ExceptionType&nbsp;extends&nbsp;java.lang.Exception&gt;</td>
     </tr>
     
 
@@ -494,7 +512,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#addProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">addProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#addProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)">addProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Links two products</div>
   
@@ -512,7 +530,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">createCategory</a></span>(int parentId, Map&lt;String,&nbsp;Object&gt; attributes, String storeView)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">createCategory</a></span>(int parentId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</nobr>
         
         <div class="jd-descrdiv">Creates a new category.</div>
   
@@ -530,7 +548,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createProduct(java.lang.String, int, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">createProduct</a></span>(String type, int set, String sku, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeView)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createProduct(java.lang.String, int, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">createProduct</a></span>(String type, int set, String sku, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</nobr>
         
         <div class="jd-descrdiv">Creates a new product</div>
   
@@ -548,7 +566,7 @@ Summary:
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>, java.io.InputStream, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String, java.lang.String)">createProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes, InputStream content, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName, String storeView)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.io.InputStream, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String, java.lang.String)">createProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, InputStream content, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName, String storeView)</nobr>
         
         <div class="jd-descrdiv">Creates a new product media.</div>
   
@@ -671,7 +689,7 @@ Summary:
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/CatalogCategoryInfo.html">CatalogCategoryInfo</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getCategory(int, java.lang.String, java.util.List<java.lang.String>)">getCategory</a></span>(int categoryId, String storeView, List&lt;String&gt; attributeNames)</nobr>
@@ -689,7 +707,7 @@ Summary:
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/CatalogCategoryTree.html">CatalogCategoryTree</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getCategoryTree(java.lang.String, java.lang.String)">getCategoryTree</a></span>(String parentId, String storeView)</nobr>
@@ -707,7 +725,7 @@ Summary:
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)">getProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView, List&lt;String&gt; attributeNames, List&lt;String&gt; additionalAttributeNames)</nobr>
@@ -725,7 +743,7 @@ Summary:
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.lang.String)">getProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file, String storeView)</nobr>
@@ -743,7 +761,7 @@ Summary:
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getProductSpecialPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">getProductSpecialPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView)</nobr>
@@ -761,7 +779,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listCategoryAttributeOptions(java.lang.String, java.lang.String)">listCategoryAttributeOptions</a></span>(String attributeId, String storeView)</nobr>
@@ -779,7 +797,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listCategoryAttributes()">listCategoryAttributes</a></span>()</nobr>
@@ -797,10 +815,10 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityNoChildren.html">CatalogCategoryEntityNoChildren</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listCategoryLevels(java.lang.String, java.lang.String, java.lang.String)">listCategoryLevels</a></span>(String website, String storeView, String parentCategoryId)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listCategoryLevels(java.lang.String, java.lang.String, java.lang.String)">listCategoryLevels</a></span>(String website, String storeView, String parentCategory)</nobr>
         
         <div class="jd-descrdiv">Answers levels of categories for a website, store view and parente category@return</div>
   
@@ -815,7 +833,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAssignedProduct.html">CatalogAssignedProduct</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listCategoryProducts(int)">listCategoryProducts</a></span>(int categoryId)</nobr>
@@ -833,7 +851,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listInventoryStockItems(java.util.List<java.lang.String>)">listInventoryStockItems</a></span>(List&lt;String&gt; products)</nobr>
@@ -849,10 +867,10 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">listProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">listProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeViewIdOrCode)</nobr>
         
         <div class="jd-descrdiv">Retrieves product image list.</div>
   
@@ -867,7 +885,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaTypeEntity.html">CatalogProductAttributeMediaTypeEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeMediaTypes(int)">listProductAttributeMediaTypes</a></span>(int setId)</nobr>
@@ -885,7 +903,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeOptions(java.lang.String, java.lang.String)">listProductAttributeOptions</a></span>(String attributeId, String storeView)</nobr>
@@ -903,7 +921,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductAttributeSetEntity.html">CatalogProductAttributeSetEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeSets()">listProductAttributeSets</a></span>()</nobr>
@@ -921,7 +939,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeTierPrices(org.mule.module.magento.api.catalog.model.ProductIdentifier)">listProductAttributeTierPrices</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
@@ -939,7 +957,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributes(int)">listProductAttributes</a></span>(int setId)</nobr>
@@ -957,7 +975,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier)">listProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
@@ -975,7 +993,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductLinkAttributeEntity.html">CatalogProductLinkAttributeEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductLinkAttributes(java.lang.String)">listProductLinkAttributes</a></span>(String type)</nobr>
@@ -1011,7 +1029,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductTypeEntity.html">CatalogProductTypeEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductTypes()">listProductTypes</a></span>()</nobr>
@@ -1029,7 +1047,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProducts(java.lang.String, java.lang.String)">listProducts</a></span>(String filters, String storeView)</nobr>
@@ -1086,7 +1104,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateCategory</a></span>(int categoryId, Map&lt;String,&nbsp;Object&gt; attributes, String storeView)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">updateCategory</a></span>(int categoryId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</nobr>
         
         <div class="jd-descrdiv">Updates a category.</div>
   
@@ -1120,7 +1138,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateInventoryStockItem(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>)">updateInventoryStockItem</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateInventoryStockItem(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateInventoryStockItem</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Updates an stock inventory item</div>
   
@@ -1138,7 +1156,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeView)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">updateProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</nobr>
         
         <div class="jd-descrdiv">Updates a product.</div>
   
@@ -1156,7 +1174,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">updateProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String fileName, Map&lt;String,&nbsp;Object&gt; attributes, String storeView)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)">updateProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String fileName, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, String storeView)</nobr>
         
         <div class="jd-descrdiv">Updates product media.</div>
   
@@ -1174,7 +1192,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductAttributeTierPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>)">updateProductAttributeTierPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductAttributeTierPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductTierPriceEntity)">updateProductAttributeTierPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Updates a single product tier price.</div>
   
@@ -1192,7 +1210,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)">updateProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProduct, Map&lt;String,&nbsp;Object&gt; attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)">updateProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProduct, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Update product link</div>
   
@@ -1322,7 +1340,7 @@ Summary:
 </div>
 
 
-<A NAME="addProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="addProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1335,7 +1353,7 @@ Summary:
         void
       </span>
       <span class="sympad">addProductLink</span>
-      <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1384,7 +1402,7 @@ Summary:
 </div>
 
 
-<A NAME="createCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="createCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1397,7 +1415,7 @@ Summary:
         int
       </span>
       <span class="sympad">createCategory</span>
-      <span class="normal">(int parentId, Map&lt;String,&nbsp;Object&gt; attributes, String storeView)</span>
+      <span class="normal">(int parentId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1446,7 +1464,7 @@ Summary:
 </div>
 
 
-<A NAME="createProduct(java.lang.String, int, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="createProduct(java.lang.String, int, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1459,7 +1477,7 @@ Summary:
         int
       </span>
       <span class="sympad">createProduct</span>
-      <span class="normal">(String type, int set, String sku, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeView)</span>
+      <span class="normal">(String type, int set, String sku, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1520,7 +1538,7 @@ Summary:
 </div>
 
 
-<A NAME="createProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>, java.io.InputStream, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String, java.lang.String)"></A>
+<A NAME="createProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.io.InputStream, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1533,7 +1551,7 @@ Summary:
         String
       </span>
       <span class="sympad">createProductAttributeMedia</span>
-      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes, InputStream content, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName, String storeView)</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, InputStream content, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName, String storeView)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1937,7 +1955,7 @@ Summary:
          
         abstract 
          
-        AttributesType
+        <a href="../../../../../../../java/com/magento/api/CatalogCategoryInfo.html">CatalogCategoryInfo</a>
       </span>
       <span class="sympad">getCategory</span>
       <span class="normal">(int categoryId, String storeView, List&lt;String&gt; attributeNames)</span>
@@ -1999,7 +2017,7 @@ Summary:
          
         abstract 
          
-        AttributesType
+        <a href="../../../../../../../java/com/magento/api/CatalogCategoryTree.html">CatalogCategoryTree</a>
       </span>
       <span class="sympad">getCategoryTree</span>
       <span class="normal">(String parentId, String storeView)</span>
@@ -2052,7 +2070,7 @@ Summary:
          
         abstract 
          
-        AttributesType
+        <a href="../../../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a>
       </span>
       <span class="sympad">getProduct</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView, List&lt;String&gt; attributeNames, List&lt;String&gt; additionalAttributeNames)</span>
@@ -2121,7 +2139,7 @@ Summary:
          
         abstract 
          
-        AttributesType
+        <a href="../../../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a>
       </span>
       <span class="sympad">getProductAttributeMedia</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file, String storeView)</span>
@@ -2184,7 +2202,7 @@ Summary:
          
         abstract 
          
-        AttributesType
+        <a href="../../../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a>
       </span>
       <span class="sympad">getProductSpecialPrice</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView)</span>
@@ -2238,7 +2256,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;
       </span>
       <span class="sympad">listCategoryAttributeOptions</span>
       <span class="normal">(String attributeId, String storeView)</span>
@@ -2297,7 +2315,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;
       </span>
       <span class="sympad">listCategoryAttributes</span>
       <span class="normal">()</span>
@@ -2343,10 +2361,10 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityNoChildren.html">CatalogCategoryEntityNoChildren</a>&gt;
       </span>
       <span class="sympad">listCategoryLevels</span>
-      <span class="normal">(String website, String storeView, String parentCategoryId)</span>
+      <span class="normal">(String website, String storeView, String parentCategory)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2371,7 +2389,7 @@ Summary:
           <td></td>
         </tr>
         <tr>
-          <th>parentCategoryId</td>
+          <th>parentCategory</td>
           <td></td>
         </tr>
       </table>
@@ -2400,7 +2418,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAssignedProduct.html">CatalogAssignedProduct</a>&gt;
       </span>
       <span class="sympad">listCategoryProducts</span>
       <span class="normal">(int categoryId)</span>
@@ -2455,7 +2473,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a>&gt;
       </span>
       <span class="sympad">listInventoryStockItems</span>
       <span class="normal">(List&lt;String&gt; products)</span>
@@ -2504,10 +2522,10 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributeMedia</span>
-      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView)</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeViewIdOrCode)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2529,15 +2547,10 @@ Summary:
           <td></td>
         </tr>
         <tr>
-          <th>storeView</td>
+          <th>storeViewIdOrCode</td>
           <td></td>
         </tr>
       </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the list of product images attributes
-</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -2563,7 +2576,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaTypeEntity.html">CatalogProductAttributeMediaTypeEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributeMediaTypes</span>
       <span class="normal">(int setId)</span>
@@ -2613,7 +2626,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributeOptions</span>
       <span class="normal">(String attributeId, String storeView)</span>
@@ -2672,7 +2685,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductAttributeSetEntity.html">CatalogProductAttributeSetEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributeSets</span>
       <span class="normal">()</span>
@@ -2718,7 +2731,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributeTierPrices</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</span>
@@ -2773,7 +2786,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;
       </span>
       <span class="sympad">listProductAttributes</span>
       <span class="normal">(int setId)</span>
@@ -2828,7 +2841,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a>&gt;
       </span>
       <span class="sympad">listProductLink</span>
       <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</span>
@@ -2886,7 +2899,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductLinkAttributeEntity.html">CatalogProductLinkAttributeEntity</a>&gt;
       </span>
       <span class="sympad">listProductLinkAttributes</span>
       <span class="normal">(String type)</span>
@@ -2985,7 +2998,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductTypeEntity.html">CatalogProductTypeEntity</a>&gt;
       </span>
       <span class="sympad">listProductTypes</span>
       <span class="normal">()</span>
@@ -3030,7 +3043,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;
       </span>
       <span class="sympad">listProducts</span>
       <span class="normal">(String filters, String storeView)</span>
@@ -3190,7 +3203,7 @@ Summary:
 </div>
 
 
-<A NAME="updateCategory(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3203,7 +3216,7 @@ Summary:
         void
       </span>
       <span class="sympad">updateCategory</span>
-      <span class="normal">(int categoryId, Map&lt;String,&nbsp;Object&gt; attributes, String storeView)</span>
+      <span class="normal">(int categoryId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3304,7 +3317,7 @@ Summary:
 </div>
 
 
-<A NAME="updateInventoryStockItem(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateInventoryStockItem(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogInventoryStockItemUpdateEntity)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3317,7 +3330,7 @@ Summary:
         void
       </span>
       <span class="sympad">updateInventoryStockItem</span>
-      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3357,7 +3370,7 @@ Summary:
 </div>
 
 
-<A NAME="updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3370,7 +3383,7 @@ Summary:
         void
       </span>
       <span class="sympad">updateProduct</span>
-      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes, Map&lt;String,&nbsp;Object&gt; additionalAttributes, String storeView)</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3393,11 +3406,12 @@ Summary:
         </tr>
         <tr>
           <th>attributes</td>
-          <td>The map of standard product attributes to update</td>
+          <td>Standard product attributes to update</td>
         </tr>
         <tr>
           <th>additionalAttributes</td>
-          <td>The map of non standard product attributes to update</td>
+          <td>Non standard product attributes to update
+</td>
         </tr>
         <tr>
           <th>storeView</td>
@@ -3419,7 +3433,7 @@ Summary:
 </div>
 
 
-<A NAME="updateProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="updateProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3432,7 +3446,7 @@ Summary:
         void
       </span>
       <span class="sympad">updateProductAttributeMedia</span>
-      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String fileName, Map&lt;String,&nbsp;Object&gt; attributes, String storeView)</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String fileName, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, String storeView)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3480,7 +3494,7 @@ Summary:
 </div>
 
 
-<A NAME="updateProductAttributeTierPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateProductAttributeTierPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductTierPriceEntity)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3493,7 +3507,7 @@ Summary:
         void
       </span>
       <span class="sympad">updateProductAttributeTierPrice</span>
-      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> attributes)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3534,7 +3548,7 @@ Summary:
 </div>
 
 
-<A NAME="updateProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>)"></A>
+<A NAME="updateProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3547,7 +3561,7 @@ Summary:
         void
       </span>
       <span class="sympad">updateProductLink</span>
-      <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProduct, Map&lt;String,&nbsp;Object&gt; attributes)</span>
+      <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProduct, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</span>
     </h4>
       <div class="api-level">
         <div>

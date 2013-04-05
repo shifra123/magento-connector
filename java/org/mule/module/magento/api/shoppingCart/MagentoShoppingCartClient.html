@@ -205,7 +205,13 @@
     <li class="api apilevel-">
   <a href="../../../../../../../java/com/magento/api/package-summary.html">com.magento.api</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/holders/package-summary.html">com.magento.api.holders</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/transformers/package-summary.html">com.magento.api.transformers</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/adapter/package-summary.html">org.mule.module.magento.adapter</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/adapters/package-summary.html">org.mule.module.magento.adapters</a></li>
     <li class="api apilevel-">
@@ -233,9 +239,21 @@
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/basic/package-summary.html">org.mule.module.magento.basic</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/callback/package-summary.html">org.mule.module.magento.callback</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/connection/package-summary.html">org.mule.module.magento.connection</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/connectivity/package-summary.html">org.mule.module.magento.connectivity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/devkit/package-summary.html">org.mule.module.magento.devkit</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/oauth/package-summary.html">org.mule.module.magento.oauth</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
     <li class="api apilevel-">
@@ -250,7 +268,7 @@
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;AttributesType,&nbsp;AttributesCollectionType,&nbsp;ExceptionType&nbsp;extends&nbsp;Exception&gt;</li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html">MagentoShoppingCartClient</a>&lt;ExceptionType&nbsp;extends&nbsp;Exception&gt;</li>
       </ul>
     </li>
               
@@ -362,7 +380,7 @@ Summary:
 
     <tr>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.api.shoppingCart.MagentoShoppingCartClient&lt;AttributesType,&nbsp;AttributesCollectionType,&nbsp;ExceptionType&nbsp;extends&nbsp;java.lang.Exception&gt;</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.api.shoppingCart.MagentoShoppingCartClient&lt;ExceptionType&nbsp;extends&nbsp;java.lang.Exception&gt;</td>
     </tr>
     
 
@@ -492,7 +510,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#addShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">addShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#addShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)">addShoppingCartProduct</a></span>(int quoteId, List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</nobr>
         
   </td></tr>
 
@@ -537,7 +555,7 @@ Summary:
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/ShoppingCartInfoEntity.html">ShoppingCartInfoEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#getShoppingCartInfo(int, java.lang.String)">getShoppingCartInfo</a></span>(int quoteId, String storeId)</nobr>
@@ -553,7 +571,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartLicenseEntity.html">ShoppingCartLicenseEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#listShoppingCartLicenses(int, java.lang.String)">listShoppingCartLicenses</a></span>(int quoteId, String storeId)</nobr>
@@ -569,7 +587,7 @@ Summary:
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/ShoppingCartPaymentMethodResponseEntityArray.html">ShoppingCartPaymentMethodResponseEntityArray</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#listShoppingCartPaymentMethods(int, java.lang.String)">listShoppingCartPaymentMethods</a></span>(int quoteId, String storeId)</nobr>
@@ -585,7 +603,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#listShoppingCartProducts(int, java.lang.String)">listShoppingCartProducts</a></span>(int quoteId, String storeId)</nobr>
@@ -601,7 +619,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartShippingMethodEntity.html">ShoppingCartShippingMethodEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#listShoppingCartShippingMethods(int, java.lang.String)">listShoppingCartShippingMethods</a></span>(int quoteId, String storeId)</nobr>
@@ -617,7 +635,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartTotalsEntity.html">ShoppingCartTotalsEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#listShoppingCartTotals(int, java.lang.String)">listShoppingCartTotals</a></span>(int quoteId, String storeId)</nobr>
@@ -636,7 +654,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#moveShoppingCartProductToCustomerQuote(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">moveShoppingCartProductToCustomerQuote</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#moveShoppingCartProductToCustomerQuote(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)">moveShoppingCartProductToCustomerQuote</a></span>(int quoteId, List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</nobr>
         
   </td></tr>
 
@@ -668,7 +686,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#removeShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">removeShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#removeShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)">removeShoppingCartProduct</a></span>(int quoteId, List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</nobr>
         
   </td></tr>
 
@@ -684,7 +702,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#setShoppingCartCustomer(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">setShoppingCartCustomer</a></span>(int quoteId, Map&lt;String,&nbsp;Object&gt; customer, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#setShoppingCartCustomer(int, com.magento.api.ShoppingCartCustomerEntity, java.lang.String)">setShoppingCartCustomer</a></span>(int quoteId, <a href="../../../../../../../java/com/magento/api/ShoppingCartCustomerEntity.html">ShoppingCartCustomerEntity</a> customer, String storeId)</nobr>
         
   </td></tr>
 
@@ -700,7 +718,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#setShoppingCartCustomerAddresses(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">setShoppingCartCustomerAddresses</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; addresses, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#setShoppingCartCustomerAddresses(int, java.util.List<com.magento.api.ShoppingCartCustomerAddressEntity>, java.lang.String)">setShoppingCartCustomerAddresses</a></span>(int quoteId, List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartCustomerAddressEntity.html">ShoppingCartCustomerAddressEntity</a>&gt; addresses, String storeId)</nobr>
         
   </td></tr>
 
@@ -716,7 +734,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#setShoppingCartPaymentMethod(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)">setShoppingCartPaymentMethod</a></span>(int quoteId, Map&lt;String,&nbsp;Object&gt; method, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#setShoppingCartPaymentMethod(int, com.magento.api.ShoppingCartPaymentMethodEntity, java.lang.String)">setShoppingCartPaymentMethod</a></span>(int quoteId, <a href="../../../../../../../java/com/magento/api/ShoppingCartPaymentMethodEntity.html">ShoppingCartPaymentMethodEntity</a> method, String storeId)</nobr>
         
   </td></tr>
 
@@ -748,7 +766,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#updateShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)">updateShoppingCartProduct</a></span>(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/shoppingCart/MagentoShoppingCartClient.html#updateShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)">updateShoppingCartProduct</a></span>(int quoteId, List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</nobr>
         
   </td></tr>
 
@@ -858,7 +876,7 @@ Summary:
 </div>
 
 
-<A NAME="addShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)"></A>
+<A NAME="addShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -871,7 +889,7 @@ Summary:
         boolean
       </span>
       <span class="sympad">addShoppingCartProduct</span>
-      <span class="normal">(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</span>
+      <span class="normal">(int quoteId, List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -892,19 +910,7 @@ Summary:
           <td></td>
         </tr>
         <tr>
-          <th>productsAttributes</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsOptions</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsBundleOptions</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsBundleOptionsQty</td>
+          <th>products</td>
           <td></td>
         </tr>
         <tr>
@@ -1043,7 +1049,7 @@ Summary:
          
         abstract 
          
-        AttributesType
+        <a href="../../../../../../../java/com/magento/api/ShoppingCartInfoEntity.html">ShoppingCartInfoEntity</a>
       </span>
       <span class="sympad">getShoppingCartInfo</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -1096,7 +1102,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartLicenseEntity.html">ShoppingCartLicenseEntity</a>&gt;
       </span>
       <span class="sympad">listShoppingCartLicenses</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -1149,7 +1155,7 @@ Summary:
          
         abstract 
          
-        AttributesType
+        <a href="../../../../../../../java/com/magento/api/ShoppingCartPaymentMethodResponseEntityArray.html">ShoppingCartPaymentMethodResponseEntityArray</a>
       </span>
       <span class="sympad">listShoppingCartPaymentMethods</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -1202,7 +1208,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;
       </span>
       <span class="sympad">listShoppingCartProducts</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -1255,7 +1261,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartShippingMethodEntity.html">ShoppingCartShippingMethodEntity</a>&gt;
       </span>
       <span class="sympad">listShoppingCartShippingMethods</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -1308,7 +1314,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartTotalsEntity.html">ShoppingCartTotalsEntity</a>&gt;
       </span>
       <span class="sympad">listShoppingCartTotals</span>
       <span class="normal">(int quoteId, String storeId)</span>
@@ -1351,7 +1357,7 @@ Summary:
 </div>
 
 
-<A NAME="moveShoppingCartProductToCustomerQuote(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)"></A>
+<A NAME="moveShoppingCartProductToCustomerQuote(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1364,7 +1370,7 @@ Summary:
         boolean
       </span>
       <span class="sympad">moveShoppingCartProductToCustomerQuote</span>
-      <span class="normal">(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</span>
+      <span class="normal">(int quoteId, List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1385,19 +1391,7 @@ Summary:
           <td></td>
         </tr>
         <tr>
-          <th>productsAttributes</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsOptions</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsBundleOptions</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsBundleOptionsQty</td>
+          <th>products</td>
           <td></td>
         </tr>
         <tr>
@@ -1473,7 +1467,7 @@ Summary:
 </div>
 
 
-<A NAME="removeShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)"></A>
+<A NAME="removeShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1486,7 +1480,7 @@ Summary:
         boolean
       </span>
       <span class="sympad">removeShoppingCartProduct</span>
-      <span class="normal">(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</span>
+      <span class="normal">(int quoteId, List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1507,19 +1501,7 @@ Summary:
           <td></td>
         </tr>
         <tr>
-          <th>productsAttributes</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsOptions</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsBundleOptions</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsBundleOptionsQty</td>
+          <th>products</td>
           <td></td>
         </tr>
         <tr>
@@ -1542,7 +1524,7 @@ Summary:
 </div>
 
 
-<A NAME="setShoppingCartCustomer(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="setShoppingCartCustomer(int, com.magento.api.ShoppingCartCustomerEntity, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1555,7 +1537,7 @@ Summary:
         boolean
       </span>
       <span class="sympad">setShoppingCartCustomer</span>
-      <span class="normal">(int quoteId, Map&lt;String,&nbsp;Object&gt; customer, String storeId)</span>
+      <span class="normal">(int quoteId, <a href="../../../../../../../java/com/magento/api/ShoppingCartCustomerEntity.html">ShoppingCartCustomerEntity</a> customer, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1599,7 +1581,7 @@ Summary:
 </div>
 
 
-<A NAME="setShoppingCartCustomerAddresses(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)"></A>
+<A NAME="setShoppingCartCustomerAddresses(int, java.util.List<com.magento.api.ShoppingCartCustomerAddressEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1612,7 +1594,7 @@ Summary:
         boolean
       </span>
       <span class="sympad">setShoppingCartCustomerAddresses</span>
-      <span class="normal">(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; addresses, String storeId)</span>
+      <span class="normal">(int quoteId, List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartCustomerAddressEntity.html">ShoppingCartCustomerAddressEntity</a>&gt; addresses, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1656,7 +1638,7 @@ Summary:
 </div>
 
 
-<A NAME="setShoppingCartPaymentMethod(int, java.util.Map<java.lang.String, java.lang.Object>, java.lang.String)"></A>
+<A NAME="setShoppingCartPaymentMethod(int, com.magento.api.ShoppingCartPaymentMethodEntity, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1669,7 +1651,7 @@ Summary:
         boolean
       </span>
       <span class="sympad">setShoppingCartPaymentMethod</span>
-      <span class="normal">(int quoteId, Map&lt;String,&nbsp;Object&gt; method, String storeId)</span>
+      <span class="normal">(int quoteId, <a href="../../../../../../../java/com/magento/api/ShoppingCartPaymentMethodEntity.html">ShoppingCartPaymentMethodEntity</a> method, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1770,7 +1752,7 @@ Summary:
 </div>
 
 
-<A NAME="updateShoppingCartProduct(int, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.util.List<java.util.Map<java.lang.String, java.lang.Object>>, java.lang.String)"></A>
+<A NAME="updateShoppingCartProduct(int, java.util.List<com.magento.api.ShoppingCartProductEntity>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1783,7 +1765,7 @@ Summary:
         boolean
       </span>
       <span class="sympad">updateShoppingCartProduct</span>
-      <span class="normal">(int quoteId, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsAttributes, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptions, List&lt;Map&lt;String,&nbsp;Object&gt;&gt; productsBundleOptionsQty, String storeId)</span>
+      <span class="normal">(int quoteId, List&lt;<a href="../../../../../../../java/com/magento/api/ShoppingCartProductEntity.html">ShoppingCartProductEntity</a>&gt; products, String storeId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1804,19 +1786,7 @@ Summary:
           <td></td>
         </tr>
         <tr>
-          <th>productsAttributes</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsOptions</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsBundleOptions</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>productsBundleOptionsQty</td>
+          <th>products</td>
           <td></td>
         </tr>
         <tr>

@@ -205,7 +205,13 @@
     <li class="api apilevel-">
   <a href="../../../../../../../java/com/magento/api/package-summary.html">com.magento.api</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/holders/package-summary.html">com.magento.api.holders</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/transformers/package-summary.html">com.magento.api.transformers</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/adapter/package-summary.html">org.mule.module.magento.adapter</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/adapters/package-summary.html">org.mule.module.magento.adapters</a></li>
     <li class="api apilevel-">
@@ -233,9 +239,21 @@
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/basic/package-summary.html">org.mule.module.magento.basic</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/callback/package-summary.html">org.mule.module.magento.callback</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/connection/package-summary.html">org.mule.module.magento.connection</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/connectivity/package-summary.html">org.mule.module.magento.connectivity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/devkit/package-summary.html">org.mule.module.magento.devkit</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/oauth/package-summary.html">org.mule.module.magento.oauth</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
     <li class="api apilevel-">
@@ -250,7 +268,7 @@
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;AttributesType,&nbsp;AttributesCollectionType,&nbsp;ExceptionType&nbsp;extends&nbsp;Exception&gt;</li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/order/MagentoOrderClient.html">MagentoOrderClient</a>&lt;ExceptionType&nbsp;extends&nbsp;Exception&gt;</li>
       </ul>
     </li>
               
@@ -362,7 +380,7 @@ Summary:
 
     <tr>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.api.order.MagentoOrderClient&lt;AttributesType,&nbsp;AttributesCollectionType,&nbsp;ExceptionType&nbsp;extends&nbsp;java.lang.Exception&gt;</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.api.order.MagentoOrderClient&lt;ExceptionType&nbsp;extends&nbsp;java.lang.Exception&gt;</td>
     </tr>
     
 
@@ -608,7 +626,7 @@ Summary:
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#createOrderInvoice(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)">createOrderInvoice</a></span>(String orderId, Map&lt;Integer,&nbsp;Double&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#createOrderInvoice(java.lang.String, java.util.List<com.magento.api.OrderItemIdQty>, java.lang.String, boolean, boolean)">createOrderInvoice</a></span>(String orderId, List&lt;<a href="../../../../../../../java/com/magento/api/OrderItemIdQty.html">OrderItemIdQty</a>&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
         
         <div class="jd-descrdiv">Creates an invoice for the given order</div>
   
@@ -626,7 +644,7 @@ Summary:
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#createOrderShipment(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)">createOrderShipment</a></span>(String orderId, Map&lt;Integer,&nbsp;Double&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#createOrderShipment(java.lang.String, java.util.List<com.magento.api.OrderItemIdQty>, java.lang.String, boolean, boolean)">createOrderShipment</a></span>(String orderId, List&lt;<a href="../../../../../../../java/com/magento/api/OrderItemIdQty.html">OrderItemIdQty</a>&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
         
         <div class="jd-descrdiv">Creates a shipment for order</div>
   
@@ -659,7 +677,7 @@ Summary:
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/SalesOrderEntity.html">SalesOrderEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#getOrder(java.lang.String)">getOrder</a></span>(String orderId)</nobr>
@@ -677,7 +695,7 @@ Summary:
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#getOrderInvoice(java.lang.String)">getOrderInvoice</a></span>(String invoiceId)</nobr>
@@ -695,7 +713,7 @@ Summary:
             
             
             
-            AttributesType</nobr>
+            <a href="../../../../../../../java/com/magento/api/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#getOrderShipment(java.lang.String)">getOrderShipment</a></span>(String shipmentId)</nobr>
@@ -749,7 +767,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/SalesOrderListEntity.html">SalesOrderListEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#listOrders(java.lang.String)">listOrders</a></span>(String filter)</nobr>
@@ -768,7 +786,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#listOrdersInvoices(java.lang.String)">listOrdersInvoices</a></span>(String filter)</nobr>
@@ -786,7 +804,7 @@ Summary:
             
             
             
-            AttributesCollectionType</nobr>
+            List&lt;<a href="../../../../../../../java/com/magento/api/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#listOrdersShipments(java.lang.String)">listOrdersShipments</a></span>(String filter)</nobr>
@@ -1283,7 +1301,7 @@ Summary:
 </div>
 
 
-<A NAME="createOrderInvoice(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)"></A>
+<A NAME="createOrderInvoice(java.lang.String, java.util.List<com.magento.api.OrderItemIdQty>, java.lang.String, boolean, boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1296,7 +1314,7 @@ Summary:
         String
       </span>
       <span class="sympad">createOrderInvoice</span>
-      <span class="normal">(String orderId, Map&lt;Integer,&nbsp;Double&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
+      <span class="normal">(String orderId, List&lt;<a href="../../../../../../../java/com/magento/api/OrderItemIdQty.html">OrderItemIdQty</a>&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1354,7 +1372,7 @@ Summary:
 </div>
 
 
-<A NAME="createOrderShipment(java.lang.String, java.util.Map<java.lang.Integer, java.lang.Double>, java.lang.String, boolean, boolean)"></A>
+<A NAME="createOrderShipment(java.lang.String, java.util.List<com.magento.api.OrderItemIdQty>, java.lang.String, boolean, boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1367,7 +1385,7 @@ Summary:
         String
       </span>
       <span class="sympad">createOrderShipment</span>
-      <span class="normal">(String orderId, Map&lt;Integer,&nbsp;Double&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
+      <span class="normal">(String orderId, List&lt;<a href="../../../../../../../java/com/magento/api/OrderItemIdQty.html">OrderItemIdQty</a>&gt; itemsQuantities, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1493,7 +1511,7 @@ Summary:
          
         abstract 
          
-        AttributesType
+        <a href="../../../../../../../java/com/magento/api/SalesOrderEntity.html">SalesOrderEntity</a>
       </span>
       <span class="sympad">getOrder</span>
       <span class="normal">(String orderId)</span>
@@ -1547,7 +1565,7 @@ Summary:
          
         abstract 
          
-        AttributesType
+        <a href="../../../../../../../java/com/magento/api/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a>
       </span>
       <span class="sympad">getOrderInvoice</span>
       <span class="normal">(String invoiceId)</span>
@@ -1601,7 +1619,7 @@ Summary:
          
         abstract 
          
-        AttributesType
+        <a href="../../../../../../../java/com/magento/api/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a>
       </span>
       <span class="sympad">getOrderShipment</span>
       <span class="normal">(String shipmentId)</span>
@@ -1758,7 +1776,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/SalesOrderListEntity.html">SalesOrderListEntity</a>&gt;
       </span>
       <span class="sympad">listOrders</span>
       <span class="normal">(String filter)</span>
@@ -1813,7 +1831,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/SalesOrderInvoiceEntity.html">SalesOrderInvoiceEntity</a>&gt;
       </span>
       <span class="sympad">listOrdersInvoices</span>
       <span class="normal">(String filter)</span>
@@ -1867,7 +1885,7 @@ Summary:
          
         abstract 
          
-        AttributesCollectionType
+        List&lt;<a href="../../../../../../../java/com/magento/api/SalesOrderShipmentEntity.html">SalesOrderShipmentEntity</a>&gt;
       </span>
       <span class="sympad">listOrdersShipments</span>
       <span class="normal">(String filter)</span>
