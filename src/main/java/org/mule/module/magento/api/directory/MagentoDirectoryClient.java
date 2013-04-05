@@ -8,25 +8,30 @@
 
 package org.mule.module.magento.api.directory;
 
+import com.magento.api.DirectoryCountryEntity;
+import com.magento.api.DirectoryRegionEntity;
+
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * Facade for the Magento Directory API
  */
-public interface MagentoDirectoryClient<AttributesCollectionType, ExceptionType extends Exception>
+public interface MagentoDirectoryClient<ExceptionType extends Exception>
 {
     /**
      * Answers the list of countries
      * 
      * @return a collection of countries attributes
      */
-    AttributesCollectionType listDirectoryCountries() throws ExceptionType;
+    List<DirectoryCountryEntity> listDirectoryCountries() throws ExceptionType;
 
     /**
      * Answers a list of regions for the given county
      * 
+     *
      * @param countryId the country code, in ISO2 or ISO3 format
      * @return the collection of regions attributes
      */
-    AttributesCollectionType listDirectoryRegions(@NotNull String countryId) throws ExceptionType;
+    List<DirectoryRegionEntity> listDirectoryRegions(@NotNull String countryId) throws ExceptionType;
 }
