@@ -8,6 +8,10 @@
 
 package org.mule.module.magento.api.order;
 
+import com.magento.api.OrderItemIdQty;
+import com.magento.api.SalesOrderInvoiceEntity;
+import com.magento.api.SalesOrderListEntity;
+import com.magento.api.SalesOrderShipmentEntity;
 import org.mule.module.magento.api.order.model.Carrier;
 
 import java.util.List;
@@ -25,18 +29,17 @@ import javax.validation.constraints.NotNull;
  * @author flbulgarelli
  * @param <ExceptionType> the type of exception that this client throws
  */
-public interface MagentoOrderClient<AttributesType, AttributesCollectionType, ExceptionType extends Exception>
+public interface MagentoOrderClient<ExceptionType extends Exception>
 {
 
     /**
      * Lists order attributes that match the 
      * given filtering expression
      * 
-     * @param filters optional filtering expression
      * @return a list of order attributes
      */
     @NotNull
-    AttributesCollectionType listOrders(@NotNull String filter) throws ExceptionType;
+    List<SalesOrderListEntity> listOrders(@NotNull String filter) throws ExceptionType;
 
     /**
      * Answers the order properties for the given orderId
@@ -45,7 +48,7 @@ public interface MagentoOrderClient<AttributesType, AttributesCollectionType, Ex
      * @return the order properties
      */
     @NotNull
-    AttributesType getOrder(@NotNull String orderId) throws ExceptionType;
+    com.magento.api.SalesOrderEntity getOrder(@NotNull String orderId) throws ExceptionType;
 
     /**
      * Puts order on hold
@@ -85,20 +88,18 @@ public interface MagentoOrderClient<AttributesType, AttributesCollectionType, Ex
      * Lists order shipment atrributes that match the given 
      * optional filtering expression
      * 
-     * @param filters optional list of filters
      * @return list of string-object map order shipments attributes
      */
     @NotNull
-    AttributesCollectionType listOrdersShipments(String filter) throws ExceptionType;
+    List<SalesOrderShipmentEntity> listOrdersShipments(String filter) throws ExceptionType;
 
     /**
      * Retrieves order shipment information
      * 
-     * @param Order shipment ID
      * @return sales order shipment information
      */
     @NotNull
-    AttributesType getOrderShipment(String shipmentId) throws ExceptionType;
+    SalesOrderShipmentEntity getOrderShipment(String shipmentId) throws ExceptionType;
 
     /**
      * Adds a comment to the shipment
@@ -157,7 +158,7 @@ public interface MagentoOrderClient<AttributesType, AttributesCollectionType, Ex
      * @return the new shipment's id
      */
     String createOrderShipment(@NotNull String orderId,
-                               @NotNull Map<Integer, Double> itemsQuantities,
+                               @NotNull List<OrderItemIdQty> itemsQuantities,
                                String comment,
                                boolean sendEmail,
                                boolean includeCommentInEmail) throws ExceptionType;
@@ -165,20 +166,20 @@ public interface MagentoOrderClient<AttributesType, AttributesCollectionType, Ex
     /**
      * Lists order invoices that match the given filtering expression
      * 
-     * @param filters optional list of filters
      * @return list of string-object maps order attributes
      */
     @NotNull
-    AttributesCollectionType listOrdersInvoices(String filter) throws ExceptionType;
+    List<SalesOrderInvoiceEntity> listOrdersInvoices(String filter) throws ExceptionType;
 
     /**
      * Retrieves order invoice information
      * 
+     *
      * @param invoiceId
      * @return the invoice attributes
      */
     @NotNull
-    AttributesType getOrderInvoice(@NotNull String invoiceId) throws ExceptionType;
+    SalesOrderInvoiceEntity getOrderInvoice(@NotNull String invoiceId) throws ExceptionType;
 
     /**
      * Creates an invoice for the given order
@@ -192,7 +193,7 @@ public interface MagentoOrderClient<AttributesType, AttributesCollectionType, Ex
      * @return the new invoice's id
      */
     String createOrderInvoice(@NotNull String orderId,
-                              @NotNull Map<Integer, Double> itemsQuantities,
+                              @NotNull List<OrderItemIdQty> itemsQuantities,
                               String comment,
                               boolean sendEmail,
                               boolean includeCommentInEmail) throws ExceptionType;

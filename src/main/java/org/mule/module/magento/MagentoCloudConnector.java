@@ -8,12 +8,13 @@
 
 package org.mule.module.magento;
 
-import org.mule.api.annotations.Configurable;
-import org.mule.api.annotations.Module;
-import org.mule.api.annotations.Processor;
+import com.magento.api.*;
+import org.mule.api.ConnectionException;
+import org.mule.api.ConnectionExceptionCode;
+import org.mule.api.annotations.*;
 import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
-import org.mule.api.annotations.lifecycle.Start;
+import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.annotations.param.Payload;
@@ -43,7 +44,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Map;
+//import java.util.Map;
 
 /**
  * Magento is a feature-rich eCommerce platform built on open-source technology that provides online merchants with
@@ -51,59 +52,75 @@ import java.util.Map;
  *
  * @author MuleSoft, Inc.
  */
-@Module(name = "magento", schemaVersion = "1.1", friendlyName = "Magento")
+@Connector(name = "magento", schemaVersion = "1.1", friendlyName = "Magento", minMuleVersion = "3.4")
 public class MagentoCloudConnector {
 
-    private MagentoOrderClient<Map<String, Object>, List<Map<String, Object>>, MagentoException> orderClient;
-    private MagentoCustomerClient<Map<String, Object>, List<Map<String, Object>>, MagentoException> customerClient;
-    private MagentoInventoryClient<List<Map<String, Object>>, MagentoException> inventoryClient;
-    private MagentoDirectoryClient<List<Map<String, Object>>, MagentoException> directoryClient;
-    private MagentoCatalogClient<Map<String, Object>, List<Map<String, Object>>, MagentoException> catalogClient;
-    private MagentoShoppingCartClient<Map<String, Object>, List<Map<String, Object>>, MagentoException> shoppingCartClient;
+    private MagentoOrderClient<MagentoException> orderClient;
+    private MagentoCustomerClient<MagentoException> customerClient;
+    private MagentoInventoryClient<MagentoException> inventoryClient;
+    private MagentoDirectoryClient<MagentoException> directoryClient;
+    private MagentoCatalogClient<MagentoException> catalogClient;
+    private MagentoShoppingCartClient<MagentoException> shoppingCartClient;
 
     /**
-     * The user name to access Magento Web Services
+     *
      */
-    @Configurable
-    @Placement(order = 1)
-    private String username;
-
-    /**
-     * The password to access Magento Web Services
-     */
-    @Configurable
-    @Password
-    @Placement(order = 2)
-    private String password;
+    private String user;
 
     /**
      * The address to access Magento Web Services
      */
-    @Configurable
-    @Placement(order = 3)
-    private String address;
+    private String serverAddress;
 
-    @Start
-    public void initialiseConnector() {
-        PortProviderInitializer initializer = new PortProviderInitializer();
-        if (orderClient == null) {
-            setOrderClient(new AxisMagentoOrderClient(initializer.getPortProvider()));
+    /**
+     *
+     * @param username The user name to access Magento Web Services
+     * @param password The password to access Magento Web Services
+     * @param address The address to access Magento Web Services
+     */
+    @Connect
+    public void initialiseConnector(@ConnectionKey String username, @Password String password, String address)
+            throws ConnectionException {
+        setUser(username);
+        setServerAddress(address);
+        PortProviderInitializer initializer = new PortProviderInitializer(username, password, address);
+        setOrderClient(new AxisMagentoOrderClient(initializer.getPortProvider()));
+        setCustomerClient(new AxisMagentoCustomerClient(initializer.getPortProvider()));
+        setInventoryClient(new AxisMagentoInventoryClient(initializer.getPortProvider()));
+        setDirectoryClient(new AxisMagentoDirectoryClient(initializer.getPortProvider()));
+        setCatalogClient(new AxisMagentoCatalogClient(initializer.getPortProvider()));
+        setShoppingCartClient(new AxisMagentoShoppingCartClient(initializer.getPortProvider()));
+
+        //Dummy operation for connectivity testing
+        try {
+            getCatalogCurrentStoreView();
+        } catch (Exception e) {
+            throw new ConnectionException(ConnectionExceptionCode.INCORRECT_CREDENTIALS, null, e.getMessage());
         }
-        if (customerClient == null) {
-            setCustomerClient(new AxisMagentoCustomerClient(initializer.getPortProvider()));
-        }
-        if (inventoryClient == null) {
-            setInventoryClient(new AxisMagentoInventoryClient(initializer.getPortProvider()));
-        }
-        if (directoryClient == null) {
-            setDirectoryClient(new AxisMagentoDirectoryClient(initializer.getPortProvider()));
-        }
-        if (catalogClient == null) {
-            setCatalogClient(new AxisMagentoCatalogClient(initializer.getPortProvider()));
-        }
-        if (shoppingCartClient == null) {
-            setShoppingCartClient(new AxisMagentoShoppingCartClient(initializer.getPortProvider()));
-        }
+    }
+
+    @SuppressWarnings("unused")
+    @ValidateConnection
+    public boolean validateConnection() {
+        return orderClient != null && customerClient != null && inventoryClient != null && directoryClient != null &&
+                catalogClient != null && shoppingCartClient != null;
+    }
+
+    @SuppressWarnings("unused")
+    @Disconnect
+    public void disconnect() {
+        setOrderClient(null);
+        setCustomerClient(null);
+        setInventoryClient(null);
+        setDirectoryClient(null);
+        setCatalogClient(null);
+        setShoppingCartClient(null);
+    }
+
+    @SuppressWarnings("unused")
+    @ConnectionIdentifier
+    public String connectionId() {
+        return String.format("%s-at-%s", getUser(), getServerAddress());
     }
 
     /**
@@ -163,8 +180,7 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createOrderShipment}
      *
      * @param orderId               the order increment id
-     * @param itemsQuantities       a map containing an entry per each (orderItemId,
-     *                              quantity) pair
+     * @param itemsQuantities       orderItemId quantity
      * @param comment               an optional comment
      * @param sendEmail             if an email must be sent after shipment creation
      * @param includeCommentInEmail if the comment must be sent in the email
@@ -172,7 +188,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public String createOrderShipment(String orderId,
-                                      @Optional @Placement(group = "Item Ids and Quantities") Map<Integer, Double> itemsQuantities,
+                                      @Optional @Default("#[payload]") @Placement(group = "Item Ids and Quantities") List<OrderItemIdQty> itemsQuantities,
                                       @Optional String comment,
                                       @Optional @Default("false") boolean sendEmail,
                                       @Optional @Default("false") boolean includeCommentInEmail) {
@@ -188,7 +204,7 @@ public class MagentoCloudConnector {
      * @return a string-object map of order properties
      */
     @Processor
-    public Map<String, Object> getOrder(String orderId) {
+    public SalesOrderEntity getOrder(String orderId) {
         return orderClient.getOrder(orderId);
     }
 
@@ -197,11 +213,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getOrderInvoice}
      *
+     *
      * @param invoiceId the target invoiceId
      * @return the invoice attributes
      */
     @Processor
-    public Map<String, Object> getOrderInvoice(String invoiceId) {
+    public SalesOrderInvoiceEntity getOrderInvoice(String invoiceId) {
         return orderClient.getOrderInvoice(invoiceId);
     }
 
@@ -223,11 +240,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getOrderShipment}
      *
+     *
      * @param shipmentId the id of the shipment
      * @return the shipment attributes
      */
     @Processor
-    public Map<String, Object> getOrderShipment(String shipmentId) {
+    public SalesOrderShipmentEntity getOrderShipment(String shipmentId) {
         return orderClient.getOrderShipment(shipmentId);
     }
 
@@ -248,6 +266,8 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listOrders}
      *
+     *
+     *
      * @param filter optional filtering expression - one or more comma-separated
      *               unary or binary predicates, one for each filter, in the form
      *               filterType(attributeName, value), for binary filters or
@@ -257,7 +277,7 @@ public class MagentoCloudConnector {
      * @return a list of string-object maps
      */
     @Processor
-    public List<Map<String, Object>> listOrders(@Optional String filter) {
+    public List<SalesOrderListEntity> listOrders(@Optional String filter) {
         return orderClient.listOrders(filter);
     }
 
@@ -265,6 +285,7 @@ public class MagentoCloudConnector {
      * Lists order invoices that match the given filtering expression
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listOrdersInvoices}
+     *
      *
      * @param filter optional filtering expression - one or more comma-separated
      *               unary or binary predicates, one for each filter, in the form
@@ -275,7 +296,7 @@ public class MagentoCloudConnector {
      * @return list of string-object maps order attributes
      */
     @Processor
-    public List<Map<String, Object>> listOrdersInvoices(@Optional String filter) {
+    public List<SalesOrderInvoiceEntity> listOrdersInvoices(@Optional String filter) {
         return orderClient.listOrdersInvoices(filter);
     }
 
@@ -284,6 +305,7 @@ public class MagentoCloudConnector {
      * optional filtering expression
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listOrdersShipments}
+     *
      *
      * @param filter optional filtering expression - one or more comma-separated
      *               unary or binary predicates, one for each filter, in the form
@@ -294,7 +316,7 @@ public class MagentoCloudConnector {
      * @return list of string-object map order shipments attributes
      */
     @Processor
-    public List<Map<String, Object>> listOrdersShipments(@Optional String filter) {
+    public List<SalesOrderShipmentEntity> listOrdersShipments(@Optional String filter) {
         return orderClient.listOrdersShipments(filter);
     }
 
@@ -348,8 +370,7 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createOrderInvoice}
      *
      * @param orderId               the id of the order
-     * @param itemsQuantities       a map containing an entry per each (orderItemId,
-     *                              quantity) pair
+     * @param itemsQuantities       orderItemId quantity
      * @param comment               an optional comment
      * @param sendEmail             if an email must be sent after shipment creation
      * @param includeCommentInEmail if the comment must be sent in the email
@@ -357,7 +378,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public String createOrderInvoice(String orderId,
-                                     @Placement(group = "Item Ids and Quantities") Map<Integer, Double> itemsQuantities,
+                                     @Optional @Default("#[payload]") @Placement(group = "Item Ids and Quantities") List<OrderItemIdQty> itemsQuantities,
                                      @Optional String comment,
                                      @Optional @Default("false") boolean sendEmail,
                                      @Optional @Default("false") boolean includeCommentInEmail) {
@@ -426,12 +447,13 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createCustomerAddress}
      *
      * @param customerId the customer
-     * @param attributes the address attributes
+     * @param customerAddress the address attributes
      * @return a new customer address id
      */
     @Processor
-    public int createCustomerAddress(int customerId, @Placement(group = "Address Attributes") Map<String, Object> attributes) {
-        return customerClient.createCustomerAddress(customerId, attributes);
+    public int createCustomerAddress(int customerId, @Optional @Default("#[payload]")
+            @Placement(group = "Address Attributes") CustomerAddressEntityCreate customerAddress) {
+        return customerClient.createCustomerAddress(customerId, customerAddress);
     }
 
     /**
@@ -439,12 +461,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createCustomer}
      *
-     * @param attributes the attributes of the new customer
+     * @param customer the attributes of the new customer
      * @return the new customer id
      */
     @Processor
-    public int createCustomer(@Placement(group = "Customer Attributes") Map<String, Object> attributes) {
-        return customerClient.createCustomer(attributes);
+    public int createCustomer(@Placement(group = "Customer Attributes") CustomerCustomerEntityToCreate customer) {
+        return customerClient.createCustomer(customer);
     }
 
     /**
@@ -479,12 +501,13 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getCustomer}
      *
+     *
      * @param customerId     the id of the customer to retrieve
      * @param attributeNames the attributes to retrieve. Not empty
      * @return the attributes map
      */
     @Processor
-    public Map<String, Object> getCustomer(int customerId, @Placement(group = "Attributes to Retrieve") List<String> attributeNames) {
+    public CustomerCustomerEntity getCustomer(int customerId, @Placement(group = "Attributes to Retrieve") List<String> attributeNames) {
         return customerClient.getCustomer(customerId, attributeNames);
     }
 
@@ -493,11 +516,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getCustomerAddress}
      *
+     *
      * @param addressId the id of the address
      * @return the customer address attributes map
      */
     @Processor
-    public Map<String, Object> getCustomerAddress(int addressId) {
+    public CustomerAddressEntityItem getCustomerAddress(int addressId) {
         return customerClient.getCustomerAddress(addressId);
     }
 
@@ -506,11 +530,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listCustomerAddresses}
      *
+     *
      * @param customerId the id of the customer
      * @return a listing of addresses
      */
     @Processor
-    public List<Map<String, Object>> listCustomerAddresses(int customerId) {
+    public List<CustomerAddressEntityItem> listCustomerAddresses(int customerId) {
         return customerClient.listCustomerAddresses(customerId);
     }
 
@@ -522,7 +547,7 @@ public class MagentoCloudConnector {
      * @return a listing of groups attributes
      */
     @Processor
-    public List<Map<String, Object>> listCustomerGroups() {
+    public List<CustomerGroupEntity> listCustomerGroups() {
         return customerClient.listCustomerGroups();
     }
 
@@ -530,6 +555,7 @@ public class MagentoCloudConnector {
      * Answers a list of customer attributes for the given filter expression.
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listCustomers}
+     *
      *
      * @param filter optional filtering expression - one or more comma-separated
      *               unary or binary predicates, one for each filter, in the form
@@ -540,7 +566,7 @@ public class MagentoCloudConnector {
      * @return the list of attributes map
      */
     @Processor
-    public List<Map<String, Object>> listCustomers(@Optional String filter) {
+    public List<CustomerCustomerEntity> listCustomers(@Optional String filter) {
         return customerClient.listCustomers(filter);
     }
 
@@ -551,11 +577,12 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:updateCustomer}
      *
      * @param customerId the target customer to update
-     * @param attributes the attributes map
+     * @param customer the customer attributes
      */
     @Processor
-    public void updateCustomer(int customerId, @Placement(group = "Customer Attributes to Update") Map<String, Object> attributes) {
-        customerClient.updateCustomer(customerId, attributes);
+    public void updateCustomer(int customerId,
+                               @Optional @Default("#[payload]") @Placement(group = "Customer Attributes to Update") CustomerCustomerEntityToCreate customer) {
+        customerClient.updateCustomer(customerId, customer);
     }
 
     /**
@@ -564,11 +591,11 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:updateCustomerAddress}
      *
      * @param addressId  the customer address to update
-     * @param attributes the address attributes to update
+     * @param customerAddress the address attributes to update
      */
     @Processor
-    public void updateCustomerAddress(int addressId, @Placement(group = "Address Attributes to Update") Map<String, Object> attributes) {
-        customerClient.updateCustomerAddress(addressId, attributes);
+    public void updateCustomerAddress(int addressId, @Placement(group = "Address Attributes to Update") CustomerAddressEntityCreate customerAddress) {
+        customerClient.updateCustomerAddress(addressId, customerAddress);
     }
 
     /**
@@ -576,11 +603,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listStockItems}
      *
+     *
      * @param productIdOrSkus a not empty list of product ids or skus whose attributes to list
      * @return a list of stock items attributes
      */
     @Processor
-    public List<Map<String, Object>> listStockItems(@Placement(group = "Product Ids or SKUs") List<String> productIdOrSkus) {
+    public List<CatalogInventoryStockItemEntity> listStockItems(@Placement(group = "Product Ids or SKUs") List<String> productIdOrSkus) {
         return inventoryClient.listStockItems(productIdOrSkus);
     }
 
@@ -591,11 +619,12 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:updateStockItem}
      *
      * @param productIdOrSku the product id or sku of the product to update
-     * @param attributes     the attributes to update
+     * @param stockItem     the attributes to update
      */
     @Processor
-    public void updateStockItem(String productIdOrSku, @Placement(group = "Attributes to Update") Map<String, Object> attributes) {
-        inventoryClient.updateStockItem(productIdOrSku, attributes);
+    public void updateStockItem(String productIdOrSku,
+                                @Optional @Default("#[payload]") @Placement(group = "Attributes to Update") CatalogInventoryStockItemUpdateEntity stockItem) {
+        inventoryClient.updateStockItem(productIdOrSku, stockItem);
     }
 
     /**
@@ -606,7 +635,7 @@ public class MagentoCloudConnector {
      * @return a collection of countries attributes
      */
     @Processor
-    public List<Map<String, Object>> listDirectoryCountries() {
+    public List<DirectoryCountryEntity> listDirectoryCountries() {
         return directoryClient.listDirectoryCountries();
     }
 
@@ -615,11 +644,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listDirectoryRegions}
      *
+     *
      * @param countryId the country code, in ISO2 or ISO3 format
      * @return the collection of regions attributes
      */
     @Processor
-    public List<Map<String, Object>> listDirectoryRegions(String countryId) {
+    public List<DirectoryRegionEntity> listDirectoryRegions(String countryId) {
         return directoryClient.listDirectoryRegions(countryId);
     }
 
@@ -638,7 +668,7 @@ public class MagentoCloudConnector {
      *                             product sku
      * @param productIdOrSku       the id or sku of the source product.
      * @param linkedProductIdOrSku the destination product id or sku.
-     * @param attributes           the link attributes
+     * @param productLinkEntity           the link attributes
      */
     @Processor
     public void addProductLink(String type,
@@ -646,9 +676,9 @@ public class MagentoCloudConnector {
                                @Optional String productSku,
                                @Optional String productIdOrSku,
                                String linkedProductIdOrSku,
-                               @Placement(group = "Address Attributes to Update")  @Optional Map<String, Object> attributes) {
+                               @Optional @Default("#[payload]") @Placement(group = "Address Attributes to Update")  CatalogProductLinkEntity productLinkEntity) {
         catalogClient.addProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku,
-                attributes);
+                productLinkEntity);
     }
 
     /**
@@ -664,7 +694,7 @@ public class MagentoCloudConnector {
      *                          in case you are sure the product identifier is a
      *                          product sku
      * @param productIdOrSku    the id or sku of the product.
-     * @param attributes        the media attributes
+     * @param catalogProductAttributeMediaEntity        the media attributes
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
      * @param payload           the image to upload. It may be a file, an input stream or a byte array
      * @param mimeType          the mimetype
@@ -676,13 +706,13 @@ public class MagentoCloudConnector {
     public String createProductAttributeMedia(@Optional Integer productId,
                                               @Optional String productSku,
                                               @Optional String productIdOrSku,
-                                              @Placement(group = "Media Attributes") @Optional Map<String, Object> attributes,
+                                              @Optional @Default("#[payload]") @Placement(group = "Media Attributes") CatalogProductAttributeMediaCreateEntity catalogProductAttributeMediaEntity,
                                               @Optional String storeViewIdOrCode,
                                               @Payload Object payload,
                                               MediaMimeType mimeType,
                                               @Optional String baseFileName) throws FileNotFoundException {
         return catalogClient.createProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku),
-                attributes, createContent(payload), mimeType, baseFileName, storeViewIdOrCode);
+                catalogProductAttributeMediaEntity, createContent(payload), mimeType, baseFileName, storeViewIdOrCode);
     }
 
     private InputStream createContent(Object content) throws FileNotFoundException {
@@ -754,6 +784,7 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getProductAttributeMedia}
      *
+     *
      * @param productId         the id of the product. Use it instead of productIdOrSku in
      *                          case you are sure the product identifier is a product id
      * @param productSku        the sku of the product. Use it instead of productIdOrSku in
@@ -764,11 +795,11 @@ public class MagentoCloudConnector {
      * @return the list of links to the product
      */
     @Processor
-    public Map<String, Object> getProductAttributeMedia(@Optional Integer productId,
-                                                        @Optional String productSku,
-                                                        @Optional String productIdOrSku,
-                                                        String fileName,
-                                                        @Optional String storeViewIdOrCode) {
+    public CatalogProductImageEntity getProductAttributeMedia(@Optional Integer productId,
+                                                              @Optional String productSku,
+                                                              @Optional String productIdOrSku,
+                                                              String fileName,
+                                                              @Optional String storeViewIdOrCode) {
         return catalogClient.getProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku), fileName, storeViewIdOrCode);
     }
 
@@ -808,7 +839,7 @@ public class MagentoCloudConnector {
      * @return the list of category attributes
      */
     @Processor
-    public List<Map<String, Object>> listCategoryAttributes() {
+    public List<CatalogAttributeEntity> listCategoryAttributes() {
         return catalogClient.listCategoryAttributes();
     }
 
@@ -818,13 +849,14 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listCategoryAttributeOptions}
      *
+     *
      * @param attributeId       the target attribute whose options will be retrieved
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
      * @return the list of category attribute options
      */
     @Processor
-    public List<Map<String, Object>> listCategoryAttributeOptions(String attributeId,
-                                                                  @Optional String storeViewIdOrCode) {
+    public List<CatalogAttributeOptionEntity> listCategoryAttributeOptions(String attributeId,
+                                                                           @Optional String storeViewIdOrCode) {
         return catalogClient.listCategoryAttributeOptions(attributeId, storeViewIdOrCode);
     }
 
@@ -833,6 +865,7 @@ public class MagentoCloudConnector {
      * method
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listProductAttributeMedia}
+     *
      *
      * @param productId         the id of the product. Use it instead of productIdOrSku in
      *                          case you are sure the product identifier is a product id
@@ -843,10 +876,10 @@ public class MagentoCloudConnector {
      * @return the list of product images attributes
      */
     @Processor
-    public List<Map<String, Object>> listProductAttributeMedia(@Optional Integer productId,
-                                                               @Optional String productSku,
-                                                               @Optional String productIdOrSku,
-                                                               @Optional String storeViewIdOrCode) {
+    public List<CatalogProductImageEntity> listProductAttributeMedia(@Optional Integer productId,
+                                                                     @Optional String productSku,
+                                                                     @Optional String productIdOrSku,
+                                                                     @Optional String storeViewIdOrCode) {
         return catalogClient.listProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku), storeViewIdOrCode);
     }
 
@@ -856,11 +889,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listProductAttributeMediaTypes}
      *
+     *
      * @param setId the setId
      * @return the list of attribute media types
      */
     @Processor
-    public List<Map<String, Object>> listProductAttributeMediaTypes(int setId) {
+    public List<CatalogProductAttributeMediaTypeEntity> listProductAttributeMediaTypes(int setId) {
         return catalogClient.listProductAttributeMediaTypes(setId);
     }
 
@@ -870,13 +904,14 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listProductAttributeOptions}
      *
+     *
      * @param attributeId       the target attribute whose options will be listed
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
      * @return the attributes list
      */
     @Processor
-    public List<Map<String, Object>> listProductAttributeOptions(String attributeId,
-                                                                 @Optional String storeViewIdOrCode) {
+    public List<CatalogAttributeOptionEntity> listProductAttributeOptions(String attributeId,
+                                                                          @Optional String storeViewIdOrCode) {
         return catalogClient.listProductAttributeOptions(attributeId, storeViewIdOrCode);
     }
 
@@ -887,11 +922,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listProductAttributes}
      *
+     *
      * @param setId the set id
      * @return the list of product attributes
      */
     @Processor
-    public List<Map<String, Object>> listProductAttributes(int setId) {
+    public List<CatalogAttributeEntity> listProductAttributes(int setId) {
         return catalogClient.listProductAttributes(setId);
     }
 
@@ -904,7 +940,7 @@ public class MagentoCloudConnector {
      * @return The list of product attributes sets
      */
     @Processor
-    public List<Map<String, Object>> listProductAttributeSets() {
+    public List<CatalogProductAttributeSetEntity> listProductAttributeSets() {
         return catalogClient.listProductAttributeSets();
     }
 
@@ -914,6 +950,7 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listProductAttributeTierPrices}
      *
+     *
      * @param productId      the id of the product. Use it instead of productIdOrSku in
      *                       case you are sure the product identifier is a product id
      * @param productSku     the sku of the product. Use it instead of productIdOrSku in
@@ -922,9 +959,9 @@ public class MagentoCloudConnector {
      * @return the list of product attributes
      */
     @Processor
-    public List<Map<String, Object>> listProductAttributeTierPrices(@Optional Integer productId,
-                                                                    @Optional String productSku,
-                                                                    @Optional String productIdOrSku) {
+    public List<CatalogProductTierPriceEntity> listProductAttributeTierPrices(@Optional Integer productId,
+                                                                              @Optional String productSku,
+                                                                              @Optional String productIdOrSku) {
         return catalogClient.listProductAttributeTierPrices(ProductIdentifiers.from(productSku, productId, productIdOrSku));
     }
 
@@ -932,6 +969,7 @@ public class MagentoCloudConnector {
      * Lists linked products to the given product and for the given link type
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listProductLink}
+     *
      *
      * @param type           the link type
      * @param productId      the id of the product. Use it instead of productIdOrSku in
@@ -942,10 +980,10 @@ public class MagentoCloudConnector {
      * @return the list of links to the product
      */
     @Processor
-    public List<Map<String, Object>> listProductLink(String type,
-                                                     @Optional Integer productId,
-                                                     @Optional String productSku,
-                                                     @Optional String productIdOrSku) {
+    public List<CatalogProductLinkEntity> listProductLink(String type,
+                                                          @Optional Integer productId,
+                                                          @Optional String productSku,
+                                                          @Optional String productIdOrSku) {
         return catalogClient.listProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku));
     }
 
@@ -955,11 +993,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listProductLinkAttributes}
      *
+     *
      * @param type the product type
      * @return the listing of product attributes
      */
     @Processor
-    public List<Map<String, Object>> listProductLinkAttributes(String type) {
+    public List<CatalogProductLinkAttributeEntity> listProductLinkAttributes(String type) {
         return catalogClient.listProductLinkAttributes(type);
     }
 
@@ -983,7 +1022,7 @@ public class MagentoCloudConnector {
      * @return the list of product types
      */
     @Processor
-    public List<Map<String, Object>> listProductTypes() {
+    public List<CatalogProductTypeEntity> listProductTypes() {
         return catalogClient.listProductTypes();
     }
 
@@ -998,7 +1037,7 @@ public class MagentoCloudConnector {
      *                          case you are sure the product identifier is a product sku
      * @param productIdOrSku    the id or sku of the product.
      * @param fileName          the name of the remote media file to update
-     * @param attributes        the attributes to update
+     * @param catalogProductAttributeMediaEntity        the attributes to update
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
      */
     @Processor
@@ -1006,10 +1045,10 @@ public class MagentoCloudConnector {
                                             @Optional String productSku,
                                             @Optional String productIdOrSku,
                                             String fileName,
-                                            @Placement(group = "Media Attributes to Update") Map<String, Object> attributes,
+                                            @Optional @Default("#[payload]") @Placement(group = "Media Attributes to Update") CatalogProductAttributeMediaCreateEntity catalogProductAttributeMediaEntity,
                                             @Optional String storeViewIdOrCode) {
         catalogClient.updateProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku), fileName,
-                attributes, storeViewIdOrCode);
+                catalogProductAttributeMediaEntity, storeViewIdOrCode);
     }
 
 
@@ -1024,14 +1063,14 @@ public class MagentoCloudConnector {
      * @param productSku     the sku of the product. Use it instead of productIdOrSku in
      *                       case you are sure the product identifier is a product sku
      * @param productIdOrSku the id or sku of the product.
-     * @param attributes     the tier price to update.
+     * @param catalogProductTierPriceEntity     the tier price to update.
      */
     @Processor
     public void updateProductAttributeTierPrice(@Optional Integer productId,
                                                 @Optional String productSku,
                                                 @Optional String productIdOrSku,
-                                                @Placement(group = "Tier Price Attributes to Update") Map<String, Object> attributes) {
-        catalogClient.updateProductAttributeTierPrice(ProductIdentifiers.from(productSku, productId, productIdOrSku), attributes);
+                                                @Optional @Default("#[payload]") @Placement(group = "Tier Price Attributes to Update") CatalogProductTierPriceEntity catalogProductTierPriceEntity) {
+        catalogClient.updateProductAttributeTierPrice(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogProductTierPriceEntity);
     }
 
 
@@ -1049,7 +1088,7 @@ public class MagentoCloudConnector {
      *                             product sku
      * @param productIdOrSku       the id or sku of the source product.
      * @param linkedProductIdOrSku the destination product id or sku.
-     * @param attributes           the link attributes
+     * @param catalogProductLinkEntity           the link attributes
      */
     @Processor
     public void updateProductLink(String type,
@@ -1057,9 +1096,9 @@ public class MagentoCloudConnector {
                                   @Optional String productSku,
                                   @Optional String productIdOrSku,
                                   String linkedProductIdOrSku,
-                                  @Placement(group = "Link Attributes to Update") Map<String, Object> attributes) {
+                                  @Optional @Default("#[payload]") @Placement(group = "Link Attributes to Update") CatalogProductLinkEntity catalogProductLinkEntity) {
         catalogClient.updateProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku,
-                attributes);
+                catalogProductLinkEntity);
     }
 
     /**
@@ -1067,11 +1106,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listCategoryProducts}
      *
+     *
      * @param categoryId the category
      * @return the listing of category products
      */
     @Processor
-    public List<Map<String, Object>> listCategoryProducts(int categoryId) {
+    public List<CatalogAssignedProduct> listCategoryProducts(int categoryId) {
         return catalogClient.listCategoryProducts(categoryId);
     }
 
@@ -1103,15 +1143,15 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createCategory}
      *
      * @param parentId          the parent category id
-     * @param attributes        the new category attributes
+     * @param catalogCategoryEntity        the new category attributes
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
      * @return the new category id
      */
     @Processor
     public int createCategory(int parentId,
-                              @Placement(group = "Category Attributes") Map<String, Object> attributes,
+                              @Optional @Default("#[payload]") @Placement(group = "Category Attributes") CatalogCategoryEntityCreate catalogCategoryEntity,
                               @Optional String storeViewIdOrCode) {
-        return catalogClient.createCategory(parentId, attributes, storeViewIdOrCode);
+        return catalogClient.createCategory(parentId, catalogCategoryEntity, storeViewIdOrCode);
     }
 
     /**
@@ -1132,6 +1172,7 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getCategory}
      *
+     *
      * @param categoryId        the category whose attributes will be retrieved
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified
      *                          for using current store
@@ -1139,7 +1180,7 @@ public class MagentoCloudConnector {
      * @return the category attributes
      */
     @Processor
-    public Map<String, Object> getCategory(int categoryId,
+    public CatalogCategoryInfo getCategory(int categoryId,
                                            @Optional String storeViewIdOrCode,
                                            @Placement(group = "Attribute Names to Retrieve") List<String> attributeNames) {
         return catalogClient.getCategory(categoryId, storeViewIdOrCode, attributeNames);
@@ -1150,15 +1191,16 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listCategoryLevels}
      *
+     *
      * @param website           the website
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
      * @param parentCategoryId  the parent category of the categories that will be listed
      * @return the list of categories attributes
      */
     @Processor
-    public List<Map<String, Object>> listCategoryLevels(@Optional String website,
-                                                        @Optional String storeViewIdOrCode,
-                                                        @Optional String parentCategoryId)
+    public List<CatalogCategoryEntityNoChildren> listCategoryLevels(@Optional String website,
+                                                                    @Optional String storeViewIdOrCode,
+                                                                    @Optional String parentCategoryId)
 
     {
         return catalogClient.listCategoryLevels(website, storeViewIdOrCode, parentCategoryId);
@@ -1209,12 +1251,13 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getCategoryTree}
      *
+     *
      * @param parentId          the parent id
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
      * @return a category tree attributes
      */
     @Processor
-    public Map<String, Object> getCategoryTree(String parentId,
+    public CatalogCategoryTree getCategoryTree(String parentId,
                                                @Optional String storeViewIdOrCode)
 
     {
@@ -1227,14 +1270,14 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:updateCategory}
      *
      * @param categoryId        the category to update
-     * @param attributes        the category new attributes
+     * @param catalogCategoryEntity        the category new attributes
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
      */
     @Processor
     public void updateCategory(int categoryId,
-                               @Placement(group = "Category Attributes to Update") Map<String, Object> attributes,
+                               @Optional @Default("#[payload]") @Placement(group = "Category Attributes to Update") CatalogCategoryEntityCreate catalogCategoryEntity,
                                @Optional String storeViewIdOrCode) {
-        catalogClient.updateCategory(categoryId, attributes, storeViewIdOrCode);
+        catalogClient.updateCategory(categoryId, catalogCategoryEntity, storeViewIdOrCode);
     }
 
     /**
@@ -1264,11 +1307,12 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listInventoryStockItems}
      *
+     *
      * @param productIdOrSkus the list of product ids and/or skus whose attributes will be retrieved
      * @return the list of attributes
      */
     @Processor
-    public List<Map<String, Object>> listInventoryStockItems(@Placement(group = "Product Ids or SKUs") List<String> productIdOrSkus) {
+    public List<CatalogInventoryStockItemEntity> listInventoryStockItems(@Placement(group = "Product Ids or SKUs") List<String> productIdOrSkus) {
         return catalogClient.listInventoryStockItems(productIdOrSkus);
     }
 
@@ -1282,14 +1326,14 @@ public class MagentoCloudConnector {
      * @param productSku     the sku of the product. Use it instead of productIdOrSku in
      *                       case you are sure the product identifier is a product sku
      * @param productIdOrSku the id or sku of the product.
-     * @param attributes     the new attributes of the stock item
+     * @param catalogInventoryStockItem     the new attributes of the stock item
      */
     @Processor
     public void updateInventoryStockItem(@Optional Integer productId,
                                          @Optional String productSku,
                                          @Optional String productIdOrSku,
-                                         @Placement(group = "Stock Item Attributes") Map<String, Object> attributes) {
-        catalogClient.updateInventoryStockItem(ProductIdentifiers.from(productSku, productId, productIdOrSku), attributes);
+                                         @Optional @Default("#[payload]") @Placement(group = "Stock Item Attributes") CatalogInventoryStockItemUpdateEntity catalogInventoryStockItem) {
+        catalogClient.updateInventoryStockItem(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogInventoryStockItem);
     }
 
     /**
@@ -1309,8 +1353,8 @@ public class MagentoCloudConnector {
     public int createProduct(String type,
                              int set,
                              String sku,
-                             @Placement(group = "Standard Product Attributes") @Optional Map<String, Object> attributes,
-                             @Placement(group = "Non-standard Product Attributes") @Optional Map<String, Object> additionalAttributes,
+                             @Optional @Default("#[payload]")  @Placement(group = "Standard Product Attributes") CatalogProductCreateEntity attributes,
+                             @Placement(group = "Non-standard Product Attributes") @Optional List<AssociativeEntity> additionalAttributes,
                              @Optional String storeViewIdOrCode) {
         return catalogClient.createProduct(type, set, sku, attributes, additionalAttributes, storeViewIdOrCode);
     }
@@ -1341,6 +1385,7 @@ public class MagentoCloudConnector {
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getProductSpecialPrice}
      *
+     *
      * @param productId         the id of the product. Use it instead of productIdOrSku in
      *                          case you are sure the product identifier is a product id
      * @param productSku        the sku of the product. Use it instead of productIdOrSku in
@@ -1350,10 +1395,10 @@ public class MagentoCloudConnector {
      * @return the product special price attributes
      */
     @Processor
-    public Map<String, Object> getProductSpecialPrice(@Optional Integer productId,
-                                                      @Optional String productSku,
-                                                      @Optional String productIdOrSku,
-                                                      @Optional String storeViewIdOrCode) {
+    public CatalogProductReturnEntity getProductSpecialPrice(@Optional Integer productId,
+                                                             @Optional String productSku,
+                                                             @Optional String productIdOrSku,
+                                                             @Optional String storeViewIdOrCode) {
         return catalogClient.getProductSpecialPrice(ProductIdentifiers.from(productSku, productId, productIdOrSku),
                 storeViewIdOrCode);
     }
@@ -1364,6 +1409,7 @@ public class MagentoCloudConnector {
      * catalog-product-info SOAP method
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getProduct}
+     *
      *
      * @param productId                the id of the product. Use it instead of productIdOrSku in
      *                                 case you are sure the product identifier is a product id
@@ -1376,12 +1422,12 @@ public class MagentoCloudConnector {
      * @return the attributes
      */
     @Processor
-    public Map<String, Object> getProduct(@Optional Integer productId,
-                                          @Optional String productSku,
-                                          @Optional String productIdOrSku,
-                                          @Optional String storeViewIdOrCode,
-                                          @Placement(group = "Standard Product Attributes to Retrieve") @Optional List<String> attributesNames,
-                                          @Placement(group = "Non-standard Product Attributes to Retrieve")@Optional List<String> additionalAttributeNames) {
+    public CatalogProductReturnEntity getProduct(@Optional Integer productId,
+                                                 @Optional String productSku,
+                                                 @Optional String productIdOrSku,
+                                                 @Optional String storeViewIdOrCode,
+                                                 @Placement(group = "Standard Product Attributes to Retrieve") @Optional List<String> attributesNames,
+                                                 @Placement(group = "Non-standard Product Attributes to Retrieve") @Optional List<String> additionalAttributeNames) {
         return catalogClient.getProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), storeViewIdOrCode, attributesNames, additionalAttributeNames);
     }
 
@@ -1389,6 +1435,7 @@ public class MagentoCloudConnector {
      * Retrieve products list by filters. See catalog-product-list SOAP method.
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listProducts}
+     *
      *
      * @param filter            optional filtering expression - one or more comma-separated
      *                          unary or binary predicates, one for each filter, in the form
@@ -1400,8 +1447,8 @@ public class MagentoCloudConnector {
      * @return the list of product attributes that match the given optional filtering expression
      */
     @Processor
-    public List<Map<String, Object>> listProducts(@Optional String filter,
-                                                  @Optional String storeViewIdOrCode) {
+    public List<CatalogProductEntity> listProducts(@Optional String filter,
+                                                   @Optional String storeViewIdOrCode) {
         return catalogClient.listProducts(filter, storeViewIdOrCode);
     }
 
@@ -1444,18 +1491,18 @@ public class MagentoCloudConnector {
      * @param productSku           the sku of the product. Use it instead of productIdOrSku in
      *                             case you are sure the product identifier is a product sku
      * @param productIdOrSku       the id or sku of the product.
-     * @param attributes           the map of standard product attributes to update
-     * @param additionalAttributes the map of non standard product attributes to update
+     * @param catalogProductEntity           standard product attributes to update
+     * @param additionalAttributes non standard product attributes to update
      * @param storeViewIdOrCode    the id or code of the target store. Left unspecified for using current store
      */
     @Processor
     public void updateProduct(@Optional Integer productId,
                               @Optional String productSku,
                               @Optional String productIdOrSku,
-                              @Placement(group = "Standard Product Attributes to Update") @Optional Map<String, Object> attributes,
-                              @Placement(group = "Non-standard Product Attributes to Update")@Optional Map<String, Object> additionalAttributes,
+                              @Optional @Default("#[payload]") @Placement(group = "Standard Product Attributes to Update") CatalogProductCreateEntity catalogProductEntity,
+                              @Placement(group = "Non-standard Product Attributes to Update")@Optional List<AssociativeEntity> additionalAttributes,
                               @Optional String storeViewIdOrCode) {
-        catalogClient.updateProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), attributes, additionalAttributes, storeViewIdOrCode);
+        catalogClient.updateProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogProductEntity, additionalAttributes, storeViewIdOrCode);
     }
 
     /**
@@ -1474,12 +1521,13 @@ public class MagentoCloudConnector {
      * Retrieves full information about the shopping cart (quote).
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getInfoShoppingCart}
      *
+     *
      * @param quoteId Shopping cart ID (quote ID)
      * @param storeId Store view ID or code
      * @return shopping cart info
      */
     @Processor
-    public Map<String, Object> getInfoShoppingCart(int quoteId, @Optional String storeId) {
+    public ShoppingCartInfoEntity getInfoShoppingCart(int quoteId, @Optional String storeId) {
         return shoppingCartClient.getShoppingCartInfo(quoteId, storeId);
     }
 
@@ -1487,12 +1535,13 @@ public class MagentoCloudConnector {
      * Retrieves total prices for a shopping cart (quote).
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartTotals}
      *
+     *
      * @param quoteId Shopping cart ID (quote identifier)
      * @param storeId Store view ID or code
      * @return shopping cart total prices
      */
     @Processor
-    public List<Map<String, Object>> listShoppingCartTotals(int quoteId, @Optional String storeId) {
+    public List<ShoppingCartTotalsEntity> listShoppingCartTotals(int quoteId, @Optional String storeId) {
         return shoppingCartClient.listShoppingCartTotals(quoteId, storeId);
     }
 
@@ -1514,12 +1563,13 @@ public class MagentoCloudConnector {
      * Retrieves the website license agreement for the quote according to the website (store). Store id must be given in cart creation.
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartLicenses}
      *
+     *
      * @param quoteId Shopping Cart ID (quote ID)
      * @param storeId Store view ID or code
      * @return licences for the shopping cart
      */
     @Processor
-    public List<Map<String, Object>> listShoppingCartLicenses(int quoteId, @Optional String storeId) {
+    public List<ShoppingCartLicenseEntity> listShoppingCartLicenses(int quoteId, @Optional String storeId) {
         return shoppingCartClient.listShoppingCartLicenses(quoteId, storeId);
     }
 
@@ -1528,21 +1578,15 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:addShoppingCartProduct}
      *
      * @param quoteId Shopping Cart ID (quote ID)
-     * @param productsAttributes Products data
-     * @param productsOptions Products options
-     * @param productsBundleOptions Products bundle options
-     * @param productsBundleOptionsQty Products bundle options quantities
+     * @param products Products data
      * @param storeId Store view ID or code
      * @return True on success (if the product is added to the shopping cart)
      */
     @Processor
     public boolean addShoppingCartProduct(int quoteId,
-                                   @Placement(group = "Products attributes") List<Map<String, Object>> productsAttributes,
-                                   @Placement(group = "Products options") @Optional List<Map<String, Object>> productsOptions,
-                                   @Placement(group = "Products bundle options") @Optional List<Map<String, Object>> productsBundleOptions,
-                                   @Placement(group = "Products bundle options quantities") @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                   @Optional @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
                                    @Optional String storeId) {
-        return shoppingCartClient.addShoppingCartProduct(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
+        return shoppingCartClient.addShoppingCartProduct(quoteId, products, storeId);
     }
 
     /**
@@ -1550,21 +1594,15 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:updateShoppingCartProduct}
      *
      * @param quoteId Shopping Cart ID (quote ID)
-     * @param productsAttributes Products data
-     * @param productsOptions Products options
-     * @param productsBundleOptions Products bundle options
-     * @param productsBundleOptionsQty Products bundle options quantities
+     * @param products Products data
      * @param storeId Store view ID or code
      * @return True if the product is updated
      */
     @Processor
     public boolean updateShoppingCartProduct(int quoteId,
-                                      @Placement(group = "Products attributes") List<Map<String, Object>> productsAttributes,
-                                      @Placement(group = "Products options") @Optional List<Map<String, Object>> productsOptions,
-                                      @Placement(group = "Products bundle options") @Optional List<Map<String, Object>> productsBundleOptions,
-                                      @Placement(group = "Products bundle options quantities") @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                      @Optional @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
                                       @Optional String storeId) {
-        return shoppingCartClient.updateShoppingCartProduct(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
+        return shoppingCartClient.updateShoppingCartProduct(quoteId, products, storeId);
     }
 
     /**
@@ -1572,33 +1610,28 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:removeShoppingCartProduct}
      *
      * @param quoteId Shopping Cart ID (quote ID)
-     * @param productsAttributes Products data
-     * @param productsOptions Products options
-     * @param productsBundleOptions Products bundle options
-     * @param productsBundleOptionsQty Products bundle options quantities
+     * @param products Products data
      * @param storeId Store view ID or code
      * @return True if the product is removed
      */
     @Processor
     public boolean removeShoppingCartProduct(int quoteId,
-                                      @Placement(group = "Products attributes") List<Map<String, Object>> productsAttributes,
-                                      @Placement(group = "Products options") @Optional List<Map<String, Object>> productsOptions,
-                                      @Placement(group = "Products bundle options") @Optional List<Map<String, Object>> productsBundleOptions,
-                                      @Placement(group = "Products bundle options quantities") @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                      @Optional @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
                                       @Optional String storeId) {
-        return shoppingCartClient.removeShoppingCartProduct(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
+        return shoppingCartClient.removeShoppingCartProduct(quoteId, products, storeId);
     }
 
     /**
      * Retrieves the list of products in the shopping cart (quote).
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartProducts}
      *
+     *
      * @param quoteId Shopping Cart ID (quote ID)
      * @param storeId Store view ID or code
      * @return products in the shopping cart.
      */
     @Processor
-    public List<Map<String, Object>> listShoppingCartProducts(int quoteId, @Optional String storeId) {
+    public List<CatalogProductEntity> listShoppingCartProducts(int quoteId, @Optional String storeId) {
         return shoppingCartClient.listShoppingCartProducts(quoteId, storeId);
     }
 
@@ -1607,21 +1640,15 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:moveShoppingCartProductToCustomerQuote}
      *
      * @param quoteId Shopping Cart ID (quote ID)
-     * @param productsAttributes Products data
-     * @param productsOptions Products options
-     * @param productsBundleOptions Products bundle options
-     * @param productsBundleOptionsQty Products bundle options quantities
+     * @param products Products data
      * @param storeId Store view ID or code
      * @return True if the product is moved to customer quote
      */
     @Processor
     public boolean moveShoppingCartProductToCustomerQuote(int quoteId,
-                                                   @Placement(group = "Products attributes") List<Map<String, Object>> productsAttributes,
-                                                   @Placement(group = "Products options") @Optional List<Map<String, Object>> productsOptions,
-                                                   @Placement(group = "Products bundle options") @Optional List<Map<String, Object>> productsBundleOptions,
-                                                   @Placement(group = "Products bundle options quantities") @Optional List<Map<String, Object>> productsBundleOptionsQty,
+                                                   @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
                                                    @Optional String storeId) {
-        return shoppingCartClient.moveShoppingCartProductToCustomerQuote(quoteId, productsAttributes, productsOptions, productsBundleOptions, productsBundleOptionsQty, storeId);
+        return shoppingCartClient.moveShoppingCartProductToCustomerQuote(quoteId, products, storeId);
     }
 
     /**
@@ -1634,7 +1661,9 @@ public class MagentoCloudConnector {
      * @return True if information is added
      */
     @Processor
-    public boolean setShoppingCartCustomer(int quoteId, @Placement(group = "Customer attributes") Map<String, Object> customer, @Optional String storeId) {
+    public boolean setShoppingCartCustomer(int quoteId,
+                                           @Optional @Default("#[payload]") @Placement(group = "Customer attributes") ShoppingCartCustomerEntity customer,
+                                           @Optional String storeId) {
         return shoppingCartClient.setShoppingCartCustomer(quoteId, customer, storeId);
     }
 
@@ -1643,13 +1672,15 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:setShoppingCartCustomerAddresses}
      *
      * @param quoteId Shopping Cart ID (quote ID)
-     * @param addresses Addresses data (mode is required for each address and should be either "shipping" or "billing")
+     * @param shoppingCartCustomerAddresses Addresses data (mode is required for each address and should be either "shipping" or "billing")
      * @param storeId Store view ID or code
      * @return True if information is added
      */
     @Processor
-    public boolean setShoppingCartCustomerAddresses(int quoteId, @Placement(group = "Addresses attributes") List<Map<String, Object>> addresses, @Optional String storeId) {
-        return shoppingCartClient.setShoppingCartCustomerAddresses(quoteId, addresses, storeId);
+    public boolean setShoppingCartCustomerAddresses(int quoteId,
+                                                    @Optional @Default("#[payload]") @Placement(group = "Addresses attributes") List<ShoppingCartCustomerAddressEntity> shoppingCartCustomerAddresses,
+                                                    @Optional String storeId) {
+        return shoppingCartClient.setShoppingCartCustomerAddresses(quoteId, shoppingCartCustomerAddresses, storeId);
     }
 
     /**
@@ -1670,12 +1701,13 @@ public class MagentoCloudConnector {
      * Retrieves the list of available shipping methods for a shopping cart (quote).
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartShippingMethods}
      *
+     *
      * @param quoteId Shopping Cart ID (quote ID)
      * @param storeId Store view ID or code
      * @return Shipping methods available
      */
     @Processor
-    public List<Map<String, Object>> listShoppingCartShippingMethods(int quoteId, @Optional String storeId) {
+    public List<ShoppingCartShippingMethodEntity> listShoppingCartShippingMethods(int quoteId, @Optional String storeId) {
         return shoppingCartClient.listShoppingCartShippingMethods(quoteId, storeId);
     }
 
@@ -1684,25 +1716,28 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:setShoppingCartPaymentMethod}
      *
      * @param quoteId Shopping Cart ID (quote ID)
-     * @param method Payment mehthod data
+     * @param shoppingCartPaymentMethod Payment mehthod data
      * @param storeId Store view ID or code
      * @return True on success
      */
     @Processor
-    public boolean setShoppingCartPaymentMethod(int quoteId, @Placement(group = "Method attributes") Map<String, Object> method, @Optional String storeId) {
-        return shoppingCartClient.setShoppingCartPaymentMethod(quoteId, method, storeId);
+    public boolean setShoppingCartPaymentMethod(int quoteId,
+                                                @Optional @Default("#[payload]") @Placement(group = "Method attributes") ShoppingCartPaymentMethodEntity shoppingCartPaymentMethod,
+                                                @Optional String storeId) {
+        return shoppingCartClient.setShoppingCartPaymentMethod(quoteId, shoppingCartPaymentMethod, storeId);
     }
 
     /**
      * Retrieves a list of available payment methods for a shopping cart (quote).
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:listShoppingCartPaymentMethods}
      *
+     *
      * @param quoteId Shopping Cart ID (quote ID)
      * @param storeId Store view ID or code
      * @return Payment methods available
      */
     @Processor
-    public Map<String, Object> listShoppingCartPaymentMethods(int quoteId, @Optional String storeId) {
+    public ShoppingCartPaymentMethodResponseEntityArray listShoppingCartPaymentMethods(int quoteId, @Optional String storeId) {
         return shoppingCartClient.listShoppingCartPaymentMethods(quoteId, storeId);
     }
 
@@ -1734,61 +1769,62 @@ public class MagentoCloudConnector {
     }
 
     @SuppressWarnings("unchecked")
-    public void setOrderClient(MagentoOrderClient<?, ?, ?> magentoOrderClient) {
+    public void setOrderClient(MagentoOrderClient<?> magentoOrderClient) {
         this.orderClient = MagentoClientAdaptor.adapt(MagentoOrderClient.class, magentoOrderClient);
     }
 
     @SuppressWarnings("unchecked")
-    public void setCustomerClient(MagentoCustomerClient<?, ?, ?> customerClient) {
+    public void setCustomerClient(MagentoCustomerClient<?> customerClient) {
         this.customerClient = MagentoClientAdaptor.adapt(MagentoCustomerClient.class, customerClient);
     }
 
     @SuppressWarnings("unchecked")
-    public void setInventoryClient(MagentoInventoryClient<?, ?> inventoryClient) {
+    public void setInventoryClient(MagentoInventoryClient<?> inventoryClient) {
         this.inventoryClient = MagentoClientAdaptor.adapt(MagentoInventoryClient.class, inventoryClient);
     }
 
     @SuppressWarnings("unchecked")
-    public void setDirectoryClient(MagentoDirectoryClient<?, ?> directoryClient) {
+    public void setDirectoryClient(MagentoDirectoryClient<?> directoryClient) {
         this.directoryClient = MagentoClientAdaptor.adapt(MagentoDirectoryClient.class, directoryClient);
     }
 
     @SuppressWarnings("unchecked")
-    public void setCatalogClient(MagentoCatalogClient<?, ?, ?> catalogClient) {
+    public void setCatalogClient(MagentoCatalogClient<?> catalogClient) {
         this.catalogClient = MagentoClientAdaptor.adapt(MagentoCatalogClient.class, catalogClient);
     }
 
     @SuppressWarnings("unchecked")
-    public void setShoppingCartClient(MagentoShoppingCartClient<?, ?, ?> catalogClient) {
+    public void setShoppingCartClient(MagentoShoppingCartClient<?> catalogClient) {
         this.shoppingCartClient = MagentoClientAdaptor.adapt(MagentoShoppingCartClient.class, catalogClient);
     }
 
-    public String getUsername() {
-        return username;
+    public String getUser() {
+        return user;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getPassword() {
-        return password;
+    public String getServerAddress() {
+        return serverAddress;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void setServerAddress(String serverAddress) {
+        this.serverAddress = serverAddress;
     }
 
     private class PortProviderInitializer {
         private DefaultAxisPortProvider provider;
+        private String username;
+        private String password;
+        private String address;
+
+        public PortProviderInitializer(String username, String password, String address) {
+            this.username = username;
+            this.password = password;
+            this.address = address;
+        }
 
         public AxisPortProvider getPortProvider() {
             if (provider == null) {

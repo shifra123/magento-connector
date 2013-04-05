@@ -8,32 +8,36 @@
 
 package org.mule.module.magento.api.directory;
 
+import com.magento.api.DirectoryCountryEntity;
+import com.magento.api.DirectoryRegionEntity;
 import org.mule.module.magento.api.AbstractMagentoClient;
 import org.mule.module.magento.api.AxisPortProvider;
 
 import java.rmi.RemoteException;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang.Validate;
 
 public class AxisMagentoDirectoryClient extends AbstractMagentoClient
-    implements MagentoDirectoryClient<Object[], RemoteException>
+    implements MagentoDirectoryClient<RemoteException>
 {
     public AxisMagentoDirectoryClient(AxisPortProvider provider)
     {
         super(provider);
     }
 
-    public Object[] listDirectoryCountries() throws RemoteException
+    public List<DirectoryCountryEntity> listDirectoryCountries() throws RemoteException
     {
-        return getPort().directoryCountryList(getSessionId());
+        return Arrays.asList(getPort().directoryCountryList(getSessionId()));
     }
 
-    public Object[] listDirectoryRegions(@NotNull String countryId) throws RemoteException
+    public List<DirectoryRegionEntity> listDirectoryRegions(@NotNull String countryId) throws RemoteException
     {
         Validate.notNull(countryId);
-        return getPort().directoryRegionList(getSessionId(), countryId);
+        return Arrays.asList(getPort().directoryRegionList(getSessionId(), countryId));
     }
 
 }
