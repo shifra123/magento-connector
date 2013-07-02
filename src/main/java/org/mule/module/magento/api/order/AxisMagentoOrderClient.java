@@ -124,7 +124,7 @@ public class AxisMagentoOrderClient extends AbstractMagentoClient
         return getPort().salesOrderShipmentAddTrack(getSessionId(), shipmentId, carrier, title, trackNumber);
     }
 
-    public int deleteOrderShipmentTrack(@NotNull String shipmentId, @NotNull String trackId)
+    public boolean deleteOrderShipmentTrack(@NotNull String shipmentId, @NotNull String trackId)
         throws RemoteException
     {
         Validate.notNull(shipmentId);

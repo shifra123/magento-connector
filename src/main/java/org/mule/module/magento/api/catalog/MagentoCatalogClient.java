@@ -61,11 +61,11 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
 
     /**
      * Set the default catalog store view for this session
-     * 
+     *
      * @param storeViewIdOrCode the id or code of the store view to set as default
      *            for this session
      */
-    void updateCatalogCurrentStoreView(@NotNull String storeViewIdOrCode) throws ExceptionType;
+    int updateCatalogCurrentStoreView(@NotNull String storeViewIdOrCode) throws ExceptionType;
 
     /**
      * Deletes a category. See catalog-category-delete SOAP method
@@ -133,12 +133,12 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
 
     /**
      * Updates a category. See catalog-category-update SOAP method
-     * 
+     *
      * @param categoryId
      * @param attributes
      * @param storeView
      */
-    void updateCategory(int categoryId, @NotNull CatalogCategoryEntityCreate attributes, String storeView)
+    boolean updateCategory(int categoryId, @NotNull CatalogCategoryEntityCreate attributes, String storeView)
         throws ExceptionType;
 
     /**
@@ -146,7 +146,7 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
      * @param productId
      * @param position
      */
-    void updateCategoryProduct(int categoryId, @NotNull ProductIdentifier productId, String position)
+    boolean updateCategoryProduct(int categoryId, @NotNull ProductIdentifier productId, String position)
         throws ExceptionType;
 
     /**
@@ -158,12 +158,12 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
 
     /**
      * Updates an stock inventory item
-     * 
+     *
      * @param productId
      * @param attributes
      */
-    void updateInventoryStockItem(@NotNull ProductIdentifier productId,
-                                  @NotNull CatalogInventoryStockItemUpdateEntity attributes) throws ExceptionType;
+    int updateInventoryStockItem(@NotNull ProductIdentifier productId,
+                                 @NotNull CatalogInventoryStockItemUpdateEntity attributes) throws ExceptionType;
 
     /**
      * Creates a new product
@@ -232,31 +232,30 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
     /**
      * Sets a product special price. See catalog-product-setSpecialPrice SOAP method
      * 
-     * @param product
+     *
      * @param specialPrice
      * @param fromDate
      * @param toDate
      * @param storeView
-     * @param productId.getIdentifierType()
      * @throws ExceptionType
      */
-    void updateProductSpecialPrice(@NotNull ProductIdentifier productId,
-                                   @NotNull String specialPrice,
-                                   String fromDate,
-                                   String toDate,
-                                   String storeView) throws ExceptionType;
+    int updateProductSpecialPrice(@NotNull ProductIdentifier productId,
+                                  @NotNull String specialPrice,
+                                  String fromDate,
+                                  String toDate,
+                                  String storeView) throws ExceptionType;
 
     /**
      * Updates a product. At least one of attributes or additionalAttributes 
      * must be non null and non empty See catalog-category-updateProduct SOAP method
-     * 
+     *
      * @param attributes standard product attributes to update
      * @param additionalAttributes non standard product attributes to update
      */
-    void updateProduct(@NotNull ProductIdentifier productId,
-                       CatalogProductCreateEntity attributes,
-                       List<AssociativeEntity> additionalAttributes,
-                       String storeView) throws ExceptionType;
+    boolean updateProduct(@NotNull ProductIdentifier productId,
+                          CatalogProductCreateEntity attributes,
+                          List<AssociativeEntity> additionalAttributes,
+                          String storeView) throws ExceptionType;
 
     /**
      * Creates a new product media. See catalog-product-attribute-media-create SOAP
@@ -302,11 +301,11 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
      * Removes a product image. See catalog-product-attribute-media-remove SOAP
      * method.
      * 
-     * @param product
+     * @param productId
      * @param file
      * @return if the image is removed from a product
      */
-    int deleteProductAttributeMedia(@NotNull ProductIdentifier productId, @NotNull String file)
+    boolean deleteProductAttributeMedia(@NotNull ProductIdentifier productId, @NotNull String file)
         throws ExceptionType;
 
     /**
@@ -321,16 +320,15 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
 
     /**
      * Updates product media. See catalog-product-attribute-media-update
-     * 
-     * @param product
+     *
      * @param fileName
      * @param attributes
      * @param storeView
      */
-    void updateProductAttributeMedia(@NotNull ProductIdentifier productId,
-                                     String fileName,
-                                     @NotNull CatalogProductAttributeMediaCreateEntity attributes,
-                                     String storeView) throws ExceptionType;
+    boolean updateProductAttributeMedia(@NotNull ProductIdentifier productId,
+                                        String fileName,
+                                        @NotNull CatalogProductAttributeMediaCreateEntity attributes,
+                                        String storeView) throws ExceptionType;
 
     /**
      * Retrieves category attributes. See catalog-category-attribute-list SOAP
@@ -405,12 +403,12 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
     /**
      * Updates a single product tier price. See catalog-product-attribute-tier-price-update
      * SOAP method.
-     * 
+     *
      * @param productId
      * @param attributes
      */
-    void updateProductAttributeTierPrice(@NotNull ProductIdentifier productId,
-                                          @NotNull CatalogProductTierPriceEntity attributes) throws ExceptionType;
+    int updateProductAttributeTierPrice(@NotNull ProductIdentifier productId,
+                                        @NotNull CatalogProductTierPriceEntity attributes) throws ExceptionType;
 
     /**
      * Links two products
@@ -453,7 +451,7 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
      * @param linkedProductIdOrSku
      * @return if the link is removed from a product
      */
-    java.lang.String deleteProductLink(@NotNull String type,
+    boolean deleteProductLink(@NotNull String type,
                            @NotNull ProductIdentifier productId,
                            @NotNull String linkedProductIdOrSku) throws ExceptionType;
 
@@ -466,14 +464,14 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
 
     /**
      * Update product link
-     * 
+     *
      * @param type
      * @param linkedProduct
      * @param attributes
      */
-    void updateProductLink(@NotNull String type,
-                           @NotNull ProductIdentifier productId,
-                           @NotNull String linkedProduct,
-                           @NotNull CatalogProductLinkEntity attributes) throws ExceptionType;
+    boolean updateProductLink(@NotNull String type,
+                              @NotNull ProductIdentifier productId,
+                              @NotNull String linkedProduct,
+                              @NotNull CatalogProductLinkEntity attributes) throws ExceptionType;
 
 }

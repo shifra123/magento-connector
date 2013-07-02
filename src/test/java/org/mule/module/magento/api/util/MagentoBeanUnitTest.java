@@ -8,10 +8,7 @@
 
 package org.mule.module.magento.api.util;
 
-import com.magento.api.AssociativeEntity;
-import com.magento.api.CatalogCategoryEntity;
-import com.magento.api.CatalogProductCreateEntity;
-import com.magento.api.SalesOrderEntity;
+import com.magento.api.*;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
@@ -34,8 +31,8 @@ public class MagentoBeanUnitTest
     private static CatalogProductCreateEntity createEntity()
     {
         CatalogProductCreateEntity entity = new CatalogProductCreateEntity();
-        entity.setAdditional_attributes(new AssociativeEntity[]{new AssociativeEntity("baz", "foobar"),
-            new AssociativeEntity("foo", "bar")});
+        entity.setAdditional_attributes(new CatalogProductAdditionalAttributesEntity(null, new AssociativeEntity[]{new AssociativeEntity("baz", "foobar"),
+            new AssociativeEntity("foo", "bar")}));
         return entity;
     }
 

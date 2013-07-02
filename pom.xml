@@ -37,6 +37,29 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>axistools-maven-plugin</artifactId>
+                <version>1.4</version>
+                <configuration>
+                    <allElements>true</allElements>
+                    <wsdlFiles>
+                        <wsdlFile>magento_v2_soap.wsdl</wsdlFile>
+                    </wsdlFiles>
+                    <packageSpace>com.magento.api</packageSpace>
+                    <namespaceToPackage>urn:Magento=com.magento.api</namespaceToPackage>
+                    <outputDirectory>${project.build.directory}/generated-sources/axis</outputDirectory>
+                    <sourceDirectory>${project.basedir}/src/main/resources</sourceDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsdl2java</goal>
+                        </goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

@@ -61,12 +61,12 @@ public interface MagentoCustomerClient<ExceptionType extends Exception>
     /**
      * Updates the given customer attributes, for the given customer id. Password can
      * not be updated using this method
-     * 
+     *
      * @param customerId
      * @param attributes the attributes map
      * 
      */
-    void updateCustomer(int customerId, @NotNull CustomerCustomerEntityToCreate attributes) throws ExceptionType;
+    boolean updateCustomer(int customerId, @NotNull CustomerCustomerEntityToCreate attributes) throws ExceptionType;
 
     /**
      * Creates a new address for the given customer using the given address
@@ -107,11 +107,11 @@ public interface MagentoCustomerClient<ExceptionType extends Exception>
 
     /**
      * Updates the given map of customer address attributes, for the given customer address
-     * 
+     *
      * @param addressId the customer address to update
      * @param attributes  the address attributes to update
      */
-    void updateCustomerAddress(int addressId, @NotNull CustomerAddressEntityCreate attributes) throws ExceptionType;
+    boolean updateCustomerAddress(int addressId, @NotNull CustomerAddressEntityCreate attributes) throws ExceptionType;
 
     /**
      * Lists all the customer groups
