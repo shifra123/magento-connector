@@ -17,7 +17,6 @@ import org.mule.module.magento.api.AbstractMagentoClient;
 import org.mule.module.magento.api.AxisPortProvider;
 import org.mule.module.magento.api.catalog.model.MediaMimeType;
 import org.mule.module.magento.api.catalog.model.ProductIdentifier;
-import org.mule.module.magento.api.util.MagentoObject;
 import org.mule.module.magento.filters.FiltersParser;
 import org.mule.util.Base64;
 
@@ -27,10 +26,8 @@ import java.io.InputStream;
 import java.rmi.RemoteException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import static org.mule.module.magento.api.util.MagentoObject.fromMap;
-import static org.mule.module.magento.api.util.MagentoObject.removeNullValues;
 
 
 public class AxisMagentoCatalogClient extends AbstractMagentoClient
@@ -92,10 +89,10 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         return getPort().catalogCategoryCurrentStore(getSessionId(), null);
     }
     
-    public void updateCatalogCurrentStoreView(String storeViewIdOrCode) throws RemoteException
+    public int updateCatalogCurrentStoreView(String storeViewIdOrCode) throws RemoteException
     {
         Validate.notNull(storeViewIdOrCode);
-        getPort().catalogCategoryCurrentStore(getSessionId(), storeViewIdOrCode);
+        return getPort().catalogCategoryCurrentStore(getSessionId(), storeViewIdOrCode);
     }
 
     /**
@@ -174,31 +171,33 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
     /**
      * Updates a category. See catalog-category-update SOAP method
      * 
+     *
      * @param categoryId
      * @param attributes
      * @param storeView
      * @return
      */
-    public void updateCategory(int categoryId, @NotNull CatalogCategoryEntityCreate attributes, String storeView)
+    public boolean updateCategory(int categoryId, @NotNull CatalogCategoryEntityCreate attributes, String storeView)
         throws RemoteException
     {
         Validate.notNull(attributes);
-        getPort().catalogCategoryUpdate(getSessionId(), categoryId, attributes, storeView);
+        return getPort().catalogCategoryUpdate(getSessionId(), categoryId, attributes, storeView);
     }
 
     /**
      * 
+     *
      * @param categoryId
      * @param productId
      * @param position
      * @return
      * 
      */
-    public void updateCategoryProduct(int categoryId,
-                                      @NotNull ProductIdentifier productId,
-                                      String position) throws RemoteException
+    public boolean updateCategoryProduct(int categoryId,
+                                         @NotNull ProductIdentifier productId,
+                                         String position) throws RemoteException
     {
-        getPort().catalogCategoryUpdateProduct(getSessionId(), categoryId, productId.getIdentifierAsString(), position,
+        return getPort().catalogCategoryUpdateProduct(getSessionId(), categoryId, productId.getIdentifierAsString(), position,
             productId.getIdentifierType());
     }
 
@@ -209,16 +208,17 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
 
     /**
      * 
+     *
      * @param productId
      * @param attributes
      * @return
      * 
      */
-    public void updateInventoryStockItem(@NotNull ProductIdentifier productId, @NotNull CatalogInventoryStockItemUpdateEntity attributes)
+    public int updateInventoryStockItem(@NotNull ProductIdentifier productId, @NotNull CatalogInventoryStockItemUpdateEntity attributes)
         throws RemoteException
     {
         Validate.notNull(attributes);
-        getPort().catalogInventoryStockItemUpdate(getSessionId(), productId.getIdentifierAsString(), attributes);
+        return getPort().catalogInventoryStockItemUpdate(getSessionId(), productId.getIdentifierAsString(), attributes);
     }
  
     
@@ -249,7 +249,8 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         CatalogProductCreateEntity productData = attributes;
 
         if(additionalAttributes!=null){
-            productData.setAdditional_attributes(additionalAttributes.toArray(new AssociativeEntity[additionalAttributes.size()]));
+            productData.setAdditional_attributes(new CatalogProductAdditionalAttributesEntity(null,
+                    additionalAttributes.toArray(new AssociativeEntity[additionalAttributes.size()])));
         }
 
         return getPort().catalogProductCreate(getSessionId(), type, String.valueOf(set), sku,
@@ -333,6 +334,7 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
     /**
      * Sets a product special price. See catalog-product-setSpecialPrice  SOAP method
      * 
+     *
      * @param productId
      * @param specialPrice
      * @param fromDate
@@ -340,29 +342,29 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
      * @param storeView
      * @return
      */
-    public void updateProductSpecialPrice(@NotNull ProductIdentifier productId,
-                                          @NotNull String specialPrice,
+    public int updateProductSpecialPrice(@NotNull ProductIdentifier productId,
+                                         @NotNull String specialPrice,
                                          String fromDate,
                                          String toDate,
                                          String storeView) throws RemoteException
     {
         Validate.notNull(specialPrice);
         Validate.notNull(productId);
-        getPort().catalogProductSetSpecialPrice(getSessionId(), productId.getIdentifierAsString(), specialPrice, fromDate,
+        return getPort().catalogProductSetSpecialPrice(getSessionId(), productId.getIdentifierAsString(), specialPrice, fromDate,
             toDate, storeView, productId.getIdentifierType());
     }
     
     /**
      * Updates a product. At least one of attributes or additionalAttributes 
      * must be non null and non empty. See catalog-category-updateProduct SOAP method
-     * 
+     *
      * @param attributes attributes to update
      * @param additionalAttributes non standard product attributes to update
      */
-    public void updateProduct(@NotNull ProductIdentifier productId,
-                              CatalogProductCreateEntity attributes,
-                              List<AssociativeEntity> additionalAttributes,
-                              String storeView) throws RemoteException
+    public boolean updateProduct(@NotNull ProductIdentifier productId,
+                                 CatalogProductCreateEntity attributes,
+                                 List<AssociativeEntity> additionalAttributes,
+                                 String storeView) throws RemoteException
     {
         Validate.notNull(productId);
         Validate.isTrue((attributes != null) ||
@@ -371,10 +373,11 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         CatalogProductCreateEntity productData = attributes;
 
         if(additionalAttributes!=null) {
-          productData.setAdditional_attributes(additionalAttributes.toArray(new AssociativeEntity[additionalAttributes.size()]));
+          productData.setAdditional_attributes(new CatalogProductAdditionalAttributesEntity(null,
+                  additionalAttributes.toArray(new AssociativeEntity[additionalAttributes.size()])));
         }
         
-        getPort().catalogProductUpdate(getSessionId(), productId.getIdentifierAsString(),
+        return getPort().catalogProductUpdate(getSessionId(), productId.getIdentifierAsString(),
             productData, storeView, productId.getIdentifierType());
     }
     
@@ -433,7 +436,7 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
                 productId.getIdentifierType()));
     }
 
-    public int deleteProductAttributeMedia(@NotNull ProductIdentifier productId, @NotNull  String file)
+    public boolean deleteProductAttributeMedia(@NotNull ProductIdentifier productId, @NotNull  String file)
         throws RemoteException
     {
         Validate.notNull(productId);
@@ -447,13 +450,13 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         return Arrays.asList(getPort().catalogProductAttributeMediaTypes(getSessionId(), String.valueOf(setId)));
     }
 
-    public void updateProductAttributeMedia(@NotNull ProductIdentifier productId,
-                                            String fileName,
-                                            @NotNull CatalogProductAttributeMediaCreateEntity attributes,
-                                            String storeView) throws RemoteException
+    public boolean updateProductAttributeMedia(@NotNull ProductIdentifier productId,
+                                               String fileName,
+                                               @NotNull CatalogProductAttributeMediaCreateEntity attributes,
+                                               String storeView) throws RemoteException
     {
         Validate.notNull(attributes);
-        getPort().catalogProductAttributeMediaUpdate(getSessionId(), productId.getIdentifierAsString(), fileName,
+        return getPort().catalogProductAttributeMediaUpdate(getSessionId(), productId.getIdentifierAsString(), fileName,
             attributes, storeView, productId.getIdentifierType());
     }
 
@@ -514,14 +517,14 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         return Arrays.asList(getPort().catalogProductAttributeTierPriceInfo(getSessionId(), productId.getIdentifierAsString(), productId.getIdentifierType()));
     }
 
-    public void updateProductAttributeTierPrice(@NotNull ProductIdentifier productId,
-                                                 @NotNull CatalogProductTierPriceEntity attributes)
+    public int updateProductAttributeTierPrice(@NotNull ProductIdentifier productId,
+                                               @NotNull CatalogProductTierPriceEntity attributes)
         throws RemoteException
     {
         Validate.notNull(productId);
         Validate.notNull(attributes);
         
-        getPort().catalogProductAttributeTierPriceUpdate(getSessionId(), 
+        return getPort().catalogProductAttributeTierPriceUpdate(getSessionId(),
             productId.getIdentifierAsString(),
             new CatalogProductTierPriceEntity[]{attributes},
             productId.getIdentifierType());
@@ -552,7 +555,7 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         return Arrays.asList(getPort().catalogProductLinkList(getSessionId(), type, productId.getIdentifierAsString(), productId.getIdentifierType()));
     }
 
-    public java.lang.String deleteProductLink(@NotNull String type,
+    public boolean deleteProductLink(@NotNull String type,
                                     @NotNull ProductIdentifier productId,
                                     @NotNull String linkedProductIdOrSku) throws RemoteException
     {
@@ -565,16 +568,16 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         return Arrays.asList(getPort().catalogProductLinkTypes(getSessionId()));
     }
 
-    public void updateProductLink(@NotNull String type,
-                                    @NotNull ProductIdentifier productId,
-                                    @NotNull String linkedProduct,
-                                    @NotNull CatalogProductLinkEntity attributes) throws RemoteException
+    public boolean updateProductLink(@NotNull String type,
+                                     @NotNull ProductIdentifier productId,
+                                     @NotNull String linkedProduct,
+                                     @NotNull CatalogProductLinkEntity attributes) throws RemoteException
     {
         Validate.notNull(attributes);
         Validate.notNull(type);
         Validate.notNull(linkedProduct);
 
-        getPort().catalogProductLinkUpdate(getSessionId(), type, productId.getIdentifierAsString(), linkedProduct,
+        return getPort().catalogProductLinkUpdate(getSessionId(), type, productId.getIdentifierAsString(), linkedProduct,
             attributes, productId.getIdentifierType());
     }
 }

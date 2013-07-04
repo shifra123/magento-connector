@@ -12,7 +12,6 @@ import com.magento.api.CatalogInventoryStockItemEntity;
 import com.magento.api.CatalogInventoryStockItemUpdateEntity;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.validation.constraints.NotNull;
 
@@ -37,11 +36,11 @@ public interface MagentoInventoryClient<ExceptionType extends Exception>
 
     /**
      * Update product stock data given its id or sku
-     * 
-     * @param productIdOrSku the product id or sku of the product to update
+     *
+     * @param productIdOrSkus
      * @param attributes to update
      */
-    void updateStockItem(@NotNull String productIdOrSku, @NotNull CatalogInventoryStockItemUpdateEntity attributes)
+    int updateStockItem(@NotNull String productIdOrSkus, @NotNull CatalogInventoryStockItemUpdateEntity attributes)
         throws ExceptionType;
 
 }

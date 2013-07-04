@@ -37,12 +37,12 @@ public class AxisMagentoInventoryClient extends AbstractMagentoClient
                 toArray(productIdsOrSkus, String.class)));
     }
 
-    public void updateStockItem(@NotNull String productIdOrSkus, @NotNull CatalogInventoryStockItemUpdateEntity attributes)
+    public int updateStockItem(@NotNull String productIdOrSkus, @NotNull CatalogInventoryStockItemUpdateEntity attributes)
         throws RemoteException
     {
         Validate.notNull(productIdOrSkus);
         Validate.notNull(attributes);
-        getPort().catalogInventoryStockItemUpdate(getSessionId(), productIdOrSkus, attributes);
+        return getPort().catalogInventoryStockItemUpdate(getSessionId(), productIdOrSkus, attributes);
     }
 
 }

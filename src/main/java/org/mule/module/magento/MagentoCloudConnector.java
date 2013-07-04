@@ -330,7 +330,7 @@ public class MagentoCloudConnector {
      * @return if the tracking number is removed from the shipment
      */
     @Processor
-    public int deleteOrderShipmentTrack(String shipmentId, String trackId) {
+    public boolean deleteOrderShipmentTrack(String shipmentId, String trackId) {
         return orderClient.deleteOrderShipmentTrack(shipmentId, trackId);
     }
 
@@ -578,11 +578,12 @@ public class MagentoCloudConnector {
      *
      * @param customerId the target customer to update
      * @param customer the customer attributes
+     * @return update result
      */
     @Processor
-    public void updateCustomer(int customerId,
-                               @Optional @Default("#[payload]") @Placement(group = "Customer Attributes to Update") CustomerCustomerEntityToCreate customer) {
-        customerClient.updateCustomer(customerId, customer);
+    public boolean updateCustomer(int customerId,
+                                  @Optional @Default("#[payload]") @Placement(group = "Customer Attributes to Update") CustomerCustomerEntityToCreate customer) {
+        return customerClient.updateCustomer(customerId, customer);
     }
 
     /**
@@ -592,10 +593,11 @@ public class MagentoCloudConnector {
      *
      * @param addressId  the customer address to update
      * @param customerAddress the address attributes to update
+     * @return update result
      */
     @Processor
-    public void updateCustomerAddress(int addressId, @Placement(group = "Address Attributes to Update") CustomerAddressEntityCreate customerAddress) {
-        customerClient.updateCustomerAddress(addressId, customerAddress);
+    public boolean updateCustomerAddress(int addressId, @Placement(group = "Address Attributes to Update") CustomerAddressEntityCreate customerAddress) {
+        return customerClient.updateCustomerAddress(addressId, customerAddress);
     }
 
     /**
@@ -620,11 +622,12 @@ public class MagentoCloudConnector {
      *
      * @param productIdOrSku the product id or sku of the product to update
      * @param stockItem     the attributes to update
+     * @return update result
      */
     @Processor
-    public void updateStockItem(String productIdOrSku,
-                                @Optional @Default("#[payload]") @Placement(group = "Attributes to Update") CatalogInventoryStockItemUpdateEntity stockItem) {
-        inventoryClient.updateStockItem(productIdOrSku, stockItem);
+    public int updateStockItem(String productIdOrSku,
+                               @Optional @Default("#[payload]") @Placement(group = "Attributes to Update") CatalogInventoryStockItemUpdateEntity stockItem) {
+        return inventoryClient.updateStockItem(productIdOrSku, stockItem);
     }
 
     /**
@@ -745,7 +748,7 @@ public class MagentoCloudConnector {
      * @return if the image is removed from a product
      */
     @Processor
-    public int deleteProductAttributeMedia(@Optional Integer productId,
+    public boolean deleteProductAttributeMedia(@Optional Integer productId,
                                             @Optional String productSku,
                                             @Optional String productIdOrSku,
                                             String fileName)
@@ -771,7 +774,7 @@ public class MagentoCloudConnector {
      * @return if the link is removed from a product
      */
     @Processor
-    public java.lang.String deleteProductLink(String type,
+    public boolean deleteProductLink(String type,
                                   @Optional Integer productId,
                                   @Optional String productSku,
                                   @Optional String productIdOrSku,
@@ -824,10 +827,11 @@ public class MagentoCloudConnector {
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
      *                          the id or code of the store view to set as default for this
      *                          session
+     * @return update result
      */
     @Processor
-    public void updateCategoryAttributeStoreView(String storeViewIdOrCode) {
-        catalogClient.updateCatalogCurrentStoreView(storeViewIdOrCode);
+    public int updateCategoryAttributeStoreView(String storeViewIdOrCode) {
+        return catalogClient.updateCatalogCurrentStoreView(storeViewIdOrCode);
     }
 
     /**
@@ -1039,15 +1043,16 @@ public class MagentoCloudConnector {
      * @param fileName          the name of the remote media file to update
      * @param catalogProductAttributeMediaEntity        the attributes to update
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
+     * @return update result
      */
     @Processor
-    public void updateProductAttributeMedia(@Optional Integer productId,
-                                            @Optional String productSku,
-                                            @Optional String productIdOrSku,
-                                            String fileName,
-                                            @Optional @Default("#[payload]") @Placement(group = "Media Attributes to Update") CatalogProductAttributeMediaCreateEntity catalogProductAttributeMediaEntity,
-                                            @Optional String storeViewIdOrCode) {
-        catalogClient.updateProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku), fileName,
+    public boolean updateProductAttributeMedia(@Optional Integer productId,
+                                               @Optional String productSku,
+                                               @Optional String productIdOrSku,
+                                               String fileName,
+                                               @Optional @Default("#[payload]") @Placement(group = "Media Attributes to Update") CatalogProductAttributeMediaCreateEntity catalogProductAttributeMediaEntity,
+                                               @Optional String storeViewIdOrCode) {
+        return catalogClient.updateProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku), fileName,
                 catalogProductAttributeMediaEntity, storeViewIdOrCode);
     }
 
@@ -1064,13 +1069,14 @@ public class MagentoCloudConnector {
      *                       case you are sure the product identifier is a product sku
      * @param productIdOrSku the id or sku of the product.
      * @param catalogProductTierPriceEntity     the tier price to update.
+     * @return update result
      */
     @Processor
-    public void updateProductAttributeTierPrice(@Optional Integer productId,
-                                                @Optional String productSku,
-                                                @Optional String productIdOrSku,
-                                                @Optional @Default("#[payload]") @Placement(group = "Tier Price Attributes to Update") CatalogProductTierPriceEntity catalogProductTierPriceEntity) {
-        catalogClient.updateProductAttributeTierPrice(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogProductTierPriceEntity);
+    public int updateProductAttributeTierPrice(@Optional Integer productId,
+                                               @Optional String productSku,
+                                               @Optional String productIdOrSku,
+                                               @Optional @Default("#[payload]") @Placement(group = "Tier Price Attributes to Update") CatalogProductTierPriceEntity catalogProductTierPriceEntity) {
+        return catalogClient.updateProductAttributeTierPrice(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogProductTierPriceEntity);
     }
 
 
@@ -1084,20 +1090,21 @@ public class MagentoCloudConnector {
      *                             in case you are sure the source product identifier is a
      *                             product id
      * @param productSku           the sku of the source product. Use it instead of productIdOrSku
-     *                             in case you are sure the source product identifier is a
-     *                             product sku
+ *                             in case you are sure the source product identifier is a
+ *                             product sku
      * @param productIdOrSku       the id or sku of the source product.
      * @param linkedProductIdOrSku the destination product id or sku.
      * @param catalogProductLinkEntity           the link attributes
+     * @return update result
      */
     @Processor
-    public void updateProductLink(String type,
-                                  @Optional Integer productId,
-                                  @Optional String productSku,
-                                  @Optional String productIdOrSku,
-                                  String linkedProductIdOrSku,
-                                  @Optional @Default("#[payload]") @Placement(group = "Link Attributes to Update") CatalogProductLinkEntity catalogProductLinkEntity) {
-        catalogClient.updateProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku,
+    public boolean updateProductLink(String type,
+                                     @Optional Integer productId,
+                                     @Optional String productSku,
+                                     @Optional String productIdOrSku,
+                                     String linkedProductIdOrSku,
+                                     @Optional @Default("#[payload]") @Placement(group = "Link Attributes to Update") CatalogProductLinkEntity catalogProductLinkEntity) {
+        return catalogClient.updateProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku,
                 catalogProductLinkEntity);
     }
 
@@ -1272,12 +1279,13 @@ public class MagentoCloudConnector {
      * @param categoryId        the category to update
      * @param catalogCategoryEntity        the category new attributes
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
+     * @return update results
      */
     @Processor
-    public void updateCategory(int categoryId,
-                               @Optional @Default("#[payload]") @Placement(group = "Category Attributes to Update") CatalogCategoryEntityCreate catalogCategoryEntity,
-                               @Optional String storeViewIdOrCode) {
-        catalogClient.updateCategory(categoryId, catalogCategoryEntity, storeViewIdOrCode);
+    public boolean updateCategory(int categoryId,
+                                  @Optional @Default("#[payload]") @Placement(group = "Category Attributes to Update") CatalogCategoryEntityCreate catalogCategoryEntity,
+                                  @Optional String storeViewIdOrCode) {
+        return catalogClient.updateCategory(categoryId, catalogCategoryEntity, storeViewIdOrCode);
     }
 
     /**
@@ -1289,17 +1297,18 @@ public class MagentoCloudConnector {
      * @param productId      the id of the product. Use it instead of productIdOrSku in
      *                       case you are sure the product identifier is a product id
      * @param productSku     the sku of the product. Use it instead of productIdOrSku in
-     *                       case you are sure the product identifier is a product sku
+ *                       case you are sure the product identifier is a product sku
      * @param productIdOrSku the id or sku of the product.
      * @param position       the category position for ordering the category inside its level
+     * @return update result
      */
     @Processor
-    public void updateCategoryProduct(int categoryId,
-                                      @Optional Integer productId,
-                                      @Optional String productSku,
-                                      @Optional String productIdOrSku,
-                                      String position) {
-        catalogClient.updateCategoryProduct(categoryId, ProductIdentifiers.from(productSku, productId, productIdOrSku), position);
+    public boolean updateCategoryProduct(int categoryId,
+                                         @Optional Integer productId,
+                                         @Optional String productSku,
+                                         @Optional String productIdOrSku,
+                                         String position) {
+        return catalogClient.updateCategoryProduct(categoryId, ProductIdentifiers.from(productSku, productId, productIdOrSku), position);
     }
 
     /**
@@ -1327,13 +1336,14 @@ public class MagentoCloudConnector {
      *                       case you are sure the product identifier is a product sku
      * @param productIdOrSku the id or sku of the product.
      * @param catalogInventoryStockItem     the new attributes of the stock item
+     * @return update result
      */
     @Processor
-    public void updateInventoryStockItem(@Optional Integer productId,
-                                         @Optional String productSku,
-                                         @Optional String productIdOrSku,
-                                         @Optional @Default("#[payload]") @Placement(group = "Stock Item Attributes") CatalogInventoryStockItemUpdateEntity catalogInventoryStockItem) {
-        catalogClient.updateInventoryStockItem(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogInventoryStockItem);
+    public int updateInventoryStockItem(@Optional Integer productId,
+                                        @Optional String productSku,
+                                        @Optional String productIdOrSku,
+                                        @Optional @Default("#[payload]") @Placement(group = "Stock Item Attributes") CatalogInventoryStockItemUpdateEntity catalogInventoryStockItem) {
+        return catalogClient.updateInventoryStockItem(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogInventoryStockItem);
     }
 
     /**
@@ -1467,16 +1477,17 @@ public class MagentoCloudConnector {
      * @param fromDate          optional start date of the special price period
      * @param toDate            optional end date of the special price period
      * @param storeViewIdOrCode the id or code of the target store. Left unspecified for using current store
+     * @return update result
      */
     @Processor
-    public void updateProductSpecialPrice(@Optional Integer productId,
-                                          @Optional String productSku,
-                                          @Optional String productIdOrSku,
-                                          String specialPrice,
-                                          @Optional String fromDate,
-                                          @Optional String toDate,
-                                          @Optional String storeViewIdOrCode) {
-        catalogClient.updateProductSpecialPrice(ProductIdentifiers.from(productSku, productId, productIdOrSku), specialPrice,
+    public int updateProductSpecialPrice(@Optional Integer productId,
+                                         @Optional String productSku,
+                                         @Optional String productIdOrSku,
+                                         String specialPrice,
+                                         @Optional String fromDate,
+                                         @Optional String toDate,
+                                         @Optional String storeViewIdOrCode) {
+        return catalogClient.updateProductSpecialPrice(ProductIdentifiers.from(productSku, productId, productIdOrSku), specialPrice,
                 fromDate, toDate, storeViewIdOrCode);
     }
 
@@ -1494,15 +1505,16 @@ public class MagentoCloudConnector {
      * @param catalogProductEntity           standard product attributes to update
      * @param additionalAttributes non standard product attributes to update
      * @param storeViewIdOrCode    the id or code of the target store. Left unspecified for using current store
+     * @return update result
      */
     @Processor
-    public void updateProduct(@Optional Integer productId,
-                              @Optional String productSku,
-                              @Optional String productIdOrSku,
-                              @Optional @Default("#[payload]") @Placement(group = "Standard Product Attributes to Update") CatalogProductCreateEntity catalogProductEntity,
-                              @Placement(group = "Non-standard Product Attributes to Update")@Optional List<AssociativeEntity> additionalAttributes,
-                              @Optional String storeViewIdOrCode) {
-        catalogClient.updateProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogProductEntity, additionalAttributes, storeViewIdOrCode);
+    public boolean updateProduct(@Optional Integer productId,
+                                 @Optional String productSku,
+                                 @Optional String productIdOrSku,
+                                 @Optional @Default("#[payload]") @Placement(group = "Standard Product Attributes to Update") CatalogProductCreateEntity catalogProductEntity,
+                                 @Placement(group = "Non-standard Product Attributes to Update") @Optional List<AssociativeEntity> additionalAttributes,
+                                 @Optional String storeViewIdOrCode) {
+        return catalogClient.updateProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogProductEntity, additionalAttributes, storeViewIdOrCode);
     }
 
     /**

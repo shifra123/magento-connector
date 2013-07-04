@@ -53,11 +53,11 @@ public class AxisMagentoCustomerClient extends AbstractMagentoClient
         return Arrays.asList(getPort().customerCustomerList(getSessionId(), parse(filters)));
     }
 
-    public void updateCustomer(int customerId, @NotNull CustomerCustomerEntityToCreate attributes)
+    public boolean updateCustomer(int customerId, @NotNull CustomerCustomerEntityToCreate attributes)
         throws RemoteException
     {
         Validate.notNull(attributes);
-        getPort().customerCustomerUpdate(getSessionId(), customerId, attributes);
+        return getPort().customerCustomerUpdate(getSessionId(), customerId, attributes);
     }
 
     public int createCustomerAddress(int customerId, CustomerAddressEntityCreate attributes) throws RemoteException
@@ -80,10 +80,10 @@ public class AxisMagentoCustomerClient extends AbstractMagentoClient
         return Arrays.asList(getPort().customerAddressList(getSessionId(), customerId));
     }
 
-    public void updateCustomerAddress(int addressId, CustomerAddressEntityCreate attributes)
+    public boolean updateCustomerAddress(int addressId, CustomerAddressEntityCreate attributes)
         throws RemoteException
     {
-        getPort().customerAddressUpdate(getSessionId(), addressId, attributes);
+        return getPort().customerAddressUpdate(getSessionId(), addressId, attributes);
     }
 
     public List<CustomerGroupEntity> listCustomerGroups() throws RemoteException
