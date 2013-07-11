@@ -5,6 +5,8 @@ import java.util.Map;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.rules.Timeout;
+import org.mule.api.MuleEvent;
+import org.mule.api.MuleException;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.tck.junit4.FunctionalTestCase;
 import org.springframework.context.ApplicationContext;
@@ -34,6 +36,24 @@ public class MagentoTestParent extends FunctionalTestCase {
 	@BeforeClass
 	public static void beforeClass() {
 		context = new ClassPathXmlApplicationContext(SPRING_CONFIG_FILES);
+	}
+	
+	/*
+	 * Helper methods below
+	 */
+	
+	public int createCustomer(CustomerCustomerEntityToCreate customer) throws Exception {
+		testObjects.put("customerRef", customer);
+		MessageProcessor flow = lookupFlowConstruct("create-customer");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();
+	}
+	
+	public boolean deleteCustomer(int customerId) throws Exception {
+		testObjects.put("customerId", customerId);
+		MessageProcessor flow = lookupFlowConstruct("delete-customer");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();
 	}
 	
 }

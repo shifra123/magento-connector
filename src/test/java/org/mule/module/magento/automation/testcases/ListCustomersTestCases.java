@@ -28,12 +28,9 @@ public class ListCustomersTestCases extends MagentoTestParent {
 			
 			List<CustomerCustomerEntityToCreate> customers = (List<CustomerCustomerEntityToCreate>) testObjects.get("customers");
 			
+			// Create the customers
 			for (CustomerCustomerEntityToCreate customer : customers) {
-				testObjects.put("customerRef", customer);
-				MessageProcessor flow = lookupFlowConstruct("create-customer");
-				MuleEvent response = flow.process(getTestEvent(testObjects));
-				
-				Integer customerId = (Integer) response.getMessage().getPayload();
+				Integer customerId = createCustomer(customer);
 				customerIds.add(customerId);
 			}
 
@@ -96,10 +93,9 @@ public class ListCustomersTestCases extends MagentoTestParent {
 		try {
 			List<Integer> customerIds = (List<Integer>) testObjects.get("customerIds");
 
+			// Delete the customers
 			for (Integer customerId : customerIds) {
-				testObjects.put("customerId", customerId);
-				MessageProcessor flow = lookupFlowConstruct("delete-customer");
-				MuleEvent event = flow.process(getTestEvent(testObjects));
+				deleteCustomer(customerId);
 			}
 		}
 		catch (Exception e) {

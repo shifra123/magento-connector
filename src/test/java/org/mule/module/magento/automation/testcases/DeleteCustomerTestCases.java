@@ -11,13 +11,15 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
+import com.magento.api.CustomerCustomerEntityToCreate;
+
 public class DeleteCustomerTestCases extends MagentoTestParent {
 
 	@Before
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("deleteCustomer");
-
+			
 			// Create the customer
 			MessageProcessor flow = lookupFlowConstruct("create-customer");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
