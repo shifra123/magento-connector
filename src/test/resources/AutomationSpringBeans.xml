@@ -17,7 +17,7 @@
 		<entry key="customer">
 			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
 				<property name="email" value="testemail@someplace.com" />
-				<property name="password" value="mule" />
+				<property name="password" value="mulemule" />
 				<property name="firstname" value="Mule" />
 				<property name="lastname" value="ESB" />
 			</bean>		
@@ -28,6 +28,9 @@
 		<entry key="customer">
 			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
 				<property name="email" value="testemail@someplace.com" />
+				<property name="password" value="mulemule" />
+				<property name="firstname" value="Mule" />
+				<property name="lastname" value="ESB" />
 			</bean>		
 		</entry>
 	</util:map>
