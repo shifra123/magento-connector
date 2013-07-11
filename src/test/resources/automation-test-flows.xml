@@ -25,4 +25,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
    		<magento:delete-customer config-ref="Magento" customerId="#[payload.customerId]" />
 	</flow>
 	
+	<flow name="get-customer">
+		<magento:get-customer config-ref="Magento" customerId="#[payload.customerId]" >
+			<magento:attribute-names ref="#[payload.attributesNames]" />
+		</magento:get-customer>
+	</flow>
+	
 </mule>

@@ -35,4 +35,45 @@
 		</entry>
 	</util:map>
 
+	<util:map id="getCustomer" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="customer">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+				<property name="email" value="testemail@someplace.com" />
+				<property name="password" value="mulemule" />
+				<property name="firstname" value="Mule" />
+				<property name="lastname" value="ESB" />
+			</bean>
+		</entry>
+		<entry key="attributesNames">
+			<util:list value-type="java.lang.String">
+				<value>created_at</value>
+				<value>updated_at</value>
+				<value>increment_id</value>
+				<value>website_id</value>
+				<value>created_in</value>
+				<value>email</value>
+				<value>firstname</value>
+				<value>middlename</value>
+				<value>lastname</value>
+				<value>group_id</value>
+				<value>prefix</value>
+				<value>suffix</value>
+				<value>dob</value>
+				<value>taxvat</value>
+				<value>confirmation</value>
+				<value>password_hash</value>
+				<value>rp_token</value>
+				<value>rp_token_created_at</value>
+			</util:list>
+		</entry>
+	</util:map>
+
+
+
+
+
+
+
+
+
 </beans>
