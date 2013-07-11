@@ -20,14 +20,6 @@ public class CreateCustomerTestCases extends MagentoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("createCustomer");
-			
-			// Get the customer object from testObjects
-			// Place individual variables in testObjects
-			CustomerCustomerEntityToCreate customer = (CustomerCustomerEntityToCreate) testObjects.get("customer");
-			testObjects.put("email", customer.getEmail());
-			testObjects.put("password", customer.getPassword());
-			testObjects.put("firstname", customer.getFirstname());
-			testObjects.put("lastname", customer.getLastname());
 		}
 		catch (Exception e) {
 			e.printStackTrace();

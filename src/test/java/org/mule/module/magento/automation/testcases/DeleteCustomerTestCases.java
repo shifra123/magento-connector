@@ -1,19 +1,15 @@
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
-
-import com.magento.api.CustomerCustomerEntityToCreate;
 
 public class DeleteCustomerTestCases extends MagentoTestParent {
 
@@ -21,12 +17,6 @@ public class DeleteCustomerTestCases extends MagentoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("deleteCustomer");
-
-			CustomerCustomerEntityToCreate customer = (CustomerCustomerEntityToCreate) testObjects.get("customer");
-			testObjects.put("email", customer.getEmail());
-			testObjects.put("password", customer.getPassword());
-			testObjects.put("firstname", customer.getFirstname());
-			testObjects.put("lastname", customer.getLastname());
 
 			// Create the customer
 			MessageProcessor flow = lookupFlowConstruct("create-customer");

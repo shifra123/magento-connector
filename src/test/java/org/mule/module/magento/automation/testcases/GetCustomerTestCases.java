@@ -22,12 +22,6 @@ public class GetCustomerTestCases extends MagentoTestParent {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("getCustomer");
 			
-			CustomerCustomerEntityToCreate customer = (CustomerCustomerEntityToCreate) testObjects.get("customer");
-			testObjects.put("email", customer.getEmail());
-			testObjects.put("password", customer.getPassword());
-			testObjects.put("firstname", customer.getFirstname());
-			testObjects.put("lastname", customer.getLastname());
-			
 			MessageProcessor flow = lookupFlowConstruct("create-customer");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
@@ -46,7 +40,7 @@ public class GetCustomerTestCases extends MagentoTestParent {
 		try {
 			
 			int customerId = (Integer) testObjects.get("customerId");
-			CustomerCustomerEntityToCreate customer = (CustomerCustomerEntityToCreate) testObjects.get("customer");
+			CustomerCustomerEntityToCreate customer = (CustomerCustomerEntityToCreate) testObjects.get("customerRef");
 
 			MessageProcessor flow = lookupFlowConstruct("get-customer");
 			MuleEvent response = flow.process(getTestEvent(testObjects));

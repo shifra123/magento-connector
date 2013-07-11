@@ -14,7 +14,7 @@
 	</bean>
 
 	<util:map id="createCustomer"  map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-		<entry key="customer">
+		<entry key="customerRef">
 			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
 				<property name="email" value="testemail@someplace.com" />
 				<property name="password" value="mulemule" />
@@ -25,7 +25,7 @@
 	</util:map>
 
 	<util:map id="deleteCustomer" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-		<entry key="customer">
+		<entry key="customerRef">
 			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
 				<property name="email" value="testemail@someplace.com" />
 				<property name="password" value="mulemule" />
@@ -36,7 +36,7 @@
 	</util:map>
 
 	<util:map id="getCustomer" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-		<entry key="customer">
+		<entry key="customerRef">
 			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
 				<property name="email" value="testemail@someplace.com" />
 				<property name="password" value="mulemule" />

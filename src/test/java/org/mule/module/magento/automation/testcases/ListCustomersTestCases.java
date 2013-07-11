@@ -29,12 +29,7 @@ public class ListCustomersTestCases extends MagentoTestParent {
 			List<CustomerCustomerEntityToCreate> customers = (List<CustomerCustomerEntityToCreate>) testObjects.get("customers");
 			
 			for (CustomerCustomerEntityToCreate customer : customers) {
-				
-				testObjects.put("email", customer.getEmail());
-				testObjects.put("password", customer.getPassword());
-				testObjects.put("firstname", customer.getFirstname());
-				testObjects.put("lastname", customer.getLastname());
-				
+				testObjects.put("customerRef", customer);
 				MessageProcessor flow = lookupFlowConstruct("create-customer");
 				MuleEvent response = flow.process(getTestEvent(testObjects));
 				
