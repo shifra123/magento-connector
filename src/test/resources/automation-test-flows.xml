@@ -45,4 +45,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:update-customer>
 	</flow>
 	
+	<flow name="create-customer-address">
+		<magento:create-customer-address config-ref="Magento" customerId="#[payload.customerId]">
+			<magento:customer-address ref="#[payload.customerAddressRef]"/>
+		</magento:create-customer-address>
+	</flow>
+	
+	<flow name="delete-customer-address">
+		<magento:delete-customer-address config-ref="Magento" addressId="#[payload.addressId]" />
+	</flow>
+	
 </mule>

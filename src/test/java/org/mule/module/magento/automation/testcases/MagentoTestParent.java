@@ -12,6 +12,7 @@ import org.mule.tck.junit4.FunctionalTestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.magento.api.CustomerAddressEntityCreate;
 import com.magento.api.CustomerCustomerEntityToCreate;
 
 public class MagentoTestParent extends FunctionalTestCase {
@@ -52,6 +53,21 @@ public class MagentoTestParent extends FunctionalTestCase {
 	public boolean deleteCustomer(int customerId) throws Exception {
 		testObjects.put("customerId", customerId);
 		MessageProcessor flow = lookupFlowConstruct("delete-customer");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();
+	}
+
+	public int createCustomerAddress(int customerId, CustomerAddressEntityCreate address) throws Exception {
+		testObjects.put("customerId", customerId);
+		testObjects.put("customerAddressRef", address);
+		MessageProcessor flow = lookupFlowConstruct("create-customer-address");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();
+	}
+	
+	public boolean deleteCustomerAddress(int customerAddressId) throws Exception {
+		testObjects.put("addressId", customerAddressId);
+		MessageProcessor flow = lookupFlowConstruct("delete-customer-address");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Boolean) response.getMessage().getPayload();
 	}
