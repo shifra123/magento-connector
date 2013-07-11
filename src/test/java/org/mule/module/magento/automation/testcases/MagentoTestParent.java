@@ -1,4 +1,4 @@
-package org.mule.magento.automation.testcases;
+package org.mule.module.magento.automation.testcases;
 
 import java.util.Map;
 
