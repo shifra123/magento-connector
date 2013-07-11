@@ -14,5 +14,11 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<magento:config name="Magento" username="${magento.username}" password="${magento.password}" address="${magento.address}" doc:name="Magento">
         <magento:connection-pooling-profile initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW"/>
     </magento:config>
+    
+    <magento:create-customer config-ref="Magento">
+    	<magento:customer email="#[payload.email]" firstname="#[payload.firstname]" lastname="#[payload.lastname]" password="#[payload.password]" />
+    </magento:create-customer>
+    
+    <magento:delete-customer config-ref="Magento" customerId="#[payload.customerId]" />
 
 </mule>

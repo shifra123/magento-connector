@@ -13,4 +13,23 @@
 		</property>  
 	</bean>
 
+	<util:map id="createCustomer"  map-class="java.lang.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="customer">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+				<property name="email" value="testemail@someplace.com" />
+				<property name="password" value="mule" />
+				<property name="firstname" value="Mule" />
+				<property name="lastname" value="ESB" />
+			</bean>		
+		</entry>
+	</util:map>
+
+	<util:map id="deleteCustomer" map-class="java.lang.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="customer">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+				<property name="email" value="testemail@someplace.com" />
+			</bean>		
+		</entry>
+	</util:map>
+
 </beans>

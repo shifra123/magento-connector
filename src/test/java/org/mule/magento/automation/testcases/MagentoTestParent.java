@@ -10,6 +10,8 @@ import org.mule.tck.junit4.FunctionalTestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.magento.api.CustomerCustomerEntityToCreate;
+
 public class MagentoTestParent extends FunctionalTestCase {
 
 	// Set global timeout of tests to 10minutes
@@ -33,6 +35,5 @@ public class MagentoTestParent extends FunctionalTestCase {
 	public static void beforeClass() {
 		context = new ClassPathXmlApplicationContext(SPRING_CONFIG_FILES);
 	}
-	
 	
 }
