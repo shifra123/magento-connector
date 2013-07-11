@@ -55,4 +55,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:delete-customer-address config-ref="Magento" addressId="#[payload.addressId]" />
 	</flow>
 	
+	<flow name="get-customer-address">
+		<magento:get-customer-address config-ref="Magento" addressId="#[payload.addressId]"/>
+	</flow>
+	
 </mule>
