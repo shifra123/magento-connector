@@ -39,4 +39,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:get-customer>
 	</flow>
 	
+	<flow name="update-customer">
+		<magento:update-customer config-ref="Magento" customerId="#[payload.customerId]">
+			<magento:customer ref="#[payload.customerRef]"/>
+		</magento:update-customer>
+	</flow>
+	
 </mule>
