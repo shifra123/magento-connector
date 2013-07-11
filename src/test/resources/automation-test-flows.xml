@@ -25,9 +25,17 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
    		<magento:delete-customer config-ref="Magento" customerId="#[payload.customerId]" />
 	</flow>
 	
+	<flow name="list-customers-without-filter">
+		<magento:list-customers config-ref="Magento" />
+	</flow>
+	
+	<flow name="list-customers-with-filter">
+		<magento:list-customers config-ref="Magento" filter="#[payload.filter]" />
+	</flow>
+	
 	<flow name="get-customer">
 		<magento:get-customer config-ref="Magento" customerId="#[payload.customerId]" >
-			<magento:attribute-names ref="#[payload.attributesNames]" />
+			<magento:attribute-names ref="#[payload.attributeNames]" />
 		</magento:get-customer>
 	</flow>
 	

@@ -44,7 +44,7 @@
 				<property name="lastname" value="ESB" />
 			</bean>
 		</entry>
-		<entry key="attributesNames">
+		<entry key="attributeNames">
 			<util:list value-type="java.lang.String">
 				<value>created_at</value>
 				<value>updated_at</value>
@@ -68,7 +68,33 @@
 		</entry>
 	</util:map>
 
-
+	<util:map id="listCustomers" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="customers">
+			<util:list value-type="com.magento.api.CustomerCustomerEntityToCreate">
+				<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+					<property name="email" value="johndoe@anon.com" />
+					<property name="password" value="johndoe" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+				<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+					<property name="email" value="janedoe@anon.com" />
+					<property name="password" value="janedoe" />
+					<property name="firstname" value="Jane" />
+					<property name="lastname" value="Doe" />
+				</bean>
+				<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+					<property name="email" value="personunknown@anon.com" />
+					<property name="password" value="unknownperson" />
+					<property name="firstname" value="Person" />
+					<property name="lastname" value="Unknown" />
+				</bean>
+			</util:list>
+		</entry>
+		<entry key="filter" value="eq(email, 'johndoe@anon.com')" />
+		<!-- used only for checking -->
+		<entry key="emailFilter" value="johndoe@anon.com" />
+	</util:map>
 
 
 
