@@ -59,4 +59,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:get-customer-address config-ref="Magento" addressId="#[payload.addressId]"/>
 	</flow>
 	
+	<flow name="update-customer-address">
+		<magento:update-customer-address config-ref="Magento" addressId="#[payload.addressId]" >            
+			<magento:customer-address ref="#[payload.customerAddressRef]" />
+		</magento:update-customer-address>
+	</flow>
+	
 </mule>

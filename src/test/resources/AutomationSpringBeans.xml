@@ -183,4 +183,38 @@
 		</entry>
 	</util:map>
 
+	<util:map id="updateCustomerAddress" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="customerRef">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+				<property name="email" value="johndoe@anon.com" />
+				<property name="password" value="johndoe" />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+			</bean>
+		</entry>		
+		<entry key="customerAddressBefore">
+			<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
+				<property name="postcode" value="NYC0013" />
+				<property name="telephone" value="123456789" />
+				<property name="city" value="New York" />
+				<property name="company" value="MuleSoft" />
+				<property name="country_id" value="USA" />
+				<property name="street" value="Wall Street" />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+			</bean>
+		</entry>		
+		<entry key="customerAddressAfter">
+			<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
+				<property name="postcode" value="CALI0013" />
+				<property name="telephone" value="987654321" />
+				<property name="city" value="California" />
+				<property name="company" value="MuleSoft" />
+				<property name="country_id" value="USA" />
+				<property name="street" value="Bay Area" />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+			</bean>
+		</entry>
+	</util:map>
 </beans>
