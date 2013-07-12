@@ -288,6 +288,16 @@
 			<bean class="com.magento.api.CatalogProductCreateEntity" />
 		</entry>
 	</util:map>
+	
+	<util:map id="listProducts" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="type" value="simple" />
+		<entry key="set" value="#{4}" />
+		<entry key="sku" value="1234567C" />
+		<entry key="attributesRef">
+			<bean class="com.magento.api.CatalogProductCreateEntity" />
+		</entry>
+	</util:map>
 			
 	<util:map id="createCategory" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 		<entry key="parentId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_CATEGORY_ID}" />
