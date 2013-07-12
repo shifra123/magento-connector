@@ -79,6 +79,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:delete-category config-ref="Magento" categoryId="#[payload.categoryId]" />
 	</flow>
 	
+	<flow name="move-category">
+		<magento:move-category categoryId="#[payload.categoryId]" parentId="#[payload.parentId]" />
+	</flow>
+	
 	<flow name="get-category">
 		<magento:get-category config-ref="Magento" categoryId="#[payload.categoryId]" >
 			<magento:attribute-names ref="#[payload.attributeNames]" />

@@ -1,12 +1,12 @@
 package org.mule.module.magento.automation.testcases;
 
+import java.util.List;
 import java.util.Map;
 
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.rules.Timeout;
 import org.mule.api.MuleEvent;
-import org.mule.api.MuleException;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.tck.junit4.FunctionalTestCase;
 import org.springframework.context.ApplicationContext;
@@ -23,7 +23,7 @@ public class MagentoTestParent extends FunctionalTestCase {
     @Rule
     public Timeout globalTimeout = new Timeout(600000);
 
-	protected static final String[] SPRING_CONFIG_FILES = new String[] { "AutomationSpringBeans.xml" };
+	protected static final String[] SPRING_CONFIG_FILES = new String[] { "AutomationSpringBeans.xml", "AttributesSpringBeans.xml" };
 	protected static ApplicationContext context;
 	protected Map<String, Object> testObjects;
 
@@ -93,7 +93,9 @@ public class MagentoTestParent extends FunctionalTestCase {
 	}
 	
 	public CatalogCategoryInfo getCategory(int categoryId) throws Exception {
+		List<String> categoryAttributeNames = (List<String>) context.getBean("categoryAttributeNames");
 		testObjects.put("categoryId", categoryId);
+		testObjects.put("attributeNames", categoryAttributeNames);
 		MessageProcessor flow = lookupFlowConstruct("get-category");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (CatalogCategoryInfo) response.getMessage().getPayload();
