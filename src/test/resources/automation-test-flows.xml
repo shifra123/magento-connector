@@ -89,4 +89,25 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:get-category-tree config-ref="Magento" parentId="#[payload.parentId]" />
 	</flow>
 	
+	<flow name="create-product">
+		<magento:create-product config-ref="Magento" set="#[payload.set]" sku="#[payload.sku]" type="#[payload.type]">
+			<magento:attributes ref="#[payload.attributesRef]" />
+		</magento:create-product>
+	</flow>
+	
+	<flow name="delete-product">
+		<magento:delete-product productId="#[payload.productId]"/>
+	</flow>
+	
+	<flow name="list-products">
+		<magento:list-products config-ref="Magento" />
+	</flow>
+	
+	<flow name="delete-category-product">
+		<magento:delete-category-product categoryId="#[map-payload:categoryId]" productSku="#[map-payload:productSku]"/>
+	</flow>
+<!-- 	<flow name="list-product-attribute-sets"> -->
+<!-- 		<magento:list-product-attribute-sets config-ref="Magento" /> -->
+<!-- 	</flow> -->
+	
 </mule>
