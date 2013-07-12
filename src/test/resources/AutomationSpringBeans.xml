@@ -218,7 +218,7 @@
 		</entry>
 	</util:map>
 	
-		<util:map id="listCustomerAddresses" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+	<util:map id="listCustomerAddresses" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="customerAddresses">
 			<util:list value-type="com.magento.api.CustomerAddressEntityCreate">
 				<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
@@ -288,6 +288,56 @@
 				<property name="available_sort_by" value="name" />
 				<property name="default_sort_by" value="name" />
 			</bean>
+		</entry>
+	</util:map>
+	
+	<util:map id="getCategory" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="parentId" value="#{2}" />
+		<entry key="catalogCategoryEntityRef">
+			<bean class="com.magento.api.CatalogCategoryEntityCreate" scope="prototype">
+				<property name="name" value="MyCategory" />
+				<property name="is_active" value="1" />
+				<property name="description" value="This is a description" />
+				<property name="include_in_menu" value="1" />
+				<property name="available_sort_by" value="name" />
+				<property name="default_sort_by" value="name" />
+			</bean>
+		</entry>
+		<entry key="attributeNames">
+			<list value-type="java.lang.String">
+				<value>category_id</value>
+				<value>is_active</value>
+				<value>position</value>
+				<value>level</value>
+				<value>parent_id</value>
+				<value>all_children</value>
+				<value>children</value>
+				<value>created_at</value>
+				<value>updated_at</value>
+				<value>name</value>
+				<value>url_key</value>
+				<value>description</value>
+				<value>meta_title</value>
+				<value>meta_keywords</value>
+				<value>meta_description</value>
+				<value>path</value>
+				<value>url_path</value>
+				<value>children_count</value>
+				<value>display_mode</value>
+				<value>is_anchor</value>
+				<value>available_sort_by</value>
+				<value>custom_design</value>
+				<value>custom_apply_to_products</value>
+				<value>custom_design_from</value>
+				<value>custom_design_to</value>
+				<value>page_layout</value>
+				<value>custom_layout_update</value>
+				<value>default_sort_by</value>
+				<value>landing_page</value>
+				<value>include_in_menu</value>
+				<value>filter_price_range</value>
+				<value>custom_use_parent_settings</value>
+			</list>
 		</entry>
 	</util:map>
 	
