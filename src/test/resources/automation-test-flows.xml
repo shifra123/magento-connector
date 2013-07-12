@@ -110,6 +110,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-category-attributes">
 		<magento:list-category-attributes config-ref="Magento" />
 	</flow>
+	
+	<flow name="list-category-attribute-options">
+		<magento:list-category-attribute-options config-ref="Magento" attributeId="#[payload.attributeId]" />
+	</flow>
 			
 	<flow name="create-product">
 		<magento:create-product config-ref="Magento" set="#[payload.set]" sku="#[payload.sku]" type="#[payload.type]">
