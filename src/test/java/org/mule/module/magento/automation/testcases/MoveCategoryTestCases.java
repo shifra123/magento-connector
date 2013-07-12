@@ -15,17 +15,18 @@ import org.mule.api.processor.MessageProcessor;
 import com.magento.api.CatalogCategoryEntityCreate;
 import com.magento.api.CatalogCategoryInfo;
 
-public class GetCategoryTestCases extends MagentoTestParent {
-	
+public class MoveCategoryTestCases extends MagentoTestParent {
+
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("getCategory");
+			testObjects = (HashMap<String, Object>) context.getBean("moveCategory");
 			
-			int parentId = (Integer) testObjects.get("parentId");
-			CatalogCategoryEntityCreate category = (CatalogCategoryEntityCreate) testObjects.get("catalogCategoryEntityRef");
-			int categoryId = createCategory(parentId, category);
-		
+			int beforeParentId = (Integer) testObjects.get("beforeParentId");
+			
+			CatalogCategoryEntityCreate category = (CatalogCategoryEntityCreate) testObjects.get("category");
+			int categoryId = createCategory(beforeParentId, category);
+			
 			testObjects.put("categoryId", categoryId);
 		}
 		catch (Exception e) {
@@ -34,20 +35,21 @@ public class GetCategoryTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
-	public void testGetCategory() {
+	public void testMoveCategory() {
 		try {
-		
 			int categoryId = (Integer) testObjects.get("categoryId");
-			int parentId = (Integer) testObjects.get("parentId");
+			int afterParentId = (Integer) testObjects.get("afterParentId");
 			
-			MessageProcessor flow = lookupFlowConstruct("get-category");
+			testObjects.put("parentId", afterParentId);
+			
+			MessageProcessor flow = lookupFlowConstruct("move-category");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			CatalogCategoryInfo category = (CatalogCategoryInfo) response.getMessage().getPayload();
-			assertTrue(category.getParent_id().equals(Integer.toString(parentId)));
-			assertTrue(category.getCategory_id().equals(Integer.toString(categoryId)));
+
+			CatalogCategoryInfo movedCategory = getCategory(categoryId);
+			assertTrue(movedCategory.getCategory_id().equals(Integer.toString(categoryId)));
+			assertTrue(movedCategory.getParent_id().equals(Integer.toString(afterParentId)));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -66,4 +68,5 @@ public class GetCategoryTestCases extends MagentoTestParent {
 			fail();
 		}
 	}
+	
 }

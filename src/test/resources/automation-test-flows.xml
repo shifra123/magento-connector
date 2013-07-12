@@ -79,6 +79,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:delete-category config-ref="Magento" categoryId="#[payload.categoryId]" />
 	</flow>
 	
+	<flow name="move-category">
+		<magento:move-category categoryId="#[payload.categoryId]" parentId="#[payload.parentId]" />
+	</flow>
+	
 	<flow name="get-category">
 		<magento:get-category config-ref="Magento" categoryId="#[payload.categoryId]" >
 			<magento:attribute-names ref="#[payload.attributeNames]" />
@@ -89,6 +93,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:get-category-tree config-ref="Magento" parentId="#[payload.parentId]" />
 	</flow>
 	
+	<flow name="list-category-levels">
+		<magento:list-category-levels config-ref="Magento" />
+	</flow>
+	
+	<flow name="list-category-levels-with-parent-category">
+		<magento:list-category-levels config-ref="Magento" parentCategoryId="#[payload.parentCategoryId]" />
+	</flow>
+			
 	<flow name="create-product">
 		<magento:create-product config-ref="Magento" set="#[payload.set]" sku="#[payload.sku]" type="#[payload.type]">
 			<magento:attributes ref="#[payload.attributesRef]" />
