@@ -89,6 +89,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:get-category>
 	</flow>
 	
+	<flow name="update-category">
+		<magento:update-category config-ref="Magento" categoryId="#[payload.categoryId]">
+			<magento:catalog-category-entity ref="#[payload.catalogCategoryEntityRef]"/>
+		</magento:update-category>
+	</flow>
+	
 	<flow name="get-category-tree">
 		<magento:get-category-tree config-ref="Magento" parentId="#[payload.parentId]" />
 	</flow>
@@ -114,7 +120,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-products">
 		<magento:list-products config-ref="Magento" />
 	</flow>
-	
+		
 	<flow name="delete-category-product">
 		<magento:delete-category-product categoryId="#[map-payload:categoryId]" productSku="#[map-payload:productSku]"/>
 	</flow>
