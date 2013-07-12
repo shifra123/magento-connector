@@ -85,4 +85,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:get-category>
 	</flow>
 	
+	<flow name="get-category-tree">
+		<magento:get-category-tree config-ref="Magento" parentId="#[payload.parentId]" />
+	</flow>
+	
 </mule>
