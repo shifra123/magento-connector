@@ -34,7 +34,7 @@ public class GetCategoryTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({RegressionTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testGetCategory() {
 		try {

@@ -13,6 +13,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.magento.api.CatalogCategoryEntityCreate;
+import com.magento.api.CatalogCategoryInfo;
 import com.magento.api.CustomerAddressEntityCreate;
 import com.magento.api.CustomerCustomerEntityToCreate;
 
@@ -89,6 +90,13 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MessageProcessor flow = lookupFlowConstruct("delete-category");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Boolean) response.getMessage().getPayload();
+	}
+	
+	public CatalogCategoryInfo getCategory(int categoryId) throws Exception {
+		testObjects.put("categoryId", categoryId);
+		MessageProcessor flow = lookupFlowConstruct("get-category");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (CatalogCategoryInfo) response.getMessage().getPayload();
 	}
 	
 }
