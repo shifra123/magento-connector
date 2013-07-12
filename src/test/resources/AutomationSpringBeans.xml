@@ -264,7 +264,7 @@
 	</util:map>
 	
 	<util:map id="createCategory" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
-		<entry key="parentId" value="2" />
+		<entry key="parentId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_CATEGORY_ID}" />
 		<entry key="catalogCategoryEntityRef">
 			<bean class="com.magento.api.CatalogCategoryEntityCreate" scope="prototype">
 				<property name="name" value="MyCategory" />
@@ -278,7 +278,7 @@
 	</util:map>
 	
 	<util:map id="deleteCategory" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
-		<entry key="parentId" value="#{2}" />
+		<entry key="parentId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_CATEGORY_ID}" />
 		<entry key="catalogCategoryEntityRef">
 			<bean class="com.magento.api.CatalogCategoryEntityCreate" scope="prototype">
 				<property name="name" value="MyCategory" />
@@ -343,7 +343,7 @@
 	
 	<util:map id="getCategoryTree" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 		<!-- parent id of the parent category of this test -->
-		<entry key="parentId" value="#{1}" />
+		<entry key="parentId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).ROOT_CATEGORY_ID}" />
 		<entry key="parentCategory">
 			<bean class="com.magento.api.CatalogCategoryEntityCreate" scope="prototype">
 				<property name="name" value="ParentCategory" />
@@ -363,6 +363,40 @@
 				<property name="available_sort_by" value="name" />
 				<property name="default_sort_by" value="name" />
 			</bean>
+		</entry>
+	</util:map>
+	
+	<!-- This test creates a number of categories on the same level -->
+	<util:map id="listCategoryLevels" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<!-- Create the categories as children of the default category -->
+		<entry key="parentCategoryId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_CATEGORY_ID}" />
+		<entry key="categories">
+			<list value-type="com.magento.api.CatalogCategoryEntityCreate">
+				<bean class="com.magento.api.CatalogCategoryEntityCreate">
+					<property name="name" value="Category_1" />
+					<property name="is_active" value="1" />
+					<property name="description" value="This is a description of category 1" />
+					<property name="include_in_menu" value="1" />
+					<property name="available_sort_by" value="name" />
+					<property name="default_sort_by" value="name" />
+				</bean>
+				<bean class="com.magento.api.CatalogCategoryEntityCreate">
+					<property name="name" value="Category_2" />
+					<property name="is_active" value="1" />
+					<property name="description" value="This is a description of category 2" />
+					<property name="include_in_menu" value="1" />
+					<property name="available_sort_by" value="name" />
+					<property name="default_sort_by" value="name" />
+				</bean>
+				<bean class="com.magento.api.CatalogCategoryEntityCreate">
+					<property name="name" value="Category_3" />
+					<property name="is_active" value="1" />
+					<property name="description" value="This is a description of category 3" />
+					<property name="include_in_menu" value="1" />
+					<property name="available_sort_by" value="name" />
+					<property name="default_sort_by" value="name" />
+				</bean>
+			</list>
 		</entry>
 	</util:map>
 	
