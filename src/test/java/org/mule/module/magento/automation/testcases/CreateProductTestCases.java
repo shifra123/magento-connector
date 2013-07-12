@@ -48,7 +48,7 @@ public class CreateProductTestCases extends MagentoTestParent {
 	public void tearDown() {
 		try {
 			int productId = (Integer) testObjects.get("productId");
-			deleteProduct(productId);
+			deleteProductById(productId);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

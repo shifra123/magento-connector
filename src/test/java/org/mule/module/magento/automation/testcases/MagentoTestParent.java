@@ -88,9 +88,16 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Boolean) response.getMessage().getPayload();
 	}
 	
-	public int deleteProduct(int productId) throws Exception {
+	public int deleteProductById(int productId) throws Exception {
 		testObjects.put("productId", productId);
-		MessageProcessor flow = lookupFlowConstruct("delete-product");
+		MessageProcessor flow = lookupFlowConstruct("delete-product-by-product-id");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();
+	}
+	
+	public int deleteProductBySku(String productSku) throws Exception {
+		testObjects.put("productSku", productSku);
+		MessageProcessor flow = lookupFlowConstruct("delete-product-by-product-sku");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Integer) response.getMessage().getPayload();
 	}
