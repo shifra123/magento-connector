@@ -29,7 +29,6 @@
 	</util:list>
 
 	<util:list id="categoryAttributeNames" value-type="java.lang.String">
-		<value>category_id</value>
 		<value>is_active</value>
 		<value>position</value>
 		<value>level</value>
@@ -61,6 +60,10 @@
 		<value>include_in_menu</value>
 		<value>filter_price_range</value>
 		<value>custom_use_parent_settings</value>
+		<value>increment_id</value>
+		<value>thumbnail</value>
+		<value>image</value>
+		<value>path_in_store</value>
 	</util:list>
 
 </beans>

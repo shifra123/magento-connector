@@ -106,6 +106,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-category-levels-with-parent-category">
 		<magento:list-category-levels config-ref="Magento" parentCategoryId="#[payload.parentCategoryId]" />
 	</flow>
+	
+	<flow name="list-category-attributes">
+		<magento:list-category-attributes config-ref="Magento" />
+	</flow>
 			
 	<flow name="create-product">
 		<magento:create-product config-ref="Magento" set="#[payload.set]" sku="#[payload.sku]" type="#[payload.type]">

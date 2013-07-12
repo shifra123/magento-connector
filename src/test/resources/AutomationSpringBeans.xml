@@ -344,7 +344,7 @@
 			</bean>		
 		</entry>
 	</util:map>
-	
+		
 	<util:map id="getCategory" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 		<entry key="parentId" value="#{2}" />
 		<entry key="catalogCategoryEntityRef">
@@ -383,6 +383,10 @@
 				<property name="default_sort_by" value="name" />
 			</bean>
 		</entry>
+	</util:map>
+	
+	<util:map id="listCategoryAttributes" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="attributes" value-ref="categoryAttributeNames" />
 	</util:map>
 	
 	<!-- This test creates a number of categories on the same level -->
