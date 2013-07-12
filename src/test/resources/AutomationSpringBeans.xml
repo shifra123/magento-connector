@@ -217,4 +217,49 @@
 			</bean>
 		</entry>
 	</util:map>
+	
+		<util:map id="listCustomerAddresses" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="customerAddresses">
+			<util:list value-type="com.magento.api.CustomerAddressEntityCreate">
+				<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
+					<property name="postcode" value="LA1245" />
+					<property name="telephone" value="55874521" />
+					<property name="city" value="Los Angeles" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="USA" />
+					<property name="street" value="Los Angeles Street" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+				<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
+					<property name="postcode" value="TXS9874" />
+					<property name="telephone" value="55874521" />
+					<property name="city" value="Texas" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="USA" />
+					<property name="street" value="Area 51" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+				<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
+					<property name="postcode" value="ALSK111" />
+					<property name="telephone" value="55874521" />
+					<property name="city" value="Alaska" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="Canada" />
+					<property name="street" value="Alaska Street" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+			</util:list>
+		</entry>
+		<entry key="customerRef">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+				<property name="email" value="johndoe@anon.com" />
+				<property name="password" value="johndoe" />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+			</bean>
+		</entry>
+	</util:map>
 </beans>

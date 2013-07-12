@@ -65,4 +65,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:update-customer-address>
 	</flow>
 	
+	<flow name="list-customer-addresses">
+		<magento:list-customer-addresses config-ref="Magento" customerId="#[payload.customerId]" />
+	</flow>
+	
 </mule>
