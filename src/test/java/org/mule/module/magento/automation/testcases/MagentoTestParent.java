@@ -101,4 +101,10 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (CatalogCategoryInfo) response.getMessage().getPayload();
 	}
 	
+	public int deleteProduct(int productId) throws Exception {
+		testObjects.put("productId", productId);
+		MessageProcessor flow = lookupFlowConstruct("delete-product");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();
+	}
 }
