@@ -27,7 +27,7 @@ public class ListCategoryAttributesTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({ RegressionTests.class })
+	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testListCategoryAttributes() {
 		try {
