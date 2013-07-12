@@ -118,6 +118,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-customer-groups">
 		<magento:list-customer-groups config-ref="Magento" />
 	</flow>
+	
+	<flow name="list-directory-countries">
+		<magento:list-directory-countries config-ref="Magento" />
+	</flow>
 			
 	<flow name="create-product">
 		<magento:create-product config-ref="Magento" set="#[payload.set]" sku="#[payload.sku]" type="#[payload.type]">
@@ -128,7 +132,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="delete-product-by-product-id">
 		<magento:delete-product productId="#[payload.productId]"/>
 	</flow>
-	
 	
 	<flow name="delete-product-by-product-sku">
 		<magento:delete-product productSku="#[payload.productSku]"/>
