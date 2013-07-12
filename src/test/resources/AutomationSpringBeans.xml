@@ -262,4 +262,33 @@
 			</bean>
 		</entry>
 	</util:map>
+	
+	<util:map id="createCategory" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="parentId" value="2" />
+		<entry key="catalogCategoryEntityRef">
+			<bean class="com.magento.api.CatalogCategoryEntityCreate" scope="prototype">
+				<property name="name" value="MyCategory" />
+				<property name="is_active" value="1" />
+				<property name="description" value="This is a description" />
+				<property name="include_in_menu" value="1" />
+				<property name="available_sort_by" value="name" />
+				<property name="default_sort_by" value="name" />
+			</bean>
+		</entry>
+	</util:map>
+	
+	<util:map id="deleteCategory" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="parentId" value="#{2}" />
+		<entry key="catalogCategoryEntityRef">
+			<bean class="com.magento.api.CatalogCategoryEntityCreate" scope="prototype">
+				<property name="name" value="MyCategory" />
+				<property name="is_active" value="1" />
+				<property name="description" value="This is a description" />
+				<property name="include_in_menu" value="1" />
+				<property name="available_sort_by" value="name" />
+				<property name="default_sort_by" value="name" />
+			</bean>
+		</entry>
+	</util:map>
+	
 </beans>

@@ -69,4 +69,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:list-customer-addresses config-ref="Magento" customerId="#[payload.customerId]" />
 	</flow>
 	
+	<flow name="create-category">
+		<magento:create-category config-ref="Magento" parentId="#[payload.parentId]" >
+            <magento:catalog-category-entity ref="#[payload.catalogCategoryEntityRef]"/>
+		</magento:create-category>
+	</flow>
+	
+	<flow name="delete-category">
+		<magento:delete-category config-ref="Magento" categoryId="#[payload.categoryId]" />
+	</flow>
+	
 </mule>
