@@ -69,25 +69,24 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:list-customer-addresses config-ref="Magento" customerId="#[payload.customerId]" />
 	</flow>
 	
-	<flow name="create-product">
-		<magento:create-product config-ref="Magento" set="#[payload.set]" sku="#[payload.sku]" type="#[payload.type]">
-			<magento:attributes ref="#[payload.attributesRef]" />
-		</magento:create-product>
+	<flow name="create-category">
+		<magento:create-category config-ref="Magento" parentId="#[payload.parentId]" >
+            <magento:catalog-category-entity ref="#[payload.catalogCategoryEntityRef]"/>
+		</magento:create-category>
 	</flow>
 	
-	<flow name="delete-product">
-		<magento:delete-product productId="#[payload.productId]"/>
+	<flow name="delete-category">
+		<magento:delete-category config-ref="Magento" categoryId="#[payload.categoryId]" />
 	</flow>
 	
-	<flow name="list-products">
-		<magento:list-products config-ref="Magento" />
+	<flow name="get-category">
+		<magento:get-category config-ref="Magento" categoryId="#[payload.categoryId]" >
+			<magento:attribute-names ref="#[payload.attributeNames]" />
+		</magento:get-category>
 	</flow>
 	
-	<flow name="delete-category-product">
-		<magento:delete-category-product categoryId="#[map-payload:categoryId]" productSku="#[map-payload:productSku]"/>
+	<flow name="get-category-tree">
+		<magento:get-category-tree config-ref="Magento" parentId="#[payload.parentId]" />
 	</flow>
-<!-- 	<flow name="list-product-attribute-sets"> -->
-<!-- 		<magento:list-product-attribute-sets config-ref="Magento" /> -->
-<!-- 	</flow> -->
 	
 </mule>
