@@ -6,38 +6,45 @@
                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
                            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
                            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
-                           
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
 			<value>automation-credentials.properties</value>
-		</property>  
+		</property>
 	</bean>
 
-	<util:map id="createCustomer"  map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+	<util:map id="createCustomer" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="customerRef">
-			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+				scope="prototype">
 				<property name="email" value="testemail@someplace.com" />
 				<property name="password" value="mulemule" />
 				<property name="firstname" value="Mule" />
 				<property name="lastname" value="ESB" />
-			</bean>		
+			</bean>
 		</entry>
 	</util:map>
 
-	<util:map id="deleteCustomer" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+	<util:map id="deleteCustomer" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="customerRef">
-			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+				scope="prototype">
 				<property name="email" value="testemail@someplace.com" />
 				<property name="password" value="mulemule" />
 				<property name="firstname" value="Mule" />
 				<property name="lastname" value="ESB" />
-			</bean>		
+			</bean>
 		</entry>
 	</util:map>
 
-	<util:map id="getCustomer" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+	<util:map id="getCustomer" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="customerRef">
-			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+				scope="prototype">
 				<property name="email" value="testemail@someplace.com" />
 				<property name="password" value="mulemule" />
 				<property name="firstname" value="Mule" />
@@ -68,22 +75,26 @@
 		</entry>
 	</util:map>
 
-	<util:map id="listCustomers" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+	<util:map id="listCustomers" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="customers">
 			<util:list value-type="com.magento.api.CustomerCustomerEntityToCreate">
-				<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+				<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+					scope="prototype">
 					<property name="email" value="johndoe@anon.com" />
 					<property name="password" value="johndoe" />
 					<property name="firstname" value="John" />
 					<property name="lastname" value="Doe" />
 				</bean>
-				<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+				<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+					scope="prototype">
 					<property name="email" value="janedoe@anon.com" />
 					<property name="password" value="janedoe" />
 					<property name="firstname" value="Jane" />
 					<property name="lastname" value="Doe" />
 				</bean>
-				<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+				<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+					scope="prototype">
 					<property name="email" value="personunknown@anon.com" />
 					<property name="password" value="unknownperson" />
 					<property name="firstname" value="Person" />
@@ -96,9 +107,11 @@
 		<entry key="emailFilter" value="johndoe@anon.com" />
 	</util:map>
 
-	<util:map id="updateCustomer" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+	<util:map id="updateCustomer" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="customerBefore">
-			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+				scope="prototype">
 				<property name="email" value="johndoe@anon.com" />
 				<property name="password" value="johndoe" />
 				<property name="firstname" value="John" />
@@ -106,69 +119,26 @@
 			</bean>
 		</entry>
 		<entry key="customerAfter">
-			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+				scope="prototype">
 				<property name="email" value="johnsmith@smithies.com" />
 				<property name="firstname" value="John" />
 				<property name="lastname" value="Smith" />
 			</bean>
 		</entry>
 	</util:map>
-	
-	<util:map id="createCustomerAddress" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+
+	<util:map id="createCustomerAddress" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="customerRef">
-			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+				scope="prototype">
 				<property name="email" value="johndoe@anon.com" />
 				<property name="password" value="johndoe" />
-				<property name="firstname" value="John" />
-				<property name="lastname" value="Doe" />
-			</bean>
-		</entry>		
-		<entry key="customerAddressRef">
-			<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
-				<property name="postcode" value="NYC0013" />
-				<property name="telephone" value="123456789" />
-				<property name="city" value="New York" />
-				<property name="company" value="MuleSoft" />
-				<property name="country_id" value="USA" />
-				<property name="street" value="Wall Street" />
 				<property name="firstname" value="John" />
 				<property name="lastname" value="Doe" />
 			</bean>
 		</entry>
-	</util:map>
-	
-	<util:map id="deleteCustomerAddress" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-		<entry key="customerRef">
-			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
-				<property name="email" value="johndoe@anon.com" />
-				<property name="password" value="johndoe" />
-				<property name="firstname" value="John" />
-				<property name="lastname" value="Doe" />
-			</bean>
-		</entry>		
-		<entry key="customerAddressRef">
-			<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
-				<property name="postcode" value="NYC0013" />
-				<property name="telephone" value="123456789" />
-				<property name="city" value="New York" />
-				<property name="company" value="MuleSoft" />
-				<property name="country_id" value="USA" />
-				<property name="street" value="Wall Street" />
-				<property name="firstname" value="John" />
-				<property name="lastname" value="Doe" />
-			</bean>
-		</entry>
-	</util:map>
-	
-	<util:map id="getCustomerAddress" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-		<entry key="customerRef">
-			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
-				<property name="email" value="johndoe@anon.com" />
-				<property name="password" value="johndoe" />
-				<property name="firstname" value="John" />
-				<property name="lastname" value="Doe" />
-			</bean>
-		</entry>		
 		<entry key="customerAddressRef">
 			<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
 				<property name="postcode" value="NYC0013" />
@@ -183,15 +153,67 @@
 		</entry>
 	</util:map>
 
-	<util:map id="updateCustomerAddress" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+	<util:map id="deleteCustomerAddress" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="customerRef">
-			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+				scope="prototype">
 				<property name="email" value="johndoe@anon.com" />
 				<property name="password" value="johndoe" />
 				<property name="firstname" value="John" />
 				<property name="lastname" value="Doe" />
 			</bean>
-		</entry>		
+		</entry>
+		<entry key="customerAddressRef">
+			<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
+				<property name="postcode" value="NYC0013" />
+				<property name="telephone" value="123456789" />
+				<property name="city" value="New York" />
+				<property name="company" value="MuleSoft" />
+				<property name="country_id" value="USA" />
+				<property name="street" value="Wall Street" />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+			</bean>
+		</entry>
+	</util:map>
+
+	<util:map id="getCustomerAddress" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="customerRef">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+				scope="prototype">
+				<property name="email" value="johndoe@anon.com" />
+				<property name="password" value="johndoe" />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+			</bean>
+		</entry>
+		<entry key="customerAddressRef">
+			<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
+				<property name="postcode" value="NYC0013" />
+				<property name="telephone" value="123456789" />
+				<property name="city" value="New York" />
+				<property name="company" value="MuleSoft" />
+				<property name="country_id" value="USA" />
+				<property name="street" value="Wall Street" />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+			</bean>
+		</entry>
+	</util:map>
+
+	<util:map id="updateCustomerAddress" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="customerRef">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+				scope="prototype">
+				<property name="email" value="johndoe@anon.com" />
+				<property name="password" value="johndoe" />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+			</bean>
+		</entry>
 		<entry key="customerAddressBefore">
 			<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
 				<property name="postcode" value="NYC0013" />
@@ -203,7 +225,7 @@
 				<property name="firstname" value="John" />
 				<property name="lastname" value="Doe" />
 			</bean>
-		</entry>		
+		</entry>
 		<entry key="customerAddressAfter">
 			<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
 				<property name="postcode" value="CALI0013" />
@@ -217,11 +239,13 @@
 			</bean>
 		</entry>
 	</util:map>
-	
-		<util:map id="listCustomerAddresses" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+
+	<util:map id="listCustomerAddresses" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="customerAddresses">
 			<util:list value-type="com.magento.api.CustomerAddressEntityCreate">
-				<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
+				<bean class="com.magento.api.CustomerAddressEntityCreate"
+					scope="prototype">
 					<property name="postcode" value="LA1245" />
 					<property name="telephone" value="55874521" />
 					<property name="city" value="Los Angeles" />
@@ -231,7 +255,8 @@
 					<property name="firstname" value="John" />
 					<property name="lastname" value="Doe" />
 				</bean>
-				<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
+				<bean class="com.magento.api.CustomerAddressEntityCreate"
+					scope="prototype">
 					<property name="postcode" value="TXS9874" />
 					<property name="telephone" value="55874521" />
 					<property name="city" value="Texas" />
@@ -241,7 +266,8 @@
 					<property name="firstname" value="John" />
 					<property name="lastname" value="Doe" />
 				</bean>
-				<bean class="com.magento.api.CustomerAddressEntityCreate" scope="prototype">
+				<bean class="com.magento.api.CustomerAddressEntityCreate"
+					scope="prototype">
 					<property name="postcode" value="ALSK111" />
 					<property name="telephone" value="55874521" />
 					<property name="city" value="Alaska" />
@@ -254,7 +280,8 @@
 			</util:list>
 		</entry>
 		<entry key="customerRef">
-			<bean class="com.magento.api.CustomerCustomerEntityToCreate" scope="prototype">
+			<bean class="com.magento.api.CustomerCustomerEntityToCreate"
+				scope="prototype">
 				<property name="email" value="johndoe@anon.com" />
 				<property name="password" value="johndoe" />
 				<property name="firstname" value="John" />
@@ -262,4 +289,15 @@
 			</bean>
 		</entry>
 	</util:map>
+	
+	<util:map id="createProduct" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="type" value="simple" />
+		<entry key="set" value="#{4}" />
+		<entry key="sku" value="1234567C" />
+		<entry key="attributesRef">
+			<bean class="com.magento.api.CatalogProductCreateEntity" />
+		</entry>
+	</util:map>
+	
 </beans>
