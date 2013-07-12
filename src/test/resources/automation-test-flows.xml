@@ -125,8 +125,13 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:create-product>
 	</flow>
 	
-	<flow name="delete-product">
+	<flow name="delete-product-by-product-id">
 		<magento:delete-product productId="#[payload.productId]"/>
+	</flow>
+	
+	
+	<flow name="delete-product-by-product-sku">
+		<magento:delete-product productSku="#[payload.productSku]"/>
 	</flow>
 	
 	<flow name="list-products">

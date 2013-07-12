@@ -92,6 +92,21 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Boolean) response.getMessage().getPayload();
 	}
 	
+	public int deleteProductById(int productId) throws Exception {
+		testObjects.put("productId", productId);
+		MessageProcessor flow = lookupFlowConstruct("delete-product-by-product-id");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();
+	}
+	
+	public int deleteProductBySku(String productSku) throws Exception {
+		testObjects.put("productSku", productSku);
+		MessageProcessor flow = lookupFlowConstruct("delete-product-by-product-sku");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public CatalogCategoryInfo getCategory(int categoryId) throws Exception {
 		List<String> categoryAttributeNames = (List<String>) context.getBean("categoryAttributeNames");
 		testObjects.put("categoryId", categoryId);
@@ -99,12 +114,5 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MessageProcessor flow = lookupFlowConstruct("get-category");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (CatalogCategoryInfo) response.getMessage().getPayload();
-	}
-	
-	public int deleteProduct(int productId) throws Exception {
-		testObjects.put("productId", productId);
-		MessageProcessor flow = lookupFlowConstruct("delete-product");
-		MuleEvent response = flow.process(getTestEvent(testObjects));
-		return (Integer) response.getMessage().getPayload();
 	}
 }
