@@ -20,11 +20,10 @@ import com.magento.api.ShoppingCartProductEntity;
 
 public class ListShoppingCartProductsTestCases extends MagentoTestParent {
 
-
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("removeShoppingCartProduct");
+			testObjects = (HashMap<String, Object>) context.getBean("listShoppingCartProducts");
 
 			List<HashMap<String, Object>> productDefinitions = (List<HashMap<String, Object>>) testObjects.get("products");
 			
