@@ -252,4 +252,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="delete-product-link">
 		<magento:delete-product-link type="#[payload.type]" productId="#[payload.productId]" linkedProductIdOrSku="#[payload.linkedProductIdOrSku]"/>
 	</flow>
+	
+	<flow name="update-product">
+		<magento:update-product productId="#[payload.productId]">
+		    <magento:catalog-product-entity name="#[payload.name]" />
+		</magento:update-product>
+	</flow>
 </mule>
