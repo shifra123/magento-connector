@@ -175,8 +175,18 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:remove-shopping-cart-product>
 	</flow>
 	
+	<flow name="list-shopping-cart-totals">
+		<magento:list-shopping-cart-totals config-ref="Magento" quoteId="#[payload.quoteId]" />
+	</flow>
+	
 	<flow name="list-shopping-cart-products">
 		<magento:list-shopping-cart-products config-ref="Magento" quoteId="#[payload.quoteId]" />
+	</flow>
+	
+	<flow name="set-shopping-cart-customer-addresses">
+		<magento:set-shopping-cart-customer-addresses config-ref="Magento" quoteId="#[payload.quoteId]">
+			<magento:shopping-cart-customer-addresses ref="#[payload.shoppingCartCustomerAddressesRef]" />
+		</magento:set-shopping-cart-customer-addresses>
 	</flow>
 	
 	<flow name="add-category-product">
