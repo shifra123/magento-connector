@@ -122,6 +122,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-directory-countries">
 		<magento:list-directory-countries config-ref="Magento" />
 	</flow>
+	
+	<flow name="list-directory-regions">
+		<magento:list-directory-regions config-ref="Magento" countryId="#[payload.countryId]"/>
+	</flow>
 			
 	<flow name="create-product">
 		<magento:create-product config-ref="Magento" set="#[payload.set]" sku="#[payload.sku]" type="#[payload.type]">
