@@ -169,4 +169,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:add-shopping-cart-product>
 	</flow>
 	
+	<flow name="remove-shopping-cart-product">
+		<magento:remove-shopping-cart-product config-ref="Magento" quoteId="#[payload.quoteId]">
+			<magento:products ref="#[payload.productsRef]" />
+		</magento:remove-shopping-cart-product>
+	</flow>
+	
+	<flow name="list-shopping-cart-products">
+		<magento:list-shopping-cart-products config-ref="Magento" quoteId="#[payload.quoteId]" />
+	</flow>
+	
 </mule>
