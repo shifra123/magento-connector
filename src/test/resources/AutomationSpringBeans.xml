@@ -320,6 +320,10 @@
 			<bean class="com.magento.api.CatalogProductCreateEntity" />
 		</entry>
 	</util:map>
+	
+	<util:map id="listDirectoryRegions" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="countryId" value="USA" />
+	</util:map>
 			
 	<util:map id="createCategory" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 		<entry key="parentId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_CATEGORY_ID}" />
