@@ -69,7 +69,6 @@ public class ListShoppingCartProductsTestCases extends MagentoTestParent {
 	public void testListShoppingCartProduct() {
 		try {
 			List<ShoppingCartProductEntity> products = (List<ShoppingCartProductEntity>) testObjects.get("shoppingCartEntities");
-			testObjects.put("productsRef", products);
 						
 			MessageProcessor flow = lookupFlowConstruct("list-shopping-cart-products");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
