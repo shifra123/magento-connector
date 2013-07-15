@@ -17,6 +17,7 @@ import com.magento.api.CatalogCategoryInfo;
 import com.magento.api.CatalogProductCreateEntity;
 import com.magento.api.CustomerAddressEntityCreate;
 import com.magento.api.CustomerCustomerEntityToCreate;
+import com.magento.api.ShoppingCartCustomerAddressEntity;
 import com.magento.api.ShoppingCartProductEntity;
 
 public class MagentoTestParent extends FunctionalTestCase {
@@ -143,6 +144,16 @@ public class MagentoTestParent extends FunctionalTestCase {
 		
 		// Add the shopping cart products
 		MessageProcessor flow = lookupFlowConstruct("add-shopping-cart-product");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();
+	}
+	
+	public boolean setCustomerAddressesToShoppingCart(int quoteId, List<ShoppingCartCustomerAddressEntity> addresses) throws Exception {
+		testObjects.put("quoteId", quoteId);
+		testObjects.put("shoppingCartCustomerAddressesRef", addresses); 
+		
+		// Add the customer addresses
+		MessageProcessor flow = lookupFlowConstruct("set-shopping-cart-customer-addresses");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Boolean) response.getMessage().getPayload();
 	}
