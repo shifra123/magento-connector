@@ -183,6 +183,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:list-shopping-cart-products config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 	
+	<flow name="set-shopping-cart-customer">
+		<magento:set-shopping-cart-customer config-ref="Magento" quoteId="#[payload.quoteId]">
+			<magento:customer ref="#[payload.customerRef]" />
+		</magento:set-shopping-cart-customer>
+	</flow>
+	
 	<flow name="set-shopping-cart-customer-addresses">
 		<magento:set-shopping-cart-customer-addresses config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:shopping-cart-customer-addresses ref="#[payload.shoppingCartCustomerAddressesRef]" />

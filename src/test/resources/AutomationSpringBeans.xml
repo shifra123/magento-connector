@@ -704,6 +704,17 @@
 		</entry>
 	</util:map>
 	
+	<util:map id="setShoppingCartCustomer" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="customerRef">
+			<bean class="com.magento.api.ShoppingCartCustomerEntity">
+				<property name="mode" value="guest"  />
+				<property name="firstname" value="Jack" />
+				<property name="lastname" value="Daniels" />
+				<property name="email" value="jackdaniels@alcoholwebsite.com" />
+			</bean>
+		</entry>
+	</util:map>
+	
 	<util:map id="setShoppingCartCustomerAddresses" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 		<entry key="shoppingCartCustomerAddressesRef">
 			<list value-type="com.magento.api.ShoppingCartCustomerAddressEntity">
