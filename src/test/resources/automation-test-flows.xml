@@ -116,9 +116,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:get-category-tree config-ref="Magento"
 			parentId="#[payload.parentId]" />
 	</flow>
-	
+
 	<flow name="get-catalog-current-store-view">
-		<magento:get-catalog-current-store-view config-ref="Magento"/>
+		<magento:get-catalog-current-store-view
+			config-ref="Magento" />
 	</flow>
 
 	<flow name="list-category-levels">
@@ -153,9 +154,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:list-directory-regions
 			config-ref="Magento" countryId="#[payload.countryId]" />
 	</flow>
-	
+
 	<flow name="list-inventory-stock-items">
-		<magento:list-inventory-stock-items config-ref="Magento" >
+		<magento:list-inventory-stock-items
+			config-ref="Magento">
 			<magento:product-id-or-skus ref="#[payload.productIdOrSkusRef]" />
 		</magento:list-inventory-stock-items>
 	</flow>
@@ -194,24 +196,29 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:add-shopping-cart-product>
 	</flow>
-	
+
 	<flow name="remove-shopping-cart-product">
-		<magento:remove-shopping-cart-product config-ref="Magento" quoteId="#[payload.quoteId]">
+		<magento:remove-shopping-cart-product
+			config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:remove-shopping-cart-product>
 	</flow>
-	
+
 	<flow name="list-shopping-cart-totals">
-		<magento:list-shopping-cart-totals config-ref="Magento" quoteId="#[payload.quoteId]" />
+		<magento:list-shopping-cart-totals
+			config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
-	
+
 	<flow name="list-shopping-cart-products">
-		<magento:list-shopping-cart-products config-ref="Magento" quoteId="#[payload.quoteId]" />
+		<magento:list-shopping-cart-products
+			config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
-	
+
 	<flow name="set-shopping-cart-customer-addresses">
-		<magento:set-shopping-cart-customer-addresses config-ref="Magento" quoteId="#[payload.quoteId]">
-			<magento:shopping-cart-customer-addresses ref="#[payload.shoppingCartCustomerAddressesRef]" />
+		<magento:set-shopping-cart-customer-addresses
+			config-ref="Magento" quoteId="#[payload.quoteId]">
+			<magento:shopping-cart-customer-addresses
+				ref="#[payload.shoppingCartCustomerAddressesRef]" />
 		</magento:set-shopping-cart-customer-addresses>
 	</flow>
 
@@ -227,8 +234,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 
 	<flow name="add-product-link">
 		<magento:add-product-link type="#[payload.type]"
-			productId="#[payload.productId]" linkedProductIdOrSku="#[payload.linkedProductIdOrSku]" >
+			productId="#[payload.productId]" linkedProductIdOrSku="#[payload.linkedProductIdOrSku]">
 			<magento:product-link-entity qty="#[payload.qty]" />
 		</magento:add-product-link>
+	</flow>
+
+	<flow name="list-product-link">
+		<magento:list-product-link productId="#[payload.productId]" type="#[payload.type]" />
 	</flow>
 </mule>

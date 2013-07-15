@@ -1,9 +1,10 @@
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -12,13 +13,15 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
-public class AddProductLinkTestCases extends MagentoTestParent {
+import com.magento.api.CatalogProductLinkEntity;
+
+public class ListProductLinkTestCases extends MagentoTestParent {
 
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("addProductLink");
+			testObjects = (HashMap<String, Object>) context.getBean("listProductLink");
 
 			MessageProcessor createProductFlow = lookupFlowConstruct("create-product");
 			MuleEvent res = createProductFlow.process(getTestEvent(testObjects));
@@ -30,24 +33,27 @@ public class AddProductLinkTestCases extends MagentoTestParent {
 			res = createProductFlow.process(getTestEvent(testObjects));
 			Integer linkedProductId = (Integer) res.getMessage().getPayload();
 			testObjects.put("linkedProductIdOrSku", linkedProductId);
+			
+			String linkType = "related";
+			testObjects.put("type", linkType);
+			MessageProcessor addProductLinkFlow = lookupFlowConstruct("add-product-link");
+			addProductLinkFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
-	// This test fails because according to http://www.magentocommerce.com/api/soap/catalog/catalogProductLink/catalog_product_link.assign.html
-	// I'm expecting a boolean result but I get a HashMap
-	public void testAddProductLink() {
+	public void testListProductLink() {
 		try {
-			String linkType = "related";
-			testObjects.put("type", linkType);
-			MessageProcessor addProductLinkFlow = lookupFlowConstruct("add-product-link");
-			MuleEvent res = addProductLinkFlow.process(getTestEvent(testObjects));
+			MessageProcessor listProductLinkFlow = lookupFlowConstruct("list-product-link");
+			MuleEvent res = listProductLinkFlow.process(getTestEvent(testObjects));
+			List<CatalogProductLinkEntity> catalogProductLinkEntities = (List<CatalogProductLinkEntity>) res.getMessage().getPayload();
 			
-			assertTrue("Assert that the return type of the operation should be boolean (true)", (Boolean) res.getMessage().getPayload());
+			assertEquals("There should be one linked product", 1, catalogProductLinkEntities.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
