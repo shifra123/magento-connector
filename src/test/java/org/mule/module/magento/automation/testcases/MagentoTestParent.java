@@ -31,6 +31,8 @@ public class MagentoTestParent extends FunctionalTestCase {
 	public static final int ROOT_CATEGORY_ID = 1;
 	public static final int DEFAULT_CATEGORY_ID = 2;
 	
+	public static final int DEFAULT_PRODUCT_SET = 4;
+	
 	@Override
 	protected String getConfigResources() {
 		return "automation-test-flows.xml";

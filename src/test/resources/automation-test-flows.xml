@@ -146,7 +146,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 		
 	<flow name="delete-category-product">
-		<magento:delete-category-product categoryId="#[map-payload:categoryId]" productSku="#[map-payload:productSku]"/>
+		<magento:delete-category-product config-ref="Magento" categoryId="#[payload.categoryId]" productId="#[payload.productId]"/>
 	</flow>
 	
 	<flow name="create-shopping-cart">
