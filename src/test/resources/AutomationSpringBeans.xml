@@ -531,4 +531,40 @@
 		</entry>
 	</util:map>
 	
+	<util:map id="listInventoryStockItems" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="products">
+			<list>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="1212121" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+						</bean>
+					</entry>
+				</util:map>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="2323232" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+						</bean>
+					</entry>
+				</util:map>
+			</list>
+		</entry>
+	</util:map>
 </beans>

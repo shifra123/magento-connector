@@ -130,6 +130,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-directory-regions">
 		<magento:list-directory-regions config-ref="Magento" countryId="#[payload.countryId]"/>
 	</flow>
+	
+	<flow name="list-inventory-stock-items">
+		<magento:list-inventory-stock-items config-ref="Magento" >
+			<magento:product-id-or-skus ref="#[payload.productIdOrSkusRef]" />
+		</magento:list-inventory-stock-items>
+	</flow>
 			
 	<flow name="create-product">
 		<magento:create-product config-ref="Magento" set="#[payload.set]" sku="#[payload.sku]" type="#[payload.type]">
