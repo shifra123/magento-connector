@@ -531,6 +531,208 @@
 		</entry>
 	</util:map>
 	
+	<util:map id="removeShoppingCartProduct" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="products">
+			<list>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="8855885" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+						</bean>
+					</entry>
+					<entry key="qtyToPlace" value="#{100.0}" />
+				</util:map>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="7458742" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+						</bean>
+					</entry>
+					<entry key="qtyToPlace" value="#{100.0}" />
+				</util:map>
+			</list>
+		</entry>
+	</util:map>
+		
+	<util:map id="listShoppingCartTotals" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="products">
+			<list>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="6528741A" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="Expensive Oranges" />
+							<property name="price" value="50" />
+						</bean>
+					</entry>
+					<entry key="qtyToPlace" value="#{100.0}" />
+				</util:map>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="9874215A" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="Expensive Apples" />
+							<property name="price" value="100" />
+						</bean>
+					</entry>
+					<entry key="qtyToPlace" value="#{100.0}" />
+				</util:map>
+			</list>
+		</entry>
+		<entry key="addresses">
+			<list value-type="com.magento.api.ShoppingCartCustomerAddressEntity">
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="billing" />
+					<property name="postcode" value="SLM99885" />
+					<property name="telephone" value="12345789" />
+					<property name="city" value="Sliema" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="Malta" />
+					<property name="street" value="Pepe Street" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+			</list>
+		</entry>
+	</util:map>
+			
+	<util:map id="listShoppingCartProducts" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="products">
+			<list>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="4578219Q" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+						</bean>
+					</entry>
+					<entry key="qtyToPlace" value="#{100.0}" />
+				</util:map>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="8523647D" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+						</bean>
+					</entry>
+					<entry key="qtyToPlace" value="#{100.0}" />
+				</util:map>
+			</list>
+		</entry>
+	</util:map>
+	
+	<util:map id="listInventoryStockItems" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="products">
+			<list>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="1212121" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+						</bean>
+					</entry>
+				</util:map>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="2323232" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+						</bean>
+					</entry>
+				</util:map>
+			</list>
+		</entry>
+	</util:map>
+	
+	<util:map id="setShoppingCartCustomerAddresses" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="shoppingCartCustomerAddressesRef">
+			<list value-type="com.magento.api.ShoppingCartCustomerAddressEntity">
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="billing"/>
+					<property name="postcode" value="MST11001" />
+					<property name="telephone" value="12345789" />
+					<property name="city" value="Mosta" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="Malta" />
+					<property name="street" value="Mosta Street" />
+					<property name="firstname" value="Some" />
+					<property name="lastname" value="Person" />
+				</bean>
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="shipping"/>
+					<property name="postcode" value="VLT99885" />
+					<property name="telephone" value="12345789" />
+					<property name="city" value="Valletta" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="Malta" />
+					<property name="street" value="Merchant's Street" />
+					<property name="firstname" value="Someone" />
+					<property name="lastname" value="Else" />
+				</bean>
+			</list>
+		</entry>
+	</util:map>
+			
 	<util:map id="addCategoryProduct" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="type" value="simple" />
