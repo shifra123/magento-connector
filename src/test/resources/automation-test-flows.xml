@@ -159,4 +159,11 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:add-shopping-cart-product>
 	</flow>
 	
+	<flow name="add-category-product">
+		<magento:add-category-product categoryId="#[payload.categoryId]" position="#[payload.position]" productId="#[payload.productId]" />
+	</flow>
+	
+	<flow name="list-category-products">
+		<magento:list-category-products categoryId="#[payload.categoryId]"/>
+	</flow>
 </mule>

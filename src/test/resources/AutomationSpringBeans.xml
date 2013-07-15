@@ -531,4 +531,47 @@
 		</entry>
 	</util:map>
 	
+	<util:map id="addCategoryProduct" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="type" value="simple" />
+		<entry key="set" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_PRODUCT_SET}" />
+		<entry key="sku" value="1234567C" />
+		<entry key="productSku" value="1234567C" />
+		<entry key="attributesRef">
+			<bean class="com.magento.api.CatalogProductCreateEntity" />
+		</entry>
+		<entry key="parentId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_CATEGORY_ID}" />
+		<entry key="catalogCategoryEntityRef">
+			<bean class="com.magento.api.CatalogCategoryEntityCreate" scope="prototype">
+				<property name="name" value="MyCategory" />
+				<property name="is_active" value="1" />
+				<property name="description" value="This is a description" />
+				<property name="include_in_menu" value="1" />
+				<property name="available_sort_by" value="name" />
+				<property name="default_sort_by" value="name" />
+			</bean>
+		</entry>
+	</util:map>
+	
+	<util:map id="listCategoryProducts" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="type" value="simple" />
+		<entry key="set" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_PRODUCT_SET}" />
+		<entry key="sku" value="1234567C" />
+		<entry key="productSku" value="1234567C" />
+		<entry key="attributesRef">
+			<bean class="com.magento.api.CatalogProductCreateEntity" />
+		</entry>
+		<entry key="parentId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_CATEGORY_ID}" />
+		<entry key="catalogCategoryEntityRef">
+			<bean class="com.magento.api.CatalogCategoryEntityCreate" scope="prototype">
+				<property name="name" value="MyCategory" />
+				<property name="is_active" value="1" />
+				<property name="description" value="This is a description" />
+				<property name="include_in_menu" value="1" />
+				<property name="available_sort_by" value="name" />
+				<property name="default_sort_by" value="name" />
+			</bean>
+		</entry>
+	</util:map>
 </beans>
