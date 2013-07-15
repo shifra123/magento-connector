@@ -269,4 +269,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 				qty="#[payload.qty]" />
 		</magento:update-product-link>
 	</flow>
+
+	<flow name="get-product">
+		<magento:get-product productId="#[payload.productId]">
+			<magento:attributes-names>
+				<magento:attributes-name>#[payload.attributesName]</magento:attributes-name>
+			</magento:attributes-names>
+		</magento:get-product>
+	</flow>
 </mule>
