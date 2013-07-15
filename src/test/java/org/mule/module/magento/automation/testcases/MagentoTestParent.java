@@ -14,6 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.magento.api.CatalogCategoryEntityCreate;
 import com.magento.api.CatalogCategoryInfo;
+import com.magento.api.CatalogProductCreateEntity;
 import com.magento.api.CustomerAddressEntityCreate;
 import com.magento.api.CustomerCustomerEntityToCreate;
 
@@ -92,6 +93,17 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Boolean) response.getMessage().getPayload();
 	}
 	
+	public int createProduct(String type, int set, String sku, CatalogProductCreateEntity productAttributes) throws Exception {
+		testObjects.put("type", type);
+		testObjects.put("set", set);
+		testObjects.put("sku", sku);
+		testObjects.put("attributesRef", productAttributes);
+		
+		MessageProcessor flow = lookupFlowConstruct("create-product");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();
+	}
+	
 	public int deleteProductById(int productId) throws Exception {
 		testObjects.put("productId", productId);
 		MessageProcessor flow = lookupFlowConstruct("delete-product-by-product-id");
@@ -114,5 +126,11 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MessageProcessor flow = lookupFlowConstruct("get-category");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (CatalogCategoryInfo) response.getMessage().getPayload();
+	}
+	
+	public int createShoppingCart() throws Exception {
+		MessageProcessor flow = lookupFlowConstruct("create-shopping-cart");
+		MuleEvent response = flow.process(getTestEvent(null));
+		return (Integer) response.getMessage().getPayload();
 	}
 }
