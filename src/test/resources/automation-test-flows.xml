@@ -213,13 +213,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:list-shopping-cart-products
 			config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
-	
+
 	<flow name="set-shopping-cart-customer">
-		<magento:set-shopping-cart-customer config-ref="Magento" quoteId="#[payload.quoteId]">
+		<magento:set-shopping-cart-customer
+			config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:customer ref="#[payload.customerRef]" />
 		</magento:set-shopping-cart-customer>
 	</flow>
-	
+
 	<flow name="set-shopping-cart-customer-addresses">
 		<magento:set-shopping-cart-customer-addresses
 			config-ref="Magento" quoteId="#[payload.quoteId]">
@@ -246,16 +247,26 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="list-product-link">
-		<magento:list-product-link productId="#[payload.productId]" type="#[payload.type]" />
+		<magento:list-product-link productId="#[payload.productId]"
+			type="#[payload.type]" />
 	</flow>
-	
+
 	<flow name="delete-product-link">
-		<magento:delete-product-link type="#[payload.type]" productId="#[payload.productId]" linkedProductIdOrSku="#[payload.linkedProductIdOrSku]"/>
+		<magento:delete-product-link type="#[payload.type]"
+			productId="#[payload.productId]" linkedProductIdOrSku="#[payload.linkedProductIdOrSku]" />
 	</flow>
-	
+
 	<flow name="update-product">
 		<magento:update-product productId="#[payload.productId]">
-		    <magento:catalog-product-entity name="#[payload.name]" />
+			<magento:catalog-product-entity name="#[payload.name]" />
 		</magento:update-product>
+	</flow>
+
+	<flow name="update-product-link">
+		<magento:update-product-link type="#[payload.type]"
+			productId="#[payload.productId]" linkedProductIdOrSku="#[payload.linkedProductIdOrSku]">
+			<magento:catalog-product-link-entity
+				qty="#[payload.qty]" />
+		</magento:update-product-link>
 	</flow>
 </mule>
