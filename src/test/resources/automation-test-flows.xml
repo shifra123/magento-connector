@@ -99,6 +99,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:get-category-tree config-ref="Magento" parentId="#[payload.parentId]" />
 	</flow>
 	
+	<flow name="get-catalog-current-store-view">
+		<magento:get-catalog-current-store-view config-ref="Magento"/>
+	</flow>
+	
 	<flow name="list-category-levels">
 		<magento:list-category-levels config-ref="Magento" />
 	</flow>
