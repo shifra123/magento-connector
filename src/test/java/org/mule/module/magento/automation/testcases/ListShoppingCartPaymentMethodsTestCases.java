@@ -33,7 +33,7 @@ public class ListShoppingCartPaymentMethodsTestCases extends MagentoTestParent {
 	
 	@Category({RegressionTests.class})
 	@Test
-	public void testSetShoppingCartPaymentMethodsTestCases() {
+	public void testListShoppingCartPaymentMethodsTestCases() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("list-shopping-cart-payment-methods");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
