@@ -291,4 +291,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-product-link-attributes">
 		<magento:list-product-link-attributes type="#[payload.type]"/>
 	</flow>
+	
+	<flow name="list-product-attributes">
+		<magento:list-product-attributes setId="#[payload.setId]" />
+	</flow>
 </mule>
