@@ -1,11 +1,9 @@
 package org.mule.module.magento.automation.testcases;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,7 +13,6 @@ import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
 import com.magento.api.AssociativeEntity;
-import com.magento.api.ShoppingCartCustomerAddressEntity;
 import com.magento.api.ShoppingCartPaymentMethodResponseEntityArray;
 
 public class ListShoppingCartPaymentMethodsTestCases extends MagentoTestParent {
