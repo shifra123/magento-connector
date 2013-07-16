@@ -773,6 +773,43 @@
 			</list>
 		</entry>
 	</util:map>
+	
+	<util:map id="listShoppingCartShippingMethods" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="customerAddresses">
+			<list value-type="com.magento.api.ShoppingCartCustomerAddressEntity">
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="shipping"/>
+					<property name="postcode" value="VLT99885" />
+					<property name="telephone" value="12345789" />
+					<property name="city" value="Valletta" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="Malta" />
+					<property name="street" value="Merchant's Street" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+			</list>
+		</entry>
+	</util:map>
+	
+	<util:map id="setShoppingCartShippingMethod" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+		<entry key="method" value="Free"/>
+		<entry key="customerAddresses">
+			<list value-type="com.magento.api.ShoppingCartCustomerAddressEntity">
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="shipping"/>
+					<property name="postcode" value="VLT99885" />
+					<property name="telephone" value="12345789" />
+					<property name="city" value="Valletta" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="Malta" />
+					<property name="street" value="Merchant's Street" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+			</list>
+		</entry>
+	</util:map>
 			
 	<util:map id="addCategoryProduct" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
