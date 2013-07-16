@@ -287,4 +287,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			</magento:attributes-names>
 		</magento:get-product>
 	</flow>
+	
+	<flow name="list-product-link-attributes">
+		<magento:list-product-link-attributes type="#[payload.type]"/>
+	</flow>
 </mule>
