@@ -337,4 +337,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-product-types">
 		<magento:list-product-types config-ref="Magento" />
 	</flow>
+	
+	<flow name="list-product-link-types">
+		<magento:list-product-link-types config-ref="Magento" />
+	</flow>
 </mule>
