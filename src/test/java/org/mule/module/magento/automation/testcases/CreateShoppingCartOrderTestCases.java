@@ -1,7 +1,6 @@
 package org.mule.module.magento.automation.testcases;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
