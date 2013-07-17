@@ -117,6 +117,9 @@ public class CreateShoppingCartOrderTestCases extends MagentoTestParent {
 			for (Integer productId : productIds) {
 				deleteProductById(productId);
 			}
+			
+			String orderId = testObjects.get("orderId").toString();
+			cancelOrder(orderId);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
