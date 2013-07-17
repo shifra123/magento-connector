@@ -189,6 +189,32 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="create-shopping-cart">
 		<magento:create-shopping-cart config-ref="Magento" />
 	</flow>
+	
+	<flow name="create-shopping-cart-order">
+		<magento:create-shopping-cart-order config-ref="Magento" quoteId="#[payload.quoteId]" />
+	</flow>
+	
+	<flow name="create-shopping-cart-order-with-licenses">
+		<magento:create-shopping-cart-order config-ref="Magento" quoteId="#[payload.quoteId]">
+			<magento:licenses ref="#[payload.licensesRef]" />
+		</magento:create-shopping-cart-order>
+	</flow>
+	
+	<flow name="cancel-order">
+		<magento:cancel-order config-ref="Magento" orderId="#[payload.orderId]" />
+	</flow>
+	
+	<flow name="get-order">
+		<magento:get-order config-ref="Magento" orderId="#[payload.orderId]" />
+	</flow>
+	
+	<flow name="hold-order">
+		<magento:hold-order config-ref="Magento" orderId="#[payload.orderId]" />
+	</flow>
+	
+	<flow name="unhold-order">
+		<magento:unhold-order config-ref="Magento" orderId="#[payload.orderId]"/>
+	</flow>
 
 	<flow name="add-shopping-cart-product">
 		<magento:add-shopping-cart-product
@@ -217,6 +243,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-shopping-cart-payment-methods">
 		<magento:list-shopping-cart-payment-methods config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
+	
+	<flow name="list-shopping-cart-shipping-methods">
+		<magento:list-shopping-cart-shipping-methods config-ref="Magento" quoteId="#[payload.quoteId]" />
+	</flow>
+	
+	<flow name="list-shopping-cart-licenses">
+		<magento:list-shopping-cart-licenses config-ref="Magento" quoteId="#[payload.quoteId]" />
+	</flow>
 
 	<flow name="set-shopping-cart-customer">
 		<magento:set-shopping-cart-customer
@@ -237,6 +271,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:set-shopping-cart-payment-method config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:shopping-cart-payment-method ref="#[payload.shoppingCartPaymentMethodRef]" />
 		</magento:set-shopping-cart-payment-method>
+	</flow>
+	
+	<flow name="set-shopping-cart-shipping-method">
+		<magento:set-shopping-cart-shipping-method config-ref="Magento" quoteId="#[payload.quoteId]" method="#[payload.method]" />		
 	</flow>
 	
 	<flow name="add-category-product">

@@ -44,15 +44,15 @@ public class ListShoppingCartTotalsTestCases extends MagentoTestParent {
 				
 				// Get the product ID and the number of items we want to place in the shopping cart
 				int productId = createProduct(productType, productSet, productSKU, attributes);
-				double qtyToPlace = (Double) productDefinition.get("qtyToPlace");
+				double qtyToPurchase = (Double) productDefinition.get("qtyToPurchase");
 				
 				ShoppingCartProductEntity shoppingCartEntity = new ShoppingCartProductEntity();
 				shoppingCartEntity.setProduct_id(productId + "");
-				shoppingCartEntity.setQty(qtyToPlace);
+				shoppingCartEntity.setQty(qtyToPurchase);
 								
 				shoppingCartEntities.add(shoppingCartEntity);
 			
-				double totalPrice = price * qtyToPlace;
+				double totalPrice = price * qtyToPurchase;
 				totalProductPrice += totalPrice;
 				productPrices.put(productId, totalPrice);
 			}

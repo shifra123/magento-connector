@@ -38,8 +38,8 @@ public class AddShoppingCartProductTestCases extends MagentoTestParent {
 			
 				// Get the product ID and the number of items we want to place in the shopping cart
 				int productId = createProduct(productType, productSet, productSKU, attributes);
-				double qtyToPlace = (Double) productDefinition.get("qtyToPlace");
-				productIds.put(productId, qtyToPlace);
+				double qtyToPurchase = (Double) productDefinition.get("qtyToPurchase");
+				productIds.put(productId, qtyToPurchase);
 			}
 			testObjects.put("productIds", productIds);
 			

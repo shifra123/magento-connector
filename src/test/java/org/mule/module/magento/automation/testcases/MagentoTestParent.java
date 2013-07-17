@@ -18,7 +18,10 @@ import com.magento.api.CatalogProductCreateEntity;
 import com.magento.api.CustomerAddressEntityCreate;
 import com.magento.api.CustomerCustomerEntityToCreate;
 import com.magento.api.ShoppingCartCustomerAddressEntity;
+import com.magento.api.ShoppingCartCustomerEntity;
+import com.magento.api.ShoppingCartPaymentMethodEntity;
 import com.magento.api.ShoppingCartProductEntity;
+import com.magento.api.ShoppingCartShippingMethodEntity;
 
 public class MagentoTestParent extends FunctionalTestCase {
 
@@ -148,6 +151,16 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Boolean) response.getMessage().getPayload();
 	}
 	
+	public boolean setShoppingCartCustomer(int quoteId, ShoppingCartCustomerEntity customer) throws Exception {
+		testObjects.put("quoteId", quoteId);
+		testObjects.put("customerRef", customer);
+		
+		// Add the shopping cart customer
+		MessageProcessor flow = lookupFlowConstruct("set-shopping-cart-customer");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();
+	}
+	
 	public boolean setCustomerAddressesToShoppingCart(int quoteId, List<ShoppingCartCustomerAddressEntity> addresses) throws Exception {
 		testObjects.put("quoteId", quoteId);
 		testObjects.put("shoppingCartCustomerAddressesRef", addresses); 
@@ -156,6 +169,96 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MessageProcessor flow = lookupFlowConstruct("set-shopping-cart-customer-addresses");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Boolean) response.getMessage().getPayload();
+	}
+	
+	public boolean setShoppingCartShippingMethod(int quoteId, String shippingMethod) throws Exception {
+		testObjects.put("quoteId", quoteId);
+		testObjects.put("method", shippingMethod);
+		
+		// Set the shopping cart shipping method
+		MessageProcessor flow = lookupFlowConstruct("set-shopping-cart-shipping-method");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();
+	}
+	
+	public boolean setShoppingCartPaymentMethod(int quoteId, ShoppingCartPaymentMethodEntity paymentMethod) throws Exception {
+		testObjects.put("quoteId", quoteId);
+		testObjects.put("shoppingCartPaymentMethodRef", paymentMethod);
+		
+		// Set the shopping cart payment method
+		MessageProcessor flow = lookupFlowConstruct("set-shopping-cart-payment-method");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();
+	}
+	
+	public String createShoppingCartOrder(ShoppingCartCustomerEntity customer,
+								List<ShoppingCartCustomerAddressEntity> addresses,
+								ShoppingCartPaymentMethodEntity paymentMethod,
+								String shippingMethod,
+								List<ShoppingCartProductEntity> products) throws Exception {
+		
+		int quoteId = createShoppingCart();
+
+		testObjects.put("quoteId", quoteId);
+		
+		setShoppingCartCustomer(quoteId, customer);
+		setCustomerAddressesToShoppingCart(quoteId, addresses);
+		setShoppingCartPaymentMethod(quoteId, paymentMethod);
+		setShoppingCartShippingMethod(quoteId, shippingMethod);
+		addProductsToShoppingCart(quoteId, products);
+		
+		MessageProcessor flow = lookupFlowConstruct("create-shopping-cart-order");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return response.getMessage().getPayload().toString();
+	}
+	
+	public String createShoppingCartOrder(ShoppingCartCustomerEntity customer,
+								List<ShoppingCartCustomerAddressEntity> addresses,
+								ShoppingCartPaymentMethodEntity paymentMethod,
+								String shippingMethod,
+								List<ShoppingCartProductEntity> products,
+								List<String> licenses) throws Exception {
+		
+		int quoteId = createShoppingCart();
+
+		testObjects.put("quoteId", quoteId);
+		
+		setShoppingCartCustomer(quoteId, customer);
+		setCustomerAddressesToShoppingCart(quoteId, addresses);
+		setShoppingCartPaymentMethod(quoteId, paymentMethod);
+		setShoppingCartShippingMethod(quoteId, shippingMethod);
+		addProductsToShoppingCart(quoteId, products);
+		
+		testObjects.put("licensesRef", licenses);
+		
+		MessageProcessor flow = lookupFlowConstruct("create-shopping-cart-order-with-licenses");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return response.getMessage().getPayload().toString();
+	}
+	
+	public Boolean cancelOrder(String orderId) throws Exception {
+		testObjects.put("orderId", orderId);
+		
+		// Cancel the order
+		MessageProcessor flow = lookupFlowConstruct("cancel-order");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();
+	}
+	
+	public boolean holdOrder(String orderId) throws Exception {
+		testObjects.put("orderId", orderId);
+		
+		MessageProcessor flow = lookupFlowConstruct("hold-order");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();
+	}
+	
+	public Integer unholdOrder(String orderId) throws Exception {
+		testObjects.put("orderId", orderId);
+		
+		MessageProcessor flow = lookupFlowConstruct("unhold-order");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();
 	}
 	
 }
