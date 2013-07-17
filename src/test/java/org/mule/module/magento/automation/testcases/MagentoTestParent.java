@@ -229,12 +229,12 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Boolean) response.getMessage().getPayload();
 	}
 	
-	public boolean unholdOrder(String orderId) throws Exception {
+	public Integer unholdOrder(String orderId) throws Exception {
 		testObjects.put("orderId", orderId);
 		
 		MessageProcessor flow = lookupFlowConstruct("unhold-order");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
-		return (Boolean) response.getMessage().getPayload();
+		return (Integer) response.getMessage().getPayload();
 	}
 	
 }

@@ -81,8 +81,8 @@ public class UnholdOrderTestCases extends MagentoTestParent {
 			MessageProcessor flow = lookupFlowConstruct("unhold-order");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			Boolean result = (Boolean) response.getMessage().getPayload();
-			assertTrue(result);
+			Integer result = (Integer) response.getMessage().getPayload();
+			assertTrue(result == 1);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
