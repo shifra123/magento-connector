@@ -215,8 +215,24 @@ public class MagentoTestParent extends FunctionalTestCase {
 	public Boolean cancelOrder(String orderId) throws Exception {
 		testObjects.put("orderId", orderId);
 		
-		// Set the shopping cart payment method
+		// Cancel the order
 		MessageProcessor flow = lookupFlowConstruct("cancel-order");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();
+	}
+	
+	public boolean holdOrder(String orderId) throws Exception {
+		testObjects.put("orderId", orderId);
+		
+		MessageProcessor flow = lookupFlowConstruct("hold-order");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();
+	}
+	
+	public boolean unholdOrder(String orderId) throws Exception {
+		testObjects.put("orderId", orderId);
+		
+		MessageProcessor flow = lookupFlowConstruct("unhold-order");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Boolean) response.getMessage().getPayload();
 	}
