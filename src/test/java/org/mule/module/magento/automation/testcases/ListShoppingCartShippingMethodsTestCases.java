@@ -46,8 +46,7 @@ public class ListShoppingCartShippingMethodsTestCases extends MagentoTestParent 
 			List<ShoppingCartShippingMethodEntity> shippingMethods = (List<ShoppingCartShippingMethodEntity>) response.getMessage().getPayload();
 			assertNotNull(shippingMethods);
 			for (ShoppingCartShippingMethodEntity method : shippingMethods) {
-				System.out.println(method.getMethod());
-				System.out.println(method.getMethod_title());
+				assertNotNull(method);
 			}
 		}
 		catch (Exception e) {
