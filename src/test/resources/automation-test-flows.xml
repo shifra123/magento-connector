@@ -194,6 +194,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:create-shopping-cart-order config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 	
+	<flow name="create-shopping-cart-order-with-licenses">
+		<magento:create-shopping-cart-order config-ref="Magento" quoteId="#[payload.quoteId]">
+			<magento:licenses ref="#[payload.licensesRef]" />
+		</magento:create-shopping-cart-order>
+	</flow>
+	
 	<flow name="cancel-order">
 		<magento:cancel-order config-ref="Magento" orderId="#[payload.orderId]" />
 	</flow>

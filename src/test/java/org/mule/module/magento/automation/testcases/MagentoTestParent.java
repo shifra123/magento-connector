@@ -212,6 +212,30 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return response.getMessage().getPayload().toString();
 	}
 	
+	public String createShoppingCartOrder(ShoppingCartCustomerEntity customer,
+								List<ShoppingCartCustomerAddressEntity> addresses,
+								ShoppingCartPaymentMethodEntity paymentMethod,
+								String shippingMethod,
+								List<ShoppingCartProductEntity> products,
+								List<String> licenses) throws Exception {
+		
+		int quoteId = createShoppingCart();
+
+		testObjects.put("quoteId", quoteId);
+		
+		setShoppingCartCustomer(quoteId, customer);
+		setCustomerAddressesToShoppingCart(quoteId, addresses);
+		setShoppingCartPaymentMethod(quoteId, paymentMethod);
+		setShoppingCartShippingMethod(quoteId, shippingMethod);
+		addProductsToShoppingCart(quoteId, products);
+		
+		testObjects.put("licensesRef", licenses);
+		
+		MessageProcessor flow = lookupFlowConstruct("create-shopping-cart-order-with-licenses");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return response.getMessage().getPayload().toString();
+	}
+	
 	public Boolean cancelOrder(String orderId) throws Exception {
 		testObjects.put("orderId", orderId);
 		
