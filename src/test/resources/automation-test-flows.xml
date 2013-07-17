@@ -195,7 +195,15 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="cancel-order">
-		<magento:cancel-order config-ref="Magento" orderId="#[payload.orderId]"/>
+		<magento:cancel-order config-ref="Magento" orderId="#[payload.orderId]" />
+	</flow>
+	
+	<flow name="hold-order">
+		<magento:hold-order config-ref="Magento" orderId="#[payload.orderId]" />
+	</flow>
+	
+	<flow name="unhold-order">
+		<magento:unhold-order config-ref="Magento" orderId="#[payload.orderId]"/>
 	</flow>
 
 	<flow name="add-shopping-cart-product">
