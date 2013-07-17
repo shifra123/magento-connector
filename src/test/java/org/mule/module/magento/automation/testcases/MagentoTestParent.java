@@ -21,6 +21,7 @@ import com.magento.api.ShoppingCartCustomerAddressEntity;
 import com.magento.api.ShoppingCartCustomerEntity;
 import com.magento.api.ShoppingCartPaymentMethodEntity;
 import com.magento.api.ShoppingCartProductEntity;
+import com.magento.api.ShoppingCartShippingMethodEntity;
 
 public class MagentoTestParent extends FunctionalTestCase {
 
@@ -188,6 +189,27 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MessageProcessor flow = lookupFlowConstruct("set-shopping-cart-payment-method");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Boolean) response.getMessage().getPayload();
+	}
+	
+	public String createShoppingCartOrder(ShoppingCartCustomerEntity customer,
+								List<ShoppingCartCustomerAddressEntity> addresses,
+								ShoppingCartPaymentMethodEntity paymentMethod,
+								String shippingMethod,
+								List<ShoppingCartProductEntity> products) throws Exception {
+		
+		int quoteId = createShoppingCart();
+
+		testObjects.put("quoteId", quoteId);
+		
+		setShoppingCartCustomer(quoteId, customer);
+		setCustomerAddressesToShoppingCart(quoteId, addresses);
+		setShoppingCartPaymentMethod(quoteId, paymentMethod);
+		setShoppingCartShippingMethod(quoteId, shippingMethod);
+		addProductsToShoppingCart(quoteId, products);
+		
+		MessageProcessor flow = lookupFlowConstruct("create-shopping-cart-order");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return response.getMessage().getPayload().toString();
 	}
 	
 	public Boolean cancelOrder(String orderId) throws Exception {

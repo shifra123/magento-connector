@@ -323,7 +323,7 @@
 							</property>
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 					<entry key="type" value="simple" />
@@ -339,7 +339,7 @@
 							</property>
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 			</list>
 		</entry>
@@ -578,7 +578,7 @@
 							</property>
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 					<entry key="type" value="simple" />
@@ -594,7 +594,7 @@
 							</property>
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 					<entry key="type" value="simple" />
@@ -610,7 +610,7 @@
 							</property>
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 			</list>
 		</entry>
@@ -633,7 +633,7 @@
 							</property>
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 					<entry key="type" value="simple" />
@@ -649,7 +649,7 @@
 							</property>
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 			</list>
 		</entry>
@@ -674,7 +674,7 @@
 							<property name="price" value="50" />
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 					<entry key="type" value="simple" />
@@ -692,7 +692,7 @@
 							<property name="price" value="100" />
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 			</list>
 		</entry>
@@ -730,7 +730,7 @@
 							</property>
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 					<entry key="type" value="simple" />
@@ -746,7 +746,7 @@
 							</property>
 						</bean>
 					</entry>
-					<entry key="qtyToPlace" value="#{100.0}" />
+					<entry key="qtyToPurchase" value="#{100.0}" />
 				</util:map>
 			</list>
 		</entry>

@@ -65,12 +65,12 @@ public class CreateShoppingCartOrderTestCases extends MagentoTestParent {
 				int productId = createProduct(productType, productSet, productSKU, attributes);
 				
 				// Get the quantity to place in the shopping cart
-				double qtyToPlace = (Double) product.get("qtyToPlace");
+				double qtyToPurchase = (Double) product.get("qtyToPurchase");
 
 				// Create the shopping cart product entity
 				ShoppingCartProductEntity shoppingCartProduct = new ShoppingCartProductEntity();
 				shoppingCartProduct.setProduct_id(productId + "");
-				shoppingCartProduct.setQty(qtyToPlace);
+				shoppingCartProduct.setQty(qtyToPurchase);
 				
 				shoppingCartProducts.add(shoppingCartProduct);
 				productIds.add(productId);
