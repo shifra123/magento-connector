@@ -624,6 +624,111 @@
 		</entry>
 	</util:map>
 	
+	<util:map id="listShoppingCartLicenses" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<!-- Purchasing customer -->
+		<entry key="customer">
+			<bean class="com.magento.api.ShoppingCartCustomerEntity">
+				<property name="mode" value="guest"  />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+				<property name="email" value="johndoe@fakeemail.com" />
+			</bean>
+		</entry>
+		<!-- Shipping address -->
+		<entry key="customerAddresses">
+			<list value-type="com.magento.api.ShoppingCartCustomerAddressEntity">
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="shipping"/>
+					<property name="postcode" value="XRA8978" />
+					<property name="telephone" value="31778432" />
+					<property name="city" value="Xaghra" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="GOZO" />
+					<property name="street" value="Xaghra Road" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="billing" />
+					<property name="postcode" value="VCT13123" />
+					<property name="telephone" value="44916217" />
+					<property name="city" value="Victoria" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="GOZO" />
+					<property name="street" value="Victoria Street" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+			</list>
+		</entry>
+		<!-- Products to place in Magento -->
+		<!-- We place some of them (or all if configured) in the shopping cart -->
+		<entry key="products">
+			<list value-type="java.util.HashMap">
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="19484912W" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="SATA Cables" />
+							<property name="price" value="2" />
+						</bean>
+					</entry>
+					<entry key="qtyToPurchase" value="#{100.0}" />
+				</util:map>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="19841844S" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="IDE Cables" />
+							<property name="price" value="1" />
+						</bean>
+					</entry>
+					<entry key="qtyToPurchase" value="#{100.0}" />
+				</util:map>
+			</list>
+		</entry>
+		<!-- Shipping method -->
+		<entry key="shippingMethod" value="flatrate_flatrate"/>
+		<!-- Payment method -->
+		<entry key="paymentMethod">
+			<bean class="com.magento.api.ShoppingCartPaymentMethodEntity">
+				<property name="method" value="free" />
+			</bean>
+		</entry>
+		<!-- licenses -->
+		<entry key="licenses">
+			<list value-type="java.lang.String">
+				<value>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+				Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</value>
+				<value>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
+				eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+				Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+				voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia 
+				non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum 
+				exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit 
+				qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</value>
+			</list>
+		</entry>
+	</util:map>
+	
 	<util:map id="unholdOrder" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<!-- Purchasing customer -->
 		<entry key="customer">

@@ -247,6 +247,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-shopping-cart-shipping-methods">
 		<magento:list-shopping-cart-shipping-methods config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
+	
+	<flow name="list-shopping-cart-licenses">
+		<magento:list-shopping-cart-licenses config-ref="Magento" quoteId="#[payload.quoteId]" />
+	</flow>
 
 	<flow name="set-shopping-cart-customer">
 		<magento:set-shopping-cart-customer
