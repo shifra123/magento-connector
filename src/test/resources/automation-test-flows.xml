@@ -219,6 +219,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="unhold-order">
 		<magento:unhold-order config-ref="Magento" orderId="#[payload.orderId]"/>
 	</flow>
+	
+	<flow name="get-info-shopping-cart">
+		<magento:get-info-shopping-cart config-ref="Magento" quoteId="#[payload.quoteId]" />
+	</flow>
 
 	<flow name="add-shopping-cart-product">
 		<magento:add-shopping-cart-product

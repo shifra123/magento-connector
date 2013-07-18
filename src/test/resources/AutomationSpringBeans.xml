@@ -361,6 +361,17 @@
 		<entry key="couponCode" value="abcdef" />
 	</util:map>
 	
+	<util:map id="getInfoShoppingCart" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="customer">
+			<bean class="com.magento.api.ShoppingCartCustomerEntity">
+				<property name="mode" value="guest"  />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+				<property name="email" value="johndoe@fakeemail.com" />
+			</bean>
+		</entry>
+	</util:map>
+	
 	<util:map id="removeShoppingCartCoupon" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<!-- Store ID -->
 		<entry key="storeId" value="1" />
