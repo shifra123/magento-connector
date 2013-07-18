@@ -1,11 +1,9 @@
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,8 +11,6 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
-
-import com.magento.api.CatalogProductEntity;
 
 public class AddCategoryProductTestCases extends MagentoTestParent {
 
@@ -42,7 +38,6 @@ public class AddCategoryProductTestCases extends MagentoTestParent {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testAddCategoryProduct() {
@@ -58,6 +53,21 @@ public class AddCategoryProductTestCases extends MagentoTestParent {
 		}
 	}
 
+	@Category({ SmokeTests.class, RegressionTests.class })
+	@Test
+	public void testAddCategoryProduct_without_position() {
+		try {
+			MessageProcessor flow = lookupFlowConstruct("add-category-product-without-position");
+			MuleEvent response = flow.process(getTestEvent(testObjects));
+
+			Boolean result = (Boolean) response.getMessage().getPayload();
+			assertTrue(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
 	@After
 	public void tearDown() {
 		try {
