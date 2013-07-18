@@ -373,4 +373,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="delete-product-attribute-media">
 		<magento:delete-product-attribute-media config-ref="Magento" productId="#[payload.productId]" fileName="#[payload.fileName]"/>
 	</flow>
+	
+	<flow name="get-product-attribute-media">
+		<magento:get-product-attribute-media productId="#[payload.productId]" fileName="#[payload.fileName]" />
+	</flow>
 </mule>
