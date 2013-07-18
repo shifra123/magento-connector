@@ -1962,4 +1962,14 @@
 			<bean class="com.magento.api.CatalogProductCreateEntity" />
 		</entry>
 	</util:map>
+	
+	<util:map id="listStockItems" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="type" value="simple" />
+		<entry key="set" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_PRODUCT_SET}" />
+		<entry key="sku" value="1234567C" />
+		<entry key="attributesRef">
+			<bean class="com.magento.api.CatalogProductCreateEntity" />
+		</entry>
+	</util:map>
 </beans>
