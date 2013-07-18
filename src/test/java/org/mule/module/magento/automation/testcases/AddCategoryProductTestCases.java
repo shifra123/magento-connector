@@ -1,6 +1,7 @@
 package org.mule.module.magento.automation.testcases;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
@@ -44,24 +45,13 @@ public class AddCategoryProductTestCases extends MagentoTestParent {
 	@SuppressWarnings("unchecked")
 	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
-	public void testDeleteCategoryProduct() {
+	public void testAddCategoryProduct() {
 		try {
-			MessageProcessor listFlow = lookupFlowConstruct("list-category-products");
-			MuleEvent listResponse = listFlow
-					.process(getTestEvent(testObjects));
-			assertEquals(
-					"There should be 0 products in category before adding the product in the category",
-					0, ((List<CatalogProductEntity>) listResponse.getMessage()
-							.getPayload()).size());
-
 			MessageProcessor flow = lookupFlowConstruct("add-category-product");
-			flow.process(getTestEvent(testObjects));
+			MuleEvent response = flow.process(getTestEvent(testObjects));
 
-			listResponse = listFlow.process(getTestEvent(testObjects));
-			assertEquals(
-					"There should be 1 product in category after adding the product in the category",
-					1, ((List<CatalogProductEntity>) listResponse.getMessage()
-							.getPayload()).size());
+			Boolean result = (Boolean) response.getMessage().getPayload();
+			assertTrue(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
