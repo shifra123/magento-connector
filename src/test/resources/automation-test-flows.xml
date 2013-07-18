@@ -208,6 +208,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:cancel-order config-ref="Magento" orderId="#[payload.orderId]" />
 	</flow>
 	
+	<flow name="add-order-comment">
+		<magento:add-order-comment orderId="#[payload.orderId]" status="#[payload.status]" comment="#[payload.comment]"/>
+	</flow>
+	
 	<flow name="get-order">
 		<magento:get-order config-ref="Magento" orderId="#[payload.orderId]" />
 	</flow>
@@ -218,6 +222,20 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	
 	<flow name="unhold-order">
 		<magento:unhold-order config-ref="Magento" orderId="#[payload.orderId]"/>
+	</flow>
+	
+	<flow name="create-order-invoice">
+		<magento:create-order-invoice config-ref="Magento" orderId="#[payload.orderId]" comment="#[payload.comment]">
+			<magento:items-quantities ref="#[payload.itemsQuantitiesRef]" />
+		</magento:create-order-invoice>
+	</flow>
+	
+	<flow name="cancel-order-invoice">
+		<magento:cancel-order-invoice config-ref="Magento" invoiceId="#[payload.invoiceId]" />
+	</flow>
+	
+	<flow name="capture-order-invoice">
+		<magento:capture-order-invoice config-ref="Magento" invoiceId="#[payload.invoiceId]" />
 	</flow>
 	
 	<flow name="get-info-shopping-cart">

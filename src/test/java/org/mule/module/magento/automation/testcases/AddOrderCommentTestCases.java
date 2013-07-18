@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
@@ -21,12 +20,12 @@ import com.magento.api.ShoppingCartCustomerEntity;
 import com.magento.api.ShoppingCartPaymentMethodEntity;
 import com.magento.api.ShoppingCartProductEntity;
 
-public class HoldOrderTestCases extends MagentoTestParent {
+public class AddOrderCommentTestCases extends MagentoTestParent {
 
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("holdOrder");
+			testObjects = (HashMap<String, Object>) context.getBean("addOrderComment");
 			
 			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
 			List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
@@ -59,9 +58,10 @@ public class HoldOrderTestCases extends MagentoTestParent {
 				shoppingCartProducts.add(shoppingCartProduct);
 				productIds.add(productId);
 			}
-			testObjects.put("productIds", productIds);		
+			testObjects.put("productIds", productIds);
 
 			String orderId = createShoppingCartOrder(customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
+			
 			testObjects.put("orderId", orderId);
 		}
 		catch (Exception e) {
@@ -72,14 +72,13 @@ public class HoldOrderTestCases extends MagentoTestParent {
 	
 	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
-	@Ignore
-	public void testHoldOrder() {
+	public void testAddOrderComment() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("hold-order");
+			MessageProcessor flow = lookupFlowConstruct("add-order-comment");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			Boolean result = (Boolean) response.getMessage().getPayload();
-			assertTrue(result);
+			Integer result = (Integer) response.getMessage().getPayload();
+			assertTrue(result == 1);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -90,13 +89,13 @@ public class HoldOrderTestCases extends MagentoTestParent {
 	@After
 	public void tearDown() {
 		try {
+			@SuppressWarnings("unchecked")
 			List<Integer> productIds = (List<Integer>) testObjects.get("productIds");
 			for (Integer productId : productIds) {
-				deleteProductById(productId);
-			}	
-			
-			String orderId = (String) testObjects.get("orderId");
-			unholdOrder(orderId);
+					deleteProductById(productId);
+			}
+
+			String orderId = testObjects.get("orderId").toString();
 			cancelOrder(orderId);
 		}
 		catch (Exception e) {
@@ -104,5 +103,6 @@ public class HoldOrderTestCases extends MagentoTestParent {
 			fail();
 		}
 	}
+	
 	
 }

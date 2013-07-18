@@ -1,5 +1,6 @@
 package org.mule.module.magento.automation.testcases;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -16,17 +17,18 @@ import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
 import com.magento.api.CatalogProductCreateEntity;
+import com.magento.api.OrderItemIdQty;
 import com.magento.api.ShoppingCartCustomerAddressEntity;
 import com.magento.api.ShoppingCartCustomerEntity;
 import com.magento.api.ShoppingCartPaymentMethodEntity;
 import com.magento.api.ShoppingCartProductEntity;
 
-public class HoldOrderTestCases extends MagentoTestParent {
+public class CreateOrderInvoiceTestCases extends MagentoTestParent {
 
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("holdOrder");
+			testObjects = (HashMap<String, Object>) context.getBean("createOrderInvoice");
 			
 			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
 			List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
@@ -59,7 +61,8 @@ public class HoldOrderTestCases extends MagentoTestParent {
 				shoppingCartProducts.add(shoppingCartProduct);
 				productIds.add(productId);
 			}
-			testObjects.put("productIds", productIds);		
+			testObjects.put("productIds", productIds);
+			testObjects.put("shoppingCartProducts", shoppingCartProducts);
 
 			String orderId = createShoppingCartOrder(customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
 			testObjects.put("orderId", orderId);
@@ -72,14 +75,26 @@ public class HoldOrderTestCases extends MagentoTestParent {
 	
 	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
-	@Ignore
-	public void testHoldOrder() {
+	public void testCreateOrderInvoice() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("hold-order");
+			List<ShoppingCartProductEntity> shoppingCartProducts = (List<ShoppingCartProductEntity>) testObjects.get("shoppingCartProducts");
+
+			List<OrderItemIdQty> quantities = new ArrayList<OrderItemIdQty>();
+			for (ShoppingCartProductEntity shoppingCartProduct : shoppingCartProducts) {
+				OrderItemIdQty item = new OrderItemIdQty(Integer.parseInt(shoppingCartProduct.getProduct_id()), shoppingCartProduct.getQty());
+				quantities.add(item);
+			}
+			
+			testObjects.put("itemsQuantitiesRef", quantities);
+			
+			MessageProcessor flow = lookupFlowConstruct("create-order-invoice");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			Boolean result = (Boolean) response.getMessage().getPayload();
-			assertTrue(result);
+			String invoiceId = (String) response.getMessage().getPayload();
+			assertNotNull(invoiceId);
+			System.out.println(invoiceId);
+			
+			testObjects.put("invoiceId", invoiceId);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,8 +110,10 @@ public class HoldOrderTestCases extends MagentoTestParent {
 				deleteProductById(productId);
 			}	
 			
+			String invoiceId = (String) testObjects.get("invoiceId");
+//			cancelOrderInvoice(invoiceId);
+
 			String orderId = (String) testObjects.get("orderId");
-			unholdOrder(orderId);
 			cancelOrder(orderId);
 		}
 		catch (Exception e) {
@@ -104,5 +121,5 @@ public class HoldOrderTestCases extends MagentoTestParent {
 			fail();
 		}
 	}
-	
+
 }
