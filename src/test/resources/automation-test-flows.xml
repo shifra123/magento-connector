@@ -414,4 +414,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:update-category-product config-ref="Magento" categoryId="#[payload.categoryId]" position="#[payload.position]" productId="#[payload.productId]" />
 	</flow>
 	
+	<flow name="update-inventory-stock-item">
+		<magento:update-inventory-stock-item productId="#[payload.productId]">
+		    <magento:catalog-inventory-stock-item qty="#[payload.qty]" />
+		</magento:update-inventory-stock-item>
+	</flow>
+	
 </mule>
