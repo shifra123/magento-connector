@@ -21,7 +21,6 @@ import com.magento.api.ShoppingCartCustomerAddressEntity;
 import com.magento.api.ShoppingCartCustomerEntity;
 import com.magento.api.ShoppingCartPaymentMethodEntity;
 import com.magento.api.ShoppingCartProductEntity;
-import com.magento.api.ShoppingCartShippingMethodEntity;
 
 public class MagentoTestParent extends FunctionalTestCase {
 

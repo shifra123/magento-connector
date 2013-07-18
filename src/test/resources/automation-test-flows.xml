@@ -355,4 +355,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-product-link-types">
 		<magento:list-product-link-types config-ref="Magento" />
 	</flow>
+	
+	<flow name="create-product-attribute-media">
+		<magento:create-product-attribute-media config-ref="Magento" productId="#[flowVars.productId]" baseFileName="#[flowVars.baseFileName]" mimeType="#[flowVars.mimeType]">
+		    <magento:catalog-product-attribute-media-entity label="#[flowVars.label]" position="#[flowVars.position]" />
+		</magento:create-product-attribute-media>
+	</flow>
+	
+	<flow name="delete-product-attribute-media">
+		<magento:delete-product-attribute-media config-ref="Magento" productId="#[payload.productId]" fileName="#[payload.fileName]"/>
+	</flow>
 </mule>
