@@ -59,10 +59,9 @@ public class HoldOrderTestCases extends MagentoTestParent {
 				shoppingCartProducts.add(shoppingCartProduct);
 				productIds.add(productId);
 			}
+			testObjects.put("productIds", productIds);		
 
 			String orderId = createShoppingCartOrder(customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
-			
-			testObjects.put("productIds", productIds);		
 			testObjects.put("orderId", orderId);
 		}
 		catch (Exception e) {
