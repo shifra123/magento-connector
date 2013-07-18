@@ -189,11 +189,15 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="create-shopping-cart">
 		<magento:create-shopping-cart config-ref="Magento" />
 	</flow>
+
+	<flow name="create-shopping-cart-with-store-id">
+		<magento:create-shopping-cart config-ref="Magento" storeId="#[payload.storeId]" />
+	</flow>
 	
 	<flow name="create-shopping-cart-order">
 		<magento:create-shopping-cart-order config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
-	
+
 	<flow name="create-shopping-cart-order-with-licenses">
 		<magento:create-shopping-cart-order config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:licenses ref="#[payload.licensesRef]" />
@@ -228,6 +232,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:remove-shopping-cart-product>
+	</flow>
+
+	<flow name="add-shopping-cart-coupon">
+		<magento:add-shopping-cart-coupon config-ref="Magento" quoteId="#[payload.quoteId]" couponCode="#[payload.couponCode]" />
 	</flow>
 
 	<flow name="list-shopping-cart-totals">

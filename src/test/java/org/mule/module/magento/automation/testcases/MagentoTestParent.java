@@ -141,6 +141,15 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Integer) response.getMessage().getPayload();
 	}
 	
+	public int createShoppingCart(String storeId) throws Exception {
+		testObjects.put("storeId", storeId);
+		
+		MessageProcessor flow = lookupFlowConstruct("create-shopping-cart-with-store-id");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();
+		
+	}
+	
 	public boolean addProductsToShoppingCart(int quoteId, List<ShoppingCartProductEntity> products) throws Exception {
 		testObjects.put("quoteId", quoteId);
 		testObjects.put("productsRef", products);
