@@ -410,4 +410,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:list-stock-items>
 	</flow>
 	
+	<flow name="update-category-product">
+		<magento:update-category-product config-ref="Magento" categoryId="#[payload.categoryId]" position="#[payload.position]" productId="#[payload.productId]" />
+	</flow>
+	
 </mule>
