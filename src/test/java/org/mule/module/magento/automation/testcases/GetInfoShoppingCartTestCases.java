@@ -40,7 +40,6 @@ public class GetInfoShoppingCartTestCases extends MagentoTestParent {
 	public void testGetInfoShoppingCart() {
 		try {
 			int quoteId = (Integer) testObjects.get("quoteId");
-			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
 			
 			MessageProcessor flow = lookupFlowConstruct("get-info-shopping-cart");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
