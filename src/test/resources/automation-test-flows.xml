@@ -208,6 +208,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:cancel-order config-ref="Magento" orderId="#[payload.orderId]" />
 	</flow>
 	
+	<flow name="add-order-comment">
+		<magento:add-order-comment orderId="#[payload.orderId]" status="#[payload.status]" comment="#[payload.comment]"/>
+	</flow>
+	
 	<flow name="get-order">
 		<magento:get-order config-ref="Magento" orderId="#[payload.orderId]" />
 	</flow>
