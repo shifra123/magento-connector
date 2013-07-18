@@ -20,12 +20,16 @@ import com.magento.api.ShoppingCartCustomerEntity;
 import com.magento.api.ShoppingCartPaymentMethodEntity;
 import com.magento.api.ShoppingCartProductEntity;
 
-public class CancelOrderTestCases extends MagentoTestParent {
+public class RemoveShoppingCartCouponTestCases extends MagentoTestParent {
 
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("cancelOrder");
+			testObjects = (HashMap<String, Object>) context.getBean("removeShoppingCartCoupon");
+			
+			String storeId = testObjects.get("storeId").toString();
+			int quoteId = createShoppingCart(storeId);
+			testObjects.put("quoteId", quoteId);
 			
 			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
 			List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
@@ -37,7 +41,6 @@ public class CancelOrderTestCases extends MagentoTestParent {
 			List<Integer> productIds = new ArrayList<Integer>();
 			
 			for (HashMap<String, Object> product : products) {
-				
 				// Get the product data
 				String productType = (String) product.get("type");
 				int productSet = (Integer) product.get("set");
@@ -58,11 +61,18 @@ public class CancelOrderTestCases extends MagentoTestParent {
 				shoppingCartProducts.add(shoppingCartProduct);
 				productIds.add(productId);
 			}
+
 			testObjects.put("productIds", productIds);
 
-			String orderId = createShoppingCartOrder(customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
+			String couponCode = testObjects.get("couponCode").toString();
 			
-			testObjects.put("orderId", orderId);
+			setShoppingCartCustomer(quoteId, customer);
+			setCustomerAddressesToShoppingCart(quoteId, addresses);
+			setShoppingCartPaymentMethod(quoteId, paymentMethod);
+			setShoppingCartShippingMethod(quoteId, shippingMethod);
+			addProductsToShoppingCart(quoteId, shoppingCartProducts);
+			addShoppingCartCoupon(quoteId, couponCode);
+			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -70,12 +80,13 @@ public class CancelOrderTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
-	public void testCancelOrder() {
+	public void testRemoveShoppingCartCoupon() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("cancel-order");
+			MessageProcessor flow = lookupFlowConstruct("remove-shopping-cart-coupon");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
+			
 			Boolean result = (Boolean) response.getMessage().getPayload();
 			assertTrue(result);
 		}
@@ -87,16 +98,15 @@ public class CancelOrderTestCases extends MagentoTestParent {
 	
 	@After
 	public void tearDown() {
-		List<Integer> productIds = (List<Integer>) testObjects.get("productIds");
-		for (Integer productId : productIds) {
-			try {
+		try {
+			List<Integer> productIds = (List<Integer>) testObjects.get("productIds");
+			for (Integer productId : productIds) {
 				deleteProductById(productId);
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-				fail();
-			}
+			}	
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			fail();
 		}
 	}
-	
 }

@@ -269,4 +269,13 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Integer) response.getMessage().getPayload();
 	}
 	
+	public boolean addShoppingCartCoupon(int quoteId, String couponCode) throws Exception {
+		testObjects.put("quoteId", quoteId);
+		testObjects.put("couponCode", couponCode);
+
+		MessageProcessor flow = lookupFlowConstruct("add-shopping-cart-coupon");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();		
+	}
+	
 }
