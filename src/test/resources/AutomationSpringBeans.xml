@@ -1733,4 +1733,18 @@
 			<bean class="com.magento.api.CatalogProductCreateEntity" />
 		</entry>
 	</util:map>
+	
+	<util:map id="updateProductAttributeMedia" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="baseFileName" value="fileName" />
+		<entry key="mimeType" value="GIF" />
+		<entry key="label" value="label" />
+		<entry key="type" value="simple" />
+		<entry key="set" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_PRODUCT_SET}" />
+		<entry key="position" value="1" />
+		<entry key="sku" value="1234567C" />
+		<entry key="attributesRef">
+			<bean class="com.magento.api.CatalogProductCreateEntity" />
+		</entry>
+	</util:map>
 </beans>

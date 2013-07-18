@@ -377,4 +377,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="get-product-attribute-media">
 		<magento:get-product-attribute-media productId="#[payload.productId]" fileName="#[payload.fileName]" />
 	</flow>
+	
+	<flow name="update-product-attribute-media">
+		<magento:update-product-attribute-media fileName="#[payload.fileName]" productId="#[payload.productId]">
+		    <magento:catalog-product-attribute-media-entity label="#[payload.label]" position="#[payload.position]" />
+		</magento:update-product-attribute-media>
+	</flow>
 </mule>
