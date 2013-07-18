@@ -212,9 +212,9 @@ public class MagentoTestParent extends FunctionalTestCase {
 		
 		setShoppingCartCustomer(quoteId, customer);
 		setCustomerAddressesToShoppingCart(quoteId, addresses);
+		addProductsToShoppingCart(quoteId, products);
 		setShoppingCartPaymentMethod(quoteId, paymentMethod);
 		setShoppingCartShippingMethod(quoteId, shippingMethod);
-		addProductsToShoppingCart(quoteId, products);
 		
 		MessageProcessor flow = lookupFlowConstruct("create-shopping-cart-order");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
@@ -278,5 +278,20 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Boolean) response.getMessage().getPayload();		
 	}
+
+	public Integer captureOrderInvoice(String invoiceId) throws Exception {
+		testObjects.put("invoiceId", invoiceId);
+		
+		MessageProcessor flow = lookupFlowConstruct("capture-order-invoice");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();		
+	}
 	
+	public boolean cancelOrderInvoice(String invoiceId) throws Exception {
+		testObjects.put("invoiceId", invoiceId);
+		
+		MessageProcessor flow = lookupFlowConstruct("cancel-order-invoice");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Boolean) response.getMessage().getPayload();		
+	}
 }
