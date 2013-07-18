@@ -92,6 +92,7 @@ public class AddShoppingCartCouponTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

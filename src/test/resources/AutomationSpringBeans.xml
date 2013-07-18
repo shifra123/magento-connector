@@ -358,7 +358,7 @@
 			</bean>
 		</entry>
 		<!-- Coupon code -->
-		<entry key="couponCode" value="CODE" />
+		<entry key="couponCode" value="abcdef" />
 	</util:map>
 	
 	<util:map id="createShoppingCartOrder" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
