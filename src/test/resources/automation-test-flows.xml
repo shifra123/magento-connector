@@ -350,6 +350,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:update-shopping-cart-product>
 	</flow>
 
+	<flow name="update-product-special-price">
+		<magento:update-product-special-price config-ref="Magento" specialPrice="#[payload.specialPrice]" fromDate="#[payload.fromDate]" toDate="#[payload.toDate]" productId="#[payload.productId]" />
+	</flow>
+
 	<flow name="update-product">
 		<magento:update-product productId="#[payload.productId]" config-ref="Magento">
 			<magento:catalog-product-entity name="#[payload.name]" />
