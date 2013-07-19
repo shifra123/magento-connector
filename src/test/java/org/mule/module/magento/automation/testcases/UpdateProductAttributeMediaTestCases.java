@@ -13,14 +13,14 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
-public class DeleteProductAttributeMediaTestCases extends MagentoTestParent {
+public class UpdateProductAttributeMediaTestCases extends MagentoTestParent {
 
 	@SuppressWarnings("unchecked")
 	@Before
 	// This test depends on there being an img.gif file in the classpath (when writing this test there was such a file in src/test/resources).
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("deleteProductAttributeMedia");
+			testObjects = (HashMap<String, Object>) context.getBean("updateProductAttributeMedia");
 			MessageProcessor createProductFlow = lookupFlowConstruct("create-product");
 			MuleEvent response = createProductFlow.process(getTestEvent(testObjects));
 			response.getMessage().getPayload();
@@ -49,9 +49,9 @@ public class DeleteProductAttributeMediaTestCases extends MagentoTestParent {
 	
 	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
-	public void testDeleteProductAttributeMedia() {
+	public void testUpdateProductAttributeMedia() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("delete-product-attribute-media");
+			MessageProcessor flow = lookupFlowConstruct("update-product-attribute-media");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			Boolean result = (Boolean) response.getMessage().getPayload();
 			assertTrue(result);

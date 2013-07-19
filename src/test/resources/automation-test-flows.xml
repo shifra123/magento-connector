@@ -395,4 +395,33 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="delete-product-attribute-media">
 		<magento:delete-product-attribute-media config-ref="Magento" productId="#[payload.productId]" fileName="#[payload.fileName]"/>
 	</flow>
+	
+	<flow name="get-product-attribute-media">
+		<magento:get-product-attribute-media config-ref="Magento" productId="#[payload.productId]" fileName="#[payload.fileName]" />
+	</flow>
+	
+	<flow name="update-product-attribute-media">
+		<magento:update-product-attribute-media config-ref="Magento" fileName="#[payload.fileName]" productId="#[payload.productId]">
+		    <magento:catalog-product-attribute-media-entity label="#[payload.label]" position="#[payload.position]" />
+		</magento:update-product-attribute-media>
+	</flow>
+	
+	<flow name="list-stock-items">
+		<magento:list-stock-items config-ref="Magento">
+		    <magento:product-id-or-skus>
+		        <magento:product-id-or-sku>#[payload.productId]</magento:product-id-or-sku>
+		    </magento:product-id-or-skus>
+		</magento:list-stock-items>
+	</flow>
+	
+	<flow name="update-category-product">
+		<magento:update-category-product config-ref="Magento" categoryId="#[payload.categoryId]" position="#[payload.position]" productId="#[payload.productId]" />
+	</flow>
+	
+	<flow name="update-inventory-stock-item">
+		<magento:update-inventory-stock-item productId="#[payload.productId]">
+		    <magento:catalog-inventory-stock-item qty="#[payload.qty]" />
+		</magento:update-inventory-stock-item>
+	</flow>
+	
 </mule>
