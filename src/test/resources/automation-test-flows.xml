@@ -344,6 +344,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			productId="#[payload.productId]" linkedProductIdOrSku="#[payload.linkedProductIdOrSku]" config-ref="Magento" />
 	</flow>
 
+	<flow name="update-shopping-cart-product">
+		<magento:update-shopping-cart-product config-ref="Magento" quoteId="#[payload.quoteId]" >
+			<magento:products ref="#[payload.productsRef]" />
+		</magento:update-shopping-cart-product>
+	</flow>
+
 	<flow name="update-product">
 		<magento:update-product productId="#[payload.productId]" config-ref="Magento">
 			<magento:catalog-product-entity name="#[payload.name]" />

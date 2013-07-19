@@ -1993,6 +1993,51 @@
 		</entry>
 	</util:map>
 	
+	<util:map id="updateShoppingCartProduct" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="products">
+			<list value-type="java.util.HashMap">
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="49494812T" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="HP Photocopier" />
+							<property name="price" value="1500" />
+						</bean>
+					</entry>
+					<entry key="qtyToPurchaseBefore" value="#{100.0}" />
+					<entry key="qtyToPurchaseAfter" value="#{50.0}" />
+				</util:map>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="19287363S" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="Dell Photocopier" />
+							<property name="price" value="2000" />
+						</bean>
+					</entry>
+					<entry key="qtyToPurchaseBefore" value="#{100.0}" />
+					<entry key="qtyToPurchaseAfter" value="#{50.0}" />
+				</util:map>
+			</list>
+		</entry>
+	</util:map>
+	
 	<util:map id="updateCategoryProduct" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="type" value="simple" />
