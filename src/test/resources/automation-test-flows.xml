@@ -351,7 +351,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="update-product-special-price">
-		<magento:update-product-special-price config-ref="Magento" specialPrice="#[payload.specialPrice]" fromDate="#[payload.fromDate]" toDate="#[payload.toDate]" productId="#[payload.productId]" />
+		<magento:update-product-special-price config-ref="Magento" specialPrice="#[payload.specialPrice]" fromDate="#[payload.fromDate]"
+			toDate="#[payload.toDate]" productId="#[payload.productId]" />
 	</flow>
 
 	<flow name="update-product">
@@ -422,6 +423,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		        <magento:product-id-or-sku>#[payload.productId]</magento:product-id-or-sku>
 		    </magento:product-id-or-skus>
 		</magento:list-stock-items>
+	</flow>
+	
+	<flow name="update-stock-item">
+		<magento:update-stock-item config-ref="Magento" productIdOrSku="#[payload.productIdOrSku]" >
+			<magento:stock-item ref="#[payload.stockItemRef]"/>
+		</magento:update-stock-item>
 	</flow>
 	
 	<flow name="update-category-product">
