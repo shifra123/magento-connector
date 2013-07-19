@@ -1885,6 +1885,26 @@
 		<entry key="attributesName" value="sku" />
 	</util:map>
 	
+	<util:map id="getProductSpecialPrice" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="type" value="simple" />
+		<entry key="set" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_PRODUCT_SET}" />
+		<entry key="sku" value="191945631S" />
+		<entry key="attributesRef">
+			<bean class="com.magento.api.CatalogProductCreateEntity" >
+				<property name="price" value="700" />
+				<property name="name" value="iPhone" />
+				<property name="description" value="This is an iPhone for sale" />
+				<property name="short_description" value="iPhone for sale" />
+				<property name="visibility" value="#{4}" />
+				<property name="status" value="#{1}" />
+				<property name="special_price" value="550" />
+				<property name="special_from_date" value="2013-01-01 00:00:00" />
+				<property name="special_to_date" value="2050-01-01 00:00:00" />
+			</bean>
+		</entry>
+	</util:map>
+	
 	<util:map id="listProductLinkAttributes" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="type" value="simple" />
@@ -1973,6 +1993,75 @@
 		</entry>
 	</util:map>
 	
+	<util:map id="updateShoppingCartProduct" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="products">
+			<list value-type="java.util.HashMap">
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="49494812T" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="HP Photocopier" />
+							<property name="price" value="1500" />
+						</bean>
+					</entry>
+					<entry key="qtyToPurchaseBefore" value="#{100.0}" />
+					<entry key="qtyToPurchaseAfter" value="#{50.0}" />
+				</util:map>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="19287363S" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="Dell Photocopier" />
+							<property name="price" value="2000" />
+						</bean>
+					</entry>
+					<entry key="qtyToPurchaseBefore" value="#{100.0}" />
+					<entry key="qtyToPurchaseAfter" value="#{50.0}" />
+				</util:map>
+			</list>
+		</entry>
+	</util:map>
+	
+	<util:map id="updateProductSpecialPrice" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="type" value="simple" />
+		<entry key="set" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_PRODUCT_SET}" />
+		<entry key="sku" value="989843221U" />
+		<entry key="attributesRef">
+			<bean class="com.magento.api.CatalogProductCreateEntity" >
+				<property name="price" value="20" />
+				<property name="name" value="Epica" />
+				<property name="description" value="This is an album of a very good band" />
+				<property name="short_description" value="Epica for sale" />
+				<property name="visibility" value="#{4}" />
+				<property name="status" value="#{1}" />
+				<property name="special_price" value="15" />
+				<property name="special_from_date" value="2013-01-01 00:00:00" />
+				<property name="special_to_date" value="2050-01-01 00:00:00" />
+			</bean>
+		</entry>
+		<entry key="specialPrice" value="10" />
+		<entry key="fromDate" value="2012-06-06 08:00:00" />
+		<entry key="toDate" value="2070-01-01 20:00:00" />
+		
+	</util:map>
+	
 	<util:map id="updateCategoryProduct" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="type" value="simple" />
@@ -1992,6 +2081,31 @@
 				<property name="include_in_menu" value="1" />
 				<property name="available_sort_by" value="name" />
 				<property name="default_sort_by" value="name" />
+			</bean>
+		</entry>
+	</util:map>
+	
+	<util:map id="updateStockItem" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
+		<entry key="type" value="simple" />
+		<entry key="set" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_PRODUCT_SET}" />
+		<entry key="sku" value="989843221U" />
+		<entry key="attributesRef">
+			<bean class="com.magento.api.CatalogProductCreateEntity" >
+				<property name="price" value="20" />
+				<property name="name" value="Epica" />
+				<property name="description" value="This is an album of a very good band" />
+				<property name="short_description" value="Epica for sale" />
+				<property name="visibility" value="#{4}" />
+				<property name="status" value="#{1}" />
+				<property name="special_price" value="15" />
+				<property name="special_from_date" value="2013-01-01 00:00:00" />
+				<property name="special_to_date" value="2050-01-01 00:00:00" />
+			</bean>
+		</entry>
+		<entry key="stockItemRef">
+			<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity" scope="prototype">
+				<property name="qty" value="200" />
+				<property name="is_in_stock" value="1" />
 			</bean>
 		</entry>
 	</util:map>
