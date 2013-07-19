@@ -420,4 +420,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:update-inventory-stock-item>
 	</flow>
 	
+	<flow name="move-shopping-cart-product-to-customer-quote">
+		<magento:move-shopping-cart-product-to-customer-quote
+			config-ref="Magento" quoteId="#[payload.quoteId]">
+			<magento:products ref="#[payload.productsRef]" />
+		</magento:move-shopping-cart-product-to-customer-quote>
+	</flow>
+	
+	<flow name="list-product-attribute-media">
+		<magento:list-product-attribute-media productId="#[payload.productId]" />
+	</flow>
 </mule>
