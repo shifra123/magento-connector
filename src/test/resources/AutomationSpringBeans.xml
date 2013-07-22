@@ -466,6 +466,7 @@
 	</util:map>
 	
 	<util:map id="createShoppingCartOrder" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="storeId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_STORE_ID}" />
 		<!-- Purchasing customer -->
 		<entry key="customer">
 			<bean class="com.magento.api.ShoppingCartCustomerEntity">
