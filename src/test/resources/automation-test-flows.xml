@@ -265,7 +265,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="list-shopping-cart-totals">
-		<magento:list-shopping-cart-totals
+		<magento:list-shopping-cart-totals storeId="#[payload.storeId]"
 			config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 
