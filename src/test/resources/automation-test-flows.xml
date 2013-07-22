@@ -287,7 +287,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="set-shopping-cart-customer">
-		<magento:set-shopping-cart-customer
+		<magento:set-shopping-cart-customer storeId="#[payload.storeId]"
 			config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:customer ref="#[payload.customerRef]" />
 		</magento:set-shopping-cart-customer>
