@@ -1399,6 +1399,7 @@
 	</util:map>
 	
 	<util:map id="addShoppingCartProduct" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="storeId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_STORE_ID}" />
 		<entry key="products">
 			<!-- 
 				Each product is defined as a hashmap. 

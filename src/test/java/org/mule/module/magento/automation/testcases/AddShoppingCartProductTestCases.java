@@ -24,6 +24,8 @@ public class AddShoppingCartProductTestCases extends MagentoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("addShoppingCartProduct");
+			
+			String storeId = testObjects.get("storeId").toString();
 
 			// Initialise hashmaps
 			HashMap<Integer, Double> productIds = new HashMap<Integer, Double>();
@@ -44,7 +46,7 @@ public class AddShoppingCartProductTestCases extends MagentoTestParent {
 			testObjects.put("productIds", productIds);
 			
 			// Create the shopping cart
-			int shoppingCartId = createShoppingCart();
+			int shoppingCartId = createShoppingCart(storeId);
 			testObjects.put("shoppingCartId", shoppingCartId);
 			
 		}

@@ -243,7 +243,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="add-shopping-cart-product">
-		<magento:add-shopping-cart-product
+		<magento:add-shopping-cart-product storeId="#[payload.storeId]"
 			config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:add-shopping-cart-product>
