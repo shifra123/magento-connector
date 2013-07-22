@@ -239,7 +239,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="get-info-shopping-cart">
-		<magento:get-info-shopping-cart config-ref="Magento" quoteId="#[payload.quoteId]" />
+		<magento:get-info-shopping-cart config-ref="Magento" quoteId="#[payload.quoteId]" storeId="#[payload.storeId]" />
 	</flow>
 
 	<flow name="add-shopping-cart-product">
