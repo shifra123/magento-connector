@@ -345,7 +345,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="update-shopping-cart-product">
-		<magento:update-shopping-cart-product config-ref="Magento" quoteId="#[payload.quoteId]" >
+		<magento:update-shopping-cart-product config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" >
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:update-shopping-cart-product>
 	</flow>
