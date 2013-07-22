@@ -250,7 +250,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="remove-shopping-cart-product">
-		<magento:remove-shopping-cart-product
+		<magento:remove-shopping-cart-product storeId="#[payload.storeId]"
 			config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:remove-shopping-cart-product>
