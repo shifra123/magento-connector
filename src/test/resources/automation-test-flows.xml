@@ -283,7 +283,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="list-shopping-cart-licenses">
-		<magento:list-shopping-cart-licenses config-ref="Magento" quoteId="#[payload.quoteId]" />
+		<magento:list-shopping-cart-licenses config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" />
 	</flow>
 
 	<flow name="set-shopping-cart-customer">
