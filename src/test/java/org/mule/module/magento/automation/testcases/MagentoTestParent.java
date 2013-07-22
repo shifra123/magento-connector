@@ -31,6 +31,8 @@ public class MagentoTestParent extends FunctionalTestCase {
 	protected static final String[] SPRING_CONFIG_FILES = new String[] { "AutomationSpringBeans.xml", "AttributesSpringBeans.xml" };
 	protected static ApplicationContext context;
 	protected Map<String, Object> testObjects;
+	
+	public static final String DEFAULT_STORE_ID = "1";
 
 	public static final int ROOT_CATEGORY_ID = 1;
 	public static final int DEFAULT_CATEGORY_ID = 2;
