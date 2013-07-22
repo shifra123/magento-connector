@@ -294,7 +294,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="set-shopping-cart-customer-addresses">
-		<magento:set-shopping-cart-customer-addresses
+		<magento:set-shopping-cart-customer-addresses storeId="#[payload.storeId]"
 			config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:shopping-cart-customer-addresses
 				ref="#[payload.shoppingCartCustomerAddressesRef]" />
