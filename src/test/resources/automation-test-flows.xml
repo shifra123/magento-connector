@@ -436,9 +436,25 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="update-inventory-stock-item">
-		<magento:update-inventory-stock-item productId="#[payload.productId]">
+		<magento:update-inventory-stock-item productId="#[payload.productId]" config-ref="Magento">
 		    <magento:catalog-inventory-stock-item qty="#[payload.qty]" />
 		</magento:update-inventory-stock-item>
 	</flow>
 	
+	<flow name="move-shopping-cart-product-to-customer-quote">
+		<magento:move-shopping-cart-product-to-customer-quote config-ref="Magento" quoteId="#[payload.quoteId]">
+			<magento:products ref="#[payload.productsRef]" />
+		</magento:move-shopping-cart-product-to-customer-quote>
+	</flow>
+	
+	<flow name="list-product-attribute-media">
+		<magento:list-product-attribute-media config-ref="Magento" productId="#[payload.productId]" />
+	</flow>
+	
+	<flow name="update-product-attribute-tier-price">
+		<magento:update-product-attribute-tier-price productId="#[flowVars.productId]">
+<!-- 			This is ignored. The CatalogProductTierPriceEntity needs to be the payload. -->
+<!-- 			<magento:catalog-product-tier-price-entity ref="#[flowVars.catalogProductTierPriceEntityRef]"/> -->
+		</magento:update-product-attribute-tier-price>
+	</flow>
 </mule>
