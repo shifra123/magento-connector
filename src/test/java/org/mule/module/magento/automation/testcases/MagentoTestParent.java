@@ -222,14 +222,12 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return response.getMessage().getPayload().toString();
 	}
 	
-	public String createShoppingCartOrder(ShoppingCartCustomerEntity customer,
+	public String createShoppingCartOrder(int quoteId, ShoppingCartCustomerEntity customer,
 								List<ShoppingCartCustomerAddressEntity> addresses,
 								ShoppingCartPaymentMethodEntity paymentMethod,
 								String shippingMethod,
 								List<ShoppingCartProductEntity> products,
 								List<String> licenses) throws Exception {
-		
-		int quoteId = createShoppingCart();
 
 		testObjects.put("quoteId", quoteId);
 		
