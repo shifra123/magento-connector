@@ -59,10 +59,12 @@ public class UnholdOrderTestCases extends MagentoTestParent {
 				shoppingCartProducts.add(shoppingCartProduct);
 				productIds.add(productId);
 			}
-
-			String orderId = createShoppingCartOrder(customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
-			
 			testObjects.put("productIds", productIds);		
+
+			String storeId = testObjects.get("storeId").toString();
+			int quoteId = createShoppingCart(storeId);
+			
+			String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
 			testObjects.put("orderId", orderId);
 			
 			holdOrder(orderId);

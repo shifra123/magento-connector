@@ -201,21 +201,19 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Boolean) response.getMessage().getPayload();
 	}
 	
-	public String createShoppingCartOrder(ShoppingCartCustomerEntity customer,
+	public String createShoppingCartOrder(int quoteId, ShoppingCartCustomerEntity customer,
 								List<ShoppingCartCustomerAddressEntity> addresses,
 								ShoppingCartPaymentMethodEntity paymentMethod,
 								String shippingMethod,
 								List<ShoppingCartProductEntity> products) throws Exception {
 		
-		int quoteId = createShoppingCart();
-
 		testObjects.put("quoteId", quoteId);
 		
 		setShoppingCartCustomer(quoteId, customer);
 		setCustomerAddressesToShoppingCart(quoteId, addresses);
-		addProductsToShoppingCart(quoteId, products);
 		setShoppingCartPaymentMethod(quoteId, paymentMethod);
 		setShoppingCartShippingMethod(quoteId, shippingMethod);
+		addProductsToShoppingCart(quoteId, products);
 		
 		MessageProcessor flow = lookupFlowConstruct("create-shopping-cart-order");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
