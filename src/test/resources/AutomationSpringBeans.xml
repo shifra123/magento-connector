@@ -1760,6 +1760,7 @@
 	</util:map>
 	
 	<util:map id="setShoppingCartShippingMethod" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+		<entry key="storeId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_STORE_ID}" />
 		<entry key="method" value="flatrate_flatrate"/>
 		<entry key="customerAddresses">
 			<list value-type="com.magento.api.ShoppingCartCustomerAddressEntity">

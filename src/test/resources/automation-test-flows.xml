@@ -308,7 +308,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="set-shopping-cart-shipping-method">
-		<magento:set-shopping-cart-shipping-method config-ref="Magento" quoteId="#[payload.quoteId]" method="#[payload.method]" />		
+		<magento:set-shopping-cart-shipping-method config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" method="#[payload.method]" />		
 	</flow>
 	
 	<flow name="add-category-product">
