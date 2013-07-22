@@ -275,7 +275,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="list-shopping-cart-payment-methods">
-		<magento:list-shopping-cart-payment-methods config-ref="Magento" quoteId="#[payload.quoteId]" />
+		<magento:list-shopping-cart-payment-methods config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" />
 	</flow>
 	
 	<flow name="list-shopping-cart-shipping-methods">
