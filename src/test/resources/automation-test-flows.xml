@@ -261,7 +261,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="remove-shopping-cart-coupon">
-		<magento:remove-shopping-cart-coupon config-ref="Magento" quoteId="#[payload.quoteId]" />
+		<magento:remove-shopping-cart-coupon config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" />
 	</flow>
 
 	<flow name="list-shopping-cart-totals">
