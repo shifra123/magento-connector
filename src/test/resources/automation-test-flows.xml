@@ -302,7 +302,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="set-shopping-cart-payment-method">
-		<magento:set-shopping-cart-payment-method config-ref="Magento" quoteId="#[payload.quoteId]">
+		<magento:set-shopping-cart-payment-method config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]">
 			<magento:shopping-cart-payment-method ref="#[payload.shoppingCartPaymentMethodRef]" />
 		</magento:set-shopping-cart-payment-method>
 	</flow>

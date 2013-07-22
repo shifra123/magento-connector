@@ -1682,16 +1682,10 @@
 	</util:map>
 			
 	<util:map id="setShoppingCartPaymentMethod" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+		<entry key="storeId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_STORE_ID}" />
 		<entry key="shoppingCartPaymentMethodRef">
 			<bean class="com.magento.api.ShoppingCartPaymentMethodEntity">
-				<property name="po_number" value="123123123" />
 				<property name="method" value="free" />
-				<property name="cc_cid" value="VISA" />
-				<property name="cc_owner" value="John Doe" />
-				<property name="cc_number" value="1223123123" />
-				<property name="cc_type" value="Visa" />
-				<property name="cc_exp_year" value="2018" />
-				<property name="cc_exp_month" value="2" />
 			</bean>
 		</entry>
 		<entry key="customerAddresses">
