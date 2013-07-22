@@ -31,22 +31,6 @@ public class CreateShoppingCartOrderTestCases extends MagentoTestParent {
 			// Create the shopping cart
 			int quoteId = createShoppingCart();
 			testObjects.put("quoteId", quoteId);
-
-			// Create the shopping cart customer
-			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
-			setShoppingCartCustomer(quoteId, customer);
-			
-			// Set the customer addresses to the shopping cart
-			List<ShoppingCartCustomerAddressEntity> customerAddresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
-			setCustomerAddressesToShoppingCart(quoteId, customerAddresses);
-			
-			// Set the shipping method
-			String shippingMethod = testObjects.get("shippingMethod").toString();
-			setShoppingCartShippingMethod(quoteId, shippingMethod);
-
-			// Set the payment method
-			ShoppingCartPaymentMethodEntity paymentMethod = (ShoppingCartPaymentMethodEntity) testObjects.get("paymentMethod");
-			setShoppingCartPaymentMethod(quoteId, paymentMethod);
 			
 			// Create the products and add to shopping cart
 			List<HashMap<String, Object>> products = (List<HashMap<String, Object>>) testObjects.get("products");	
@@ -79,6 +63,22 @@ public class CreateShoppingCartOrderTestCases extends MagentoTestParent {
 			addProductsToShoppingCart(quoteId, shoppingCartProducts);
 			
 			testObjects.put("productIds", productIds);
+			
+			// Create the shopping cart customer
+			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
+			setShoppingCartCustomer(quoteId, customer);
+			
+			// Set the customer addresses to the shopping cart
+			List<ShoppingCartCustomerAddressEntity> customerAddresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
+			setCustomerAddressesToShoppingCart(quoteId, customerAddresses);
+
+			// Set the shipping method
+			String shippingMethod = testObjects.get("shippingMethod").toString();
+			setShoppingCartShippingMethod(quoteId, shippingMethod);
+
+			// Set the payment method
+			ShoppingCartPaymentMethodEntity paymentMethod = (ShoppingCartPaymentMethodEntity) testObjects.get("paymentMethod");
+			setShoppingCartPaymentMethod(quoteId, paymentMethod);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

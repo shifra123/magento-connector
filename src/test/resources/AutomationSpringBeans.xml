@@ -358,7 +358,7 @@
 			</bean>
 		</entry>
 		<!-- Coupon code -->
-		<entry key="couponCode" value="abcdef" />
+		<entry key="couponCode" value="CODE" />
 	</util:map>
 	
 	<util:map id="getInfoShoppingCart" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
@@ -549,7 +549,7 @@
 		<!-- Payment method -->
 		<entry key="paymentMethod">
 			<bean class="com.magento.api.ShoppingCartPaymentMethodEntity">
-				<property name="method" value="free" />
+				<property name="method" value="checkmo" />
 			</bean>
 		</entry>
 	</util:map>

@@ -257,7 +257,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="add-shopping-cart-coupon">
-		<magento:add-shopping-cart-coupon config-ref="Magento" quoteId="#[payload.quoteId]" couponCode="#[payload.couponCode]" />
+		<magento:add-shopping-cart-coupon config-ref="Magento" quoteId="#[payload.quoteId]" couponCode="#[payload.couponCode]" storeId="#[payload.storeId]" />
 	</flow>
 	
 	<flow name="remove-shopping-cart-coupon">
