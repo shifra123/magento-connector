@@ -55,16 +55,16 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
 
     /**
      * Assign product to category. See catalog-category-assignProduct SOAP method
-     *  
+     *
      * @param categoryId
      * @param productId
      * @param position
      */
-    public void addCategoryProduct(int categoryId,
-                                   @NotNull ProductIdentifier productId,
-                                   String position) throws RemoteException
+    public boolean addCategoryProduct(int categoryId,
+                                      @NotNull ProductIdentifier productId,
+                                      String position) throws RemoteException
     {
-        getPort().catalogCategoryAssignProduct(getSessionId(), categoryId, productId.getIdentifierAsString(), position,
+        return getPort().catalogCategoryAssignProduct(getSessionId(), categoryId, productId.getIdentifierAsString(), position,
             productId.getIdentifierType());
     }
 
@@ -532,15 +532,15 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
 
     /* h. Product Link (related, cross sells, up sells, grouped) */
 
-    public void addProductLink(@NotNull String type,
-                                    @NotNull ProductIdentifier productId,
-                                    @NotNull String linkedProductIdOrSku,
-                                    CatalogProductLinkEntity attributes) throws RemoteException
+    public boolean addProductLink(@NotNull String type,
+                                  @NotNull ProductIdentifier productId,
+                                  @NotNull String linkedProductIdOrSku,
+                                  CatalogProductLinkEntity attributes) throws RemoteException
     {
         Validate.notNull(type);
         Validate.notNull(productId);
         Validate.notNull(linkedProductIdOrSku);
-        getPort().catalogProductLinkAssign(getSessionId(), type, productId.getIdentifierAsString(), linkedProductIdOrSku,
+        return getPort().catalogProductLinkAssign(getSessionId(), type, productId.getIdentifierAsString(), linkedProductIdOrSku,
             attributes, productId.getIdentifierType());
     }
 
