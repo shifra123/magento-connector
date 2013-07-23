@@ -88,7 +88,7 @@ public class CancelOrderInvoiceTestCases extends MagentoTestParent {
 	
 	@Category({RegressionTests.class})
 	@Test
-	public void testGetOrderInvoice() {
+	public void testCancelOrderInvoice() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("cancel-order-invoice");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
