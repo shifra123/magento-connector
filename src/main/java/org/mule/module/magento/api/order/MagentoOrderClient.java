@@ -52,37 +52,35 @@ public interface MagentoOrderClient<ExceptionType extends Exception>
 
     /**
      * Puts order on hold
-     * 
-     * @param order id
+     *
      */
-    void holdOrder(@NotNull String orderId) throws ExceptionType;
+    boolean holdOrder(@NotNull String orderId) throws ExceptionType;
 
     /**
      * Releases order
-     * 
-     * @param order id
+     *
      */
-    void unholdOrder(String orderId) throws ExceptionType;
+    boolean unholdOrder(String orderId) throws ExceptionType;
 
     /**
      * Cancels an order
-     * 
+     *
      * @param orderId the order to cancel
      */
-    void cancelOrder(@NotNull String orderId) throws ExceptionType;
+    boolean cancelOrder(@NotNull String orderId) throws ExceptionType;
 
     /**
      * Adds a comment to the given order id
-     * 
+     *
      * @param orderId the order id
-     * @param status 
+     * @param status
      * @param comment
      * @param sendEmail if an email must be sent after shipment creation
      */
-    void addOrderComment(@NotNull String orderId,
-                         @NotNull String status,
-                         @NotNull String comment,
-                         boolean sendEmail) throws ExceptionType;
+    boolean addOrderComment(@NotNull String orderId,
+                            @NotNull String status,
+                            @NotNull String comment,
+                            boolean sendEmail) throws ExceptionType;
 
     /**
      * Lists order shipment atrributes that match the given 

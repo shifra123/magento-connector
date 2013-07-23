@@ -168,10 +168,11 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:cancelOrder}
      *
      * @param orderId the order to cancel
+     * @return true if the operation was successful
      */
     @Processor
-    public void cancelOrder(String orderId) {
-        orderClient.cancelOrder(orderId);
+    public boolean cancelOrder(String orderId) {
+        return orderClient.cancelOrder(orderId);
     }
 
     /**
@@ -255,10 +256,11 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:holdOrder}
      *
      * @param orderId the order to put on hold state
+     * @return true if the operation was successful
      */
     @Processor
-    public void holdOrder(String orderId) {
-        orderClient.holdOrder(orderId);
+    public boolean holdOrder(String orderId) {
+        return orderClient.holdOrder(orderId);
     }
 
     /**
@@ -343,13 +345,14 @@ public class MagentoCloudConnector {
      * @param status    the comment status
      * @param comment   the comment
      * @param sendEmail if an email must be sent after shipment creation
+     * @return true if the operation was successful
      */
     @Processor
-    public void addOrderComment(String orderId,
-                                String status,
-                                String comment,
-                                @Optional @Default("false") boolean sendEmail) {
-        orderClient.addOrderComment(orderId, status, comment, sendEmail);
+    public boolean addOrderComment(String orderId,
+                                   String status,
+                                   String comment,
+                                   @Optional @Default("false") boolean sendEmail) {
+        return orderClient.addOrderComment(orderId, status, comment, sendEmail);
     }
 
     /**
@@ -358,10 +361,12 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:unholdOrder}
      *
      * @param orderId the id of the order to remove from hold state
+     * @return true if the operation was successful
+     *
      */
     @Processor
-    public void unholdOrder(String orderId) {
-        orderClient.unholdOrder(orderId);
+    public boolean unholdOrder(String orderId) {
+        return orderClient.unholdOrder(orderId);
     }
 
     /**
@@ -667,20 +672,21 @@ public class MagentoCloudConnector {
      *                             in case you are sure the source product identifier is a
      *                             product id
      * @param productSku           the sku of the source product. Use it instead of productIdOrSku
-     *                             in case you are sure the source product identifier is a
-     *                             product sku
+ *                             in case you are sure the source product identifier is a
+ *                             product sku
      * @param productIdOrSku       the id or sku of the source product.
      * @param linkedProductIdOrSku the destination product id or sku.
      * @param productLinkEntity           the link attributes
+     * @return true if the operation was successful
      */
     @Processor
-    public void addProductLink(String type,
-                               @Optional Integer productId,
-                               @Optional String productSku,
-                               @Optional String productIdOrSku,
-                               String linkedProductIdOrSku,
-                               @Optional @Default("#[payload]") @Placement(group = "Address Attributes to Update")  CatalogProductLinkEntity productLinkEntity) {
-        catalogClient.addProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku,
+    public boolean addProductLink(String type,
+                                  @Optional Integer productId,
+                                  @Optional String productSku,
+                                  @Optional String productIdOrSku,
+                                  String linkedProductIdOrSku,
+                                  @Optional @Default("#[payload]") @Placement(group = "Address Attributes to Update") CatalogProductLinkEntity productLinkEntity) {
+        return catalogClient.addProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku,
                 productLinkEntity);
     }
 
@@ -1131,17 +1137,19 @@ public class MagentoCloudConnector {
      * @param productId      the id of the product. Use it instead of productIdOrSku in
      *                       case you are sure the product identifier is a product id
      * @param productSku     the sku of the product. Use it instead of productIdOrSku in
-     *                       case you are sure the product identifier is a product sku
+ *                       case you are sure the product identifier is a product sku
      * @param productIdOrSku the id or sku of the product.
      * @param position       the position of this product
+     * @return true if the operation was successful
      */
     @Processor
-    public void addCategoryProduct(int categoryId,
-                                   @Optional Integer productId,
-                                   @Optional String productSku,
-                                   @Optional String productIdOrSku,
-                                   String position) {
-        catalogClient.addCategoryProduct(categoryId, ProductIdentifiers.from(productSku, productId, productIdOrSku), position);
+    public boolean addCategoryProduct(int categoryId,
+                                      @Optional Integer productId,
+                                      @Optional String productSku,
+                                      @Optional String productIdOrSku,
+                                      @Optional String position) {
+        return catalogClient.addCategoryProduct(
+                categoryId, ProductIdentifiers.from(productSku, productId, productIdOrSku), position);
     }
 
     /**
