@@ -238,6 +238,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:create-order-invoice>
 	</flow>
 	
+	<flow name="void-order-invoice">
+		<magento:void-order-invoice config-ref="Magento" invoiceId="#[payload.invoiceId]" />
+	</flow>
+	
 	<flow name="add-order-invoice-comment">
 		<magento:add-order-invoice-comment config-ref="Magento" invoiceId="#[payload.invoiceId]" comment="#[payload.comment]" />
 	</flow>
