@@ -162,6 +162,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:list-inventory-stock-items>
 	</flow>
 
+	<flow name="list-orders-unfiltered">
+		<magento:list-orders config-ref="Magento" />
+	</flow>
+
+	<flow name="list-orders">
+		<magento:list-orders config-ref="Magento" filter="#[payload.filter]" />
+	</flow>
+
 	<flow name="create-product">
 		<magento:create-product config-ref="Magento"
 			set="#[payload.set]" sku="#[payload.sku]" type="#[payload.type]">

@@ -41,7 +41,7 @@ public class MagentoTestParent extends FunctionalTestCase {
 	
 	@Override
 	protected String getConfigResources() {
-		return "automation-test-flows.xml";
+		return "automation-test-flows.xml,automation-helper-flows.xml";
 	}
 
 	protected MessageProcessor lookupFlowConstruct(String name) {
@@ -208,12 +208,12 @@ public class MagentoTestParent extends FunctionalTestCase {
 								List<ShoppingCartProductEntity> products) throws Exception {
 		
 		testObjects.put("quoteId", quoteId);
+		addProductsToShoppingCart(quoteId, products);
 		
 		setShoppingCartCustomer(quoteId, customer);
 		setCustomerAddressesToShoppingCart(quoteId, addresses);
 		setShoppingCartPaymentMethod(quoteId, paymentMethod);
 		setShoppingCartShippingMethod(quoteId, shippingMethod);
-		addProductsToShoppingCart(quoteId, products);
 		
 		MessageProcessor flow = lookupFlowConstruct("create-shopping-cart-order");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
@@ -290,5 +290,15 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MessageProcessor flow = lookupFlowConstruct("cancel-order-invoice");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Boolean) response.getMessage().getPayload();		
+	}
+
+	public void clearSalesTables() throws Exception {
+		MessageProcessor flow = lookupFlowConstruct("truncate-sales");
+		MuleEvent response = flow.process(getTestEvent(null));
+	}
+	
+	public void clearCatalogProductsTables() throws Exception {
+		MessageProcessor flow = lookupFlowConstruct("truncate-catalog-products");
+		MuleEvent response = flow.process(getTestEvent(null));
 	}
 }
