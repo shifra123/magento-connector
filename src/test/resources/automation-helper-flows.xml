@@ -20,7 +20,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		validateConnections="true" queryTimeout="-1" pollingFrequency="0">
        	<jdbc:query key="truncate_sales" value="call truncate_sales"/>
        	<jdbc:query key="truncate_catalog_products" value="call truncate_catalog_products"/>	
-    </jdbc:connector>
+    </jdbc:connector> 
 
 	<flow name="truncate-catalog-products">
 		<jdbc:outbound-endpoint exchange-pattern="one-way" queryTimeout="-1" connector-ref="Database" queryKey="truncate_catalog_products" />
