@@ -95,9 +95,6 @@ public class CreateOrderInvoiceTestCases extends MagentoTestParent {
 			
 			String invoiceId = (String) response.getMessage().getPayload();
 			assertNotNull(invoiceId);
-			System.out.println(invoiceId);
-			
-			testObjects.put("invoiceId", invoiceId);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
