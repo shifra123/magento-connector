@@ -114,8 +114,7 @@ public class GetOrderTestCases extends MagentoTestParent {
 				deleteProductById(productId);
 			}	
 			
-			String orderId = (String) testObjects.get("orderId");
-			cancelOrder(orderId);
+			clearSalesTables();
 		}
 		catch (Exception e) {
 			e.printStackTrace();

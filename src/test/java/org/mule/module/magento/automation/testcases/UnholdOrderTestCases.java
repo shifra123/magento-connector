@@ -77,7 +77,6 @@ public class UnholdOrderTestCases extends MagentoTestParent {
 	
 	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
-	@Ignore
 	public void testUnholdOrder() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("unhold-order");
@@ -100,8 +99,7 @@ public class UnholdOrderTestCases extends MagentoTestParent {
 				deleteProductById(productId);
 			}	
 			
-			String orderId = (String) testObjects.get("orderId");
-			cancelOrder(orderId);
+			clearSalesTables();
 		}
 		catch (Exception e) {
 			e.printStackTrace();

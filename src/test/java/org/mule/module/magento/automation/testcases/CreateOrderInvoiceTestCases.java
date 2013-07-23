@@ -113,11 +113,7 @@ public class CreateOrderInvoiceTestCases extends MagentoTestParent {
 				deleteProductById(productId);
 			}	
 			
-			String invoiceId = (String) testObjects.get("invoiceId");
-//			cancelOrderInvoice(invoiceId);
-
-			String orderId = (String) testObjects.get("orderId");
-			cancelOrder(orderId);
+			clearSalesTables();
 		}
 		catch (Exception e) {
 			e.printStackTrace();

@@ -916,7 +916,7 @@
 		<!-- Payment method -->
 		<entry key="paymentMethod">
 			<bean class="com.magento.api.ShoppingCartPaymentMethodEntity">
-				<property name="method" value="free" />
+				<property name="method" value="checkmo" />
 			</bean>
 		</entry>
 		<entry key="status" value="pending" />
@@ -1189,7 +1189,7 @@
 		<!-- Payment method -->
 		<entry key="paymentMethod">
 			<bean class="com.magento.api.ShoppingCartPaymentMethodEntity">
-				<property name="method" value="free" />
+				<property name="method" value="checkmo" />
 			</bean>
 		</entry>
 	</util:map>
@@ -1279,7 +1279,7 @@
 		<!-- Payment method -->
 		<entry key="paymentMethod">
 			<bean class="com.magento.api.ShoppingCartPaymentMethodEntity">
-				<property name="method" value="free" />
+				<property name="method" value="checkmo" />
 			</bean>
 		</entry>
 	</util:map>
@@ -1475,7 +1475,7 @@
 		<!-- Payment method -->
 		<entry key="paymentMethod">
 			<bean class="com.magento.api.ShoppingCartPaymentMethodEntity">
-				<property name="method" value="free" />
+				<property name="method" value="checkmo" />
 			</bean>
 		</entry>
 	</util:map>

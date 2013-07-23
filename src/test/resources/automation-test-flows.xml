@@ -325,10 +325,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<!-- The following will break all tests with a SAX parse exception. the position attribute is necessary here but according to Magento doc it is not. -->
-<!-- 	<flow name="add-category-product-without-position"> -->
-<!-- 		<magento:add-category-product categoryId="#[payload.categoryId]" -->
-<!-- 			productId="#[payload.productId]" config-ref="Magento" /> -->
-<!-- 	</flow> -->
+	<flow name="add-category-product-without-position">
+		<magento:add-category-product categoryId="#[payload.categoryId]"
+			productId="#[payload.productId]" config-ref="Magento" />
+	</flow>
 	
 	<flow name="list-category-products">
 		<magento:list-category-products
