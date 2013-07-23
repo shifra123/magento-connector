@@ -28,10 +28,8 @@ public class CreateShoppingCartOrderTestCases extends MagentoTestParent {
 		try {
 			testObjects = (Map<String, Object>) context.getBean("createShoppingCartOrder");
 			
-			String storeId = testObjects.get("storeId").toString();
-			
 			// Create the shopping cart
-			int quoteId = createShoppingCart(storeId);
+			int quoteId = createShoppingCart();
 			testObjects.put("quoteId", quoteId);
 			
 			// Create the products and add to shopping cart
@@ -120,7 +118,8 @@ public class CreateShoppingCartOrderTestCases extends MagentoTestParent {
 				deleteProductById(productId);
 			}
 			
-			clearSalesTables();
+			String orderId = testObjects.get("orderId").toString();
+			cancelOrder(orderId);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

@@ -61,13 +61,10 @@ public class GetOrderTestCases extends MagentoTestParent {
 				shoppingCartProducts.add(shoppingCartProduct);
 				productIds.add(productId);
 			}
-			testObjects.put("productIds", productIds);		
-			
-			String storeId = testObjects.get("storeId").toString();
-			int quoteId = createShoppingCart(storeId);
 
-			String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
+			String orderId = createShoppingCartOrder(customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
 			
+			testObjects.put("productIds", productIds);		
 			testObjects.put("orderId", orderId);
 		}
 		catch (Exception e) {
@@ -91,7 +88,7 @@ public class GetOrderTestCases extends MagentoTestParent {
 			SalesOrderEntity order = (SalesOrderEntity) response.getMessage().getPayload();
 			assertNotNull(order);
 			
-			assertTrue(Integer.parseInt(order.getIncrement_id()) == Integer.parseInt(orderId));
+			assertTrue(Integer.parseInt(order.getOrder_id()) == Integer.parseInt(orderId));
 			assertTrue(order.getShipping_method().equals(shippingMethod));
 			assertTrue(order.getPayment().getMethod().equals(paymentMethod.getMethod()));
 			SalesOrderItemEntity[] products = order.getItems();
@@ -114,7 +111,8 @@ public class GetOrderTestCases extends MagentoTestParent {
 				deleteProductById(productId);
 			}	
 			
-			clearSalesTables();
+			String orderId = (String) testObjects.get("orderId");
+			cancelOrder(orderId);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

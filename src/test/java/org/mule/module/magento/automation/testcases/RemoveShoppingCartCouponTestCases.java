@@ -30,7 +30,7 @@ public class RemoveShoppingCartCouponTestCases extends MagentoTestParent {
 			String storeId = testObjects.get("storeId").toString();
 			int quoteId = createShoppingCart(storeId);
 			testObjects.put("quoteId", quoteId);
-
+			
 			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
 			List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
 			String shippingMethod = testObjects.get("shippingMethod").toString();

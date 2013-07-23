@@ -19,8 +19,7 @@ public class SetShoppingCartCustomerTestCases extends MagentoTestParent {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("setShoppingCartCustomer");
 		
-			String storeId = testObjects.get("storeId").toString();
-			int quoteId = createShoppingCart(storeId);
+			int quoteId = createShoppingCart();
 			testObjects.put("quoteId", quoteId);
 		}
 		catch (Exception e) {
@@ -38,6 +37,17 @@ public class SetShoppingCartCustomerTestCases extends MagentoTestParent {
 			
 			boolean result = (Boolean) response.getMessage().getPayload();
 			assertTrue(result);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	@After
+	public void tearDown() {
+		try {
+			
 		}
 		catch (Exception e) {
 			e.printStackTrace();

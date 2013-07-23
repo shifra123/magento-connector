@@ -24,9 +24,7 @@ public class UpdateShoppingCartProductTestCases extends MagentoTestParent {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("updateShoppingCartProduct");
 			
-			String storeId = testObjects.get("storeId").toString();
-			int quoteId = createShoppingCart(storeId);
-			testObjects.put("quoteId", quoteId);
+			int quoteId = createShoppingCart();
 			
 			List<HashMap<String, Object>> products = (List<HashMap<String, Object>>) testObjects.get("products");
 			List<Integer> productIds = new ArrayList<Integer>();
@@ -63,10 +61,11 @@ public class UpdateShoppingCartProductTestCases extends MagentoTestParent {
 				
 				productIds.add(productId);
 			}
-			testObjects.put("productIds", productIds);
 			
 			addProductsToShoppingCart(quoteId, shoppingCartProductsBefore);
 			
+			testObjects.put("quoteId", quoteId);
+			testObjects.put("productIds", productIds);
 			testObjects.put("shoppingCartProductsBefore", shoppingCartProductsBefore);
 			testObjects.put("shoppingCartProductsAfter", shoppingCartProductsAfter);
 		}

@@ -49,16 +49,14 @@ public class ListShoppingCartProductsTestCases extends MagentoTestParent {
 								
 				shoppingCartEntities.add(shoppingCartEntity);
 			}
-			testObjects.put("productIds", productIds);
-			
-			String storeId = testObjects.get("storeId").toString();
 			
 			// Create the shopping cart
-			int shoppingCartId = createShoppingCart(storeId);
-			testObjects.put("quoteId", shoppingCartId);
-
+			int shoppingCartId = createShoppingCart();
 			addProductsToShoppingCart(shoppingCartId, shoppingCartEntities);
+			
+			testObjects.put("quoteId", shoppingCartId);
 			testObjects.put("shoppingCartEntities", shoppingCartEntities);
+			testObjects.put("productIds", productIds);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

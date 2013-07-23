@@ -25,11 +25,8 @@ public class ListShoppingCartPaymentMethodsTestCases extends MagentoTestParent {
 		try {
 			testObjects = (Map<String, Object>) context.getBean("listShoppingCartPaymentMethods");
 
-			String storeId = testObjects.get("storeId").toString();
-			
-			int quoteId = createShoppingCart(storeId);
+			int quoteId = createShoppingCart();
 			testObjects.put("quoteId", quoteId);
-			
 			ShoppingCartPaymentMethodEntity paymentMethod = (ShoppingCartPaymentMethodEntity) testObjects.get("paymentMethod");
 			List<ShoppingCartCustomerAddressEntity> customerAddresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
 			setCustomerAddressesToShoppingCart(quoteId, customerAddresses);

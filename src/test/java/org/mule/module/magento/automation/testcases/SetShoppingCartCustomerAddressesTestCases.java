@@ -22,9 +22,7 @@ public class SetShoppingCartCustomerAddressesTestCases extends MagentoTestParent
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("setShoppingCartCustomerAddresses");
 
-			String storeId = testObjects.get("storeId").toString();
-			
-			int quoteId = createShoppingCart(storeId);
+			int quoteId = createShoppingCart();
 			testObjects.put("quoteId", quoteId);
 		}
 		catch (Exception e) {

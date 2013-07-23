@@ -3,6 +3,7 @@ package org.mule.module.magento.automation.testcases;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,9 +24,7 @@ public class ListShoppingCartShippingMethodsTestCases extends MagentoTestParent 
 		try {
 			testObjects = (Map<String, Object>) context.getBean("listShoppingCartShippingMethods");
 
-			String storeId = testObjects.get("storeId").toString();
-			
-			int quoteId = createShoppingCart(storeId);
+			int quoteId = createShoppingCart();
 			testObjects.put("quoteId", quoteId); 
 			
 			List<ShoppingCartCustomerAddressEntity> customerAddresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
@@ -49,6 +48,17 @@ public class ListShoppingCartShippingMethodsTestCases extends MagentoTestParent 
 			for (ShoppingCartShippingMethodEntity method : shippingMethods) {
 				assertNotNull(method);
 			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	@After
+	public void tearDown() {
+		try {
+			
 		}
 		catch (Exception e) {
 			e.printStackTrace();

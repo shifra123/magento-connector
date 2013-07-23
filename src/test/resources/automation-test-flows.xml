@@ -162,14 +162,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:list-inventory-stock-items>
 	</flow>
 
-	<flow name="list-orders-unfiltered">
-		<magento:list-orders config-ref="Magento" />
-	</flow>
-
-	<flow name="list-orders">
-		<magento:list-orders config-ref="Magento" filter="#[payload.filter]" />
-	</flow>
-
 	<flow name="create-product">
 		<magento:create-product config-ref="Magento"
 			set="#[payload.set]" sku="#[payload.sku]" type="#[payload.type]">
@@ -203,7 +195,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="create-shopping-cart-order">
-		<magento:create-shopping-cart-order config-ref="Magento" quoteId="#[payload.quoteId]" storeId="#[payload.storeId]" />
+		<magento:create-shopping-cart-order config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 
 	<flow name="create-shopping-cart-order-with-licenses">
@@ -247,18 +239,18 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="get-info-shopping-cart">
-		<magento:get-info-shopping-cart config-ref="Magento" quoteId="#[payload.quoteId]" storeId="#[payload.storeId]" />
+		<magento:get-info-shopping-cart config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 
 	<flow name="add-shopping-cart-product">
-		<magento:add-shopping-cart-product storeId="#[payload.storeId]"
-			config-ref="Magento" quoteId="#[payload.quoteId]">
+		<magento:add-shopping-cart-product
+			config-ref="Magento" quoteId="#[payload.quoteId]" storeId="#[payload.storeId]">
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:add-shopping-cart-product>
 	</flow>
 
 	<flow name="remove-shopping-cart-product">
-		<magento:remove-shopping-cart-product storeId="#[payload.storeId]"
+		<magento:remove-shopping-cart-product
 			config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:remove-shopping-cart-product>
@@ -269,40 +261,40 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="remove-shopping-cart-coupon">
-		<magento:remove-shopping-cart-coupon config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" />
+		<magento:remove-shopping-cart-coupon config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 
 	<flow name="list-shopping-cart-totals">
-		<magento:list-shopping-cart-totals storeId="#[payload.storeId]"
+		<magento:list-shopping-cart-totals
 			config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 
 	<flow name="list-shopping-cart-products">
-		<magento:list-shopping-cart-products storeId="#[payload.storeId]"
+		<magento:list-shopping-cart-products
 			config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 
 	<flow name="list-shopping-cart-payment-methods">
-		<magento:list-shopping-cart-payment-methods config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" />
+		<magento:list-shopping-cart-payment-methods config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 	
 	<flow name="list-shopping-cart-shipping-methods">
-		<magento:list-shopping-cart-shipping-methods config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" />
+		<magento:list-shopping-cart-shipping-methods config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 	
 	<flow name="list-shopping-cart-licenses">
-		<magento:list-shopping-cart-licenses config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" />
+		<magento:list-shopping-cart-licenses config-ref="Magento" quoteId="#[payload.quoteId]" />
 	</flow>
 
 	<flow name="set-shopping-cart-customer">
-		<magento:set-shopping-cart-customer storeId="#[payload.storeId]"
-			config-ref="Magento" quoteId="#[payload.quoteId]">
+		<magento:set-shopping-cart-customer
+			config-ref="Magento" quoteId="#[payload.quoteId]" storeId="#[payload.storeId]">
 			<magento:customer ref="#[payload.customerRef]" />
 		</magento:set-shopping-cart-customer>
 	</flow>
 
 	<flow name="set-shopping-cart-customer-addresses">
-		<magento:set-shopping-cart-customer-addresses storeId="#[payload.storeId]"
+		<magento:set-shopping-cart-customer-addresses
 			config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:shopping-cart-customer-addresses
 				ref="#[payload.shoppingCartCustomerAddressesRef]" />
@@ -310,13 +302,13 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="set-shopping-cart-payment-method">
-		<magento:set-shopping-cart-payment-method config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]">
+		<magento:set-shopping-cart-payment-method config-ref="Magento" quoteId="#[payload.quoteId]">
 			<magento:shopping-cart-payment-method ref="#[payload.shoppingCartPaymentMethodRef]" />
 		</magento:set-shopping-cart-payment-method>
 	</flow>
 	
 	<flow name="set-shopping-cart-shipping-method">
-		<magento:set-shopping-cart-shipping-method config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" method="#[payload.method]" />		
+		<magento:set-shopping-cart-shipping-method config-ref="Magento" quoteId="#[payload.quoteId]" method="#[payload.method]" />		
 	</flow>
 	
 	<flow name="add-category-product">
@@ -325,10 +317,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<!-- The following will break all tests with a SAX parse exception. the position attribute is necessary here but according to Magento doc it is not. -->
-	<flow name="add-category-product-without-position">
-		<magento:add-category-product categoryId="#[payload.categoryId]"
-			productId="#[payload.productId]" config-ref="Magento" />
-	</flow>
+<!-- 	<flow name="add-category-product-without-position"> -->
+<!-- 		<magento:add-category-product categoryId="#[payload.categoryId]" -->
+<!-- 			productId="#[payload.productId]" config-ref="Magento" /> -->
+<!-- 	</flow> -->
 	
 	<flow name="list-category-products">
 		<magento:list-category-products
@@ -353,7 +345,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 
 	<flow name="update-shopping-cart-product">
-		<magento:update-shopping-cart-product config-ref="Magento" storeId="#[payload.storeId]" quoteId="#[payload.quoteId]" >
+		<magento:update-shopping-cart-product config-ref="Magento" quoteId="#[payload.quoteId]" >
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:update-shopping-cart-product>
 	</flow>
@@ -450,7 +442,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="move-shopping-cart-product-to-customer-quote">
-		<magento:move-shopping-cart-product-to-customer-quote config-ref="Magento" quoteId="#[payload.quoteId]">
+		<magento:move-shopping-cart-product-to-customer-quote config-ref="Magento" quoteId="#[payload.quoteId]" storeId="#[payload.storeId]">
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:move-shopping-cart-product-to-customer-quote>
 	</flow>
@@ -460,9 +452,13 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="update-product-attribute-tier-price">
-		<magento:update-product-attribute-tier-price productId="#[flowVars.productId]">
+		<magento:update-product-attribute-tier-price productId="#[flowVars.productId]" config-ref="Magento">
 <!-- 			This is ignored. The CatalogProductTierPriceEntity needs to be the payload. -->
 <!-- 			<magento:catalog-product-tier-price-entity ref="#[flowVars.catalogProductTierPriceEntityRef]"/> -->
 		</magento:update-product-attribute-tier-price>
+	</flow>
+	
+	<flow name="list-product-attribute-media-types">
+		<magento:list-product-attribute-media-types config-ref="Magento" setId="#[payload.setId]"/>
 	</flow>
 </mule>

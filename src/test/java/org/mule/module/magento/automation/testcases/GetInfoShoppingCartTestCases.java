@@ -23,10 +23,7 @@ public class GetInfoShoppingCartTestCases extends MagentoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (Map<String, Object>) context.getBean("getInfoShoppingCart");
-			
-			String storeId = testObjects.get("storeId").toString();
-			
-			int quoteId = createShoppingCart(storeId);
+			int quoteId = createShoppingCart();
 			testObjects.put("quoteId", quoteId);
 			
 			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
