@@ -1196,6 +1196,97 @@
 		<entry key="comment" value="Reviews say that these books are good reads." />
 	</util:map>
 	
+	<util:map id="captureOrderInvoice" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="storeId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_STORE_ID}" />
+		<!-- Purchasing customer -->
+		<entry key="customer">
+			<bean class="com.magento.api.ShoppingCartCustomerEntity">
+				<property name="mode" value="guest"  />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+				<property name="email" value="johndoe@fakeemail.com" />
+			</bean>
+		</entry>
+		<!-- Shipping address -->
+		<entry key="customerAddresses">
+			<list value-type="com.magento.api.ShoppingCartCustomerAddressEntity">
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="shipping"/>
+					<property name="postcode" value="AR94185465" />
+					<property name="telephone" value="546512175" />
+					<property name="city" value="Arkansas" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="USA" />
+					<property name="street" value="Joshua Road Cabot" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="billing" />
+					<property name="postcode" value="TX98412189" />
+					<property name="telephone" value="87216639" />
+					<property name="city" value="Texas" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="USA" />
+					<property name="street" value="Canal Street Houston" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+			</list>
+		</entry>
+		<!-- Products to place in Magento -->
+		<!-- We place some of them (or all if configured) in the shopping cart -->
+		<entry key="products">
+			<list value-type="java.util.HashMap">
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="781412332H" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="Harry Potter and the Prisoner of Azkaban" />
+							<property name="price" value="60" />
+						</bean>
+					</entry>
+					<entry key="qtyToPurchase" value="#{50.0}" />
+				</util:map>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="97653201H" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="Harry Potter and the Goblet of Fire" />
+							<property name="price" value="50" />
+						</bean>
+					</entry>
+					<entry key="qtyToPurchase" value="#{100.0}" />
+				</util:map>
+			</list>
+		</entry>
+		<!-- Shipping method -->
+		<entry key="shippingMethod" value="flatrate_flatrate"/>
+		<!-- Payment method -->
+		<entry key="paymentMethod">
+			<bean class="com.magento.api.ShoppingCartPaymentMethodEntity">
+				<property name="method" value="checkmo" />
+			</bean>
+		</entry>
+		<entry key="comment" value="Reviews say that these books are good reads." />
+	</util:map>
+	
 	<util:map id="cancelOrder" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="storeId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_STORE_ID}" />
 		<!-- Purchasing customer -->
