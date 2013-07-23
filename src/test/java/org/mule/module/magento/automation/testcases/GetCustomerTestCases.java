@@ -17,6 +17,7 @@ import com.magento.api.CustomerCustomerEntityToCreate;
 
 public class GetCustomerTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -62,7 +63,7 @@ public class GetCustomerTestCases extends MagentoTestParent {
 	public void tearDown() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("delete-customer");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
