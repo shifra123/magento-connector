@@ -171,11 +171,6 @@ public class ListOrdersTestCases extends MagentoTestParent {
 			}
 			
 			clearSalesTables();
-			
-//			List<String> orderIds = (List<String>) testObjects.get("orderIds");
-//			for (String orderId : orderIds) {
-//				cancelOrder(orderId);
-//			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();
