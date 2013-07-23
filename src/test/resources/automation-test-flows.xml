@@ -481,4 +481,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-product-attribute-sets">
 		<magento:list-product-attribute-sets config-ref="Magento" />
 	</flow>
+	
+	<flow name="list-product-attribute-tier-prices">
+		<magento:list-product-attribute-tier-prices config-ref="Magento" productId="#[payload.productId]"/>
+	</flow>
 </mule>
