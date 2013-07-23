@@ -103,6 +103,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.25</version>
+		</dependency>
+        <dependency>
             <groupId>org.mule.transports</groupId>
             <artifactId>mule-transport-vm</artifactId>
             <version>${mule.version}</version>
@@ -113,6 +118,11 @@
             <artifactId>mule-module-scripting</artifactId>
             <version>${mule.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.mule.transports</groupId>
+        	<artifactId>mule-transport-jdbc</artifactId>
+        	<version>3.4.0</version>
         </dependency>
     </dependencies>
 
