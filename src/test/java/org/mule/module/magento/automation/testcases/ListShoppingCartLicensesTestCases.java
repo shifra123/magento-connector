@@ -60,10 +60,12 @@ public class ListShoppingCartLicensesTestCases extends MagentoTestParent {
 				shoppingCartProducts.add(shoppingCartProduct);
 				productIds.add(productId);
 			}
-
-			String orderId = createShoppingCartOrder(customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts, licenses);
-			
 			testObjects.put("productIds", productIds);		
+
+			String storeId = testObjects.get("storeId").toString();
+			int quoteId = createShoppingCart(storeId);
+			
+			String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts, licenses);
 			testObjects.put("orderId", orderId);
 		}
 		catch (Exception e) {
@@ -102,8 +104,7 @@ public class ListShoppingCartLicensesTestCases extends MagentoTestParent {
 				deleteProductById(productId);
 			}	
 			
-			String orderId = (String) testObjects.get("orderId");
-			cancelOrder(orderId);
+			clearSalesTables();
 		}
 		catch (Exception e) {
 			e.printStackTrace();

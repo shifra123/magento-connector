@@ -22,7 +22,8 @@ public class SetShoppingCartShippingMethodTestCases extends MagentoTestParent {
 		try {
 			testObjects = (Map<String, Object>) context.getBean("setShoppingCartShippingMethod"); 
 
-			int quoteId = createShoppingCart();
+			String storeId = testObjects.get("storeId").toString();
+			int quoteId = createShoppingCart(storeId);
 			testObjects.put("quoteId", quoteId);
 			
 			List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");

@@ -61,7 +61,10 @@ public class HoldOrderTestCases extends MagentoTestParent {
 			}
 			testObjects.put("productIds", productIds);		
 
-			String orderId = createShoppingCartOrder(customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
+			String storeId = testObjects.get("storeId").toString();
+			int quoteId = createShoppingCart(storeId);
+			
+			String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
 			testObjects.put("orderId", orderId);
 		}
 		catch (Exception e) {
@@ -72,7 +75,6 @@ public class HoldOrderTestCases extends MagentoTestParent {
 	
 	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
-	@Ignore
 	public void testHoldOrder() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("hold-order");
@@ -95,9 +97,7 @@ public class HoldOrderTestCases extends MagentoTestParent {
 				deleteProductById(productId);
 			}	
 			
-			String orderId = (String) testObjects.get("orderId");
-			unholdOrder(orderId);
-			cancelOrder(orderId);
+			clearSalesTables();
 		}
 		catch (Exception e) {
 			e.printStackTrace();

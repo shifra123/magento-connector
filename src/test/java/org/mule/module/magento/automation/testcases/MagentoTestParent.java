@@ -31,6 +31,8 @@ public class MagentoTestParent extends FunctionalTestCase {
 	protected static final String[] SPRING_CONFIG_FILES = new String[] { "AutomationSpringBeans.xml", "AttributesSpringBeans.xml" };
 	protected static ApplicationContext context;
 	protected Map<String, Object> testObjects;
+	
+	public static final String DEFAULT_STORE_ID = "1";
 
 	public static final int ROOT_CATEGORY_ID = 1;
 	public static final int DEFAULT_CATEGORY_ID = 2;
@@ -39,7 +41,7 @@ public class MagentoTestParent extends FunctionalTestCase {
 	
 	@Override
 	protected String getConfigResources() {
-		return "automation-test-flows.xml";
+		return "automation-test-flows.xml,automation-helper-flows.xml";
 	}
 
 	protected MessageProcessor lookupFlowConstruct(String name) {
@@ -199,19 +201,17 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Boolean) response.getMessage().getPayload();
 	}
 	
-	public String createShoppingCartOrder(ShoppingCartCustomerEntity customer,
+	public String createShoppingCartOrder(int quoteId, ShoppingCartCustomerEntity customer,
 								List<ShoppingCartCustomerAddressEntity> addresses,
 								ShoppingCartPaymentMethodEntity paymentMethod,
 								String shippingMethod,
 								List<ShoppingCartProductEntity> products) throws Exception {
 		
-		int quoteId = createShoppingCart();
-
 		testObjects.put("quoteId", quoteId);
+		addProductsToShoppingCart(quoteId, products);
 		
 		setShoppingCartCustomer(quoteId, customer);
 		setCustomerAddressesToShoppingCart(quoteId, addresses);
-		addProductsToShoppingCart(quoteId, products);
 		setShoppingCartPaymentMethod(quoteId, paymentMethod);
 		setShoppingCartShippingMethod(quoteId, shippingMethod);
 		
@@ -220,14 +220,12 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return response.getMessage().getPayload().toString();
 	}
 	
-	public String createShoppingCartOrder(ShoppingCartCustomerEntity customer,
+	public String createShoppingCartOrder(int quoteId, ShoppingCartCustomerEntity customer,
 								List<ShoppingCartCustomerAddressEntity> addresses,
 								ShoppingCartPaymentMethodEntity paymentMethod,
 								String shippingMethod,
 								List<ShoppingCartProductEntity> products,
 								List<String> licenses) throws Exception {
-		
-		int quoteId = createShoppingCart();
 
 		testObjects.put("quoteId", quoteId);
 		
@@ -292,5 +290,15 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MessageProcessor flow = lookupFlowConstruct("cancel-order-invoice");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Boolean) response.getMessage().getPayload();		
+	}
+
+	public void clearSalesTables() throws Exception {
+		MessageProcessor flow = lookupFlowConstruct("truncate-sales");
+		MuleEvent response = flow.process(getTestEvent(null));
+	}
+	
+	public void clearCatalogProductsTables() throws Exception {
+		MessageProcessor flow = lookupFlowConstruct("truncate-catalog-products");
+		MuleEvent response = flow.process(getTestEvent(null));
 	}
 }

@@ -56,20 +56,21 @@ public class ListShoppingCartTotalsTestCases extends MagentoTestParent {
 				totalProductPrice += totalPrice;
 				productPrices.put(productId, totalPrice);
 			}
+			testObjects.put("productPrices", productPrices);
+			testObjects.put("shoppingCartEntities", shoppingCartEntities);
+			testObjects.put("totalPrice", totalProductPrice);
 			
 			// Create the shopping cart
-			int shoppingCartId = createShoppingCart();
+			String storeId = testObjects.get("storeId").toString();
+			int shoppingCartId = createShoppingCart(storeId);
+			testObjects.put("quoteId", shoppingCartId);
+			
 			// Add the products to the shopping cart
 			addProductsToShoppingCart(shoppingCartId, shoppingCartEntities);
 			
 			// Add the customer addresses
 			List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("addresses");
 			setCustomerAddressesToShoppingCart(shoppingCartId, addresses);
-			
-			testObjects.put("quoteId", shoppingCartId);
-			testObjects.put("shoppingCartEntities", shoppingCartEntities);
-			testObjects.put("productPrices", productPrices);
-			testObjects.put("totalPrice", totalProductPrice);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

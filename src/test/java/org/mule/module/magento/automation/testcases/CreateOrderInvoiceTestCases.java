@@ -64,7 +64,10 @@ public class CreateOrderInvoiceTestCases extends MagentoTestParent {
 			testObjects.put("productIds", productIds);
 			testObjects.put("shoppingCartProducts", shoppingCartProducts);
 
-			String orderId = createShoppingCartOrder(customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
+			String storeId = testObjects.get("storeId").toString();
+			int quoteId = createShoppingCart(storeId);
+			
+			String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
 			testObjects.put("orderId", orderId);
 		}
 		catch (Exception e) {
@@ -110,11 +113,7 @@ public class CreateOrderInvoiceTestCases extends MagentoTestParent {
 				deleteProductById(productId);
 			}	
 			
-			String invoiceId = (String) testObjects.get("invoiceId");
-//			cancelOrderInvoice(invoiceId);
-
-			String orderId = (String) testObjects.get("orderId");
-			cancelOrder(orderId);
+			clearSalesTables();
 		}
 		catch (Exception e) {
 			e.printStackTrace();

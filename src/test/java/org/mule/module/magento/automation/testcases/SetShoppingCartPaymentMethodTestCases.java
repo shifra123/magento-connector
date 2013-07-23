@@ -6,7 +6,6 @@ import static org.junit.Assert.fail;
 import java.util.HashMap;
 import java.util.List;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -17,13 +16,14 @@ import com.magento.api.ShoppingCartCustomerAddressEntity;
 
 public class SetShoppingCartPaymentMethodTestCases extends MagentoTestParent {
 
-
 	@Before
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("setShoppingCartPaymentMethod");
 
-			int quoteId = createShoppingCart();
+			String storeId = testObjects.get("storeId").toString();
+			
+			int quoteId = createShoppingCart(storeId);
 			testObjects.put("quoteId", quoteId);
 			
 			List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
@@ -50,17 +50,5 @@ public class SetShoppingCartPaymentMethodTestCases extends MagentoTestParent {
 			fail();
 		}
 	}
-	
-	@After
-	public void tearDown() {
-		try {
-			
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	
+		
 }
