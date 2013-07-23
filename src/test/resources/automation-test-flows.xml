@@ -233,6 +233,16 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="create-order-invoice">
+		<magento:create-order-invoice config-ref="Magento" orderId="#[payload.orderId]" >
+			<magento:items-quantities ref="#[payload.itemsQuantitiesRef]" />
+		</magento:create-order-invoice>
+	</flow>
+	
+	<flow name="add-order-invoice-comment">
+		<magento:add-order-invoice-comment config-ref="Magento" invoiceId="#[payload.invoiceId]" comment="#[payload.comment]" />
+	</flow>
+	
+	<flow name="create-order-invoice-with-comment">
 		<magento:create-order-invoice config-ref="Magento" orderId="#[payload.orderId]" comment="#[payload.comment]">
 			<magento:items-quantities ref="#[payload.itemsQuantitiesRef]" />
 		</magento:create-order-invoice>

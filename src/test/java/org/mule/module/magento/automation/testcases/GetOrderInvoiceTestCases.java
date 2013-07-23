@@ -74,10 +74,8 @@ public class GetOrderInvoiceTestCases extends MagentoTestParent {
 				OrderItemIdQty item = new OrderItemIdQty(Integer.parseInt(shoppingCartProduct.getProduct_id()), shoppingCartProduct.getQty());
 				quantities.add(item);
 			}
-			
-			String comment = testObjects.get("comment").toString();
-			
-			String invoiceId = createOrderInvoice(quoteId, comment, quantities);
+
+			String invoiceId = createOrderInvoice(quoteId, quantities);
 			testObjects.put("invoiceItems", quantities);
 			testObjects.put("invoiceId", invoiceId);
 		}
