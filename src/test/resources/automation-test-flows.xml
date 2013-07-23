@@ -499,4 +499,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-product-attribute-tier-prices">
 		<magento:list-product-attribute-tier-prices config-ref="Magento" productId="#[payload.productId]"/>
 	</flow>
+	
+	<flow name="update-category-attribute-store-view">
+		<magento:update-category-attribute-store-view config-ref="Magento" storeViewIdOrCode="#[payload.storeViewIdOrCode]" />
+	</flow>
 </mule>

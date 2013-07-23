@@ -2901,4 +2901,9 @@
 			<bean class="com.magento.api.CatalogProductCreateEntity" />
 		</entry>
 	</util:map>
+	
+	<util:map id="updateCategoryAttributeStoreView" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="storeViewIdOrCode" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_STORE_ID}" />
+	</util:map>
 </beans>
