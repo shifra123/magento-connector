@@ -1029,23 +1029,23 @@
 			<list value-type="com.magento.api.ShoppingCartCustomerAddressEntity">
 				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
 					<property name="mode" value="shipping"/>
-					<property name="postcode" value="BRLN529741" />
-					<property name="telephone" value="16189321" />
-					<property name="city" value="Berlin" />
+					<property name="postcode" value="TX47116598" />
+					<property name="telephone" value="192361572" />
+					<property name="city" value="Texas" />
 					<property name="company" value="MuleSoft" />
-					<property name="country_id" value="Germany" />
-					<property name="street" value="Berlin Street" />
+					<property name="country_id" value="USA" />
+					<property name="street" value="Wheeler Avenue Center" />
 					<property name="firstname" value="John" />
 					<property name="lastname" value="Doe" />
 				</bean>
 				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
 					<property name="mode" value="billing" />
-					<property name="postcode" value="BRLN898494" />
-					<property name="telephone" value="924877525" />
-					<property name="city" value="Berlin" />
+					<property name="postcode" value="MI19749865" />
+					<property name="telephone" value="192326566" />
+					<property name="city" value="Detroit" />
 					<property name="company" value="MuleSoft" />
-					<property name="country_id" value="Germany" />
-					<property name="street" value="Berlin Street" />
+					<property name="country_id" value="USA" />
+					<property name="street" value="Manor Street" />
 					<property name="firstname" value="John" />
 					<property name="lastname" value="Doe" />
 				</bean>
