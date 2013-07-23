@@ -244,7 +244,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 
 	<flow name="add-shopping-cart-product">
 		<magento:add-shopping-cart-product
-			config-ref="Magento" quoteId="#[payload.quoteId]">
+			config-ref="Magento" quoteId="#[payload.quoteId]" storeId="#[payload.storeId]">
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:add-shopping-cart-product>
 	</flow>
@@ -288,7 +288,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 
 	<flow name="set-shopping-cart-customer">
 		<magento:set-shopping-cart-customer
-			config-ref="Magento" quoteId="#[payload.quoteId]">
+			config-ref="Magento" quoteId="#[payload.quoteId]" storeId="#[payload.storeId]">
 			<magento:customer ref="#[payload.customerRef]" />
 		</magento:set-shopping-cart-customer>
 	</flow>
@@ -442,7 +442,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="move-shopping-cart-product-to-customer-quote">
-		<magento:move-shopping-cart-product-to-customer-quote config-ref="Magento" quoteId="#[payload.quoteId]">
+		<magento:move-shopping-cart-product-to-customer-quote config-ref="Magento" quoteId="#[payload.quoteId]" storeId="#[payload.storeId]">
 			<magento:products ref="#[payload.productsRef]" />
 		</magento:move-shopping-cart-product-to-customer-quote>
 	</flow>
@@ -452,9 +452,13 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="update-product-attribute-tier-price">
-		<magento:update-product-attribute-tier-price productId="#[flowVars.productId]">
+		<magento:update-product-attribute-tier-price productId="#[flowVars.productId]" config-ref="Magento">
 <!-- 			This is ignored. The CatalogProductTierPriceEntity needs to be the payload. -->
 <!-- 			<magento:catalog-product-tier-price-entity ref="#[flowVars.catalogProductTierPriceEntityRef]"/> -->
 		</magento:update-product-attribute-tier-price>
+	</flow>
+	
+	<flow name="list-product-attribute-media-types">
+		<magento:list-product-attribute-media-types config-ref="Magento" setId="#[payload.setId]"/>
 	</flow>
 </mule>
