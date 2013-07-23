@@ -17,6 +17,7 @@ import com.magento.api.CatalogCategoryInfo;
 import com.magento.api.CatalogProductCreateEntity;
 import com.magento.api.CustomerAddressEntityCreate;
 import com.magento.api.CustomerCustomerEntityToCreate;
+import com.magento.api.OrderItemIdQty;
 import com.magento.api.ShoppingCartCustomerAddressEntity;
 import com.magento.api.ShoppingCartCustomerEntity;
 import com.magento.api.ShoppingCartPaymentMethodEntity;
@@ -282,6 +283,16 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MessageProcessor flow = lookupFlowConstruct("capture-order-invoice");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Integer) response.getMessage().getPayload();		
+	}
+	
+	public String createOrderInvoice(int quoteId, String comment, List<OrderItemIdQty> quantities) throws Exception {
+		testObjects.put("quoteId", quoteId);
+		testObjects.put("comment", comment);
+		testObjects.put("itemsQuantitiesRef", quantities);
+	
+		MessageProcessor flow = lookupFlowConstruct("create-order-invoice");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return response.getMessage().getPayload().toString();
 	}
 	
 	public boolean cancelOrderInvoice(String invoiceId) throws Exception {

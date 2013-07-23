@@ -246,6 +246,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:capture-order-invoice config-ref="Magento" invoiceId="#[payload.invoiceId]" />
 	</flow>
 	
+	<flow name="get-order-invoice">
+		<magento:get-order-invoice config-ref="Magento" invoiceId="#[payload.invoiceId]" />
+	</flow>
+	
 	<flow name="get-info-shopping-cart">
 		<magento:get-info-shopping-cart config-ref="Magento" quoteId="#[payload.quoteId]" storeId="#[payload.storeId]" />
 	</flow>
