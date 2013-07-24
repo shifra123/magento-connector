@@ -511,4 +511,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="list-orders-invoices-with-filter">
 		<magento:list-orders-invoices config-ref="Magento" filter="#[payload.filterOperator](#[payload.filterKey], #[payload.invoiceId])"/>
 	</flow>
+	
+	<flow name="list-orders-shipments-without-filter">
+		<magento:list-orders-shipments config-ref="Magento" />
+	</flow>
+	
+	<flow name="list-orders-shipments-with-filter">
+		<magento:list-orders-shipments config-ref="Magento" filter="eq(order_id, #[payload.orderId])"/>
+	</flow>
 </mule>
