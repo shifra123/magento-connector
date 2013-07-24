@@ -75,7 +75,7 @@ public class CancelOrderInvoiceTestCases extends MagentoTestParent {
 				quantities.add(item);
 			}
 			
-			String invoiceId = createOrderInvoice(quoteId, quantities);
+			String invoiceId = createOrderInvoice(orderId, quantities);
 			testObjects.put("invoiceId", invoiceId);
 		}
 		catch (Exception e) {

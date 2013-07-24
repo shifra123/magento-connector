@@ -75,7 +75,7 @@ public class GetOrderInvoiceTestCases extends MagentoTestParent {
 				quantities.add(item);
 			}
 
-			String invoiceId = createOrderInvoice(quoteId, quantities);
+			String invoiceId = createOrderInvoice(orderId, quantities);
 			testObjects.put("invoiceItems", quantities);
 			testObjects.put("invoiceId", invoiceId);
 		}
