@@ -285,8 +285,8 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Integer) response.getMessage().getPayload();		
 	}
 	
-	public String createOrderInvoice(int quoteId, List<OrderItemIdQty> quantities) throws Exception {
-		testObjects.put("quoteId", quoteId);
+	public String createOrderInvoice(String orderId, List<OrderItemIdQty> quantities) throws Exception {
+		testObjects.put("orderId", orderId);
 		testObjects.put("itemsQuantitiesRef", quantities);
 		
 		MessageProcessor flow = lookupFlowConstruct("create-order-invoice");
@@ -294,8 +294,8 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return response.getMessage().getPayload().toString();
 	}
 	
-	public String createOrderInvoice(int quoteId, String comment, List<OrderItemIdQty> quantities) throws Exception {
-		testObjects.put("quoteId", quoteId);
+	public String createOrderInvoice(String orderId, String comment, List<OrderItemIdQty> quantities) throws Exception {
+		testObjects.put("orderId", orderId);
 		testObjects.put("comment", comment);
 		testObjects.put("itemsQuantitiesRef", quantities);
 	
@@ -310,6 +310,21 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MessageProcessor flow = lookupFlowConstruct("cancel-order-invoice");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (Boolean) response.getMessage().getPayload();		
+	}
+	
+	public String createOrderShipment(String orderId, List<OrderItemIdQty> quantities) throws Exception {
+		testObjects.put("orderId", orderId);
+		
+		// A workaround for Magento's internal bug
+		if (quantities.size() > 0) {
+			quantities.clear();
+		}
+		
+		testObjects.put("itemsQuantitiesRef", quantities);
+		
+		MessageProcessor flow = lookupFlowConstruct("create-order-shipment");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return response.getMessage().getPayload().toString();
 	}
 
 	public void clearSalesTables() throws Exception {

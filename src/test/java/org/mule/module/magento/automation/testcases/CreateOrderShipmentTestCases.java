@@ -1,5 +1,6 @@
 package org.mule.module.magento.automation.testcases;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -21,12 +22,13 @@ import com.magento.api.ShoppingCartCustomerEntity;
 import com.magento.api.ShoppingCartPaymentMethodEntity;
 import com.magento.api.ShoppingCartProductEntity;
 
-public class CaptureOrderInvoiceTestCases extends MagentoTestParent {
+public class CreateOrderShipmentTestCases extends MagentoTestParent {
+
 
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("captureOrderInvoice");
+			testObjects = (HashMap<String, Object>) context.getBean("createOrderShipment");
 			
 			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
 			List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
@@ -68,14 +70,6 @@ public class CaptureOrderInvoiceTestCases extends MagentoTestParent {
 			String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
 			testObjects.put("orderId", orderId);
 			
-			List<OrderItemIdQty> quantities = new ArrayList<OrderItemIdQty>();
-			for (ShoppingCartProductEntity shoppingCartProduct : shoppingCartProducts) {
-				OrderItemIdQty item = new OrderItemIdQty(Integer.parseInt(shoppingCartProduct.getProduct_id()), shoppingCartProduct.getQty());
-				quantities.add(item);
-			}
-			
-			String invoiceId = createOrderInvoice(orderId, quantities);
-			testObjects.put("invoiceId", invoiceId);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,15 +77,30 @@ public class CaptureOrderInvoiceTestCases extends MagentoTestParent {
 		}
 	}	
 	
-	@Category({RegressionTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
-	public void testCaptureOrderInvoice() {
+	public void testCreateOrderShipment() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("capture-order-invoice");
+			List<ShoppingCartProductEntity> shoppingCartProducts = (List<ShoppingCartProductEntity>) testObjects.get("shoppingCartProducts");
+			
+			// Send empty list so that Magento defaults to shipping everything that was placed in the order
+			// This is probably a bug on Magento's end
+			List<OrderItemIdQty> quantities = new ArrayList<OrderItemIdQty>();
+			
+//			for (ShoppingCartProductEntity shoppingCartProduct : shoppingCartProducts) {
+//				OrderItemIdQty item = new OrderItemIdQty(Integer.parseInt(shoppingCartProduct.getProduct_id()), 10d);
+//				quantities.add(item);
+//			}
+//			
+			testObjects.put("itemsQuantitiesRef", quantities);
+			
+			MessageProcessor flow = lookupFlowConstruct("create-order-shipment");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			Boolean result = (Boolean) response.getMessage().getPayload();
-			assertTrue(result);
+			String shipmentId = (String) response.getMessage().getPayload();
+			assertNotNull(shipmentId);
+			assertTrue(shipmentId.length() > 0);
+			assertTrue(shipmentId.trim().length() > 0);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -113,4 +122,5 @@ public class CaptureOrderInvoiceTestCases extends MagentoTestParent {
 			fail();
 		}
 	}
+	
 }

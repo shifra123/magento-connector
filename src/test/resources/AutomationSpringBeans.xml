@@ -1057,7 +1057,7 @@
 				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 					<entry key="type" value="simple" />
 					<entry key="set" value="#{4}" />
-					<entry key="sku" value="49494812T" />
+					<entry key="sku" value="19849632E" />
 					<entry key="attributesRef">
 						<bean class="com.magento.api.CatalogProductCreateEntity" >
 							<property name="stock_data">
@@ -1066,8 +1066,8 @@
 									<property name="qty" value="1000" />
 								</bean>
 							</property>
-							<property name="name" value="HP 3-in-1 Printer" />
-							<property name="price" value="1500" />
+							<property name="name" value="Eclipse License" />
+							<property name="price" value="500" />
 						</bean>
 					</entry>
 					<entry key="qtyToPurchase" value="#{100.0}" />
@@ -1075,7 +1075,7 @@
 				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
 					<entry key="type" value="simple" />
 					<entry key="set" value="#{4}" />
-					<entry key="sku" value="19287363S" />
+					<entry key="sku" value="16849846N" />
 					<entry key="attributesRef">
 						<bean class="com.magento.api.CatalogProductCreateEntity" >
 							<property name="stock_data">
@@ -1084,8 +1084,98 @@
 									<property name="qty" value="1000" />
 								</bean>
 							</property>
-							<property name="name" value="Dell 3-in-1 Printer" />
-							<property name="price" value="2000" />
+							<property name="name" value="Netbeans License" />
+							<property name="price" value="350" />
+						</bean>
+					</entry>
+					<entry key="qtyToPurchase" value="#{100.0}" />
+				</util:map>
+			</list>
+		</entry>
+		<!-- Shipping method -->
+		<entry key="shippingMethod" value="flatrate_flatrate"/>
+		<!-- Payment method -->
+		<entry key="paymentMethod">
+			<bean class="com.magento.api.ShoppingCartPaymentMethodEntity">
+				<property name="method" value="checkmo" />
+			</bean>
+		</entry>
+	</util:map>
+	
+	<util:map id="createOrderShipment" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="storeId" value="#{T(org.mule.module.magento.automation.testcases.MagentoTestParent).DEFAULT_STORE_ID}" />
+		<!-- Purchasing customer -->
+		<entry key="customer">
+			<bean class="com.magento.api.ShoppingCartCustomerEntity">
+				<property name="mode" value="guest"  />
+				<property name="firstname" value="John" />
+				<property name="lastname" value="Doe" />
+				<property name="email" value="johndoe@fakeemail.com" />
+			</bean>
+		</entry>
+		<!-- Shipping address -->
+		<entry key="customerAddresses">
+			<list value-type="com.magento.api.ShoppingCartCustomerAddressEntity">
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="shipping"/>
+					<property name="postcode" value="FL168165" />
+					<property name="telephone" value="6416546" />
+					<property name="city" value="Florida" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="USA" />
+					<property name="street" value="Lake Lawne Avenue" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+				<bean class="com.magento.api.ShoppingCartCustomerAddressEntity">
+					<property name="mode" value="billing" />
+					<property name="postcode" value="NY2519846" />
+					<property name="telephone" value="16169320" />
+					<property name="city" value="New York" />
+					<property name="company" value="MuleSoft" />
+					<property name="country_id" value="USA" />
+					<property name="street" value="305 Avenue M Brooklyn" />
+					<property name="firstname" value="John" />
+					<property name="lastname" value="Doe" />
+				</bean>
+			</list>
+		</entry>
+		<!-- Products to place in Magento -->
+		<!-- We place some of them (or all if configured) in the shopping cart -->
+		<entry key="products">
+			<list value-type="java.util.HashMap">
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="95128461C" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="C++ Development Course" />
+							<property name="price" value="500" />
+						</bean>
+					</entry>
+					<entry key="qtyToPurchase" value="#{100.0}" />
+				</util:map>
+				<util:map key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap" scope="prototype">
+					<entry key="type" value="simple" />
+					<entry key="set" value="#{4}" />
+					<entry key="sku" value="771258252J" />
+					<entry key="attributesRef">
+						<bean class="com.magento.api.CatalogProductCreateEntity" >
+							<property name="stock_data">
+								<bean class="com.magento.api.CatalogInventoryStockItemUpdateEntity">
+									<property name="is_in_stock" value="#{1}" />
+									<property name="qty" value="1000" />
+								</bean>
+							</property>
+							<property name="name" value="Java Development Course" />
+							<property name="price" value="350" />
 						</bean>
 					</entry>
 					<entry key="qtyToPurchase" value="#{100.0}" />
