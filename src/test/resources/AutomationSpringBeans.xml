@@ -3177,6 +3177,6 @@
 			</bean>
 		</entry>
 		<entry key="filterOperator" value="eq" />
-		<entry key="filterKey" value="increment_id" />
+		<entry key="filterKey" value="shipment_id" />
 	</util:map>
 </beans>

@@ -18,12 +18,13 @@ import org.mule.api.processor.MessageProcessor;
 import com.magento.api.CatalogProductCreateEntity;
 import com.magento.api.OrderItemIdQty;
 import com.magento.api.SalesOrderInvoiceEntity;
+import com.magento.api.SalesOrderShipmentEntity;
 import com.magento.api.ShoppingCartCustomerAddressEntity;
 import com.magento.api.ShoppingCartCustomerEntity;
 import com.magento.api.ShoppingCartPaymentMethodEntity;
 import com.magento.api.ShoppingCartProductEntity;
 
-public class ListOrdersInvoicesTestCases extends MagentoTestParent {
+public class ListOrdersShipmentsTestCases extends MagentoTestParent {
 
 	@SuppressWarnings("unchecked")
 	@Before
@@ -77,8 +78,9 @@ public class ListOrdersInvoicesTestCases extends MagentoTestParent {
 				quantities.add(item);
 			}
 			
-			String invoiceId = createOrderInvoice(orderId, quantities);
-			testObjects.put("invoiceId", invoiceId);
+			String shipmentId = createOrderShipment(orderId, quantities);
+			
+			testObjects.put("shipmentId", shipmentId);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -89,14 +91,14 @@ public class ListOrdersInvoicesTestCases extends MagentoTestParent {
 	@SuppressWarnings("unchecked")
 	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
-	public void testOrdersInvoices_withoutFilter() {
+	public void testOrdersShipments_withoutFilter() {
 		try {
-			MessageProcessor listProductLinkFlow = lookupFlowConstruct("list-orders-invoices-without-filter");
+			MessageProcessor listProductLinkFlow = lookupFlowConstruct("list-orders-shipments-without-filter");
 			MuleEvent res = listProductLinkFlow.process(getTestEvent(testObjects));
-			List<SalesOrderInvoiceEntity> salesOrderInvoiceEntities = (List<SalesOrderInvoiceEntity>) res.getMessage().getPayload();
+			List<SalesOrderShipmentEntity> salesOrderShipmentEntities = (List<SalesOrderShipmentEntity>) res.getMessage().getPayload();
 			
-			assertNotNull(salesOrderInvoiceEntities);
-			assertEquals(1, salesOrderInvoiceEntities.size());
+			assertNotNull(salesOrderShipmentEntities);
+			assertEquals(1, salesOrderShipmentEntities.size());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -107,14 +109,14 @@ public class ListOrdersInvoicesTestCases extends MagentoTestParent {
 	@SuppressWarnings("unchecked")
 	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
-	public void testOrdersInvoices_withFilter() {
+	public void testOrdersShipments_withFilter() {
 		try {
-			MessageProcessor listProductLinkFlow = lookupFlowConstruct("list-orders-invoices-with-filter");
+			MessageProcessor listProductLinkFlow = lookupFlowConstruct("list-orders-shipments-with-filter");
 			MuleEvent res = listProductLinkFlow.process(getTestEvent(testObjects));
-			List<SalesOrderInvoiceEntity> salesOrderInvoiceEntities = (List<SalesOrderInvoiceEntity>) res.getMessage().getPayload();
+			List<SalesOrderShipmentEntity> salesOrderShipmentEntities = (List<SalesOrderShipmentEntity>) res.getMessage().getPayload();
 			
-			assertNotNull(salesOrderInvoiceEntities);
-			assertEquals(1, salesOrderInvoiceEntities.size());
+			assertNotNull(salesOrderShipmentEntities);
+			assertEquals(1, salesOrderShipmentEntities.size());
 			
 		} catch (Exception e) {
 			e.printStackTrace();

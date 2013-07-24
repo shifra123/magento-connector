@@ -529,6 +529,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	
 	<flow name="list-orders-shipments-with-filter">
-		<magento:list-orders-shipments config-ref="Magento" filter="eq(order_id, #[payload.orderId])"/>
+		<magento:list-orders-shipments config-ref="Magento" filter="#[payload.filterOperator](#[payload.filterKey], #[payload.shipmentId])"/>
 	</flow>
 </mule>

@@ -316,6 +316,7 @@ public class MagentoTestParent extends FunctionalTestCase {
 		testObjects.put("orderId", orderId);
 		
 		// A workaround for Magento's internal bug
+		// To remove this if statement once the bug is fixed
 		if (quantities.size() > 0) {
 			quantities.clear();
 		}
