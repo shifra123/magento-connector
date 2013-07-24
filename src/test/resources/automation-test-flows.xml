@@ -536,4 +536,20 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="update-category-attribute-store-view">
 		<magento:update-category-attribute-store-view config-ref="Magento" storeViewIdOrCode="#[payload.storeViewIdOrCode]" />
 	</flow>
+	
+	<flow name="list-orders-invoices-without-filter">
+		<magento:list-orders-invoices config-ref="Magento" />
+	</flow>
+	
+	<flow name="list-orders-invoices-with-filter">
+		<magento:list-orders-invoices config-ref="Magento" filter="#[payload.filterOperator](#[payload.filterKey], #[payload.invoiceId])"/>
+	</flow>
+	
+	<flow name="list-orders-shipments-without-filter">
+		<magento:list-orders-shipments config-ref="Magento" />
+	</flow>
+	
+	<flow name="list-orders-shipments-with-filter">
+		<magento:list-orders-shipments config-ref="Magento" filter="#[payload.filterOperator](#[payload.filterKey], #[payload.shipmentId])"/>
+	</flow>
 </mule>
