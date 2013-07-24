@@ -86,7 +86,7 @@ public class GetOrderShipmentCarriersTestCases extends MagentoTestParent {
 	
 	@Category({RegressionTests.class})
 	@Test
-	public void testAddOrderShipmentComment() {
+	public void testGetOrderShipmentCarriers() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("get-order-shipment-carriers");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
