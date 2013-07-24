@@ -264,6 +264,15 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<magento:get-order-invoice config-ref="Magento" invoiceId="#[payload.invoiceId]" />
 	</flow>
 	
+	<flow name="add-order-shipment-track">
+		<magento:add-order-shipment-track config-ref="Magento" shipmentId="#[payload.shipmentId]" carrierCode="#[payload.carrierCode]" 
+					trackId="#[payload.trackId]" title="#[payload.title]" />
+	</flow>
+	
+	<flow name="delete-order-shipment-track">
+		<magento:delete-order-shipment-track config-ref="Magento" shipmentId="#[payload.shipmentId]" trackId="#[payload.trackId]" />
+	</flow>
+	
 	<flow name="create-order-shipment">
 		<magento:create-order-shipment config-ref="Magento" orderId="#[payload.orderId]">
 			<magento:items-quantities ref="#[payload.itemsQuantitiesRef]" />

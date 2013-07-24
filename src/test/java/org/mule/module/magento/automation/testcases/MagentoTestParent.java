@@ -326,6 +326,17 @@ public class MagentoTestParent extends FunctionalTestCase {
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return response.getMessage().getPayload().toString();
 	}
+	
+	public int addOrderShipmentTrack(String shipmentIncrementId, String carrierCode, String title, String trackId) throws Exception {
+		testObjects.put("shipmentId", shipmentIncrementId);
+		testObjects.put("carrierCode", carrierCode);
+		testObjects.put("title", title);
+		testObjects.put("trackId", trackId);
+		
+		MessageProcessor flow = lookupFlowConstruct("add-order-shipment-track");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (Integer) response.getMessage().getPayload();
+	}
 
 	public void clearSalesTables() throws Exception {
 		MessageProcessor flow = lookupFlowConstruct("truncate-sales");
