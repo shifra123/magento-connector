@@ -78,7 +78,7 @@ public class CreateOrderShipmentTestCases extends MagentoTestParent {
 		}
 	}	
 	
-	@Category({RegressionTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testCreateOrderShipment() {
 		try {
