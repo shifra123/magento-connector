@@ -276,6 +276,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</magento:create-order-shipment>
 	</flow>
 	
+	<flow name="get-order-shipment">
+		<magento:get-order-shipment config-ref="Magento" shipmentId="#[payload.shipmentId]"/>
+	</flow>
+	
 	<flow name="get-order-shipment-carriers">
 		<magento:get-order-shipment-carriers config-ref="Magento" orderId="#[payload.orderId]" />
 	</flow>
