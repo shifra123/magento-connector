@@ -84,14 +84,14 @@ public class AxisMagentoOrderClient extends AbstractMagentoClient
         return getPort().salesOrderShipmentInfo(getSessionId(), shipmentId);
     }
 
-    public void addOrderShipmentComment(@NotNull String shipmentId,
-                                        String comment,
-                                        boolean sendEmail,
-                                        boolean includeCommentInEmail) throws RemoteException
+    public boolean addOrderShipmentComment(@NotNull String shipmentId,
+                                           String comment,
+                                           boolean sendEmail,
+                                           boolean includeCommentInEmail) throws RemoteException
     {
         Validate.notNull(shipmentId);
         Validate.notNull(comment);
-        getPort().salesOrderShipmentAddComment(getSessionId(), shipmentId, comment,
+        return getPort().salesOrderShipmentAddComment(getSessionId(), shipmentId, comment,
             toIntegerString(sendEmail), toIntegerString(includeCommentInEmail));
     }
 
@@ -163,14 +163,14 @@ public class AxisMagentoOrderClient extends AbstractMagentoClient
             toIntegerString(sendEmail), toIntegerString(includeCommentInEmail));
     }
 
-    public void addOrderInvoiceComment(@NotNull String invoiceId,
-                                       @NotNull String comment,
-                                       boolean sendEmail,
-                                       boolean includeCommentInEmail) throws RemoteException
+    public boolean addOrderInvoiceComment(@NotNull String invoiceId,
+                                          @NotNull String comment,
+                                          boolean sendEmail,
+                                          boolean includeCommentInEmail) throws RemoteException
     {
         Validate.notNull(invoiceId);
         Validate.notNull(comment);
-        getPort().salesOrderInvoiceAddComment(getSessionId(), invoiceId, comment, toIntegerString(sendEmail),
+        return getPort().salesOrderInvoiceAddComment(getSessionId(), invoiceId, comment, toIntegerString(sendEmail),
             toIntegerString(includeCommentInEmail));
     }
 
@@ -180,10 +180,10 @@ public class AxisMagentoOrderClient extends AbstractMagentoClient
         getPort().salesOrderInvoiceCapture(getSessionId(), invoiceId);
     }
 
-    public void voidOrderInvoice(@NotNull String invoiceId) throws RemoteException
+    public boolean voidOrderInvoice(@NotNull String invoiceId) throws RemoteException
     {
         Validate.notNull(invoiceId);
-        getPort().salesOrderInvoiceVoid(getSessionId(), invoiceId);
+        return getPort().salesOrderInvoiceVoid(getSessionId(), invoiceId);
     }
 
     public void cancelOrderInvoice(@NotNull String invoiceId) throws RemoteException

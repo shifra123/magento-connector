@@ -132,15 +132,16 @@ public class MagentoCloudConnector {
      * @param comment               the comment to add
      * @param sendEmail             if an email must be sent after shipment creation
      * @param includeCommentInEmail if the comment must be sent in the email
+     * @return true if it was successful
      */
     @Processor
-    public void addOrderShipmentComment(String shipmentId,
-                                        String comment,
-                                        @Optional @Default("false") boolean sendEmail,
-                                        @Optional @Default("false") boolean includeCommentInEmail)
+    public boolean addOrderShipmentComment(String shipmentId,
+                                           String comment,
+                                           @Optional @Default("false") boolean sendEmail,
+                                           @Optional @Default("false") boolean includeCommentInEmail)
 
     {
-        orderClient.addOrderShipmentComment(shipmentId, comment, sendEmail, includeCommentInEmail);
+        return orderClient.addOrderShipmentComment(shipmentId, comment, sendEmail, includeCommentInEmail);
     }
 
     /**
@@ -400,13 +401,14 @@ public class MagentoCloudConnector {
      * @param comment               the comment to add
      * @param sendEmail             if an email must be sent after shipment creation
      * @param includeCommentInEmail if the comment must be sent in the email
+     * @return true if it was successful
      */
     @Processor
-    public void addOrderInvoiceComment(String invoiceId,
-                                       String comment,
-                                       @Optional @Default("false") boolean sendEmail,
-                                       @Optional @Default("false") boolean includeCommentInEmail) {
-        orderClient.addOrderInvoiceComment(invoiceId, comment, sendEmail, includeCommentInEmail);
+    public boolean addOrderInvoiceComment(String invoiceId,
+                                          String comment,
+                                          @Optional @Default("false") boolean sendEmail,
+                                          @Optional @Default("false") boolean includeCommentInEmail) {
+        return orderClient.addOrderInvoiceComment(invoiceId, comment, sendEmail, includeCommentInEmail);
     }
 
     /**
@@ -427,10 +429,11 @@ public class MagentoCloudConnector {
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:voidOrderInvoice}
      *
      * @param invoiceId the invoice id
+     * @return true if it was successful
      */
     @Processor
-    public void voidOrderInvoice(String invoiceId) {
-        orderClient.voidOrderInvoice(invoiceId);
+    public boolean voidOrderInvoice(String invoiceId) {
+        return orderClient.voidOrderInvoice(invoiceId);
     }
 
     /**
