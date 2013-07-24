@@ -312,7 +312,7 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Boolean) response.getMessage().getPayload();		
 	}
 	
-	public String createOrderShipment(int orderId, List<OrderItemIdQty> quantities) throws Exception {
+	public String createOrderShipment(String orderId, List<OrderItemIdQty> quantities) throws Exception {
 		testObjects.put("orderId", orderId);
 		testObjects.put("itemsQuantitiesRef", quantities);
 		
