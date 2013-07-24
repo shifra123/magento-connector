@@ -24,6 +24,7 @@ import com.magento.api.ShoppingCartProductEntity;
 
 public class ListOrdersTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -79,6 +80,7 @@ public class ListOrdersTestCases extends MagentoTestParent {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListOrders_NoFilter() {
@@ -124,6 +126,7 @@ public class ListOrdersTestCases extends MagentoTestParent {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListOrders_Cancelled() {
@@ -143,6 +146,7 @@ public class ListOrdersTestCases extends MagentoTestParent {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListOrders_Completed() {
