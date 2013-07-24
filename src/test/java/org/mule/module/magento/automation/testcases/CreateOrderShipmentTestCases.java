@@ -70,7 +70,6 @@ public class CreateOrderShipmentTestCases extends MagentoTestParent {
 			String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
 			testObjects.put("orderId", orderId);
 			
-			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,13 +82,16 @@ public class CreateOrderShipmentTestCases extends MagentoTestParent {
 	public void testCreateOrderShipment() {
 		try {
 			List<ShoppingCartProductEntity> shoppingCartProducts = (List<ShoppingCartProductEntity>) testObjects.get("shoppingCartProducts");
+			
+			// Send empty list so that Magento defaults to shipping everything that was placed in the order
+			// This is probably a bug on Magento's end
 			List<OrderItemIdQty> quantities = new ArrayList<OrderItemIdQty>();
 			
-			for (ShoppingCartProductEntity shoppingCartProduct : shoppingCartProducts) {
-				OrderItemIdQty item = new OrderItemIdQty(Integer.parseInt(shoppingCartProduct.getProduct_id()), shoppingCartProduct.getQty());
-				quantities.add(item);
-			}
-			
+//			for (ShoppingCartProductEntity shoppingCartProduct : shoppingCartProducts) {
+//				OrderItemIdQty item = new OrderItemIdQty(Integer.parseInt(shoppingCartProduct.getProduct_id()), 10d);
+//				quantities.add(item);
+//			}
+//			
 			testObjects.put("itemsQuantitiesRef", quantities);
 			
 			MessageProcessor flow = lookupFlowConstruct("create-order-shipment");

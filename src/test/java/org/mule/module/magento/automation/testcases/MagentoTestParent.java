@@ -314,6 +314,12 @@ public class MagentoTestParent extends FunctionalTestCase {
 	
 	public String createOrderShipment(String orderId, List<OrderItemIdQty> quantities) throws Exception {
 		testObjects.put("orderId", orderId);
+		
+		// A workaround for Magento's internal bug
+		if (quantities.size() > 0) {
+			quantities.clear();
+		}
+		
 		testObjects.put("itemsQuantitiesRef", quantities);
 		
 		MessageProcessor flow = lookupFlowConstruct("create-order-shipment");
