@@ -44,7 +44,7 @@ public class ListCategoryProductsTestCases extends MagentoTestParent {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testListCategoryProducts() {
 		try {

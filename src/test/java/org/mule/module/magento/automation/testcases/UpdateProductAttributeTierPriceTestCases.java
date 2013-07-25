@@ -49,7 +49,7 @@ public class UpdateProductAttributeTierPriceTestCases extends MagentoTestParent 
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testUpdateProductAttributeTierPrice() {
 		try {
@@ -58,7 +58,6 @@ public class UpdateProductAttributeTierPriceTestCases extends MagentoTestParent 
 			for(String key : testObjects.keySet()) {
 				event.setFlowVariable(key, testObjects.get(key));
 			}
-			
 			
 			MessageProcessor flow = lookupFlowConstruct("update-product-attribute-tier-price");
 			MuleEvent response = flow.process(event);

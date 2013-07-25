@@ -34,7 +34,7 @@ public class ListProductAttributeTierPricesTestCases extends MagentoTestParent {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({RegressionTests.class })
 	@Test
 	public void testListProductAttributeTierPrices() {
 		try {

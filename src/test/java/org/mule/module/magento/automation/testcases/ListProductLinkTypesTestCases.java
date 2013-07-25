@@ -13,7 +13,7 @@ import org.mule.api.processor.MessageProcessor;
 public class ListProductLinkTypesTestCases extends MagentoTestParent {
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({RegressionTests.class })
 	@Test
 	public void testListProductLinkTypes() {
 		try {

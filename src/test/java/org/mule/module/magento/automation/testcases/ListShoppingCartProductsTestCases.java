@@ -20,6 +20,7 @@ import com.magento.api.ShoppingCartProductEntity;
 
 public class ListShoppingCartProductsTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -66,7 +67,8 @@ public class ListShoppingCartProductsTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({RegressionTests.class})
+	@SuppressWarnings("unchecked")
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testListShoppingCartProduct() {
 		try {
@@ -89,6 +91,7 @@ public class ListShoppingCartProductsTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

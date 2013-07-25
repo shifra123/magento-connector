@@ -16,7 +16,6 @@ import org.mule.api.processor.MessageProcessor;
 
 import com.magento.api.CatalogProductCreateEntity;
 import com.magento.api.OrderItemIdQty;
-import com.magento.api.SalesOrderShipmentEntity;
 import com.magento.api.ShoppingCartCustomerAddressEntity;
 import com.magento.api.ShoppingCartCustomerEntity;
 import com.magento.api.ShoppingCartPaymentMethodEntity;
@@ -25,6 +24,7 @@ import com.magento.api.ShoppingCartProductEntity;
 public class DeleteOrderShipmentTrackTestCases extends MagentoTestParent {
 
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -112,6 +112,7 @@ public class DeleteOrderShipmentTrackTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

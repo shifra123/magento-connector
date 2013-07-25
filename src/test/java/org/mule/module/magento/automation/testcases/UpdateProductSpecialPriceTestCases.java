@@ -16,6 +16,7 @@ import com.magento.api.CatalogProductCreateEntity;
 
 public class UpdateProductSpecialPriceTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

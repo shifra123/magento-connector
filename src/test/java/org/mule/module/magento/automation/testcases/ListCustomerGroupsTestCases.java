@@ -6,7 +6,6 @@ import static org.junit.Assert.fail;
 import java.util.HashMap;
 import java.util.List;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -28,7 +27,8 @@ public class ListCustomerGroupsTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({RegressionTests.class})
+	@SuppressWarnings("unchecked")
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testListCustomerGroups() {
 		try {

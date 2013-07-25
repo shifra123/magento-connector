@@ -102,6 +102,7 @@ public class ListOrdersTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListOrders_Pending() {

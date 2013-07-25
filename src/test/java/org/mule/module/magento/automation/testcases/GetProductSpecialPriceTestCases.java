@@ -18,6 +18,7 @@ import com.magento.api.CatalogProductReturnEntity;
 
 public class GetProductSpecialPriceTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

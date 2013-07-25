@@ -25,6 +25,7 @@ import com.magento.api.ShoppingCartProductEntity;
 public class CreateOrderShipmentTestCases extends MagentoTestParent {
 
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -77,6 +78,7 @@ public class CreateOrderShipmentTestCases extends MagentoTestParent {
 		}
 	}	
 	
+	@SuppressWarnings("unchecked")
 	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testCreateOrderShipment() {
@@ -108,6 +110,7 @@ public class CreateOrderShipmentTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

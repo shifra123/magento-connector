@@ -1,6 +1,6 @@
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
@@ -13,9 +13,9 @@ import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
 import com.magento.api.CatalogCategoryEntityCreate;
-import com.magento.api.CatalogCategoryInfo;
 
 public class UpdateCategoryTestCases extends MagentoTestParent {
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

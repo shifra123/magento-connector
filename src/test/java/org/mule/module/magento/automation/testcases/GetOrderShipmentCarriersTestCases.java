@@ -25,6 +25,7 @@ import com.magento.api.ShoppingCartProductEntity;
 
 public class GetOrderShipmentCarriersTestCases extends MagentoTestParent {
 	
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -84,6 +85,7 @@ public class GetOrderShipmentCarriersTestCases extends MagentoTestParent {
 		}
 	}	
 	
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testGetOrderShipmentCarriers() {
@@ -105,6 +107,7 @@ public class GetOrderShipmentCarriersTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

@@ -14,10 +14,11 @@ import org.mule.api.processor.MessageProcessor;
 
 import com.magento.api.CatalogCategoryEntity;
 import com.magento.api.CatalogCategoryEntityCreate;
-import com.magento.api.CatalogCategoryInfo;
 import com.magento.api.CatalogCategoryTree;
 
 public class GetCategoryTreeTestCases extends MagentoTestParent {
+	
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

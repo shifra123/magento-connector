@@ -15,7 +15,7 @@ import com.magento.api.CatalogProductTypeEntity;
 public class ListProductTypesTestCases extends MagentoTestParent {
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({RegressionTests.class })
 	@Test
 	public void testListProductTypes() {
 		try {

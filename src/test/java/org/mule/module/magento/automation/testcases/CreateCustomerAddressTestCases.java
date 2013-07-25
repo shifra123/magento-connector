@@ -16,6 +16,7 @@ import com.magento.api.CustomerCustomerEntityToCreate;
 
 public class CreateCustomerAddressTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

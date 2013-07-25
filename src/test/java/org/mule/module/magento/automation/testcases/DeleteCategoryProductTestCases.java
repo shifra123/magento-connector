@@ -41,7 +41,7 @@ public class DeleteCategoryProductTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testDeleteCategoryProduct() {
 		try {

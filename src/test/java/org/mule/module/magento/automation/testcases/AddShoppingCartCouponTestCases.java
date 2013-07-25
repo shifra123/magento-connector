@@ -22,6 +22,7 @@ import com.magento.api.ShoppingCartProductEntity;
 
 public class AddShoppingCartCouponTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

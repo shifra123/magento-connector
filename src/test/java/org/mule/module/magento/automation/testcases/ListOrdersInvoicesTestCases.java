@@ -87,7 +87,7 @@ public class ListOrdersInvoicesTestCases extends MagentoTestParent {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({RegressionTests.class })
 	@Test
 	public void testOrdersInvoices_withoutFilter() {
 		try {
@@ -105,7 +105,7 @@ public class ListOrdersInvoicesTestCases extends MagentoTestParent {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({RegressionTests.class })
 	@Test
 	public void testOrdersInvoices_withFilter() {
 		try {

@@ -16,6 +16,7 @@ import com.magento.api.CatalogProductCreateEntity;
 
 public class UpdateStockItemTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

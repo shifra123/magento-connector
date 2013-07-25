@@ -1,6 +1,5 @@
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -24,6 +23,7 @@ import com.magento.api.ShoppingCartProductEntity;
 
 public class AddOrderShipmentCommentTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -101,6 +101,7 @@ public class AddOrderShipmentCommentTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

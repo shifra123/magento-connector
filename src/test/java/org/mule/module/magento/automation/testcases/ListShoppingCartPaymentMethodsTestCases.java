@@ -20,6 +20,7 @@ import com.magento.api.ShoppingCartPaymentMethodResponseEntityArray;
 
 public class ListShoppingCartPaymentMethodsTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

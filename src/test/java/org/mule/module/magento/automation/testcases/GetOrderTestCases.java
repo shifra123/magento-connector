@@ -1,7 +1,7 @@
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -25,6 +25,7 @@ import com.magento.api.ShoppingCartProductEntity;
 
 public class GetOrderTestCases extends MagentoTestParent {
 	
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -76,7 +77,8 @@ public class GetOrderTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@SuppressWarnings("unchecked")
+	@Category({RegressionTests.class})
 	@Test
 	public void testGetOrder() {
 		try {
@@ -106,6 +108,7 @@ public class GetOrderTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

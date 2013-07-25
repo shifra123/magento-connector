@@ -49,7 +49,7 @@ public class GetProductAttributeMediaTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testGetProductAttributeMedia() {
 		try {

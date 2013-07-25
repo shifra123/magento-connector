@@ -22,6 +22,7 @@ import com.magento.api.ShoppingCartTotalsEntity;
 
 public class ListShoppingCartTotalsTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -78,11 +79,11 @@ public class ListShoppingCartTotalsTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListShoppingCartTotals() {
 		try {
-			HashMap<Integer, Double> productPrices = (HashMap<Integer, Double>) testObjects.get("productPrices");
 			double totalPrice = (Double) testObjects.get("totalPrice");
 			
 			MessageProcessor flow = lookupFlowConstruct("list-shopping-cart-totals");
@@ -104,6 +105,7 @@ public class ListShoppingCartTotalsTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

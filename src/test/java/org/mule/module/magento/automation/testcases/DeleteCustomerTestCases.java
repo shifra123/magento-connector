@@ -11,10 +11,9 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
-import com.magento.api.CustomerCustomerEntityToCreate;
-
 public class DeleteCustomerTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

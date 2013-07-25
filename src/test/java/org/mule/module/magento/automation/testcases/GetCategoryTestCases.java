@@ -17,6 +17,7 @@ import com.magento.api.CatalogCategoryInfo;
 
 public class GetCategoryTestCases extends MagentoTestParent {
 	
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

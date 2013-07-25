@@ -14,6 +14,7 @@ import org.mule.api.processor.MessageProcessor;
 
 public class CreateCategoryTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

@@ -17,8 +17,9 @@ import org.mule.api.processor.MessageProcessor;
 import com.magento.api.CatalogCategoryEntityCreate;
 import com.magento.api.CatalogCategoryEntityNoChildren;
 
-public class ListCategoryLevelsTestParent extends MagentoTestParent {
+public class ListCategoryLevelsTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -41,6 +42,7 @@ public class ListCategoryLevelsTestParent extends MagentoTestParent {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListCategoryLevels_WithParentCategory() {
@@ -62,6 +64,7 @@ public class ListCategoryLevelsTestParent extends MagentoTestParent {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListCategoryLevels() {
@@ -81,6 +84,7 @@ public class ListCategoryLevelsTestParent extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

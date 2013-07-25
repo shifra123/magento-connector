@@ -12,10 +12,9 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
-import com.magento.api.CustomerCustomerEntityToCreate;
-
 public class CreateCustomerTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -53,7 +52,7 @@ public class CreateCustomerTestCases extends MagentoTestParent {
 		try {
 			// Delete the customer
 			MessageProcessor flow = lookupFlowConstruct("delete-customer");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();

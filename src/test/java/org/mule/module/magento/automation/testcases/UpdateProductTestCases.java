@@ -30,7 +30,7 @@ public class UpdateProductTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testUpdateProduct() {
 		try {

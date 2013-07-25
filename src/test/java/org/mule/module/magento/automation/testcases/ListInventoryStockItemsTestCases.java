@@ -20,6 +20,7 @@ import com.magento.api.CatalogProductCreateEntity;
 
 public class ListInventoryStockItemsTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -48,6 +49,7 @@ public class ListInventoryStockItemsTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListInventoryStockItems() {
@@ -77,6 +79,7 @@ public class ListInventoryStockItemsTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

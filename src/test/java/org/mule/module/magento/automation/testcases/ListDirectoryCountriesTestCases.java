@@ -14,6 +14,7 @@ import com.magento.api.DirectoryCountryEntity;
 
 public class ListDirectoryCountriesTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListDirectoryCountries() {

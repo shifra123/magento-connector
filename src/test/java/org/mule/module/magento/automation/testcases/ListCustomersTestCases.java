@@ -19,6 +19,7 @@ import com.magento.api.CustomerCustomerEntityToCreate;
 
 public class ListCustomersTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -43,6 +44,7 @@ public class ListCustomersTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListCustomers_WithoutFilter() {
@@ -64,6 +66,7 @@ public class ListCustomersTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListCustomers_WithFilter() {
@@ -88,6 +91,7 @@ public class ListCustomersTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

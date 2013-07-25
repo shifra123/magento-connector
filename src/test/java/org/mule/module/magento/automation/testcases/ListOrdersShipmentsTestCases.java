@@ -17,7 +17,6 @@ import org.mule.api.processor.MessageProcessor;
 
 import com.magento.api.CatalogProductCreateEntity;
 import com.magento.api.OrderItemIdQty;
-import com.magento.api.SalesOrderInvoiceEntity;
 import com.magento.api.SalesOrderShipmentEntity;
 import com.magento.api.ShoppingCartCustomerAddressEntity;
 import com.magento.api.ShoppingCartCustomerEntity;
@@ -89,7 +88,7 @@ public class ListOrdersShipmentsTestCases extends MagentoTestParent {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({RegressionTests.class })
 	@Test
 	public void testOrdersShipments_withoutFilter() {
 		try {
@@ -107,7 +106,7 @@ public class ListOrdersShipmentsTestCases extends MagentoTestParent {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({RegressionTests.class })
 	@Test
 	public void testOrdersShipments_withFilter() {
 		try {

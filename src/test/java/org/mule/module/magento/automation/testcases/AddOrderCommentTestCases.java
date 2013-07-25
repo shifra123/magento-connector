@@ -73,7 +73,7 @@ public class AddOrderCommentTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testAddOrderComment() {
 		try {

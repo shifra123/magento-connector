@@ -22,6 +22,7 @@ import com.magento.api.ShoppingCartProductEntity;
 
 public class CancelOrderTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -73,7 +74,7 @@ public class CancelOrderTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testCancelOrder() {
 		try {
@@ -88,6 +89,7 @@ public class CancelOrderTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		List<Integer> productIds = (List<Integer>) testObjects.get("productIds");

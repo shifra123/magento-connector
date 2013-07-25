@@ -41,7 +41,7 @@ public class UpdateProductLinkTestCases extends MagentoTestParent {
 		}
 	}
 
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({RegressionTests.class })
 	@Test
 	public void testUpdateProductLink() {
 		try {

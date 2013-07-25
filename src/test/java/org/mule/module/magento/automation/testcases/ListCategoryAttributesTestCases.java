@@ -1,6 +1,6 @@
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
@@ -16,6 +16,7 @@ import com.magento.api.CatalogAttributeEntity;
 
 public class ListCategoryAttributesTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -27,6 +28,7 @@ public class ListCategoryAttributesTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testListCategoryAttributes() {

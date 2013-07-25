@@ -17,6 +17,7 @@ import com.magento.api.CustomerCustomerEntityToCreate;
 
 public class DeleteCustomerAddressTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

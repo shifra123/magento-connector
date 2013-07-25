@@ -15,7 +15,7 @@ import com.magento.api.CatalogProductAttributeSetEntity;
 public class ListProductAttributeSetsTestCases extends MagentoTestParent {
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({RegressionTests.class })
 	@Test
 	public void testListProductAttributeSets() {
 		try {

@@ -23,6 +23,7 @@ import com.magento.api.ShoppingCartProductEntity;
 
 public class CreateShoppingCartOrderTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -112,6 +113,7 @@ public class CreateShoppingCartOrderTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

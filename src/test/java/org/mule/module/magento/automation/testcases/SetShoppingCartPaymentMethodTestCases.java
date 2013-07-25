@@ -16,6 +16,7 @@ import com.magento.api.ShoppingCartCustomerAddressEntity;
 
 public class SetShoppingCartPaymentMethodTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -35,7 +36,7 @@ public class SetShoppingCartPaymentMethodTestCases extends MagentoTestParent {
 		}
 	}
 	
-	@Category({RegressionTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testSetShoppingCartPaymentMethodTestCases() {
 		try {

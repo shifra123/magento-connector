@@ -6,7 +6,6 @@ import static org.junit.Assert.fail;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -18,6 +17,7 @@ import com.magento.api.ShoppingCartShippingMethodEntity;
 
 public class ListShoppingCartShippingMethodsTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -37,6 +37,7 @@ public class ListShoppingCartShippingMethodsTestCases extends MagentoTestParent 
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListShoppingCartShippingMethods() {

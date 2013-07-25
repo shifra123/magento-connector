@@ -17,6 +17,7 @@ import com.magento.api.CatalogAttributeOptionEntity;
 
 public class ListCategoryAttributeOptionsTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -34,6 +35,7 @@ public class ListCategoryAttributeOptionsTestCases extends MagentoTestParent {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
 	public void testListCategoryAttributeOptions() {

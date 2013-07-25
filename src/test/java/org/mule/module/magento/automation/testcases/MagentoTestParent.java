@@ -243,6 +243,7 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return response.getMessage().getPayload().toString();
 	}
 	
+	// unused
 	public Boolean cancelOrder(String orderId) throws Exception {
 		testObjects.put("orderId", orderId);
 		
@@ -260,6 +261,7 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Boolean) response.getMessage().getPayload();
 	}
 	
+	// unused
 	public Integer unholdOrder(String orderId) throws Exception {
 		testObjects.put("orderId", orderId);
 		
@@ -277,6 +279,7 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return (Boolean) response.getMessage().getPayload();		
 	}
 
+	// unused
 	public Integer captureOrderInvoice(String invoiceId) throws Exception {
 		testObjects.put("invoiceId", invoiceId);
 		
@@ -304,6 +307,7 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return response.getMessage().getPayload().toString();
 	}
 	
+	// unused
 	public boolean cancelOrderInvoice(String invoiceId) throws Exception {
 		testObjects.put("invoiceId", invoiceId);
 		

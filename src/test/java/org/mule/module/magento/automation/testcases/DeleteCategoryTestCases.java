@@ -5,7 +5,6 @@ import static org.junit.Assert.fail;
 
 import java.util.HashMap;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -17,6 +16,7 @@ import com.magento.api.CatalogCategoryEntityCreate;
 public class DeleteCategoryTestCases extends MagentoTestParent {
 
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

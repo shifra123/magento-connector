@@ -24,6 +24,7 @@ import com.magento.api.ShoppingCartProductEntity;
 
 public class GetOrderInvoiceTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -90,7 +91,6 @@ public class GetOrderInvoiceTestCases extends MagentoTestParent {
 	public void testGetOrderInvoice() {
 		try {
 			String invoiceId = testObjects.get("invoiceId").toString();
-			List<OrderItemIdQty> invoiceItems = (List<OrderItemIdQty>) testObjects.get("invoiceItems");
 			
 			MessageProcessor flow = lookupFlowConstruct("get-order-invoice");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
@@ -104,6 +104,7 @@ public class GetOrderInvoiceTestCases extends MagentoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

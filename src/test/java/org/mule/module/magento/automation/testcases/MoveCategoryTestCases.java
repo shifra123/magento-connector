@@ -9,7 +9,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
 import com.magento.api.CatalogCategoryEntityCreate;
@@ -17,6 +16,7 @@ import com.magento.api.CatalogCategoryInfo;
 
 public class MoveCategoryTestCases extends MagentoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -45,7 +45,7 @@ public class MoveCategoryTestCases extends MagentoTestParent {
 			testObjects.put("parentId", afterParentId);
 			
 			MessageProcessor flow = lookupFlowConstruct("move-category");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 
 			CatalogCategoryInfo movedCategory = getCategory(categoryId);
 			assertTrue(movedCategory.getCategory_id().equals(Integer.toString(categoryId)));
