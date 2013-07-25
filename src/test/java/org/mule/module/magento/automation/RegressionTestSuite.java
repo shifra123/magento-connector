@@ -50,6 +50,9 @@ import org.mule.module.magento.automation.testcases.GetOrderInvoiceTestCases;
 import org.mule.module.magento.automation.testcases.GetOrderShipmentCarriersTestCases;
 import org.mule.module.magento.automation.testcases.GetOrderShipmentTestCases;
 import org.mule.module.magento.automation.testcases.GetOrderTestCases;
+import org.mule.module.magento.automation.testcases.GetProductAttributeMediaTestCases;
+import org.mule.module.magento.automation.testcases.GetProductSpecialPriceTestCases;
+import org.mule.module.magento.automation.testcases.GetProductTestCases;
 import org.mule.module.magento.automation.testcases.HoldOrderTestCases;
 import org.mule.module.magento.automation.testcases.ListCategoryAttributeOptionsTestCases;
 import org.mule.module.magento.automation.testcases.ListCategoryAttributesTestCases;
@@ -77,6 +80,7 @@ import org.mule.module.magento.automation.testcases.ListProductTypesTestCases;
 import org.mule.module.magento.automation.testcases.ListProductsTestCases;
 import org.mule.module.magento.automation.testcases.ListShoppingCartLicensesTestCases;
 import org.mule.module.magento.automation.testcases.ListShoppingCartPaymentMethodsTestCases;
+import org.mule.module.magento.automation.testcases.ListShoppingCartProductsTestCases;
 import org.mule.module.magento.automation.testcases.ListShoppingCartShippingMethodsTestCases;
 import org.mule.module.magento.automation.testcases.ListShoppingCartTotalsTestCases;
 import org.mule.module.magento.automation.testcases.ListStockItemsTestCases;
@@ -100,6 +104,7 @@ import org.mule.module.magento.automation.testcases.UpdateProductAttributeTierPr
 import org.mule.module.magento.automation.testcases.UpdateProductLinkTestCases;
 import org.mule.module.magento.automation.testcases.UpdateProductSpecialPriceTestCases;
 import org.mule.module.magento.automation.testcases.UpdateProductTestCases;
+import org.mule.module.magento.automation.testcases.UpdateShoppingCartProductTestCases;
 import org.mule.module.magento.automation.testcases.UpdateStockItemTestCases;
 import org.mule.module.magento.automation.testcases.VoidOrderInvoiceTestCases;
 
@@ -144,6 +149,9 @@ import org.mule.module.magento.automation.testcases.VoidOrderInvoiceTestCases;
 	GetOrderShipmentCarriersTestCases.class,
 	GetOrderShipmentTestCases.class,
 	GetOrderTestCases.class,
+	GetProductAttributeMediaTestCases.class,
+	GetProductSpecialPriceTestCases.class,
+	GetProductTestCases.class,
 	HoldOrderTestCases.class,
 	ListCategoryAttributeOptionsTestCases.class,
 	ListCategoryAttributesTestCases.class,
@@ -171,6 +179,7 @@ import org.mule.module.magento.automation.testcases.VoidOrderInvoiceTestCases;
 	ListProductTypesTestCases.class,
 	ListShoppingCartLicensesTestCases.class,
 	ListShoppingCartPaymentMethodsTestCases.class,
+	ListShoppingCartProductsTestCases.class,
 	ListShoppingCartShippingMethodsTestCases.class,
 	ListShoppingCartTotalsTestCases.class,
 	ListStockItemsTestCases.class,
@@ -193,8 +202,9 @@ import org.mule.module.magento.automation.testcases.VoidOrderInvoiceTestCases;
 	UpdateProductLinkTestCases.class,
 	UpdateProductSpecialPriceTestCases.class,
 	UpdateProductTestCases.class,
+	UpdateShoppingCartProductTestCases.class,
 	UpdateStockItemTestCases.class,
-	VoidOrderInvoiceTestCases.class
+	VoidOrderInvoiceTestCases.class,
 })
 public class RegressionTestSuite {
 
