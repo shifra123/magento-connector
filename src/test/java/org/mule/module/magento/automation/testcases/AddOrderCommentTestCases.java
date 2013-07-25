@@ -80,8 +80,8 @@ public class AddOrderCommentTestCases extends MagentoTestParent {
 			MessageProcessor flow = lookupFlowConstruct("add-order-comment");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			Integer result = (Integer) response.getMessage().getPayload();
-			assertTrue(result == 1);
+			Boolean result = (Boolean) response.getMessage().getPayload();
+			assertTrue(result);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
