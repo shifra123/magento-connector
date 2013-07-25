@@ -1,4 +1,8 @@
-SET FOREIGN_KEY_CHECKS = 0; 
+DELIMITER $$
+
+CREATE PROCEDURE `magento`.`truncate_sales` ()
+BEGIN
+SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE `sales_bestsellers_aggregated_daily`;
 TRUNCATE TABLE `sales_bestsellers_aggregated_monthly`;
 TRUNCATE TABLE `sales_bestsellers_aggregated_yearly`;
@@ -42,3 +46,4 @@ TRUNCATE TABLE `sales_refunded_aggregated_order`;
 TRUNCATE TABLE `sales_shipping_aggregated`;
 TRUNCATE TABLE `sales_shipping_aggregated_order`;
 SET FOREIGN_KEY_CHECKS = 1;
+END
