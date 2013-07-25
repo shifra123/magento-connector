@@ -45,6 +45,7 @@ import org.mule.module.magento.automation.testcases.GetOrderTestCases;
 import org.mule.module.magento.automation.testcases.HoldOrderTestCases;
 import org.mule.module.magento.automation.testcases.ListCategoryAttributeOptionsTestCases;
 import org.mule.module.magento.automation.testcases.ListCategoryAttributesTestCases;
+import org.mule.module.magento.automation.testcases.ListCategoryLevelsTestCases;
 import org.mule.module.magento.automation.testcases.ListCategoryProductsTestCases;
 import org.mule.module.magento.automation.testcases.ListCustomerAddressesTestCases;
 import org.mule.module.magento.automation.testcases.ListCustomerGroupsTestCases;
