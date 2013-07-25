@@ -64,10 +64,10 @@ public class AddShoppingCartCouponTestCases extends MagentoTestParent {
 			testObjects.put("productIds", productIds);
 			
 			setShoppingCartCustomer(quoteId, customer);
+			addProductsToShoppingCart(quoteId, shoppingCartProducts);
 			setCustomerAddressesToShoppingCart(quoteId, addresses);
 			setShoppingCartPaymentMethod(quoteId, paymentMethod);
 			setShoppingCartShippingMethod(quoteId, shippingMethod);
-			addProductsToShoppingCart(quoteId, shoppingCartProducts);
 			
 		}
 		catch (Exception e) {
