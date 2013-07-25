@@ -67,10 +67,10 @@ public class RemoveShoppingCartCouponTestCases extends MagentoTestParent {
 			String couponCode = testObjects.get("couponCode").toString();
 			
 			setShoppingCartCustomer(quoteId, customer);
+			addProductsToShoppingCart(quoteId, shoppingCartProducts);
 			setCustomerAddressesToShoppingCart(quoteId, addresses);
 			setShoppingCartPaymentMethod(quoteId, paymentMethod);
 			setShoppingCartShippingMethod(quoteId, shippingMethod);
-			addProductsToShoppingCart(quoteId, shoppingCartProducts);
 			addShoppingCartCoupon(quoteId, couponCode);
 			
 		}
