@@ -1,4 +1,16 @@
-SET FOREIGN_KEY_CHECKS = 0; 
+--
+-- Copyright (c) MuleSoft, Inc. All rights reserved. http://www.mulesoft.com
+--
+-- The software in this package is published under the terms of the CPAL v1.0
+-- license, a copy of which has been included with this distribution in the
+-- LICENSE.md file.
+--
+
+DELIMITER $$
+
+CREATE PROCEDURE `magento`.`truncate_sales` ()
+BEGIN
+SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE `sales_bestsellers_aggregated_daily`;
 TRUNCATE TABLE `sales_bestsellers_aggregated_monthly`;
 TRUNCATE TABLE `sales_bestsellers_aggregated_yearly`;
@@ -42,3 +54,4 @@ TRUNCATE TABLE `sales_refunded_aggregated_order`;
 TRUNCATE TABLE `sales_shipping_aggregated`;
 TRUNCATE TABLE `sales_shipping_aggregated_order`;
 SET FOREIGN_KEY_CHECKS = 1;
+END
