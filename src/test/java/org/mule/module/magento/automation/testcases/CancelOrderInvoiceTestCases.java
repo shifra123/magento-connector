@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
@@ -94,6 +95,7 @@ public class CancelOrderInvoiceTestCases extends MagentoTestParent {
 	
 	@Category({RegressionTests.class})
 	@Test
+	@Ignore
 	public void testCancelOrderInvoice() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("cancel-order-invoice");

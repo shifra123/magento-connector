@@ -16,6 +16,7 @@ import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
@@ -52,6 +53,7 @@ public class ListShoppingCartPaymentMethodsTestCases extends MagentoTestParent {
 	
 	@Category({RegressionTests.class})
 	@Test
+	@Ignore
 	public void testListShoppingCartPaymentMethodsTestCases() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("list-shopping-cart-payment-methods");
