@@ -8,16 +8,29 @@
 
 package org.mule.module.magento;
 
-import com.magento.api.*;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.List;
+
 import org.mule.api.ConnectionException;
 import org.mule.api.ConnectionExceptionCode;
-import org.mule.api.annotations.*;
+import org.mule.api.annotations.Connect;
+import org.mule.api.annotations.ConnectionIdentifier;
+import org.mule.api.annotations.Connector;
+import org.mule.api.annotations.Disconnect;
+import org.mule.api.annotations.Processor;
+import org.mule.api.annotations.QueryTranslator;
+import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.annotations.param.Payload;
+import org.mule.common.query.Query;
 import org.mule.module.magento.api.AxisPortProvider;
 import org.mule.module.magento.api.DefaultAxisPortProvider;
 import org.mule.module.magento.api.MagentoClientAdaptor;
@@ -37,13 +50,50 @@ import org.mule.module.magento.api.order.MagentoOrderClient;
 import org.mule.module.magento.api.order.model.Carrier;
 import org.mule.module.magento.api.shoppingCart.AxisMagentoShoppingCartClient;
 import org.mule.module.magento.api.shoppingCart.MagentoShoppingCartClient;
+import org.mule.module.magento.query.MagentoQueryVisitor;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.List;
+import com.magento.api.AssociativeEntity;
+import com.magento.api.CatalogAssignedProduct;
+import com.magento.api.CatalogAttributeEntity;
+import com.magento.api.CatalogAttributeOptionEntity;
+import com.magento.api.CatalogCategoryEntityCreate;
+import com.magento.api.CatalogCategoryEntityNoChildren;
+import com.magento.api.CatalogCategoryInfo;
+import com.magento.api.CatalogCategoryTree;
+import com.magento.api.CatalogInventoryStockItemEntity;
+import com.magento.api.CatalogInventoryStockItemUpdateEntity;
+import com.magento.api.CatalogProductAttributeMediaCreateEntity;
+import com.magento.api.CatalogProductAttributeMediaTypeEntity;
+import com.magento.api.CatalogProductAttributeSetEntity;
+import com.magento.api.CatalogProductCreateEntity;
+import com.magento.api.CatalogProductEntity;
+import com.magento.api.CatalogProductImageEntity;
+import com.magento.api.CatalogProductLinkAttributeEntity;
+import com.magento.api.CatalogProductLinkEntity;
+import com.magento.api.CatalogProductReturnEntity;
+import com.magento.api.CatalogProductTierPriceEntity;
+import com.magento.api.CatalogProductTypeEntity;
+import com.magento.api.CustomerAddressEntityCreate;
+import com.magento.api.CustomerAddressEntityItem;
+import com.magento.api.CustomerCustomerEntity;
+import com.magento.api.CustomerCustomerEntityToCreate;
+import com.magento.api.CustomerGroupEntity;
+import com.magento.api.DirectoryCountryEntity;
+import com.magento.api.DirectoryRegionEntity;
+import com.magento.api.OrderItemIdQty;
+import com.magento.api.SalesOrderEntity;
+import com.magento.api.SalesOrderInvoiceEntity;
+import com.magento.api.SalesOrderListEntity;
+import com.magento.api.SalesOrderShipmentEntity;
+import com.magento.api.ShoppingCartCustomerAddressEntity;
+import com.magento.api.ShoppingCartCustomerEntity;
+import com.magento.api.ShoppingCartInfoEntity;
+import com.magento.api.ShoppingCartLicenseEntity;
+import com.magento.api.ShoppingCartPaymentMethodEntity;
+import com.magento.api.ShoppingCartPaymentMethodResponseEntityArray;
+import com.magento.api.ShoppingCartProductEntity;
+import com.magento.api.ShoppingCartShippingMethodEntity;
+import com.magento.api.ShoppingCartTotalsEntity;
 //import java.util.Map;
 
 /**
@@ -55,7 +105,7 @@ import java.util.List;
 @Connector(name = "magento", schemaVersion = "1.1", friendlyName = "Magento", minMuleVersion = "3.4")
 public class MagentoCloudConnector {
 
-    private MagentoOrderClient<MagentoException> orderClient;
+	private MagentoOrderClient<MagentoException> orderClient;
     private MagentoCustomerClient<MagentoException> customerClient;
     private MagentoInventoryClient<MagentoException> inventoryClient;
     private MagentoDirectoryClient<MagentoException> directoryClient;
@@ -99,14 +149,12 @@ public class MagentoCloudConnector {
         }
     }
 
-    @SuppressWarnings("unused")
     @ValidateConnection
     public boolean validateConnection() {
         return orderClient != null && customerClient != null && inventoryClient != null && directoryClient != null &&
                 catalogClient != null && shoppingCartClient != null;
     }
 
-    @SuppressWarnings("unused")
     @Disconnect
     public void disconnect() {
         setOrderClient(null);
@@ -116,8 +164,7 @@ public class MagentoCloudConnector {
         setCatalogClient(null);
         setShoppingCartClient(null);
     }
-
-    @SuppressWarnings("unused")
+    
     @ConnectionIdentifier
     public String connectionId() {
         return String.format("%s-at-%s", getUser(), getServerAddress());
@@ -282,6 +329,14 @@ public class MagentoCloudConnector {
     @Processor
     public List<SalesOrderListEntity> listOrders(@Optional String filter) {
         return orderClient.listOrders(filter);
+    }
+    
+    @QueryTranslator
+    public String toNativeQuery(Query query) {
+    	MagentoQueryVisitor visitor = new MagentoQueryVisitor();
+    	query.getFilterExpression().accept(visitor);
+    	
+    	return visitor.toQuery();
     }
 
     /**
