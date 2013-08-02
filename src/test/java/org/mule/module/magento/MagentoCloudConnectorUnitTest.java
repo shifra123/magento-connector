@@ -8,11 +8,28 @@
 
 package org.mule.module.magento;
 
-import com.magento.api.*;
-import edu.emory.mathcs.backport.java.util.Collections;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.mule.common.query.Field;
+import org.mule.common.query.Query;
+import org.mule.common.query.expression.And;
+import org.mule.common.query.expression.EqualsOperator;
+import org.mule.common.query.expression.FieldComparation;
+import org.mule.common.query.expression.LessOperator;
 import org.mule.module.magento.api.AxisPortProvider;
 import org.mule.module.magento.api.catalog.AxisMagentoCatalogClient;
 import org.mule.module.magento.api.customer.AxisMagentoInventoryClient;
@@ -22,19 +39,19 @@ import org.mule.module.magento.api.order.AxisMagentoOrderClient;
 import org.mule.module.magento.api.order.model.Carrier;
 import org.mule.module.magento.api.shoppingCart.AxisMagentoShoppingCartClient;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import com.magento.api.AssociativeEntity;
+import com.magento.api.CatalogInventoryStockItemEntity;
+import com.magento.api.ComplexFilter;
+import com.magento.api.Filters;
+import com.magento.api.Mage_Api_Model_Server_V2_HandlerPortType;
+import com.magento.api.OrderItemIdQty;
+import com.magento.api.SalesOrderEntity;
+import com.magento.api.SalesOrderInvoiceEntity;
+import com.magento.api.SalesOrderListEntity;
+import com.magento.api.SalesOrderShipmentEntity;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-@SuppressWarnings("serial")
+import edu.emory.mathcs.backport.java.util.Collections;
+
 public class MagentoCloudConnectorUnitTest
 {
     private static final String ORDER_ID = "10001";
@@ -203,6 +220,22 @@ public class MagentoCloudConnectorUnitTest
         connector.listInventoryStockItems(Arrays.asList(idsOrSkus));
         verify(port).catalogInventoryStockItemList(anyString(), eq(idsOrSkus));
     }
-
-
+    
+    @Test
+    public void queryTranslator() throws Exception {
+    	FieldComparation name = new FieldComparation(new EqualsOperator(), new Field("name", "java.lang.String"), new org.mule.common.query.expression.StringValue("mariano"));
+    	FieldComparation age = new FieldComparation(new LessOperator(), new Field("age", "int"), new org.mule.common.query.expression.NumberValue(30));
+    	And and = new And(name, age);
+    	
+    	Query query = mock(Query.class);
+    	when(query.getFilterExpression()).thenReturn(and);
+    	
+    	String nativeQuery = this.connector.toNativeQuery(query);
+    	assertEquals(nativeQuery, "eq(name,'mariano'), lt(age,30)");
+    }
+    
+    @Test
+    public void metadataKeys() throws Exception {
+    	this.connector.getMetadataKeys();
+    }
 }

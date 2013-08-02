@@ -12,13 +12,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
-import com.magento.api.*;
-import org.mule.module.magento.api.MagentoException;
-import org.mule.module.magento.api.catalog.model.MediaMimeType;
-
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,12 +21,24 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.mule.module.magento.api.MagentoException;
+import org.mule.module.magento.api.catalog.model.MediaMimeType;
 import org.springframework.core.io.ClassPathResource;
+
+import com.magento.api.CatalogCategoryEntityCreate;
+import com.magento.api.CatalogCategoryInfo;
+import com.magento.api.CatalogCategoryTree;
+import com.magento.api.CatalogInventoryStockItemEntity;
+import com.magento.api.CatalogInventoryStockItemUpdateEntity;
+import com.magento.api.CatalogProductCreateEntity;
+import com.magento.api.CatalogProductReturnEntity;
+import com.magento.api.CustomerCustomerEntityToCreate;
+import com.magento.api.DirectoryCountryEntity;
+import com.magento.api.SalesOrderEntity;
 
 /**
  * Integration test of the {@link MagentoCloudConnector}
  */
-@SuppressWarnings("serial")
 public class MagentoCloudConnectorTestDriver
 {
     private static final int EXISTENT_PRODUCT_ID = 11;
