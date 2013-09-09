@@ -33,12 +33,12 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
 
     /**
      * Assign product to category. See catalog-category-assignProduct SOAP method
-     * 
+     *
      * @param categoryId
      * @param productId
      * @param position
      */
-    void addCategoryProduct(int categoryId, @NotNull ProductIdentifier productId, String position)
+    boolean addCategoryProduct(int categoryId, @NotNull ProductIdentifier productId, String position)
         throws ExceptionType;
 
     /**
@@ -412,16 +412,16 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
 
     /**
      * Links two products
-     * 
+     *
      * @param type the product type
      * @param productId
      * @param linkedProductIdOrSku
      * @param attributes the link attributes
      */
-    void addProductLink(@NotNull String type,
-                        @NotNull ProductIdentifier productId,
-                        @NotNull String linkedProductIdOrSku,
-                        CatalogProductLinkEntity attributes) throws ExceptionType;
+    boolean addProductLink(@NotNull String type,
+                           @NotNull ProductIdentifier productId,
+                           @NotNull String linkedProductIdOrSku,
+                           CatalogProductLinkEntity attributes) throws ExceptionType;
 
     /**
      * Lists all the attributes for the given product link type

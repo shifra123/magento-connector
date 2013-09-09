@@ -52,37 +52,35 @@ public interface MagentoOrderClient<ExceptionType extends Exception>
 
     /**
      * Puts order on hold
-     * 
-     * @param order id
+     *
      */
-    void holdOrder(@NotNull String orderId) throws ExceptionType;
+    boolean holdOrder(@NotNull String orderId) throws ExceptionType;
 
     /**
      * Releases order
-     * 
-     * @param order id
+     *
      */
-    void unholdOrder(String orderId) throws ExceptionType;
+    boolean unholdOrder(String orderId) throws ExceptionType;
 
     /**
      * Cancels an order
-     * 
+     *
      * @param orderId the order to cancel
      */
-    void cancelOrder(@NotNull String orderId) throws ExceptionType;
+    boolean cancelOrder(@NotNull String orderId) throws ExceptionType;
 
     /**
      * Adds a comment to the given order id
-     * 
+     *
      * @param orderId the order id
-     * @param status 
+     * @param status
      * @param comment
      * @param sendEmail if an email must be sent after shipment creation
      */
-    void addOrderComment(@NotNull String orderId,
-                         @NotNull String status,
-                         @NotNull String comment,
-                         boolean sendEmail) throws ExceptionType;
+    boolean addOrderComment(@NotNull String orderId,
+                            @NotNull String status,
+                            @NotNull String comment,
+                            boolean sendEmail) throws ExceptionType;
 
     /**
      * Lists order shipment atrributes that match the given 
@@ -103,16 +101,16 @@ public interface MagentoOrderClient<ExceptionType extends Exception>
 
     /**
      * Adds a comment to the shipment
-     * 
+     *
      * @param shipmentId the shipment's increment id
      * @param comment the comment to add
      * @param sendEmail if an email must be sent after shipment creation
      * @param includeCommentInEmail if the comment must be sent in the email
      */
-    void addOrderShipmentComment(@NotNull String shipmentId,
-                                 @NotNull String comment,
-                                 boolean sendEmail,
-                                 boolean includeCommentInEmail) throws ExceptionType;
+    boolean addOrderShipmentComment(@NotNull String shipmentId,
+                                    @NotNull String comment,
+                                    boolean sendEmail,
+                                    boolean includeCommentInEmail) throws ExceptionType;
 
     /**
      * Returns a list of carriers for the given order id
@@ -200,16 +198,16 @@ public interface MagentoOrderClient<ExceptionType extends Exception>
 
     /**
      * Adds a comment to the given order's invoice
-     * 
+     *
      * @param invoiceId the invoice id
      * @param comment the comment to add
      * @param sendEmail if an email must be sent after shipment creation
      * @param includeCommentInEmail if the comment must be sent in the email
      */
-    void addOrderInvoiceComment(@NotNull String invoiceId,
-                                @NotNull String comment,
-                                boolean sendEmail,
-                                boolean includeCommentInEmail) throws ExceptionType;
+    boolean addOrderInvoiceComment(@NotNull String invoiceId,
+                                   @NotNull String comment,
+                                   boolean sendEmail,
+                                   boolean includeCommentInEmail) throws ExceptionType;
 
     /**
      * Captures and invoice
@@ -220,10 +218,10 @@ public interface MagentoOrderClient<ExceptionType extends Exception>
 
     /**
      * Voids an invoice
-     * 
+     *
      * @param invoiceId the invoice id
      */
-    void voidOrderInvoice(@NotNull String invoiceId) throws ExceptionType;
+    boolean voidOrderInvoice(@NotNull String invoiceId) throws ExceptionType;
 
     /**
      * Cancels an order's invoice
