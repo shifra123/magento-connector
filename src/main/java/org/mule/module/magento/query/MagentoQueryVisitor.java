@@ -36,7 +36,6 @@ public class MagentoQueryVisitor extends DefaultQueryVisitor {
 	}
 	
 	
-	@Override
 	public void visitOrderByFields(List<Field> orderByFields) {
 		for (Field field : orderByFields) {
 			this.append(String.format("order(%s)", field.getName()));

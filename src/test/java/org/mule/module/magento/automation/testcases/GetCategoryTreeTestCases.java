@@ -25,7 +25,7 @@ public class GetCategoryTreeTestCases extends MagentoTestCase {
 
 		try {
 			
-			flow = lookupFlowConstruct("get-category-tree");
+			flow = lookupMessageProcessorConstruct("get-category-tree");
 			response = flow.process(getTestEvent("1"));
 			
 			Map<String, Object> categoryTree = (Map<String, Object>) response.getMessage().getPayload();

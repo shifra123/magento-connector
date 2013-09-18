@@ -15,7 +15,6 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 
 public class DeleteCategoryTestCases extends MagentoTestCase {
 
@@ -26,7 +25,7 @@ public class DeleteCategoryTestCases extends MagentoTestCase {
 	
 			Map<String,Object> category = (HashMap<String,Object>) context.getBean("getCategoryAttributesFromMessage");
 			
-			flow = lookupFlowConstruct("create-category-attributes-from-message");
+			flow = lookupMessageProcessorConstruct("create-category-attributes-from-message");
 			response = flow.process(getTestEvent(category));
 			
 			String categoryId = response.getMessage().getPayload().toString();
@@ -49,7 +48,7 @@ public class DeleteCategoryTestCases extends MagentoTestCase {
     		
     		String categoryId = (String) testObjects.get("createdCategoryId");
     		
-        	flow = lookupFlowConstruct("delete-category");
+        	flow = lookupMessageProcessorConstruct("delete-category");
         	response = flow.process(getTestEvent(categoryId));
         	
         	assertTrue((Boolean) response.getMessage().getPayload());

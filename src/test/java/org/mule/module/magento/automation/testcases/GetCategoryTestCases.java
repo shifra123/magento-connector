@@ -30,7 +30,7 @@ public class GetCategoryTestCases extends MagentoTestCase {
 	
 			Map<String,Object> category = (HashMap<String,Object>) context.getBean("categoryForGetCategoryOperations");
 			
-			flow = lookupFlowConstruct("create-category-attributes-from-message");
+			flow = lookupMessageProcessorConstruct("create-category-attributes-from-message");
 			response = flow.process(getTestEvent(category));
 			
 			String categoryId = response.getMessage().getPayload().toString();
@@ -53,7 +53,7 @@ public class GetCategoryTestCases extends MagentoTestCase {
     		
     		String categoryId = (String) testObjects.get("createdCategoryId");
     		
-        	flow = lookupFlowConstruct("delete-category");
+        	flow = lookupMessageProcessorConstruct("delete-category");
         	response = flow.process(getTestEvent(categoryId));
         	
 		} catch (Exception e) {
@@ -75,7 +75,7 @@ public class GetCategoryTestCases extends MagentoTestCase {
 
 		try {
 			
-			flow = lookupFlowConstruct("get-category-default-values");
+			flow = lookupMessageProcessorConstruct("get-category-default-values");
 			response = flow.process(getTestEvent(createdCategory));
 			
 			Map<String, Object> returnedCategory = (Map<String, Object>) response.getMessage().getPayload();
@@ -101,7 +101,7 @@ public class GetCategoryTestCases extends MagentoTestCase {
 
 		try {
 			
-			flow = lookupFlowConstruct("get-category-attributes-from-message");
+			flow = lookupMessageProcessorConstruct("get-category-attributes-from-message");
 			response = flow.process(getTestEvent(createdCategory));
 			
 			Map<String, Object> returnedCategory = (Map<String, Object>) response.getMessage().getPayload();
@@ -127,7 +127,7 @@ public class GetCategoryTestCases extends MagentoTestCase {
 
 		try {
 			
-			flow = lookupFlowConstruct("get-category-attributes-as-list");
+			flow = lookupMessageProcessorConstruct("get-category-attributes-as-list");
 			response = flow.process(getTestEvent(createdCategory));
 			
 			Map<String, Object> returnedCategory = (Map<String, Object>) response.getMessage().getPayload();
