@@ -35,7 +35,7 @@ public class CreateCategoryTestCases extends MagentoTestCase {
     		
     		String createdCategoryId = (String) testObjects.get("createdCategoryId");
     		
-        	flow = lookupMessageProcessorConstruct("delete-category");
+        	flow = lookupMessageProcessor("delete-category");
         	flow.process(getTestEvent(createdCategoryId));
 
 		} catch (Exception e) {
@@ -54,7 +54,7 @@ public class CreateCategoryTestCases extends MagentoTestCase {
 			
 			Map<String,Object> category = (HashMap<String,Object>) context.getBean("createCategoryAttributesFromMessage");
 
-			flow = lookupMessageProcessorConstruct("create-category-attributes-from-message");
+			flow = lookupMessageProcessor("create-category-attributes-from-message");
 			response = flow.process(getTestEvent(category));
 			
 			String categoryId = response.getMessage().getPayload().toString();
@@ -79,7 +79,7 @@ public class CreateCategoryTestCases extends MagentoTestCase {
 			
 			Map<String,Object> category = (HashMap<String,Object>) context.getBean("createCategoryAttributesAsList");
 			
-			flow = lookupMessageProcessorConstruct("create-category-attributes-as-list");
+			flow = lookupMessageProcessor("create-category-attributes-as-list");
 			response = flow.process(getTestEvent(category));
 			
 			String categoryId = response.getMessage().getPayload().toString();
