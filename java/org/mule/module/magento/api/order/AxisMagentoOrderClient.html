@@ -65,6 +65,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -258,6 +301,8 @@
   <a href="../../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/processors/package-summary.html">org.mule.module.magento.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/query/package-summary.html">org.mule.module.magento.query</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/transformers/package-summary.html">org.mule.module.magento.transformers</a></li>
               </ul><br/>
@@ -596,7 +641,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/AxisMagentoOrderClient.html#addOrderComment(java.lang.String, java.lang.String, java.lang.String, boolean)">addOrderComment</a></span>(String orderId, String status, String comment, boolean sendEmail)</nobr>
@@ -614,7 +659,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/AxisMagentoOrderClient.html#addOrderInvoiceComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderInvoiceComment</a></span>(String invoiceId, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
@@ -632,7 +677,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/AxisMagentoOrderClient.html#addOrderShipmentComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderShipmentComment</a></span>(String shipmentId, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
@@ -668,7 +713,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/AxisMagentoOrderClient.html#cancelOrder(java.lang.String)">cancelOrder</a></span>(String orderId)</nobr>
@@ -758,7 +803,7 @@ Summary:
             
             
             
-            int</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/AxisMagentoOrderClient.html#deleteOrderShipmentTrack(java.lang.String, java.lang.String)">deleteOrderShipmentTrack</a></span>(String shipmentId, String trackId)</nobr>
@@ -848,12 +893,14 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/AxisMagentoOrderClient.html#holdOrder(java.lang.String)">holdOrder</a></span>(String orderId)</nobr>
         
-        <div class="jd-descrdiv">Puts order on hold</div>
+        <div class="jd-descrdiv">Puts order on hold
+
+</div>
   
   </td></tr>
 
@@ -922,12 +969,14 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/AxisMagentoOrderClient.html#unholdOrder(java.lang.String)">unholdOrder</a></span>(String orderId)</nobr>
         
-        <div class="jd-descrdiv">Releases order</div>
+        <div class="jd-descrdiv">Releases order
+
+</div>
   
   </td></tr>
 
@@ -940,7 +989,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/AxisMagentoOrderClient.html#voidOrderInvoice(java.lang.String)">voidOrderInvoice</a></span>(String invoiceId)</nobr>
@@ -1332,7 +1381,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#addOrderComment(java.lang.String, java.lang.String, java.lang.String, boolean)">addOrderComment</a></span>(String orderId, String status, String comment, boolean sendEmail)</nobr>
@@ -1350,7 +1399,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#addOrderInvoiceComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderInvoiceComment</a></span>(String invoiceId, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
@@ -1368,7 +1417,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#addOrderShipmentComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderShipmentComment</a></span>(String shipmentId, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
@@ -1404,7 +1453,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#cancelOrder(java.lang.String)">cancelOrder</a></span>(String orderId)</nobr>
@@ -1494,7 +1543,7 @@ From interface
             
             
             
-            int</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#deleteOrderShipmentTrack(java.lang.String, java.lang.String)">deleteOrderShipmentTrack</a></span>(String shipmentId, String trackId)</nobr>
@@ -1584,12 +1633,14 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#holdOrder(java.lang.String)">holdOrder</a></span>(String orderId)</nobr>
         
-        <div class="jd-descrdiv">Puts order on hold</div>
+        <div class="jd-descrdiv">Puts order on hold
+
+</div>
   
   </td></tr>
 
@@ -1658,12 +1709,14 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#unholdOrder(java.lang.String)">unholdOrder</a></span>(String orderId)</nobr>
         
-        <div class="jd-descrdiv">Releases order</div>
+        <div class="jd-descrdiv">Releases order
+
+</div>
   
   </td></tr>
 
@@ -1676,7 +1729,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/order/MagentoOrderClient.html#voidOrderInvoice(java.lang.String)">voidOrderInvoice</a></span>(String invoiceId)</nobr>
@@ -1791,7 +1844,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">addOrderComment</span>
       <span class="normal">(String orderId, String status, String comment, boolean sendEmail)</span>
@@ -1853,7 +1906,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">addOrderInvoiceComment</span>
       <span class="normal">(String invoiceId, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
@@ -1915,7 +1968,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">addOrderShipmentComment</span>
       <span class="normal">(String shipmentId, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
@@ -2043,7 +2096,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">cancelOrder</span>
       <span class="normal">(String orderId)</span>
@@ -2335,7 +2388,7 @@ From interface
          
          
          
-        int
+        boolean
       </span>
       <span class="sympad">deleteOrderShipmentTrack</span>
       <span class="normal">(String shipmentId, String trackId)</span>
@@ -2609,7 +2662,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">holdOrder</span>
       <span class="normal">(String orderId)</span>
@@ -2624,7 +2677,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Puts order on hold</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Puts order on hold
+
+</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2822,7 +2877,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">unholdOrder</span>
       <span class="normal">(String orderId)</span>
@@ -2837,7 +2892,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Releases order</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Releases order
+
+</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2871,7 +2928,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">voidOrderInvoice</span>
       <span class="normal">(String invoiceId)</span>

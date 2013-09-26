@@ -66,6 +66,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -228,7 +271,7 @@
           <th>Schema Version</th><td>1.1</td>
         </tr>
 <tr>
-          <th>Minimum Mule Version</th><td>3.4</td>
+          <th>Minimum Mule Version</th><td>3.5</td>
         </tr>
     </tbody></table>
   </div>
@@ -3320,7 +3363,7 @@ SOAP method.
             &lt;xs:documentation&gt;the id or sku of the product.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;position&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+        &lt;xs:attribute name=&quot;position&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;the position of this product&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -4033,8 +4076,36 @@ able to fix this from admin interface then .
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;CatalogProductAdditionalAttributesEntityObjectType&quot;&gt;
+    &lt;xs:sequence&gt;&lt;/xs:sequence&gt;
+    &lt;xs:attribute name=&quot;multi_data-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:attribute&gt;
+    &lt;xs:attribute name=&quot;single_data-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:attribute&gt;
+    &lt;xs:attribute name=&quot;ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The reference object for this parameter&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:attribute&gt;
+  &lt;/xs:complexType&gt;
   &lt;xs:complexType name=&quot;CatalogProductCreateEntityObjectType&quot;&gt;
     &lt;xs:sequence&gt;
+      &lt;xs:element name=&quot;additional_attributes&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot;&gt;
+        &lt;xs:annotation&gt;
+          &lt;xs:documentation&gt;&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType&gt;
+          &lt;xs:complexContent&gt;
+            &lt;xs:extension xmlns=&quot;http://www.mulesoft.org/schema/mule/magento&quot; base=&quot;CatalogProductAdditionalAttributesEntityObjectType&quot;&gt;&lt;/xs:extension&gt;
+          &lt;/xs:complexContent&gt;
+        &lt;/xs:complexType&gt;
+      &lt;/xs:element&gt;
       &lt;xs:element name=&quot;stock_data&quot; maxOccurs=&quot;1&quot; minOccurs=&quot;0&quot;&gt;
         &lt;xs:annotation&gt;
           &lt;xs:documentation&gt;&lt;/xs:documentation&gt;
@@ -4172,11 +4243,6 @@ able to fix this from admin interface then .
       &lt;/xs:annotation&gt;
     &lt;/xs:attribute&gt;
     &lt;xs:attribute name=&quot;options_container&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:attribute&gt;
-    &lt;xs:attribute name=&quot;additional_attributes-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -5855,6 +5921,19 @@ must be non null and non empty. See catalog-category-updateProduct SOAP method
               &lt;xs:documentation&gt;&lt;/xs:documentation&gt;
             &lt;/xs:annotation&gt;
           &lt;/xs:enumeration&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:propertyPlaceholderType&quot;&gt;&lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+  &lt;xs:simpleType name=&quot;OnNoTokenPolicyEnumType&quot;&gt;
+    &lt;xs:union&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+          &lt;xs:enumeration value=&quot;EXCEPTION&quot;&gt;&lt;/xs:enumeration&gt;
+          &lt;xs:enumeration value=&quot;STOP_FLOW&quot;&gt;&lt;/xs:enumeration&gt;
         &lt;/xs:restriction&gt;
       &lt;/xs:simpleType&gt;
       &lt;xs:simpleType&gt;

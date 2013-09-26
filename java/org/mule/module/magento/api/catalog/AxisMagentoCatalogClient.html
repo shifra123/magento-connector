@@ -65,6 +65,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -258,6 +301,8 @@
   <a href="../../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/processors/package-summary.html">org.mule.module.magento.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/query/package-summary.html">org.mule.module.magento.query</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/transformers/package-summary.html">org.mule.module.magento.transformers</a></li>
               </ul><br/>
@@ -596,7 +641,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#addCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">addCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</nobr>
@@ -614,7 +659,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#addProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)">addProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</nobr>
@@ -740,7 +785,7 @@ Summary:
             
             
             
-            int</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file)</nobr>
@@ -758,7 +803,7 @@ Summary:
             
             
             
-            String</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku)</nobr>
@@ -1189,7 +1234,7 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateCatalogCurrentStoreView(java.lang.String)">updateCatalogCurrentStoreView</a></span>(String storeViewIdOrCode)</nobr>
@@ -1207,7 +1252,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">updateCategory</a></span>(int categoryId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</nobr>
@@ -1225,7 +1270,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">updateCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</nobr>
@@ -1241,7 +1286,7 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateInventoryStockItem(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateInventoryStockItem</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</nobr>
@@ -1259,7 +1304,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">updateProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</nobr>
@@ -1277,7 +1322,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)">updateProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String fileName, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, String storeView)</nobr>
@@ -1295,7 +1340,7 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateProductAttributeTierPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductTierPriceEntity)">updateProductAttributeTierPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> attributes)</nobr>
@@ -1313,7 +1358,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)">updateProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProduct, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</nobr>
@@ -1331,7 +1376,7 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateProductSpecialPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">updateProductSpecialPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String specialPrice, String fromDate, String toDate, String storeView)</nobr>
@@ -1723,7 +1768,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#addCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">addCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</nobr>
@@ -1741,7 +1786,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#addProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)">addProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</nobr>
@@ -1867,7 +1912,7 @@ From interface
             
             
             
-            int</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file)</nobr>
@@ -1885,7 +1930,7 @@ From interface
             
             
             
-            String</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku)</nobr>
@@ -2315,7 +2360,7 @@ From interface
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateCatalogCurrentStoreView(java.lang.String)">updateCatalogCurrentStoreView</a></span>(String storeViewIdOrCode)</nobr>
@@ -2333,7 +2378,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">updateCategory</a></span>(int categoryId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</nobr>
@@ -2351,7 +2396,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">updateCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</nobr>
@@ -2367,7 +2412,7 @@ From interface
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateInventoryStockItem(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateInventoryStockItem</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</nobr>
@@ -2385,7 +2430,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">updateProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</nobr>
@@ -2403,7 +2448,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)">updateProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String fileName, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, String storeView)</nobr>
@@ -2421,7 +2466,7 @@ From interface
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductAttributeTierPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductTierPriceEntity)">updateProductAttributeTierPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> attributes)</nobr>
@@ -2439,7 +2484,7 @@ From interface
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)">updateProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProduct, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</nobr>
@@ -2457,7 +2502,7 @@ From interface
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductSpecialPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">updateProductSpecialPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String specialPrice, String fromDate, String toDate, String storeView)</nobr>
@@ -2572,7 +2617,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">addCategoryProduct</span>
       <span class="normal">(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</span>
@@ -2629,7 +2674,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">addProductLink</span>
       <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</span>
@@ -3070,7 +3115,7 @@ From interface
          
          
          
-        int
+        boolean
       </span>
       <span class="sympad">deleteProductAttributeMedia</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file)</span>
@@ -3129,7 +3174,7 @@ From interface
          
          
          
-        String
+        boolean
       </span>
       <span class="sympad">deleteProductLink</span>
       <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku)</span>
@@ -4438,7 +4483,7 @@ From interface
          
          
          
-        void
+        int
       </span>
       <span class="sympad">updateCatalogCurrentStoreView</span>
       <span class="normal">(String storeViewIdOrCode)</span>
@@ -4489,7 +4534,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateCategory</span>
       <span class="normal">(int categoryId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</span>
@@ -4546,7 +4591,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateCategoryProduct</span>
       <span class="normal">(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</span>
@@ -4603,7 +4648,7 @@ From interface
          
          
          
-        void
+        int
       </span>
       <span class="sympad">updateInventoryStockItem</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</span>
@@ -4656,7 +4701,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateProduct</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</span>
@@ -4719,7 +4764,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateProductAttributeMedia</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String fileName, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, String storeView)</span>
@@ -4780,7 +4825,7 @@ From interface
          
          
          
-        void
+        int
       </span>
       <span class="sympad">updateProductAttributeTierPrice</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> attributes)</span>
@@ -4834,7 +4879,7 @@ From interface
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateProductLink</span>
       <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProduct, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</span>
@@ -4895,7 +4940,7 @@ From interface
          
          
          
-        void
+        int
       </span>
       <span class="sympad">updateProductSpecialPrice</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String specialPrice, String fromDate, String toDate, String storeView)</span>

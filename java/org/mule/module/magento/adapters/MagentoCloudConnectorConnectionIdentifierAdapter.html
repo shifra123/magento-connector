@@ -65,6 +65,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -259,6 +302,8 @@
     <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/processors/package-summary.html">org.mule.module.magento.processors</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/module/magento/query/package-summary.html">org.mule.module.magento.query</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../java/org/mule/module/magento/transformers/package-summary.html">org.mule.module.magento.transformers</a></li>
               </ul><br/>
             </div> <!-- end packages -->
@@ -351,8 +396,31 @@
    
   
   
+   
+  
   
    
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
   
   
 
@@ -395,27 +463,6 @@
   
   
    
-  
-  
-  
-
-  
-   
-  
-  
-  
-  
-
-  
-   
-  
-  
-  
-  
-
-  
-   
-  
   
   
   
@@ -713,12 +760,19 @@ Summary:
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
-        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#MODULE_NAME">MODULE_NAME</a></td>
+        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#MIN_MULE_VERSION">MIN_MULE_VERSION</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#MODULE_NAME">MODULE_NAME</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#MODULE_VERSION">MODULE_VERSION</a></td>
         <td class="jd-descrcol" width="100%"></td>
@@ -729,6 +783,41 @@ Summary:
   </div>
 </div>
 </td></tr>
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-org.mule.module.magento.MagentoCloudConnector" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-org.mule.module.magento.MagentoCloudConnector-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html">org.mule.module.magento.MagentoCloudConnector</a>
+<div id="inherited-constants-org.mule.module.magento.MagentoCloudConnector">
+  <div id="inherited-constants-org.mule.module.magento.MagentoCloudConnector-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-org.mule.module.magento.MagentoCloudConnector-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#ENTITY_PACKAGE">ENTITY_PACKAGE</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 
 
 
@@ -859,12 +948,6 @@ org.mule.api.lifecycle.Stoppable
   </div>
 </div>
 </td></tr>
-
-
-
-
-
-
 
 
 
@@ -1121,7 +1204,7 @@ From class
             
             
             &lt;P&gt;
-            <a href="../../../../../../java/org/mule/module/magento/process/ProcessTemplate.html">ProcessTemplate</a>&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorCapabilitiesAdapter.html">MagentoCloudConnectorCapabilitiesAdapter</a>&gt;</nobr>
+            ProcessTemplate&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorCapabilitiesAdapter.html">MagentoCloudConnectorCapabilitiesAdapter</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorProcessAdapter.html#getProcessTemplate()">getProcessTemplate</a></span>()</nobr>
@@ -1258,9 +1341,6 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#getDevkitBuild()">getDevkitBuild</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the build of the DevKit used to create this module
-</div>
-  
   </td></tr>
 
 
@@ -1277,9 +1357,6 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#getDevkitVersion()">getDevkitVersion</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the version of the DevKit used to create this module
-</div>
-  
   </td></tr>
 
 
@@ -1294,11 +1371,8 @@ From class
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#getModuleName()">getModuleName</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#getMinMuleVersion()">getMinMuleVersion</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the user-friendly name of this module
-</div>
-  
   </td></tr>
 
 
@@ -1313,11 +1387,24 @@ From class
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#getModuleName()">getModuleName</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorMetadataAdapater.html#getModuleVersion()">getModuleVersion</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the version of this module
-</div>
-  
   </td></tr>
 
 
@@ -1358,7 +1445,7 @@ From class
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorCapabilitiesAdapter.html#isCapableOf(org.mule.module.magento.basic.Capability)">isCapableOf</a></span>(<a href="../../../../../../java/org/mule/module/magento/basic/Capability.html">Capability</a> capability)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/adapters/MagentoCloudConnectorCapabilitiesAdapter.html#isCapableOf(org.mule.api.devkit.capability.ModuleCapability)">isCapableOf</a></span>(ModuleCapability capability)</nobr>
         
         <div class="jd-descrdiv">Returns true if this module implements such capability
  
@@ -1401,7 +1488,7 @@ From class
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">addCategoryProduct</a></span>(int categoryId, Integer productId, String productSku, String productIdOrSku, String position)</nobr>
@@ -1419,7 +1506,7 @@ From class
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addOrderComment(java.lang.String, java.lang.String, java.lang.String, boolean)">addOrderComment</a></span>(String orderId, String status, String comment, boolean sendEmail)</nobr>
@@ -1439,7 +1526,7 @@ From class
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addOrderInvoiceComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderInvoiceComment</a></span>(String invoiceId, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
@@ -1459,7 +1546,7 @@ From class
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addOrderShipmentComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderShipmentComment</a></span>(String shipmentId, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
@@ -1497,7 +1584,7 @@ From class
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#addProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductLinkEntity)">addProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, <a href="../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> productLinkEntity)</nobr>
@@ -1551,7 +1638,7 @@ From class
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#cancelOrder(java.lang.String)">cancelOrder</a></span>(String orderId)</nobr>
@@ -1876,7 +1963,7 @@ From class
             
             
             
-            int</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteOrderShipmentTrack(java.lang.String, java.lang.String)">deleteOrderShipmentTrack</a></span>(String shipmentId, String trackId)</nobr>
@@ -1914,7 +2001,7 @@ From class
             
             
             
-            int</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">deleteProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName)</nobr>
@@ -1932,7 +2019,7 @@ From class
             
             
             
-            String</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">deleteProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku)</nobr>
@@ -2067,6 +2154,38 @@ From class
         
         <div class="jd-descrdiv">Retrieves full information about the shopping cart (quote).</div>
   
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            MetaData</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getMetadata(org.mule.common.metadata.MetaDataKey)">getMetadata</a></span>(MetaDataKey key)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;MetaDataKey&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#getMetadataKeys()">getMetadataKeys</a></span>()</nobr>
+        
   </td></tr>
 
 
@@ -2242,7 +2361,7 @@ From class
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#holdOrder(java.lang.String)">holdOrder</a></span>(String orderId)</nobr>
@@ -3111,7 +3230,23 @@ From class
             
             
             
-            void</nobr>
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#toNativeQuery(org.mule.common.query.Query)">toNativeQuery</a></span>(Query query)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#unholdOrder(java.lang.String)">unholdOrder</a></span>(String orderId)</nobr>
@@ -3124,14 +3259,14 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">updateCategory</a></span>(int categoryId, <a href="../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> catalogCategoryEntity, String storeViewIdOrCode)</nobr>
@@ -3142,14 +3277,14 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategoryAttributeStoreView(java.lang.String)">updateCategoryAttributeStoreView</a></span>(String storeViewIdOrCode)</nobr>
@@ -3162,6 +3297,24 @@ From class
 
 
 	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">updateCategoryProduct</a></span>(int categoryId, Integer productId, String productSku, String productIdOrSku, String position)</nobr>
+        
+        <div class="jd-descrdiv">Updates a category product.</div>
+  
+  </td></tr>
+
+
+	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -3169,12 +3322,12 @@ From class
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">updateCategoryProduct</a></span>(int categoryId, Integer productId, String productSku, String productIdOrSku, String position)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomer(int, com.magento.api.CustomerCustomerEntityToCreate)">updateCustomer</a></span>(int customerId, <a href="../../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customer)</nobr>
         
-        <div class="jd-descrdiv">Updates a category product.</div>
+        <div class="jd-descrdiv">Updates the given customer attributes, for the given customer id.</div>
   
   </td></tr>
 
@@ -3187,25 +3340,7 @@ From class
             
             
             
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomer(int, com.magento.api.CustomerCustomerEntityToCreate)">updateCustomer</a></span>(int customerId, <a href="../../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customer)</nobr>
-        
-        <div class="jd-descrdiv">Updates the given customer attributes, for the given customer id.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)">updateCustomerAddress</a></span>(int addressId, <a href="../../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> customerAddress)</nobr>
@@ -3218,14 +3353,14 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateInventoryStockItem(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateInventoryStockItem</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> catalogInventoryStockItem)</nobr>
@@ -3238,14 +3373,14 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProduct(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">updateProduct</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> catalogProductEntity, List&lt;<a href="../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeViewIdOrCode)</nobr>
@@ -3256,6 +3391,24 @@ From class
 
 
 	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)">updateProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName, <a href="../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> catalogProductAttributeMediaEntity, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Updates product media.</div>
+  
+  </td></tr>
+
+
+	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -3263,12 +3416,12 @@ From class
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)">updateProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName, <a href="../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> catalogProductAttributeMediaEntity, String storeViewIdOrCode)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeTierPrice(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductTierPriceEntity)">updateProductAttributeTierPrice</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> catalogProductTierPriceEntity)</nobr>
         
-        <div class="jd-descrdiv">Updates product media.</div>
+        <div class="jd-descrdiv">Updates a single product tier price.</div>
   
   </td></tr>
 
@@ -3281,25 +3434,7 @@ From class
             
             
             
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeTierPrice(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductTierPriceEntity)">updateProductAttributeTierPrice</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> catalogProductTierPriceEntity)</nobr>
-        
-        <div class="jd-descrdiv">Updates a single product tier price.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductLinkEntity)">updateProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, <a href="../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> catalogProductLinkEntity)</nobr>
@@ -3312,14 +3447,14 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductSpecialPrice(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">updateProductSpecialPrice</a></span>(Integer productId, String productSku, String productIdOrSku, String specialPrice, String fromDate, String toDate, String storeViewIdOrCode)</nobr>
@@ -3330,7 +3465,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -3348,14 +3483,14 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateStockItem(java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateStockItem</a></span>(String productIdOrSku, <a href="../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> stockItem)</nobr>
@@ -3368,7 +3503,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -3384,14 +3519,14 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/magento/MagentoCloudConnector.html#voidOrderInvoice(java.lang.String)">voidOrderInvoice</a></span>(String invoiceId)</nobr>
@@ -3614,6 +3749,196 @@ From class
 
 <tr class="api apilevel-" >
 <td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.MetadataAware" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.MetadataAware-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.MetadataAware
+
+<div id="inherited-methods-org.mule.api.MetadataAware">
+  <div id="inherited-methods-org.mule.api.MetadataAware-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.MetadataAware-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getDevkitBuild</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getDevkitVersion</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getMinMuleVersion</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getModuleName</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getModuleVersion</span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.devkit.ProcessAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.devkit.ProcessAdapter-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.devkit.ProcessAdapter
+
+<div id="inherited-methods-org.mule.api.devkit.ProcessAdapter">
+  <div id="inherited-methods-org.mule.api.devkit.ProcessAdapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.devkit.ProcessAdapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            &lt;T&gt;
+            ProcessTemplate&lt;T,&nbsp;O&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getProcessTemplate</span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.devkit.capability.Capabilities" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.devkit.capability.Capabilities-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.devkit.capability.Capabilities
+
+<div id="inherited-methods-org.mule.api.devkit.capability.Capabilities">
+  <div id="inherited-methods-org.mule.api.devkit.capability.Capabilities-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.devkit.capability.Capabilities-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">isCapableOf</span>(ModuleCapability arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
   <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.lifecycle.Disposable" class="jd-expando-trigger closed"
           ><img id="inherited-methods-org.mule.api.lifecycle.Disposable-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
@@ -3782,153 +4107,6 @@ From interface
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.basic.Capabilities" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.module.magento.basic.Capabilities-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  <a href="../../../../../../org/mule/module/magento/basic/Capabilities.html">org.mule.module.magento.basic.Capabilities</a>
-
-<div id="inherited-methods-org.mule.module.magento.basic.Capabilities">
-  <div id="inherited-methods-org.mule.module.magento.basic.Capabilities-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.module.magento.basic.Capabilities-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            boolean</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/basic/Capabilities.html#isCapableOf(org.mule.module.magento.basic.Capability)">isCapableOf</a></span>(<a href="../../../../../../java/org/mule/module/magento/basic/Capability.html">Capability</a> capability)</nobr>
-        
-        <div class="jd-descrdiv">Returns true if this module implements such
- capability</div>
-  
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.basic.MetadataAware" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.module.magento.basic.MetadataAware-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  <a href="../../../../../../org/mule/module/magento/basic/MetadataAware.html">org.mule.module.magento.basic.MetadataAware</a>
-
-<div id="inherited-methods-org.mule.module.magento.basic.MetadataAware">
-  <div id="inherited-methods-org.mule.module.magento.basic.MetadataAware-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.module.magento.basic.MetadataAware-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/basic/MetadataAware.html#getDevkitBuild()">getDevkitBuild</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Returns the build of the DevKit used to create this module
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/basic/MetadataAware.html#getDevkitVersion()">getDevkitVersion</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Returns the version of the DevKit used to create this module
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/basic/MetadataAware.html#getModuleName()">getModuleName</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Returns the user-friendly name of this module
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/basic/MetadataAware.html#getModuleVersion()">getModuleVersion</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Returns the version of this module
-</div>
-  
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
   <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.connection.Connection" class="jd-expando-trigger closed"
           ><img id="inherited-methods-org.mule.module.magento.connection.Connection-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
@@ -3962,48 +4140,6 @@ From interface
         <div class="jd-descrdiv">Retrieve the identification of this connection
 </div>
   
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.process.ProcessAdapter" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.module.magento.process.ProcessAdapter-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  <a href="../../../../../../org/mule/module/magento/process/ProcessAdapter.html">org.mule.module.magento.process.ProcessAdapter</a>
-
-<div id="inherited-methods-org.mule.module.magento.process.ProcessAdapter">
-  <div id="inherited-methods-org.mule.module.magento.process.ProcessAdapter-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.module.magento.process.ProcessAdapter-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            &lt;T&gt;
-            <a href="../../../../../../java/org/mule/module/magento/process/ProcessTemplate.html">ProcessTemplate</a>&lt;T,&nbsp;O&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/process/ProcessAdapter.html#getProcessTemplate()">getProcessTemplate</a></span>()</nobr>
-        
   </td></tr>
 
 

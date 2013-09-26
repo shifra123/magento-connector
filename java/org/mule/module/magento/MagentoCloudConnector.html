@@ -65,6 +65,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -259,6 +302,8 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/module/magento/processors/package-summary.html">org.mule.module.magento.processors</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/module/magento/query/package-summary.html">org.mule.module.magento.query</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/module/magento/transformers/package-summary.html">org.mule.module.magento.transformers</a></li>
               </ul><br/>
             </div> <!-- end packages -->
@@ -330,9 +375,12 @@ Summary:
 
 
 
+  <a href="#constants">Constants</a>
+  
 
 
-  <a href="#lfields">Fields</a>
+
+  &#124; <a href="#lfields">Fields</a>
   
 
 
@@ -541,6 +589,22 @@ Summary:
 
 
 
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#ENTITY_PACKAGE">ENTITY_PACKAGE</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+
+</table>
+
+
 
 
 
@@ -691,7 +755,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#addCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">addCategoryProduct</a></span>(int categoryId, Integer productId, String productSku, String productIdOrSku, String position)</nobr>
@@ -709,7 +773,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#addOrderComment(java.lang.String, java.lang.String, java.lang.String, boolean)">addOrderComment</a></span>(String orderId, String status, String comment, boolean sendEmail)</nobr>
@@ -729,7 +793,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#addOrderInvoiceComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderInvoiceComment</a></span>(String invoiceId, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
@@ -749,7 +813,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#addOrderShipmentComment(java.lang.String, java.lang.String, boolean, boolean)">addOrderShipmentComment</a></span>(String shipmentId, String comment, boolean sendEmail, boolean includeCommentInEmail)</nobr>
@@ -787,7 +851,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#addProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductLinkEntity)">addProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> productLinkEntity)</nobr>
@@ -841,7 +905,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#cancelOrder(java.lang.String)">cancelOrder</a></span>(String orderId)</nobr>
@@ -1166,7 +1230,7 @@ Summary:
             
             
             
-            int</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteOrderShipmentTrack(java.lang.String, java.lang.String)">deleteOrderShipmentTrack</a></span>(String shipmentId, String trackId)</nobr>
@@ -1204,7 +1268,7 @@ Summary:
             
             
             
-            int</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">deleteProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName)</nobr>
@@ -1222,7 +1286,7 @@ Summary:
             
             
             
-            String</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#deleteProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">deleteProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku)</nobr>
@@ -1357,6 +1421,38 @@ Summary:
         
         <div class="jd-descrdiv">Retrieves full information about the shopping cart (quote).</div>
   
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            MetaData</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getMetadata(org.mule.common.metadata.MetaDataKey)">getMetadata</a></span>(MetaDataKey key)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;MetaDataKey&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#getMetadataKeys()">getMetadataKeys</a></span>()</nobr>
+        
   </td></tr>
 
 
@@ -1532,7 +1628,7 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#holdOrder(java.lang.String)">holdOrder</a></span>(String orderId)</nobr>
@@ -2401,7 +2497,23 @@ Summary:
             
             
             
-            void</nobr>
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#toNativeQuery(org.mule.common.query.Query)">toNativeQuery</a></span>(Query query)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#unholdOrder(java.lang.String)">unholdOrder</a></span>(String orderId)</nobr>
@@ -2414,14 +2526,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">updateCategory</a></span>(int categoryId, <a href="../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> catalogCategoryEntity, String storeViewIdOrCode)</nobr>
@@ -2432,14 +2544,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategoryAttributeStoreView(java.lang.String)">updateCategoryAttributeStoreView</a></span>(String storeViewIdOrCode)</nobr>
@@ -2452,6 +2564,24 @@ Summary:
 
 
 	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">updateCategoryProduct</a></span>(int categoryId, Integer productId, String productSku, String productIdOrSku, String position)</nobr>
+        
+        <div class="jd-descrdiv">Updates a category product.</div>
+  
+  </td></tr>
+
+
+	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -2459,12 +2589,12 @@ Summary:
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCategoryProduct(int, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)">updateCategoryProduct</a></span>(int categoryId, Integer productId, String productSku, String productIdOrSku, String position)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomer(int, com.magento.api.CustomerCustomerEntityToCreate)">updateCustomer</a></span>(int customerId, <a href="../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customer)</nobr>
         
-        <div class="jd-descrdiv">Updates a category product.</div>
+        <div class="jd-descrdiv">Updates the given customer attributes, for the given customer id.</div>
   
   </td></tr>
 
@@ -2477,25 +2607,7 @@ Summary:
             
             
             
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomer(int, com.magento.api.CustomerCustomerEntityToCreate)">updateCustomer</a></span>(int customerId, <a href="../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customer)</nobr>
-        
-        <div class="jd-descrdiv">Updates the given customer attributes, for the given customer id.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateCustomerAddress(int, com.magento.api.CustomerAddressEntityCreate)">updateCustomerAddress</a></span>(int addressId, <a href="../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> customerAddress)</nobr>
@@ -2508,14 +2620,14 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateInventoryStockItem(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateInventoryStockItem</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> catalogInventoryStockItem)</nobr>
@@ -2528,14 +2640,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProduct(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">updateProduct</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> catalogProductEntity, List&lt;<a href="../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeViewIdOrCode)</nobr>
@@ -2546,6 +2658,24 @@ Summary:
 
 
 	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)">updateProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName, <a href="../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> catalogProductAttributeMediaEntity, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Updates product media.</div>
+  
+  </td></tr>
+
+
+	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -2553,12 +2683,12 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)">updateProductAttributeMedia</a></span>(Integer productId, String productSku, String productIdOrSku, String fileName, <a href="../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> catalogProductAttributeMediaEntity, String storeViewIdOrCode)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeTierPrice(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductTierPriceEntity)">updateProductAttributeTierPrice</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> catalogProductTierPriceEntity)</nobr>
         
-        <div class="jd-descrdiv">Updates product media.</div>
+        <div class="jd-descrdiv">Updates a single product tier price.</div>
   
   </td></tr>
 
@@ -2571,25 +2701,7 @@ Summary:
             
             
             
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductAttributeTierPrice(java.lang.Integer, java.lang.String, java.lang.String, com.magento.api.CatalogProductTierPriceEntity)">updateProductAttributeTierPrice</a></span>(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> catalogProductTierPriceEntity)</nobr>
-        
-        <div class="jd-descrdiv">Updates a single product tier price.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductLinkEntity)">updateProductLink</a></span>(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> catalogProductLinkEntity)</nobr>
@@ -2602,14 +2714,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateProductSpecialPrice(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">updateProductSpecialPrice</a></span>(Integer productId, String productSku, String productIdOrSku, String specialPrice, String fromDate, String toDate, String storeViewIdOrCode)</nobr>
@@ -2620,7 +2732,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2638,14 +2750,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#updateStockItem(java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateStockItem</a></span>(String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> stockItem)</nobr>
@@ -2658,7 +2770,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2674,14 +2786,14 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
             
             
             
-            void</nobr>
+            boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/magento/MagentoCloudConnector.html#voidOrderInvoice(java.lang.String)">voidOrderInvoice</a></span>(String invoiceId)</nobr>
@@ -2930,6 +3042,52 @@ From class
 
 
 <!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="ENTITY_PACKAGE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+        static 
+        final 
+        String
+      </span>
+        ENTITY_PACKAGE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "com.magento.api"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
 
 
 <!-- Fields -->
@@ -3247,7 +3405,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">addCategoryProduct</span>
       <span class="normal">(int categoryId, Integer productId, String productSku, String productIdOrSku, String position)</span>
@@ -3288,10 +3446,14 @@ From class
         </tr>
         <tr>
           <th>position</td>
-          <td>The position of this product
-</td>
+          <td>The position of this product</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the operation was successful
+</li></ul>
   </div>
 
     </div>
@@ -3308,7 +3470,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">addOrderComment</span>
       <span class="normal">(String orderId, String status, String comment, boolean sendEmail)</span>
@@ -3343,10 +3505,14 @@ From class
         </tr>
         <tr>
           <th>sendEmail</td>
-          <td>If an email must be sent after shipment creation
-</td>
+          <td>If an email must be sent after shipment creation</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the operation was successful
+</li></ul>
   </div>
 
     </div>
@@ -3363,7 +3529,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">addOrderInvoiceComment</span>
       <span class="normal">(String invoiceId, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
@@ -3398,10 +3564,14 @@ From class
         </tr>
         <tr>
           <th>includeCommentInEmail</td>
-          <td>If the comment must be sent in the email
-</td>
+          <td>If the comment must be sent in the email</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if it was successful
+</li></ul>
   </div>
 
     </div>
@@ -3418,7 +3588,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">addOrderShipmentComment</span>
       <span class="normal">(String shipmentId, String comment, boolean sendEmail, boolean includeCommentInEmail)</span>
@@ -3453,10 +3623,14 @@ From class
         </tr>
         <tr>
           <th>includeCommentInEmail</td>
-          <td>If the comment must be sent in the email
-</td>
+          <td>If the comment must be sent in the email</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if it was successful
+</li></ul>
   </div>
 
     </div>
@@ -3532,7 +3706,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">addProductLink</span>
       <span class="normal">(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> productLinkEntity)</span>
@@ -3579,10 +3753,14 @@ From class
         </tr>
         <tr>
           <th>productLinkEntity</td>
-          <td>The link attributes
-</td>
+          <td>The link attributes</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the operation was successful
+</li></ul>
   </div>
 
     </div>
@@ -3707,7 +3885,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">cancelOrder</span>
       <span class="normal">(String orderId)</span>
@@ -3730,10 +3908,14 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>orderId</td>
-          <td>The order to cancel
-</td>
+          <td>The order to cancel</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the operation was successful
+</li></ul>
   </div>
 
     </div>
@@ -4605,7 +4787,7 @@ From class
          
          
          
-        int
+        boolean
       </span>
       <span class="sympad">deleteOrderShipmentTrack</span>
       <span class="normal">(String shipmentId, String trackId)</span>
@@ -4713,7 +4895,7 @@ From class
          
          
          
-        int
+        boolean
       </span>
       <span class="sympad">deleteProductAttributeMedia</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, String fileName)</span>
@@ -4777,7 +4959,7 @@ From class
          
          
          
-        String
+        boolean
       </span>
       <span class="sympad">deleteProductLink</span>
       <span class="normal">(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku)</span>
@@ -5154,6 +5336,86 @@ From class
       <ul class="nolist"><li>shopping cart info
 </li></ul>
   </div>
+
+    </div>
+</div>
+
+
+<A NAME="getMetadata(org.mule.common.metadata.MetaDataKey)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        MetaData
+      </span>
+      <span class="sympad">getMetadata</span>
+      <span class="normal">(MetaDataKey key)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>ClassNotFoundException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getMetadataKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;MetaDataKey&gt;
+      </span>
+      <span class="sympad">getMetadataKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
@@ -5616,7 +5878,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">holdOrder</span>
       <span class="normal">(String orderId)</span>
@@ -5639,10 +5901,14 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>orderId</td>
-          <td>The order to put on hold state
-</td>
+          <td>The order to put on hold state</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the operation was successful
+</li></ul>
   </div>
 
     </div>
@@ -7918,6 +8184,46 @@ From class
 </div>
 
 
+<A NAME="toNativeQuery(org.mule.common.query.Query)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">toNativeQuery</span>
+      <span class="normal">(Query query)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>query</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="unholdOrder(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -7928,7 +8234,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">unholdOrder</span>
       <span class="normal">(String orderId)</span>
@@ -7951,10 +8257,15 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>orderId</td>
-          <td>The id of the order to remove from hold state
-</td>
+          <td>The id of the order to remove from hold state</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the operation was successful
+
+</li></ul>
   </div>
 
     </div>
@@ -7971,7 +8282,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateCategory</span>
       <span class="normal">(int categoryId, <a href="../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> catalogCategoryEntity, String storeViewIdOrCode)</span>
@@ -8002,10 +8313,14 @@ From class
         </tr>
         <tr>
           <th>storeViewIdOrCode</td>
-          <td>The id or code of the target store. Left unspecified for using current store
-</td>
+          <td>The id or code of the target store. Left unspecified for using current store</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update results
+</li></ul>
   </div>
 
     </div>
@@ -8022,7 +8337,7 @@ From class
          
          
          
-        void
+        int
       </span>
       <span class="sympad">updateCategoryAttributeStoreView</span>
       <span class="normal">(String storeViewIdOrCode)</span>
@@ -8047,10 +8362,14 @@ From class
           <th>storeViewIdOrCode</td>
           <td>The id or code of the target store. Left unspecified for using current store
                           the id or code of the store view to set as default for this
-                          session
-</td>
+                          session</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8067,7 +8386,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateCategoryProduct</span>
       <span class="normal">(int categoryId, Integer productId, String productSku, String productIdOrSku, String position)</span>
@@ -8108,10 +8427,14 @@ From class
         </tr>
         <tr>
           <th>position</td>
-          <td>The category position for ordering the category inside its level
-</td>
+          <td>The category position for ordering the category inside its level</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8128,7 +8451,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateCustomer</span>
       <span class="normal">(int customerId, <a href="../../../../../java/com/magento/api/CustomerCustomerEntityToCreate.html">CustomerCustomerEntityToCreate</a> customer)</span>
@@ -8156,10 +8479,14 @@ From class
         </tr>
         <tr>
           <th>customer</td>
-          <td>The customer attributes
-</td>
+          <td>The customer attributes</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8176,7 +8503,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateCustomerAddress</span>
       <span class="normal">(int addressId, <a href="../../../../../java/com/magento/api/CustomerAddressEntityCreate.html">CustomerAddressEntityCreate</a> customerAddress)</span>
@@ -8203,10 +8530,14 @@ From class
         </tr>
         <tr>
           <th>customerAddress</td>
-          <td>The address attributes to update
-</td>
+          <td>The address attributes to update</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8223,7 +8554,7 @@ From class
          
          
          
-        void
+        int
       </span>
       <span class="sympad">updateInventoryStockItem</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> catalogInventoryStockItem)</span>
@@ -8260,10 +8591,14 @@ From class
         </tr>
         <tr>
           <th>catalogInventoryStockItem</td>
-          <td>The new attributes of the stock item
-</td>
+          <td>The new attributes of the stock item</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8280,7 +8615,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateProduct</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> catalogProductEntity, List&lt;<a href="../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeViewIdOrCode)</span>
@@ -8326,10 +8661,14 @@ From class
         </tr>
         <tr>
           <th>storeViewIdOrCode</td>
-          <td>The id or code of the target store. Left unspecified for using current store
-</td>
+          <td>The id or code of the target store. Left unspecified for using current store</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8346,7 +8685,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateProductAttributeMedia</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, String fileName, <a href="../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> catalogProductAttributeMediaEntity, String storeViewIdOrCode)</span>
@@ -8391,10 +8730,14 @@ From class
         </tr>
         <tr>
           <th>storeViewIdOrCode</td>
-          <td>The id or code of the target store. Left unspecified for using current store
-</td>
+          <td>The id or code of the target store. Left unspecified for using current store</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8411,7 +8754,7 @@ From class
          
          
          
-        void
+        int
       </span>
       <span class="sympad">updateProductAttributeTierPrice</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> catalogProductTierPriceEntity)</span>
@@ -8449,10 +8792,14 @@ From class
         </tr>
         <tr>
           <th>catalogProductTierPriceEntity</td>
-          <td>The tier price to update.
-</td>
+          <td>The tier price to update.</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8469,7 +8816,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">updateProductLink</span>
       <span class="normal">(String type, Integer productId, String productSku, String productIdOrSku, String linkedProductIdOrSku, <a href="../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> catalogProductLinkEntity)</span>
@@ -8516,10 +8863,14 @@ From class
         </tr>
         <tr>
           <th>catalogProductLinkEntity</td>
-          <td>The link attributes
-</td>
+          <td>The link attributes</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8536,7 +8887,7 @@ From class
          
          
          
-        void
+        int
       </span>
       <span class="sympad">updateProductSpecialPrice</span>
       <span class="normal">(Integer productId, String productSku, String productIdOrSku, String specialPrice, String fromDate, String toDate, String storeViewIdOrCode)</span>
@@ -8585,10 +8936,14 @@ From class
         </tr>
         <tr>
           <th>storeViewIdOrCode</td>
-          <td>The id or code of the target store. Left unspecified for using current store
-</td>
+          <td>The id or code of the target store. Left unspecified for using current store</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8659,7 +9014,7 @@ From class
          
          
          
-        void
+        int
       </span>
       <span class="sympad">updateStockItem</span>
       <span class="normal">(String productIdOrSku, <a href="../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> stockItem)</span>
@@ -8686,10 +9041,14 @@ From class
         </tr>
         <tr>
           <th>stockItem</td>
-          <td>The attributes to update
-</td>
+          <td>The attributes to update</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>update result
+</li></ul>
   </div>
 
     </div>
@@ -8737,7 +9096,7 @@ From class
          
          
          
-        void
+        boolean
       </span>
       <span class="sympad">voidOrderInvoice</span>
       <span class="normal">(String invoiceId)</span>
@@ -8760,10 +9119,14 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>invoiceId</td>
-          <td>The invoice id
-</td>
+          <td>The invoice id</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if it was successful
+</li></ul>
   </div>
 
     </div>

@@ -65,6 +65,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -258,6 +301,8 @@
   <a href="../../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/processors/package-summary.html">org.mule.module.magento.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/query/package-summary.html">org.mule.module.magento.query</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../java/org/mule/module/magento/transformers/package-summary.html">org.mule.module.magento.transformers</a></li>
               </ul><br/>
@@ -614,7 +659,7 @@ Summary:
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/customer/AxisMagentoInventoryClient.html#updateStockItem(java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateStockItem</a></span>(String productIdOrSkus, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</nobr>
@@ -1024,10 +1069,10 @@ From interface
             
             
             
-            void</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/customer/MagentoInventoryClient.html#updateStockItem(java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateStockItem</a></span>(String productIdOrSku, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/customer/MagentoInventoryClient.html#updateStockItem(java.lang.String, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateStockItem</a></span>(String productIdOrSkus, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</nobr>
         
         <div class="jd-descrdiv">Update product stock data given its id or sku</div>
   
@@ -1193,7 +1238,7 @@ From interface
          
          
          
-        void
+        int
       </span>
       <span class="sympad">updateStockItem</span>
       <span class="normal">(String productIdOrSkus, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</span>
@@ -1214,7 +1259,7 @@ From interface
       <table class="jd-tagtable">
         <tr>
           <th>productIdOrSkus</td>
-          <td>The product id or sku of the product to update</td>
+          <td></td>
         </tr>
         <tr>
           <th>attributes</td>
