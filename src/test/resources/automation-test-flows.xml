@@ -8,7 +8,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 http://www.mulesoft.org/schema/mule/magento http://www.mulesoft.org/schema/mule/magento/1.1/mule-magento.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
 
-	<context:property-placeholder location="automation-credentials.properties" />
+	<context:property-placeholder location="${MAGENTO_CREDENTIALS}" />
 
 	<magento:config name="Magento" username="${magento.username}"
 		password="${magento.password}" address="${magento.address}" doc:name="Magento">
