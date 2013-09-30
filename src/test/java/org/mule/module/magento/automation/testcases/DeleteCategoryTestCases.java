@@ -8,57 +8,56 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.mule.api.MuleEvent;
+import org.mule.api.processor.MessageProcessor;
 
-public class DeleteCategoryTestCases extends MagentoTestCase {
+import com.magento.api.CatalogCategoryEntityCreate;
 
-    @Before
+public class DeleteCategoryTestCases extends MagentoTestParent {
+
+
+	@SuppressWarnings("unchecked")
+	@Before
 	public void setUp() {
-		
 		try {
-	
-			Map<String,Object> category = (HashMap<String,Object>) context.getBean("getCategoryAttributesFromMessage");
+			testObjects = (HashMap<String, Object>) context.getBean("deleteCategory");
 			
-			flow = lookupMessageProcessor("create-category-attributes-from-message");
-			response = flow.process(getTestEvent(category));
+			int parentId = (Integer) testObjects.get("parentId");
+			CatalogCategoryEntityCreate category = (CatalogCategoryEntityCreate) testObjects.get("catalogCategoryEntityRef");
 			
-			String categoryId = response.getMessage().getPayload().toString();
-
-			testObjects = new HashMap<String,Object>();
-			testObjects.put("createdCategoryId", categoryId);
-     
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			Integer categoryId = createCategory(parentId, category);
+			
+			testObjects.put("categoryId", categoryId);			
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
-        
-	} 
+	}
 	
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testDeleteCategory() {
-		
-    	try {
-    		
-    		String categoryId = (String) testObjects.get("createdCategoryId");
-    		
-        	flow = lookupMessageProcessor("delete-category");
-        	response = flow.process(getTestEvent(categoryId));
-        	
-        	assertTrue((Boolean) response.getMessage().getPayload());
-        	
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		try {
+
+			MessageProcessor flow = lookupFlowConstruct("delete-category");
+			MuleEvent response = flow.process(getTestEvent(testObjects));
+			boolean result = (Boolean) response.getMessage().getPayload();
+						
+			assertTrue(result);
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
-   	
-    }
-
+	}
+	
 }

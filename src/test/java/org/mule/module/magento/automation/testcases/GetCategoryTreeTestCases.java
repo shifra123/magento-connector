@@ -8,36 +8,81 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.util.Map;
+import java.util.HashMap;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.api.MuleEvent;
+import org.mule.api.processor.MessageProcessor;
 
-public class GetCategoryTreeTestCases extends MagentoTestCase {
+import com.magento.api.CatalogCategoryEntity;
+import com.magento.api.CatalogCategoryEntityCreate;
+import com.magento.api.CatalogCategoryTree;
 
-
-    @Category({SanityTests.class})
-	@Test
-	public void testGetCategoryTreeRootCatalog() {
-
+public class GetCategoryTreeTestCases extends MagentoTestParent {
+	
+	@SuppressWarnings("unchecked")
+	@Before
+	public void setUp() {
 		try {
+			testObjects = (HashMap<String, Object>) context.getBean("getCategoryTree");
 			
-			flow = lookupMessageProcessor("get-category-tree");
-			response = flow.process(getTestEvent("1"));
+			CatalogCategoryEntityCreate parentCategory = (CatalogCategoryEntityCreate) testObjects.get("parentCategory");
+			CatalogCategoryEntityCreate childCategory = (CatalogCategoryEntityCreate) testObjects.get("childCategory");
 			
-			Map<String, Object> categoryTree = (Map<String, Object>) response.getMessage().getPayload();
+			int parentId = (Integer) testObjects.get("parentId");
+			int parentCategoryId = createCategory(parentId, parentCategory);
+			int childCategoryId = createCategory(parentCategoryId, childCategory);
 			
-			assertEquals("Root Catalog", categoryTree.get("name").toString());
-   
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			testObjects.put("parentCategoryId", parentCategoryId);
+			testObjects.put("childCategoryId", childCategoryId);
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
-        
-	} 
-
+	}
+	
+	@Category({RegressionTests.class})
+	@Test
+	public void testGetCategoryTree() {
+		try {
+			int parentCategoryId = (Integer) testObjects.get("parentCategoryId");
+			int childCategoryId = (Integer) testObjects.get("childCategoryId");
+			
+			MessageProcessor flow = lookupFlowConstruct("get-category-tree");
+			MuleEvent response = flow.process(getTestEvent(testObjects));
+			
+			CatalogCategoryTree tree = (CatalogCategoryTree) response.getMessage().getPayload();
+			assertTrue(tree.getCategory_id() == parentCategoryId);
+			
+			CatalogCategoryEntity[] children = tree.getChildren();
+			CatalogCategoryEntity child = children[0]; // We only created 1 child.
+			
+			assertTrue(child.getCategory_id() == childCategoryId);
+			assertTrue(child.getParent_id() == parentCategoryId);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	@After
+	public void tearDown() {
+		try {
+			// Deleting the parent also deletes the child			
+			int parentCategoryId = (Integer) testObjects.get("parentCategoryId");
+			deleteCategory(parentCategoryId);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
 }

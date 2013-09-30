@@ -185,7 +185,7 @@
     </binding>
     <service name="MagentoService">
         <port name="Mage_Api_Model_Server_HandlerPort" binding="typens:Mage_Api_Model_Server_HandlerBinding">
-            <soap:address location="http://172.16.10.85/~eberman/magento/index.php/api/soap/index/" />
+            <soap:address location="http://localhost/magento/index.php/api/soap/index/" />
         </port>
     </service>
 </definitions>

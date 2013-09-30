@@ -8,92 +8,60 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.api.MuleEvent;
+import org.mule.api.processor.MessageProcessor;
 
-public class CreateCategoryTestCases extends MagentoTestCase {
-	
+public class CreateCategoryTestCases extends MagentoTestParent {
+
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
-		
-		testObjects = new HashMap<String,Object>();
-		
+		try {
+			testObjects = (HashMap<String, Object>) context.getBean("createCategory");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 	
-    @After
-    public void tearDown() {
-    	
-    	try {
-    		
-    		String createdCategoryId = (String) testObjects.get("createdCategoryId");
-    		
-        	flow = lookupMessageProcessor("delete-category");
-        	flow.process(getTestEvent(createdCategoryId));
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		}
-   	
-    }
-	
-    @Category({SanityTests.class, SmokeTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
-	public void testCreateCategoryAttributesFromMessage() {
-
+	public void testCreateCategory() {
 		try {
+			MessageProcessor flow = lookupFlowConstruct("create-category");
+			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			Map<String,Object> category = (HashMap<String,Object>) context.getBean("createCategoryAttributesFromMessage");
-
-			flow = lookupMessageProcessor("create-category-attributes-from-message");
-			response = flow.process(getTestEvent(category));
+			Integer categoryId = (Integer) response.getMessage().getPayload();
+			assertTrue(categoryId != null);
 			
-			String categoryId = response.getMessage().getPayload().toString();
-			
-			assertNotNull(categoryId);
-			
-			testObjects.put("createdCategoryId", categoryId);
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			testObjects.put("categoryId", categoryId);
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
-        
-	} 
+	}
 	
-    @Category({SanityTests.class})
-	@Test
-	public void testCreateCategoryAttributesAsList() {
-		
+	@After
+	public void tearDown() {
 		try {
-			
-			Map<String,Object> category = (HashMap<String,Object>) context.getBean("createCategoryAttributesAsList");
-			
-			flow = lookupMessageProcessor("create-category-attributes-as-list");
-			response = flow.process(getTestEvent(category));
-			
-			String categoryId = response.getMessage().getPayload().toString();
-			
-			assertNotNull(categoryId);
-			
-			testObjects.put("createdCategoryId", categoryId);
-     
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			int categoryId = (Integer) testObjects.get("categoryId");
+			deleteCategory(categoryId);
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
-        
-	} 
+	}
 	
 }
