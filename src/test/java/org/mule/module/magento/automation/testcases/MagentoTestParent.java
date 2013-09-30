@@ -53,9 +53,9 @@ public class MagentoTestParent extends FunctionalTestCase {
 		return "automation-test-flows.xml,automation-helper-flows.xml";
 	}
 
-	protected MessageProcessor lookupFlowConstruct(String name) {
-		return (MessageProcessor) muleContext.getRegistry().lookupFlowConstruct(name);
-	}
+//	protected MessageProcessor lookupFlowConstruct(String name) {
+//		return (MessageProcessor) muleContext.getRegistry().lookupFlowConstruct(name);
+//	}
 	
 	@BeforeClass
 	public static void beforeClass() {
