@@ -26,10 +26,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.mule.common.query.Field;
 import org.mule.common.query.Query;
-import org.mule.common.query.expression.And;
-import org.mule.common.query.expression.EqualsOperator;
-import org.mule.common.query.expression.FieldComparation;
-import org.mule.common.query.expression.LessOperator;
+import org.mule.common.query.expression.*;
 import org.mule.module.magento.api.AxisPortProvider;
 import org.mule.module.magento.api.catalog.AxisMagentoCatalogClient;
 import org.mule.module.magento.api.customer.AxisMagentoInventoryClient;
@@ -224,7 +221,7 @@ public class MagentoCloudConnectorUnitTest
     @Test
     public void queryTranslator() throws Exception {
     	FieldComparation name = new FieldComparation(new EqualsOperator(), new Field("name", "java.lang.String"), new org.mule.common.query.expression.StringValue("mariano"));
-    	FieldComparation age = new FieldComparation(new LessOperator(), new Field("age", "int"), new org.mule.common.query.expression.NumberValue(30));
+    	FieldComparation age = new FieldComparation(new LessOperator(), new Field("age", "int"), new IntegerValue(30));
     	And and = new And(name, age);
     	
     	Query query = mock(Query.class);
