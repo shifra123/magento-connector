@@ -8,7 +8,7 @@ import javax.annotation.Generated;
  * A tuple of connection parameters
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-02-14T12:22:33-06:00", comments = "Build UNKNOWN_BUILDNUMBER")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:23:30-05:00", comments = "Build master.1915.dd1962d")
 public class MagentoCloudConnectorConnectionKey {
 
     /**
@@ -81,15 +81,13 @@ public class MagentoCloudConnectorConnectionKey {
         return this.password;
     }
 
+    @Override
     public int hashCode() {
-        int hash = 1;
-        hash = (hash* 31);
-        if (this.username!= null) {
-            hash += this.username.hashCode();
-        }
-        return hash;
+        int result = ((this.username!= null)?this.username.hashCode(): 0);
+        return result;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

@@ -15,12 +15,12 @@ import org.mule.module.magento.connection.ConnectionManager;
 import org.mule.module.magento.connection.UnableToAcquireConnectionException;
 import org.mule.module.magento.connection.UnableToReleaseConnectionException;
 import org.mule.module.magento.connectivity.MagentoCloudConnectorConnectionKey;
-import org.mule.module.magento.processors.AbstractConnectedProcessor;
+import org.mule.module.magento.processors.ConnectivityProcessor;
 import org.mule.security.oauth.callback.ProcessCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-02-14T12:22:33-06:00", comments = "Build UNKNOWN_BUILDNUMBER")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:23:30-05:00", comments = "Build master.1915.dd1962d")
 public class ManagedConnectionProcessInterceptor<T >
     extends ExpressionEvaluatorSupport
     implements ProcessInterceptor<T, MagentoCloudConnectorConnectionIdentifierAdapter>
@@ -44,15 +44,16 @@ public class ManagedConnectionProcessInterceptor<T >
         MagentoCloudConnectorConnectionIdentifierAdapter connection = null;
         MagentoCloudConnectorConnectionKey key = null;
         if (hasConnectionKeysOverride(messageProcessor)) {
-            final String _transformedUsername = ((String) evaluateAndTransform(muleContext, event, AbstractConnectedProcessor.class.getDeclaredField("_usernameType").getGenericType(), null, ((AbstractConnectedProcessor) messageProcessor).getUsername()));
+            ConnectivityProcessor connectivityProcessor = ((ConnectivityProcessor) messageProcessor);
+            final String _transformedUsername = ((String) evaluateAndTransform(muleContext, event, connectivityProcessor.typeFor("_usernameType"), null, connectivityProcessor.getUsername()));
             if (_transformedUsername == null) {
                 throw new UnableToAcquireConnectionException("Parameter username in method initialiseConnector can't be null because is not @Optional");
             }
-            final String _transformedPassword = ((String) evaluateAndTransform(muleContext, event, AbstractConnectedProcessor.class.getDeclaredField("_passwordType").getGenericType(), null, ((AbstractConnectedProcessor) messageProcessor).getPassword()));
+            final String _transformedPassword = ((String) evaluateAndTransform(muleContext, event, connectivityProcessor.typeFor("_passwordType"), null, connectivityProcessor.getPassword()));
             if (_transformedPassword == null) {
                 throw new UnableToAcquireConnectionException("Parameter password in method initialiseConnector can't be null because is not @Optional");
             }
-            final String _transformedAddress = ((String) evaluateAndTransform(muleContext, event, AbstractConnectedProcessor.class.getDeclaredField("_addressType").getGenericType(), null, ((AbstractConnectedProcessor) messageProcessor).getAddress()));
+            final String _transformedAddress = ((String) evaluateAndTransform(muleContext, event, connectivityProcessor.typeFor("_addressType"), null, connectivityProcessor.getAddress()));
             if (_transformedAddress == null) {
                 throw new UnableToAcquireConnectionException("Parameter address in method initialiseConnector can't be null because is not @Optional");
             }
@@ -112,13 +113,14 @@ public class ManagedConnectionProcessInterceptor<T >
      * @param messageProcessor
      *     the message processor to test against the keys
      * @return
+     *     true if any of the parameters in @Connect method annotated with @ConnectionKey was override in the XML, false otherwise  
      */
     private Boolean hasConnectionKeysOverride(MessageProcessor messageProcessor) {
-        if ((messageProcessor == null)||(!(messageProcessor instanceof AbstractConnectedProcessor))) {
+        if ((messageProcessor == null)||(!(messageProcessor instanceof ConnectivityProcessor))) {
             return false;
         }
-        AbstractConnectedProcessor abstractConnectedProcessor = ((AbstractConnectedProcessor) messageProcessor);
-        if (abstractConnectedProcessor.getUsername()!= null) {
+        ConnectivityProcessor connectivityProcessor = ((ConnectivityProcessor) messageProcessor);
+        if (connectivityProcessor.getUsername()!= null) {
             return true;
         }
         return false;

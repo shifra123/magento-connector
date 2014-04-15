@@ -19,7 +19,7 @@ import org.mule.config.i18n.CoreMessages;
 import org.mule.devkit.processor.ExpressionEvaluatorSupport;
 import org.mule.transformer.types.DataTypeFactory;
 
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-02-14T12:22:33-06:00", comments = "Build UNKNOWN_BUILDNUMBER")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:23:30-05:00", comments = "Build master.1915.dd1962d")
 public class CatalogProductImageFileEntityExpressionHolderTransformer
     extends ExpressionEvaluatorSupport
     implements DiscoverableTransformer, MessageTransformer

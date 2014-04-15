@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" prefix="magento" url="http://www.mulesoft.org/schema/mule/magento">
-  <global-cloud-connector metaData="dynamic" connectivityTesting="on" extends="http://www.mulesoft.org/schema/mule/magento/abstractMagentoConnectorGeneric" abstract="true" image="" localId="parentConfig" icon="" description="" caption="Magento" versions="[3.5.0,8.0.0]"></global-cloud-connector>
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/magento/abstractMagentoConnectorGeneric" abstract="true" image="" localId="parentConfig" icon="" description="" caption="Magento" versions="[3.5.0,8.0.0]"></global-cloud-connector>
   <nested abstract="true" localId="connection-pooling-profile" description="" caption="">
-    <label description="" caption="Define connection pool configuration" name="poolingProfileLabel"></label>
-    <integer step="0" min="0" defaultValue="5" fillLine="true" description="Controls the maximum number of connections that can be borrowed from the pool at one time. When set to a negative value, there is no limit to the number of connections that may be active at one time. When maxActive is exceeded, the pool is said to be exhausted." caption="Max active" name="maxActive"></integer>
-    <integer step="0" min="0" defaultValue="5" fillLine="true" description="Controls the maximum number of connections that can sit idle in the pool at any time. When set to a negative value, there is no limit to the number of connections that may be idle at one time." caption="Max idle" name="maxIdle"></integer>
-    <enum defaultValue="INITIALISE_ONE" alwaysFill="true" description="Determines how connections in a pool should be initialized. The possible values are: INITIALISE_NONE (will not load any connection into the pool on startup), INITIALISE_ONE (will load one initial connection into the pool on startup), or INITIALISE_ALL (will load all connections in the pool on startup)" caption="Initialisation policy" name="initialisationPolicy">
+    <radioBoolean fillLine="true" description="Use default connection pool configuration." caption="Use default connection pool configuration" name="defaultPoolingProfile"></radioBoolean>
+    <radioBoolean fillLine="true" description="Define connection pool configuration." caption="Define connection pool configuration" name="customPoolingProfile"></radioBoolean>
+    <integer step="0" min="0" defaultValue="5" fillLine="true" indented="true" controlled="customPoolingProfile" description="Controls the maximum number of connections that can be borrowed from the pool at one time. When set to a negative value, there is no limit to the number of connections that may be active at one time. When maxActive is exceeded, the pool is said to be exhausted." caption="Max active" name="maxActive"></integer>
+    <integer step="0" min="0" defaultValue="5" fillLine="true" indented="true" controlled="customPoolingProfile" description="Controls the maximum number of connections that can sit idle in the pool at any time. When set to a negative value, there is no limit to the number of connections that may be idle at one time." caption="Max idle" name="maxIdle"></integer>
+    <enum defaultValue="INITIALISE_ONE" indented="true" controlled="customPoolingProfile" alwaysFill="true" description="Determines how connections in a pool should be initialized. The possible values are: INITIALISE_NONE (will not load any connection into the pool on startup), INITIALISE_ONE (will load one initial connection into the pool on startup), or INITIALISE_ALL (will load all connections in the pool on startup)" caption="Initialisation policy" name="initialisationPolicy">
       <option value="INITIALISE_NONE"></option>
       <option value="INITIALISE_ONE"></option>
       <option value="INITIALISE_ALL"></option>
     </enum>
-    <enum defaultValue="WHEN_EXHAUSTED_GROW" alwaysFill="true" description="Specifies the behavior of the connection pool when the pool is exhausted. Possible values are: &quot;WHEN_EXHAUSTED_FAIL&quot;, which will throw a NoSuchElementException, &quot;WHEN_EXHAUSTED_WAIT&quot;, which will block by invoking Object.wait(long) until a new or idle object is available, or WHEN_EXHAUSTED_GROW, which will create a new connection and return it, essentially making maxActive meaningless. If a positive maxWait value is supplied, it will block for at most that many milliseconds, after which a NoSuchElementException will be thrown. If maxThreadWait is a negative value, it will block indefinitely." caption="Exhausted action" name="exhaustedAction">
+    <enum defaultValue="WHEN_EXHAUSTED_GROW" indented="true" controlled="customPoolingProfile" alwaysFill="true" description="Specifies the behavior of the connection pool when the pool is exhausted. Possible values are: &quot;WHEN_EXHAUSTED_FAIL&quot;, which will throw a NoSuchElementException, &quot;WHEN_EXHAUSTED_WAIT&quot;, which will block by invoking Object.wait(long) until a new or idle object is available, or WHEN_EXHAUSTED_GROW, which will create a new connection and return it, essentially making maxActive meaningless. If a positive maxWait value is supplied, it will block for at most that many milliseconds, after which a NoSuchElementException will be thrown. If maxThreadWait is a negative value, it will block indefinitely." caption="Exhausted action" name="exhaustedAction">
       <option value="WHEN_EXHAUSTED_WAIT"></option>
       <option value="WHEN_EXHAUSTED_FAIL"></option>
       <option value="WHEN_EXHAUSTED_GROW"></option>
     </enum>
-    <integer step="0" min="0" defaultValue="5" fillLine="true" description="When exhausted action is Wait (or block) this is the amount of time in milliseconds that the pool will wait before failing. Setting a negative value will block indefinitely until an idle instance becomes available." caption="Max wait" name="maxWait"></integer>
-    <integer step="0" min="0" defaultValue="1800000" fillLine="true" description="Determines the minimum amount of time a connection may sit idle in the pool before it is eligible for eviction. When non-positive, no connections will be evicted from the pool due to idle time alone." caption="Min eviction (ms)" name="minEvictionMillis"></integer>
-    <integer step="0" min="0" defaultValue="-1" fillLine="true" description="Specifies the number of milliseconds between runs of the connection evictor. When non-positive, no connection evictor is executed." caption="Eviction check interval (ms)" name="evictionCheckIntervalMillis"></integer>
+    <integer step="0" min="0" defaultValue="5" fillLine="true" indented="true" controlled="customPoolingProfile" description="When exhausted action is Wait (or block) this is the amount of time in milliseconds that the pool will wait before failing. Setting a negative value will block indefinitely until an idle instance becomes available." caption="Max wait" name="maxWait"></integer>
+    <integer step="0" min="0" defaultValue="1800000" fillLine="true" indented="true" controlled="customPoolingProfile" description="Determines the minimum amount of time a connection may sit idle in the pool before it is eligible for eviction. When non-positive, no connections will be evicted from the pool due to idle time alone." caption="Min eviction (ms)" name="minEvictionMillis"></integer>
+    <integer step="0" min="0" defaultValue="-1" fillLine="true" indented="true" controlled="customPoolingProfile" description="Specifies the number of milliseconds between runs of the connection evictor. When non-positive, no connection evictor is executed." caption="Eviction check interval (ms)" name="evictionCheckIntervalMillis"></integer>
   </nested>
   <nested abstract="true" localId="reconnectionStrategyElement" description="" caption="">
     <label description="" caption="Define how mule should attempt to handle a connection failure" name="connectionLabel"></label>
@@ -33,7 +34,7 @@
   </nested>
   <global-cloud-connector metaData="dynamic" connectivityTesting="on" extends="http://www.mulesoft.org/schema/mule/magento/parentConfig" abstract="false" image="icons/large/magento-connector-48x32.png" localId="config" icon="icons/small/magento-connector-24x16.png" description="Global Magento configuration information." caption="Magento" versions="[3.5.0,8.0.0]">
     <attribute-category description="Magento configuration properties." caption="General">
-      <group caption="Generic" id="magentoGenericProperties">
+      <group caption="Basic Settings" id="magentoGenericProperties">
         <name required="true" description="Give a name to this configuration so it can be later referenced by config-ref." caption="Name" name="name"></name>
       </group>
       <group caption="Connection" id="connection">
@@ -47,7 +48,7 @@
     </attribute-category>
     <attribute-category description="Pooling profile options." caption="Pooling Profile">
       <group caption="Pooling Profile" id="poolingProfile">
-        <childElement inplace="true" description="" caption="" name="http://www.mulesoft.org/schema/mule/magento/connection-pooling-profile"></childElement>
+        <childElement inplace="true" valuePersistence="org.mule.tooling.ui.modules.core.widgets.meta.PoolingProfileValuePersistence" description="" caption="" name="http://www.mulesoft.org/schema/mule/magento/connection-pooling-profile"></childElement>
       </group>
     </attribute-category>
     <attribute-category description="Reconnection options." caption="Reconnection">
@@ -59,15 +60,15 @@
   </global-cloud-connector>
   <cloud-connector abstract="true" image="icons/large/magento-connector-48x32.png" localId="abstractMagentoConnectorGeneric" icon="icons/small/magento-connector-24x16.png" description="Interact with Magento." caption="Abstractmagentoconnectorgeneric">
     <attribute-category description="General." caption="General">
-      <group caption="Generic" id="abstractMagentoConnectorGeneric">
-        <globalRef requiredType="http://www.mulesoft.org/schema/mule/magento/config" required="true" description="Specify which configuration to use for this invocation." caption="Config Reference" name="config-ref"></globalRef>
+      <group caption="Basic Settings" id="abstractMagentoConnectorGeneric">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/magento/config" required="true" description="Specify which configuration to use for this invocation." caption="Connector Configuration" name="config-ref"></globalRef>
       </group>
     </attribute-category>
   </cloud-connector>
   <cloud-connector extends="http://www.mulesoft.org/schema/mule/magento/abstractMagentoConnectorGeneric" image="icons/large/magento-connector-48x32.png" localId="magento-connector" icon="icons/small/magento-connector-24x16.png" description="Magento is a feature-rich eCommerce platform built on open-source technology that provides online merchants with
 great and control over the look, content and functionality of their eCommerce store." caption="Magento" aliasId="org.mule.tooling.ui.modules.core.pattern.magento" versions="[3.5.0,8.0.0]">
     <attribute-category description="General." caption="General">
-      <group caption="Generic" id="magentoConnectorGeneric">
+      <group caption="Basic Settings" id="magentoConnectorGeneric">
         <modeSwitch alwaysCombo="true" description="Operation." caption="Operation" name="Magento operations to execute">
           <mode modeLabel="Add category product" modeId="http://www.mulesoft.org/schema/mule/magento/add-category-product"></mode>
           <mode modeLabel="Add order comment" modeId="http://www.mulesoft.org/schema/mule/magento/add-order-comment"></mode>
@@ -178,10 +179,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The sku of the product. Use it instead of productIdOrSku in case you are sure the product identifier is a product sku." caption="Product Sku" name="productSku"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -197,10 +196,8 @@ great and control over the look, content and functionality of their eCommerce st
         <boolean defaultValue="false" javaType="boolean" required="false" supportsExpressions="true" description="If an email must be sent after shipment creation." caption="Send Email" name="sendEmail"></boolean>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -216,10 +213,8 @@ great and control over the look, content and functionality of their eCommerce st
         <boolean defaultValue="false" javaType="boolean" required="false" supportsExpressions="true" description="If an email must be sent after shipment creation." caption="Send Email" name="sendEmail"></boolean>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -235,10 +230,8 @@ great and control over the look, content and functionality of their eCommerce st
         <boolean defaultValue="false" javaType="boolean" required="false" supportsExpressions="true" description="If an email must be sent after shipment creation." caption="Send Email" name="sendEmail"></boolean>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -254,10 +247,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The new track's id." caption="Track Id" name="trackId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -277,10 +268,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CatalogProductLinkEntity" required="false" caption="Product Link Entity Reference" name="http://www.mulesoft.org/schema/mule/magento/product-link-entity"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -295,10 +284,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Store view ID or code." caption="Store Id" name="storeId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -315,10 +302,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-listOfPojo listName="products" defaultValue="#[payload]" itemName="product" localName="add-shopping-cart-product-products" javaType="java.util.List&lt;com.magento.api.ShoppingCartProductEntity&gt;" description="Products data." caption="Products"></element-controller-listOfPojo>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -331,10 +316,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The order to cancel." caption="Order Id" name="orderId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -347,10 +330,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The invoice id." caption="Invoice Id" name="invoiceId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -363,10 +344,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The invoice to capture." caption="Invoice Id" name="invoiceId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -383,10 +362,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CatalogCategoryEntityCreate" required="false" caption="Catalog Category Entity Reference" name="http://www.mulesoft.org/schema/mule/magento/catalog-category-entity"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -399,10 +376,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CustomerCustomerEntityToCreate" required="true" caption="Customer Reference" name="http://www.mulesoft.org/schema/mule/magento/customer"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -418,10 +393,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CustomerAddressEntityCreate" required="false" caption="Customer Address Reference" name="http://www.mulesoft.org/schema/mule/magento/customer-address"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -440,10 +413,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-listOfPojo listName="items-quantities" defaultValue="#[payload]" itemName="items-quantity" localName="create-order-invoice-items-quantities" javaType="java.util.List&lt;com.magento.api.OrderItemIdQty&gt;" description="OrderItemId quantity." caption="Items Quantities"></element-controller-listOfPojo>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -462,10 +433,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-listOfPojo listName="items-quantities" defaultValue="#[payload]" itemName="items-quantity" localName="create-order-shipment-items-quantities" javaType="java.util.List&lt;com.magento.api.OrderItemIdQty&gt;" description="OrderItemId quantity." caption="Items Quantities"></element-controller-listOfPojo>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -487,10 +456,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-listOfPojo listName="additional-attributes" itemName="additional-attribute" localName="create-product-additional-attributes" javaType="java.util.List&lt;com.magento.api.AssociativeEntity&gt;" description="The non standard attributes of the new product." caption="Additional Attributes"></element-controller-listOfPojo>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -515,10 +482,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CatalogProductAttributeMediaCreateEntity" required="false" caption="Catalog Product Attribute Media Entity Reference" name="http://www.mulesoft.org/schema/mule/magento/catalog-product-attribute-media-entity"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -531,10 +496,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Store view ID or code." caption="Store Id" name="storeId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -551,10 +514,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-list listName="licenses" itemName="license" localName="create-shopping-cart-order-licenses" javaType="java.util.List&lt;java.lang.String&gt;" required="false" description="Website license ID." caption="Licenses"></element-controller-list>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -567,10 +528,8 @@ great and control over the look, content and functionality of their eCommerce st
         <integer step="1" min="0" javaType="int" required="true" description="The category to delete." caption="Category Id" name="categoryId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -586,10 +545,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The sku of the product. Use it instead of productIdOrSku in case you are sure the product identifier is a product sku." caption="Product Sku" name="productSku"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -602,10 +559,8 @@ great and control over the look, content and functionality of their eCommerce st
         <integer step="1" min="0" javaType="int" required="true" description="The customer to delete." caption="Customer Id" name="customerId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -618,10 +573,8 @@ great and control over the look, content and functionality of their eCommerce st
         <integer step="1" min="0" javaType="int" required="true" description="The address id to delete." caption="Address Id" name="addressId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -635,10 +588,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The id of the track to delete." caption="Track Id" name="trackId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -653,10 +604,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The sku of the product. Use it instead of productIdOrSku in case you are sure the product identifier is a product sku." caption="Product Sku" name="productSku"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -672,10 +621,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The sku of the product. Use it instead of productIdOrSku in case you are sure the product identifier is a product sku." caption="Product Sku" name="productSku"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -692,10 +639,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The sku of the source product. Use it instead of productIdOrSku in case you are sure the source product identifier is a product sku." caption="Product Sku" name="productSku"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -704,10 +649,8 @@ great and control over the look, content and functionality of their eCommerce st
   </cloud-connector>
   <cloud-connector returnType="int" metaData="static" extends="http://www.mulesoft.org/schema/mule/magento/abstractMagentoConnectorGeneric" abstract="true" image="icons/large/magento-connector-48x32.png" localId="get-catalog-current-store-view" icon="icons/small/magento-connector-24x16.png" caption="Get Catalog Current Store View">
     <attribute-category description="General." caption="General"></attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -724,10 +667,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-list listName="attribute-names" itemName="attribute-name" localName="get-category-attribute-names" javaType="java.util.List&lt;java.lang.String&gt;" required="true" description="The category attributes that will be retrieved." caption="Attribute Names"></element-controller-list>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -741,10 +682,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The id or code of the target store. Left unspecified for using current store." caption="Store View Id Or Code" name="storeViewIdOrCode"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -760,10 +699,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-list listName="attribute-names" itemName="attribute-name" localName="get-customer-attribute-names" javaType="java.util.List&lt;java.lang.String&gt;" required="true" description="The attributes to retrieve. Not empty." caption="Attribute Names"></element-controller-list>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -776,10 +713,8 @@ great and control over the look, content and functionality of their eCommerce st
         <integer step="1" min="0" javaType="int" required="true" description="The id of the address." caption="Address Id" name="addressId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -793,10 +728,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Store view ID or code." caption="Store Id" name="storeId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -809,10 +742,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The order whose properties to fetch." caption="Order Id" name="orderId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -825,10 +756,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The target invoiceId." caption="Invoice Id" name="invoiceId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -841,10 +770,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The id of the shipment." caption="Shipment Id" name="shipmentId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -857,10 +784,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The target order id." caption="Order Id" name="orderId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -882,10 +807,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-list listName="additional-attribute-names" itemName="additional-attribute-name" localName="get-product-additional-attribute-names" javaType="java.util.List&lt;java.lang.String&gt;" required="false" description="The list of non standard attributes to be returned in the additionalAttributes attribute." caption="Additional Attribute Names"></element-controller-list>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -902,10 +825,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The store view id or code." caption="Store View Id Or Code" name="storeViewIdOrCode"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -921,10 +842,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The id or code of the target store. Left unspecified for using current store." caption="Store View Id Or Code" name="storeViewIdOrCode"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -937,10 +856,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The order to put on hold state." caption="Order Id" name="orderId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -954,10 +871,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The id or code of the target store. Left unspecified for using current store." caption="Store View Id Or Code" name="storeViewIdOrCode"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -966,10 +881,8 @@ great and control over the look, content and functionality of their eCommerce st
   </cloud-connector>
   <cloud-connector returnType="java.util.List&lt;com.magento.api.CatalogAttributeEntity&gt;" metaData="static" extends="http://www.mulesoft.org/schema/mule/magento/abstractMagentoConnectorGeneric" abstract="true" image="icons/large/magento-connector-48x32.png" localId="list-category-attributes" icon="icons/small/magento-connector-24x16.png" caption="List Category Attributes">
     <attribute-category description="General." caption="General"></attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -984,10 +897,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The website." caption="Website" name="website"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1000,10 +911,8 @@ great and control over the look, content and functionality of their eCommerce st
         <integer step="1" min="0" javaType="int" required="true" description="The category." caption="Category Id" name="categoryId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1016,10 +925,8 @@ great and control over the look, content and functionality of their eCommerce st
         <integer step="1" min="0" javaType="int" required="true" description="The id of the customer." caption="Customer Id" name="customerId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1028,10 +935,8 @@ great and control over the look, content and functionality of their eCommerce st
   </cloud-connector>
   <cloud-connector returnType="java.util.List&lt;com.magento.api.CustomerGroupEntity&gt;" metaData="static" extends="http://www.mulesoft.org/schema/mule/magento/abstractMagentoConnectorGeneric" abstract="true" image="icons/large/magento-connector-48x32.png" localId="list-customer-groups" icon="icons/small/magento-connector-24x16.png" caption="List Customer Groups">
     <attribute-category description="General." caption="General"></attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1044,10 +949,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-query orderBy="enabled" offset="enabled" limit="enabled" nativeQuery="enabled" orOperator="enabled" andOperator="enabled" associatedConfig="config-ref" javaType="java.lang.String" required="false" supportsExpressions="true" description="Optional filtering expression - one or more comma-separated unary or binary predicates, one for each filter, in the form filterType(attributeName, value), for binary filters or filterType(attributeName), for unary filters, where filterType is istrue, isfalse or any of the Magento standard filters. Non-numeric values need to be escaped using simple quotes." caption="Filter" name="filter"></element-query>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1056,10 +959,8 @@ great and control over the look, content and functionality of their eCommerce st
   </cloud-connector>
   <cloud-connector returnType="java.util.List&lt;com.magento.api.DirectoryCountryEntity&gt;" metaData="static" extends="http://www.mulesoft.org/schema/mule/magento/abstractMagentoConnectorGeneric" abstract="true" image="icons/large/magento-connector-48x32.png" localId="list-directory-countries" icon="icons/small/magento-connector-24x16.png" caption="List Directory Countries">
     <attribute-category description="General." caption="General"></attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1072,10 +973,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The country code, in ISO2 or ISO3 format." caption="Country Id" name="countryId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1088,10 +987,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-list listName="product-id-or-skus" itemName="product-id-or-sku" localName="list-inventory-stock-items-product-id-or-skus" javaType="java.util.List&lt;java.lang.String&gt;" required="true" description="The list of product ids and/or skus whose attributes will be retrieved." caption="Product Id Or Skus"></element-controller-list>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1104,10 +1001,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-query orderBy="enabled" offset="enabled" limit="enabled" nativeQuery="enabled" orOperator="enabled" andOperator="enabled" associatedConfig="config-ref" javaType="java.lang.String" required="false" supportsExpressions="true" description="Optional filtering expression - one or more comma-separated unary or binary predicates, one for each filter, in the form filterType(attributeName, value), for binary filters or filterType(attributeName), for unary filters, where filterType is istrue, isfalse or any of the Magento standard filters. Non-numeric values need to be escaped using simple quotes." caption="Filter" name="filter"></element-query>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1120,10 +1015,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-query orderBy="enabled" offset="enabled" limit="enabled" nativeQuery="enabled" orOperator="enabled" andOperator="enabled" associatedConfig="config-ref" javaType="java.lang.String" required="false" supportsExpressions="true" description="Optional filtering expression - one or more comma-separated unary or binary predicates, one for each filter, in the form filterType(attributeName, value), for binary filters or filterType(attributeName), for unary filters, where filterType is istrue, isfalse or any of the Magento standard filters. Non-numeric values need to be escaped using simple quotes." caption="Filter" name="filter"></element-query>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1136,10 +1029,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-query orderBy="enabled" offset="enabled" limit="enabled" nativeQuery="enabled" orOperator="enabled" andOperator="enabled" associatedConfig="config-ref" javaType="java.lang.String" required="false" supportsExpressions="true" description="Optional filtering expression - one or more comma-separated unary or binary predicates, one for each filter, in the form filterType(attributeName, value), for binary filters or filterType(attributeName), for unary filters, where filterType is istrue, isfalse or any of the Magento standard filters. Non-numeric values need to be escaped using simple quotes." caption="Filter" name="filter"></element-query>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1155,10 +1046,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The id or code of the target store. Left unspecified for using current store." caption="Store View Id Or Code" name="storeViewIdOrCode"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1171,10 +1060,8 @@ great and control over the look, content and functionality of their eCommerce st
         <integer step="1" min="0" javaType="int" required="true" description="The setId." caption="Set Id" name="setId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1188,10 +1075,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The id or code of the target store. Left unspecified for using current store." caption="Store View Id Or Code" name="storeViewIdOrCode"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1200,10 +1085,8 @@ great and control over the look, content and functionality of their eCommerce st
   </cloud-connector>
   <cloud-connector returnType="java.util.List&lt;com.magento.api.CatalogProductAttributeSetEntity&gt;" metaData="static" extends="http://www.mulesoft.org/schema/mule/magento/abstractMagentoConnectorGeneric" abstract="true" image="icons/large/magento-connector-48x32.png" localId="list-product-attribute-sets" icon="icons/small/magento-connector-24x16.png" caption="List Product Attribute Sets">
     <attribute-category description="General." caption="General"></attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1218,10 +1101,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The sku of the product. Use it instead of productIdOrSku in case you are sure the product identifier is a product sku." caption="Product Sku" name="productSku"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1234,10 +1115,8 @@ great and control over the look, content and functionality of their eCommerce st
         <integer step="1" min="0" javaType="int" required="true" description="The set id." caption="Set Id" name="setId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1253,10 +1132,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The sku of the product. Use it instead of productIdOrSku in case you are sure the product identifier is a product sku." caption="Product Sku" name="productSku"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1269,10 +1146,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The product type." caption="Type" name="type"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1281,10 +1156,8 @@ great and control over the look, content and functionality of their eCommerce st
   </cloud-connector>
   <cloud-connector returnType="java.util.List&lt;java.lang.String&gt;" metaData="static" extends="http://www.mulesoft.org/schema/mule/magento/abstractMagentoConnectorGeneric" abstract="true" image="icons/large/magento-connector-48x32.png" localId="list-product-link-types" icon="icons/small/magento-connector-24x16.png" caption="List Product Link Types">
     <attribute-category description="General." caption="General"></attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1293,10 +1166,8 @@ great and control over the look, content and functionality of their eCommerce st
   </cloud-connector>
   <cloud-connector returnType="java.util.List&lt;com.magento.api.CatalogProductTypeEntity&gt;" metaData="static" extends="http://www.mulesoft.org/schema/mule/magento/abstractMagentoConnectorGeneric" abstract="true" image="icons/large/magento-connector-48x32.png" localId="list-product-types" icon="icons/small/magento-connector-24x16.png" caption="List Product Types">
     <attribute-category description="General." caption="General"></attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1312,10 +1183,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The id or code of the target store. Left unspecified for using current store." caption="Store View Id Or Code" name="storeViewIdOrCode"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1329,10 +1198,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Store view ID or code." caption="Store Id" name="storeId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1346,10 +1213,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Store view ID or code." caption="Store Id" name="storeId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1363,10 +1228,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Store view ID or code." caption="Store Id" name="storeId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1380,10 +1243,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Store view ID or code." caption="Store Id" name="storeId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1397,10 +1258,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Store view ID or code." caption="Store Id" name="storeId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1413,10 +1272,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-list listName="product-id-or-skus" itemName="product-id-or-sku" localName="list-stock-items-product-id-or-skus" javaType="java.util.List&lt;java.lang.String&gt;" required="true" description="A not empty list of product ids or skus whose attributes to list." caption="Product Id Or Skus"></element-controller-list>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1431,10 +1288,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="An optional category id for use as reference in the positioning of the moved category." caption="After Id" name="afterId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1451,10 +1306,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-listOfPojo listName="products" itemName="product" localName="move-shopping-cart-product-to-customer-quote-products" javaType="java.util.List&lt;com.magento.api.ShoppingCartProductEntity&gt;" description="Products data." caption="Products"></element-controller-listOfPojo>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1468,10 +1321,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Store view ID or code." caption="Store Id" name="storeId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1488,10 +1339,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-listOfPojo listName="products" defaultValue="#[payload]" itemName="product" localName="remove-shopping-cart-product-products" javaType="java.util.List&lt;com.magento.api.ShoppingCartProductEntity&gt;" description="Products data." caption="Products"></element-controller-listOfPojo>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1508,10 +1357,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.ShoppingCartCustomerEntity" required="false" caption="Customer Reference" name="http://www.mulesoft.org/schema/mule/magento/customer"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1528,10 +1375,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-listOfPojo listName="shopping-cart-customer-addresses" defaultValue="#[payload]" itemName="shopping-cart-customer-address" localName="set-shopping-cart-customer-addresses-shopping-cart-customer-addresses" javaType="java.util.List&lt;com.magento.api.ShoppingCartCustomerAddressEntity&gt;" description="Addresses data (mode is required for each address and should be either &quot;shipping&quot; or &quot;billing&quot;)." caption="Shopping Cart Customer Addresses"></element-controller-listOfPojo>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1548,10 +1393,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.ShoppingCartPaymentMethodEntity" required="false" caption="Shopping Cart Payment Method Reference" name="http://www.mulesoft.org/schema/mule/magento/shopping-cart-payment-method"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1566,10 +1409,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Store view ID or code." caption="Store Id" name="storeId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1582,10 +1423,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The id of the order to remove from hold state." caption="Order Id" name="orderId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1602,10 +1441,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CatalogCategoryEntityCreate" required="false" caption="Catalog Category Entity Reference" name="http://www.mulesoft.org/schema/mule/magento/catalog-category-entity"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1618,10 +1455,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The id or code of the target store. Left unspecified for using current store the id or code of the store view to set as default for this session." caption="Store View Id Or Code" name="storeViewIdOrCode"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1638,10 +1473,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="The sku of the product. Use it instead of productIdOrSku in case you are sure the product identifier is a product sku." caption="Product Sku" name="productSku"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1657,10 +1490,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CustomerCustomerEntityToCreate" required="false" caption="Customer Reference" name="http://www.mulesoft.org/schema/mule/magento/customer"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1676,10 +1507,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CustomerAddressEntityCreate" required="true" caption="Customer Address Reference" name="http://www.mulesoft.org/schema/mule/magento/customer-address"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1697,10 +1526,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CatalogInventoryStockItemUpdateEntity" required="false" caption="Catalog Inventory Stock Item Reference" name="http://www.mulesoft.org/schema/mule/magento/catalog-inventory-stock-item"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1722,10 +1549,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-listOfPojo listName="additional-attributes" itemName="additional-attribute" localName="update-product-additional-attributes" javaType="java.util.List&lt;com.magento.api.AssociativeEntity&gt;" description="Non standard product attributes to update." caption="Additional Attributes"></element-controller-listOfPojo>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1745,10 +1570,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CatalogProductAttributeMediaCreateEntity" required="false" caption="Catalog Product Attribute Media Entity Reference" name="http://www.mulesoft.org/schema/mule/magento/catalog-product-attribute-media-entity"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1766,10 +1589,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CatalogProductTierPriceEntity" required="false" caption="Catalog Product Tier Price Entity Reference" name="http://www.mulesoft.org/schema/mule/magento/catalog-product-tier-price-entity"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1789,10 +1610,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CatalogProductLinkEntity" required="false" caption="Catalog Product Link Entity Reference" name="http://www.mulesoft.org/schema/mule/magento/catalog-product-link-entity"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1811,10 +1630,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="false" description="Optional end date of the special price period." caption="To Date" name="toDate"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1831,10 +1648,8 @@ great and control over the look, content and functionality of their eCommerce st
         <element-controller-listOfPojo listName="products" defaultValue="#[payload]" itemName="product" localName="update-shopping-cart-product-products" javaType="java.util.List&lt;com.magento.api.ShoppingCartProductEntity&gt;" description="Products data." caption="Products"></element-controller-listOfPojo>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1850,10 +1665,8 @@ great and control over the look, content and functionality of their eCommerce st
         <childElement allowMultiple="false" inplace="true" javaType="com.magento.api.CatalogInventoryStockItemUpdateEntity" required="false" caption="Stock Item Reference" name="http://www.mulesoft.org/schema/mule/magento/stock-item"></childElement>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -1866,10 +1679,8 @@ great and control over the look, content and functionality of their eCommerce st
         <string javaType="java.lang.String" required="true" description="The invoice id." caption="Invoice Id" name="invoiceId"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Magento connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The user name to access Magento Web Services." caption="Username" name="username"></string>
         <password javaType="java.lang.String" required="false" description="The password to access Magento Web Services." caption="Password" name="password"></password>
         <string javaType="java.lang.String" required="false" description="The address to access Magento Web Services." caption="Address" name="address"></string>
@@ -2029,11 +1840,13 @@ great and control over the look, content and functionality of their eCommerce st
     <radioBoolean fillLine="true" description="Provide a reference to a bean or use an expression" caption="Reference or expression" name="useReference"></radioBoolean>
     <string controlled="useReference" description="" caption="Customer Reference" name="ref"></string>
     <radioBoolean fillLine="true" description="Define this element's attributes" caption="Define attributes" name="complex"></radioBoolean>
+    <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Mode" name="mode"></string>
     <integer step="1" min="0" javaType="java.lang.Integer" controlled="complex" required="false" description="" caption="Customer_id" name="customer_id"></integer>
     <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Email" name="email"></string>
     <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Firstname" name="firstname"></string>
     <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Lastname" name="lastname"></string>
     <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Password" name="password"></string>
+    <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Confirmation" name="confirmation"></string>
     <integer step="1" min="0" javaType="java.lang.Integer" controlled="complex" required="false" description="" caption="Website_id" name="website_id"></integer>
     <integer step="1" min="0" javaType="java.lang.Integer" controlled="complex" required="false" description="" caption="Store_id" name="store_id"></integer>
     <integer step="1" min="0" javaType="java.lang.Integer" controlled="complex" required="false" description="" caption="Group_id" name="group_id"></integer>

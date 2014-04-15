@@ -39,7 +39,7 @@ import org.mule.security.oauth.callback.ProcessCallback;
  * ListProductsMessageProcessor invokes the {@link org.mule.module.magento.MagentoCloudConnector#listProducts(java.lang.String, java.lang.String)} method in {@link MagentoCloudConnector }. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-02-14T12:22:33-06:00", comments = "Build UNKNOWN_BUILDNUMBER")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:23:30-05:00", comments = "Build master.1915.dd1962d")
 public class ListProductsMessageProcessor
     extends AbstractConnectedProcessor
     implements MessageProcessor, OperationMetaDataEnabled
@@ -116,7 +116,7 @@ public class ListProductsMessageProcessor
             final String _transformedFilter = ((String) evaluateAndTransform(getMuleContext(), event, ListProductsMessageProcessor.class.getDeclaredField("_filterType").getGenericType(), null, filter));
             final String _transformedStoreViewIdOrCode = ((String) evaluateAndTransform(getMuleContext(), event, ListProductsMessageProcessor.class.getDeclaredField("_storeViewIdOrCodeType").getGenericType(), null, storeViewIdOrCode));
             Object resultPayload;
-            ProcessTemplate<Object, Object> processTemplate = ((ProcessAdapter<Object> ) moduleObject).getProcessTemplate();
+            final ProcessTemplate<Object, Object> processTemplate = ((ProcessAdapter<Object> ) moduleObject).getProcessTemplate();
             resultPayload = processTemplate.execute(new ProcessCallback<Object,Object>() {
 
 
@@ -180,7 +180,7 @@ public class ListProductsMessageProcessor
         if (((key) == null)||((key).toString() == null)) {
             return new DefaultResult<MetaData>(null, (Result.Status.FAILURE), "There was an error retrieving metadata from parameter: key at processor listProducts at module MagentoCloudConnector");
         }
-        MetaDataKey metaDataKey = new DefaultMetaDataKey((key).toString(), null);
+        DefaultMetaDataKey metaDataKey = new DefaultMetaDataKey((key).toString(), null);
         metaDataKey.addProperty(new TypeDescribingProperty(TypeDescribingProperty.TypeScope.OUTPUT, "listProducts"));
         Result<MetaData> genericMetaData = getGenericMetaData(metaDataKey);
         if ((Result.Status.FAILURE).equals(genericMetaData.getStatus())) {

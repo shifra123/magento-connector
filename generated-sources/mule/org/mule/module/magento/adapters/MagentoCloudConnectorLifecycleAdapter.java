@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
  * A <code>MagentoCloudConnectorLifecycleAdapter</code> is a wrapper around {@link MagentoCloudConnector } that adds lifecycle methods to the pojo.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-02-14T12:22:33-06:00", comments = "Build UNKNOWN_BUILDNUMBER")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:23:30-05:00", comments = "Build master.1915.dd1962d")
 public class MagentoCloudConnectorLifecycleAdapter
     extends MagentoCloudConnectorMetadataAdapater
     implements Disposable, Initialisable, Startable, Stoppable

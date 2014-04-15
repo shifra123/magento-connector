@@ -37,14 +37,13 @@ import org.mule.module.magento.MagentoCloudConnector;
 import org.mule.module.magento.adapters.MagentoCloudConnectorConnectionIdentifierAdapter;
 import org.mule.module.magento.connection.ConnectionManager;
 import org.mule.module.magento.connection.UnableToAcquireConnectionException;
-import org.mule.module.magento.processors.AbstractConnectedProcessor;
 
 
 /**
  * A {@code MagentoCloudConnectorConnectionManager} is a wrapper around {@link MagentoCloudConnector } that adds connection management capabilities to the pojo.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-02-14T12:22:33-06:00", comments = "Build UNKNOWN_BUILDNUMBER")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:23:30-05:00", comments = "Build master.1915.dd1962d")
 public class MagentoCloudConnectorConnectionManager
     extends ExpressionEvaluatorSupport
     implements MetadataAware, MuleContextAware, ProcessAdapter<MagentoCloudConnectorConnectionIdentifierAdapter> , Capabilities, Disposable, Initialisable, Testable, ConnectorMetaDataEnabled, NativeQueryMetadataTranslator, ConnectionManager<MagentoCloudConnectorConnectionKey, MagentoCloudConnectorConnectionIdentifierAdapter>
@@ -80,9 +79,9 @@ public class MagentoCloudConnectorConnectionManager
     protected PoolingProfile connectionPoolingProfile;
     protected RetryPolicyTemplate retryPolicyTemplate;
     private final static String MODULE_NAME = "Magento";
-    private final static String MODULE_VERSION = "2.1.1-SNAPSHOT";
+    private final static String MODULE_VERSION = "2.1.2-SNAPSHOT";
     private final static String DEVKIT_VERSION = "3.5.0-SNAPSHOT";
-    private final static String DEVKIT_BUILD = "UNKNOWN_BUILDNUMBER";
+    private final static String DEVKIT_BUILD = "master.1915.dd1962d";
     private final static String MIN_MULE_VERSION = "3.5";
 
     /**
@@ -275,15 +274,15 @@ public class MagentoCloudConnectorConnectionManager
         throws Exception
     {
         if (event!= null) {
-            final String _transformedUsername = ((String) evaluateAndTransform(muleContext, event, AbstractConnectedProcessor.class.getDeclaredField("_usernameType").getGenericType(), null, getUsername()));
+            final String _transformedUsername = ((String) evaluateAndTransform(muleContext, event, this.getClass().getDeclaredField("username").getGenericType(), null, getUsername()));
             if (_transformedUsername == null) {
                 throw new UnableToAcquireConnectionException("Parameter username in method initialiseConnector can't be null because is not @Optional");
             }
-            final String _transformedPassword = ((String) evaluateAndTransform(muleContext, event, AbstractConnectedProcessor.class.getDeclaredField("_passwordType").getGenericType(), null, getPassword()));
+            final String _transformedPassword = ((String) evaluateAndTransform(muleContext, event, this.getClass().getDeclaredField("password").getGenericType(), null, getPassword()));
             if (_transformedPassword == null) {
                 throw new UnableToAcquireConnectionException("Parameter password in method initialiseConnector can't be null because is not @Optional");
             }
-            final String _transformedAddress = ((String) evaluateAndTransform(muleContext, event, AbstractConnectedProcessor.class.getDeclaredField("_addressType").getGenericType(), null, getAddress()));
+            final String _transformedAddress = ((String) evaluateAndTransform(muleContext, event, this.getClass().getDeclaredField("address").getGenericType(), null, getAddress()));
             if (_transformedAddress == null) {
                 throw new UnableToAcquireConnectionException("Parameter address in method initialiseConnector can't be null because is not @Optional");
             }

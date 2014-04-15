@@ -33,7 +33,7 @@ import org.mule.security.oauth.callback.ProcessCallback;
  * DeleteProductAttributeMediaMessageProcessor invokes the {@link org.mule.module.magento.MagentoCloudConnector#deleteProductAttributeMedia(java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)} method in {@link MagentoCloudConnector }. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-02-14T12:22:33-06:00", comments = "Build UNKNOWN_BUILDNUMBER")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:23:30-05:00", comments = "Build master.1915.dd1962d")
 public class DeleteProductAttributeMediaMessageProcessor
     extends AbstractConnectedProcessor
     implements MessageProcessor, OperationMetaDataEnabled
@@ -134,7 +134,7 @@ public class DeleteProductAttributeMediaMessageProcessor
             final String _transformedProductIdOrSku = ((String) evaluateAndTransform(getMuleContext(), event, DeleteProductAttributeMediaMessageProcessor.class.getDeclaredField("_productIdOrSkuType").getGenericType(), null, productIdOrSku));
             final String _transformedFileName = ((String) evaluateAndTransform(getMuleContext(), event, DeleteProductAttributeMediaMessageProcessor.class.getDeclaredField("_fileNameType").getGenericType(), null, fileName));
             Object resultPayload;
-            ProcessTemplate<Object, Object> processTemplate = ((ProcessAdapter<Object> ) moduleObject).getProcessTemplate();
+            final ProcessTemplate<Object, Object> processTemplate = ((ProcessAdapter<Object> ) moduleObject).getProcessTemplate();
             resultPayload = processTemplate.execute(new ProcessCallback<Object,Object>() {
 
 

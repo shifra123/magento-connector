@@ -4,7 +4,7 @@ package com.magento.api.holders;
 import javax.annotation.Generated;
 import com.magento.api.CatalogProductImageFileEntity;
 
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-02-14T12:22:33-06:00", comments = "Build UNKNOWN_BUILDNUMBER")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:23:30-05:00", comments = "Build master.1915.dd1962d")
 public class CatalogProductAttributeMediaCreateEntityExpressionHolder {
 
     protected Object file;
