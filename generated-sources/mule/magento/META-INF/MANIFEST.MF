@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Magento
 Bundle-SymbolicName: org.mule.tooling.ui.contribution.magento.3.5.0;singleton:=true
-Bundle-Version: 2.1.2.201404151523
+Bundle-Version: 2.1.2.201404161050
 Bundle-Activator: org.mule.tooling.ui.contribution.MagentoActivator
 Bundle-Vendor: MuleSoft, Inc.
 Require-Bundle: org.eclipse.ui,

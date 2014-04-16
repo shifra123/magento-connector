@@ -10,7 +10,7 @@ import org.mule.module.magento.MagentoCloudConnector;
  * A <code>MagentoCloudConnectorMetadataAdapater</code> is a wrapper around {@link MagentoCloudConnector } that adds support for querying metadata about the extension.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:23:30-05:00", comments = "Build master.1915.dd1962d")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-16T10:50:08-05:00", comments = "Build master.1915.dd1962d")
 public class MagentoCloudConnectorMetadataAdapater
     extends MagentoCloudConnectorCapabilitiesAdapter
     implements MetadataAware
