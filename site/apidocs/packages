@@ -21,6 +21,7 @@ org.mule.module.magento.api.catalog.model.transformers
 org.mule.module.magento.process
 org.mule.module.magento.devkit
 org.mule.module.magento.adapters
+org.mule.module.magento.pooling
 org.mule.module.magento.processors
 com.magento.api.transformers
 com.magento.api.holders

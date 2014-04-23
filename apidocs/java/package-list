@@ -21,6 +21,7 @@ org.mule.module.magento.connection
 org.mule.module.magento.connectivity
 org.mule.module.magento.devkit
 org.mule.module.magento.filters
+org.mule.module.magento.pooling
 org.mule.module.magento.process
 org.mule.module.magento.processors
 org.mule.module.magento.query

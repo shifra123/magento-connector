@@ -60,6 +60,8 @@ var NAVTREE_DATA =
 , "" ], [ "Exceptions", null, [ [ "ParseException", "org/mule/module/magento/filters/ParseException.html", null, "" ] ]
 , "" ], [ "Errors", null, [ [ "TokenMgrError", "org/mule/module/magento/filters/TokenMgrError.html", null, "" ] ]
 , "" ] ]
+, "" ], [ "org.mule.module.magento.pooling", "org/mule/module/magento/pooling/package-summary.html", [ [ "Classes", null, [ [ "DevkitGenericKeyedObjectPool", "org/mule/module/magento/pooling/DevkitGenericKeyedObjectPool.html", null, "" ] ]
+, "" ] ]
 , "" ], [ "org.mule.module.magento.process", "org/mule/module/magento/process/package-summary.html", [ [ "Classes", null, [ [ "ManagedConnectionProcessInterceptor", "org/mule/module/magento/process/ManagedConnectionProcessInterceptor.html", null, "" ] ]
 , "" ] ]
 , "" ], [ "org.mule.module.magento.processors", "org/mule/module/magento/processors/package-summary.html", [ [ "Interfaces", null, [ [ "ConnectivityProcessor", "org/mule/module/magento/processors/ConnectivityProcessor.html", null, "" ] ]

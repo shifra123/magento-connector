@@ -3,7 +3,7 @@ package org.mule.module.magento.connectivity;
 
 import java.util.List;
 import javax.annotation.Generated;
-import org.apache.commons.pool.impl.GenericKeyedObjectPool;
+import org.apache.commons.pool.KeyedObjectPool;
 import org.mule.api.ConnectionException;
 import org.mule.api.ConnectionExceptionCode;
 import org.mule.api.MetadataAware;
@@ -37,13 +37,14 @@ import org.mule.module.magento.MagentoCloudConnector;
 import org.mule.module.magento.adapters.MagentoCloudConnectorConnectionIdentifierAdapter;
 import org.mule.module.magento.connection.ConnectionManager;
 import org.mule.module.magento.connection.UnableToAcquireConnectionException;
+import org.mule.module.magento.pooling.DevkitGenericKeyedObjectPool;
 
 
 /**
  * A {@code MagentoCloudConnectorConnectionManager} is a wrapper around {@link MagentoCloudConnector } that adds connection management capabilities to the pojo.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-16T10:50:08-05:00", comments = "Build master.1915.dd1962d")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-23T03:07:34-05:00", comments = "Build master.1920.518defc")
 public class MagentoCloudConnectorConnectionManager
     extends ExpressionEvaluatorSupport
     implements MetadataAware, MuleContextAware, ProcessAdapter<MagentoCloudConnectorConnectionIdentifierAdapter> , Capabilities, Disposable, Initialisable, Testable, ConnectorMetaDataEnabled, NativeQueryMetadataTranslator, ConnectionManager<MagentoCloudConnectorConnectionKey, MagentoCloudConnectorConnectionIdentifierAdapter>
@@ -75,13 +76,13 @@ public class MagentoCloudConnectorConnectionManager
      * Connector Pool
      * 
      */
-    private GenericKeyedObjectPool connectionPool;
-    protected PoolingProfile connectionPoolingProfile;
+    private KeyedObjectPool connectionPool;
+    protected PoolingProfile poolingProfile;
     protected RetryPolicyTemplate retryPolicyTemplate;
     private final static String MODULE_NAME = "Magento";
     private final static String MODULE_VERSION = "2.1.2-SNAPSHOT";
     private final static String DEVKIT_VERSION = "3.5.0-SNAPSHOT";
-    private final static String DEVKIT_BUILD = "master.1915.dd1962d";
+    private final static String DEVKIT_BUILD = "master.1920.518defc";
     private final static String MIN_MULE_VERSION = "3.5";
 
     /**
@@ -119,20 +120,20 @@ public class MagentoCloudConnectorConnectionManager
     }
 
     /**
-     * Sets connectionPoolingProfile
+     * Sets poolingProfile
      * 
      * @param value Value to set
      */
-    public void setConnectionPoolingProfile(PoolingProfile value) {
-        this.connectionPoolingProfile = value;
+    public void setPoolingProfile(PoolingProfile value) {
+        this.poolingProfile = value;
     }
 
     /**
-     * Retrieves connectionPoolingProfile
+     * Retrieves poolingProfile
      * 
      */
-    public PoolingProfile getConnectionPoolingProfile() {
-        return this.connectionPoolingProfile;
+    public PoolingProfile getPoolingProfile() {
+        return this.poolingProfile;
     }
 
     /**
@@ -204,16 +205,7 @@ public class MagentoCloudConnectorConnectionManager
     }
 
     public void initialise() {
-        GenericKeyedObjectPool.Config config = new GenericKeyedObjectPool.Config();
-        if (connectionPoolingProfile!= null) {
-            config.maxIdle = connectionPoolingProfile.getMaxIdle();
-            config.maxActive = connectionPoolingProfile.getMaxActive();
-            config.maxWait = connectionPoolingProfile.getMaxWait();
-            config.whenExhaustedAction = ((byte) connectionPoolingProfile.getExhaustedAction());
-            config.timeBetweenEvictionRunsMillis = connectionPoolingProfile.getEvictionCheckIntervalMillis();
-            config.minEvictableIdleTimeMillis = connectionPoolingProfile.getMinEvictionMillis();
-        }
-        connectionPool = new GenericKeyedObjectPool(new MagentoCloudConnectorConnectionFactory(this), config);
+        connectionPool = new DevkitGenericKeyedObjectPool(new MagentoCloudConnectorConnectionFactory(this), poolingProfile);
         if (retryPolicyTemplate == null) {
             retryPolicyTemplate = muleContext.getRegistry().lookupObject(MuleProperties.OBJECT_DEFAULT_RETRY_POLICY_TEMPLATE);
         }

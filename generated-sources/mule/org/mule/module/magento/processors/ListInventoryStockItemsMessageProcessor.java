@@ -35,7 +35,7 @@ import org.mule.security.oauth.callback.ProcessCallback;
  * ListInventoryStockItemsMessageProcessor invokes the {@link org.mule.module.magento.MagentoCloudConnector#listInventoryStockItems(java.util.List)} method in {@link MagentoCloudConnector }. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-16T10:50:08-05:00", comments = "Build master.1915.dd1962d")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-23T03:07:34-05:00", comments = "Build master.1920.518defc")
 public class ListInventoryStockItemsMessageProcessor
     extends AbstractConnectedProcessor
     implements MessageProcessor, OperationMetaDataEnabled
