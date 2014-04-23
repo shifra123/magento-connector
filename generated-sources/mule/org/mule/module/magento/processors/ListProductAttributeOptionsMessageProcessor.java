@@ -35,7 +35,7 @@ import org.mule.security.oauth.callback.ProcessCallback;
  * ListProductAttributeOptionsMessageProcessor invokes the {@link org.mule.module.magento.MagentoCloudConnector#listProductAttributeOptions(java.lang.String, java.lang.String)} method in {@link MagentoCloudConnector }. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-23T03:07:34-05:00", comments = "Build master.1920.518defc")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-23T03:47:06-05:00", comments = "Build master.1920.518defc")
 public class ListProductAttributeOptionsMessageProcessor
     extends AbstractConnectedProcessor
     implements MessageProcessor, OperationMetaDataEnabled
