@@ -34,7 +34,7 @@ import org.mule.security.oauth.callback.ProcessCallback;
  * UpdateProductLinkMessageProcessor invokes the {@link org.mule.module.magento.MagentoCloudConnector#updateProductLink(java.lang.String, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, com.magento.api.CatalogProductLinkEntity)} method in {@link MagentoCloudConnector }. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-23T03:47:06-05:00", comments = "Build master.1920.518defc")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-24T12:56:20-05:00", comments = "Build master.1920.518defc")
 public class UpdateProductLinkMessageProcessor
     extends AbstractConnectedProcessor
     implements MessageProcessor, OperationMetaDataEnabled
