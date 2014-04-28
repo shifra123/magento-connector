@@ -1840,13 +1840,11 @@ great and control over the look, content and functionality of their eCommerce st
     <radioBoolean fillLine="true" description="Provide a reference to a bean or use an expression" caption="Reference or expression" name="useReference"></radioBoolean>
     <string controlled="useReference" description="" caption="Customer Reference" name="ref"></string>
     <radioBoolean fillLine="true" description="Define this element's attributes" caption="Define attributes" name="complex"></radioBoolean>
-    <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Mode" name="mode"></string>
     <integer step="1" min="0" javaType="java.lang.Integer" controlled="complex" required="false" description="" caption="Customer_id" name="customer_id"></integer>
     <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Email" name="email"></string>
     <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Firstname" name="firstname"></string>
     <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Lastname" name="lastname"></string>
     <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Password" name="password"></string>
-    <string javaType="java.lang.String" controlled="complex" required="false" description="" caption="Confirmation" name="confirmation"></string>
     <integer step="1" min="0" javaType="java.lang.Integer" controlled="complex" required="false" description="" caption="Website_id" name="website_id"></integer>
     <integer step="1" min="0" javaType="java.lang.Integer" controlled="complex" required="false" description="" caption="Store_id" name="store_id"></integer>
     <integer step="1" min="0" javaType="java.lang.Integer" controlled="complex" required="false" description="" caption="Group_id" name="group_id"></integer>

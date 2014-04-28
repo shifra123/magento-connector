@@ -5,7 +5,7 @@ import java.lang.reflect.Type;
 import javax.annotation.Generated;
 import org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor;
 
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-24T12:56:20-05:00", comments = "Build master.1920.518defc")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-28T03:10:18-05:00", comments = "Build master.1926.b0106b2")
 public abstract class AbstractPagedConnectedProcessor
     extends AbstractDevkitBasedPageableMessageProcessor
     implements ConnectivityProcessor

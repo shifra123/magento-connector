@@ -5,7 +5,7 @@ import javax.annotation.Generated;
 import com.magento.api.AssociativeEntity;
 import com.magento.api.AssociativeMultiEntity;
 
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-24T12:56:20-05:00", comments = "Build master.1920.518defc")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-28T03:10:18-05:00", comments = "Build master.1926.b0106b2")
 public class CatalogProductAdditionalAttributesEntityExpressionHolder {
 
     protected Object multi_data;
