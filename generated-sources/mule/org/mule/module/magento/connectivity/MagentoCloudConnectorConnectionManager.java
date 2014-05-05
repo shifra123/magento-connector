@@ -44,7 +44,7 @@ import org.mule.module.magento.pooling.DevkitGenericKeyedObjectPool;
  * A {@code MagentoCloudConnectorConnectionManager} is a wrapper around {@link MagentoCloudConnector } that adds connection management capabilities to the pojo.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-28T03:10:18-05:00", comments = "Build master.1926.b0106b2")
+@Generated(value = "Mule DevKit Version 3.5.0-RC1", date = "2014-05-05T03:23:13-05:00", comments = "Build master.1926.b0106b2")
 public class MagentoCloudConnectorConnectionManager
     extends ExpressionEvaluatorSupport
     implements MetadataAware, MuleContextAware, ProcessAdapter<MagentoCloudConnectorConnectionIdentifierAdapter> , Capabilities, Disposable, Initialisable, Testable, ConnectorMetaDataEnabled, NativeQueryMetadataTranslator, ConnectionManager<MagentoCloudConnectorConnectionKey, MagentoCloudConnectorConnectionIdentifierAdapter>
@@ -81,7 +81,7 @@ public class MagentoCloudConnectorConnectionManager
     protected RetryPolicyTemplate retryPolicyTemplate;
     private final static String MODULE_NAME = "Magento";
     private final static String MODULE_VERSION = "2.1.2-SNAPSHOT";
-    private final static String DEVKIT_VERSION = "3.5.0-SNAPSHOT";
+    private final static String DEVKIT_VERSION = "3.5.0-RC1";
     private final static String DEVKIT_BUILD = "master.1926.b0106b2";
     private final static String MIN_MULE_VERSION = "3.5";
 
