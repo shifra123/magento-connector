@@ -9,19 +9,18 @@
 
 package org.mule.module.magento;
 
+import org.junit.Test;
 import org.mule.construct.Flow;
-import org.mule.tck.FunctionalTestCase;
+import org.mule.tck.junit4.FunctionalTestCase;
 
 /**
  * Test for the xml mapping of the {@link MagentoCloudConnector}
  */
 public class MagentoNamespaceHandlerTestCase extends FunctionalTestCase {
-    public void testNamespaceConfig() throws Exception {
-        assertNotNull(lookupFlowConstruct("GetOrderShipment"));
-    }
 
-    public void testNamespaceConfig2() throws Exception {
-        assertNotNull(lookupFlowConstruct("ListOrdersInvoices"));
+    @Test
+    public void testNamespace() {
+
     }
 
     @Override
@@ -29,7 +28,7 @@ public class MagentoNamespaceHandlerTestCase extends FunctionalTestCase {
         return "magento-namespace-config.xml";
     }
 
-    private Flow lookupFlowConstruct(String name) {
+    public Flow lookupFlowConstruct(String name) {
         return (Flow) muleContext.getRegistry().lookupFlowConstruct(name);
     }
 
