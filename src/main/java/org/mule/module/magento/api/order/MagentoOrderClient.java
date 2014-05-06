@@ -39,7 +39,7 @@ public interface MagentoOrderClient<ExceptionType extends Exception>
      * @return a list of order attributes
      */
     @NotNull
-    List<SalesOrderListEntity> listOrders(@NotNull String filter) throws ExceptionType;
+    List<SalesOrderListEntity> listOrders(String filter) throws ExceptionType;
 
     /**
      * Answers the order properties for the given orderId
