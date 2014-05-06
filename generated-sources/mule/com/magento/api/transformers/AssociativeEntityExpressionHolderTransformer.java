@@ -19,7 +19,7 @@ import org.mule.config.i18n.CoreMessages;
 import org.mule.devkit.processor.ExpressionEvaluatorSupport;
 import org.mule.transformer.types.DataTypeFactory;
 
-@Generated(value = "Mule DevKit Version 3.5.0-RC1", date = "2014-05-05T03:23:13-05:00", comments = "Build master.1926.b0106b2")
+@Generated(value = "Mule DevKit Version 3.5.0-RC1", date = "2014-05-06T10:53:30-05:00", comments = "Build master.1926.b0106b2")
 public class AssociativeEntityExpressionHolderTransformer
     extends ExpressionEvaluatorSupport
     implements DiscoverableTransformer, MessageTransformer
