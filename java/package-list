@@ -16,13 +16,14 @@ org.mule.module.magento.api.order
 org.mule.module.magento.api.order.model
 org.mule.module.magento.api.shoppingCart
 org.mule.module.magento.api.util
+org.mule.module.magento.basic
+org.mule.module.magento.callback
 org.mule.module.magento.config
 org.mule.module.magento.connection
 org.mule.module.magento.connectivity
 org.mule.module.magento.devkit
 org.mule.module.magento.filters
-org.mule.module.magento.pooling
+org.mule.module.magento.oauth
 org.mule.module.magento.process
 org.mule.module.magento.processors
-org.mule.module.magento.query
 
