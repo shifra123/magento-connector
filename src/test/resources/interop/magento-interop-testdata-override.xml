@@ -99,10 +99,6 @@
             </attributes>
             <childElements/>
         </hold-order>
-        
-        
-        
-        <!-- 
         <list-orders name="List orders">
             <datamapper input="List&lt;SalesOrderListEntity&gt;" output=""/>
             <auto-paging>false</auto-paging>
@@ -124,11 +120,6 @@
             <attributes/>
             <childElements/>
         </list-orders-shipments>
-         -->
-         
-         
-         
-         
         <delete-order-shipment-track name="Delete order shipment track">
             <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
@@ -281,9 +272,6 @@
             <attributes/>
             <childElements/>
         </list-customer-groups>
-        
-        
-        <!-- 
         <list-customers name="List customers">
             <datamapper input="List&lt;CustomerCustomerEntity&gt;" output=""/>
             <auto-paging>false</auto-paging>
@@ -291,9 +279,6 @@
             <attributes/>
             <childElements/>
         </list-customers>
-         -->
-         
-         
         <update-customer name="Update customer">
             <datamapper input="" output="CustomerCustomerEntityToCreate"/>
             <auto-paging>false</auto-paging>
@@ -682,10 +667,6 @@
             <attributes/>
             <childElements/>
         </get-product>
-        
-
-
-	<!--  
          <list-products name="List products"> 
              <datamapper input="List&lt;CatalogProductEntity&gt;" output=""/> 
              <auto-paging>false</auto-paging> 
@@ -693,12 +674,7 @@
              <attributes/> 
              <childElements/> 
          </list-products> 
-        -->   
-
-
-
-
-        <update-product-special-price name="Update product special price">
+           <update-product-special-price name="Update product special price">
             <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>

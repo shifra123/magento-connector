@@ -66,10 +66,6 @@
                 <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string"/>
             </attributes>
         </hold-order>
-        
-        
-        
-        <!-- 
         <list-orders>
             <attributes>
                 <optional caption="Filter" group="Query" javaType="java.lang.String" name="filter" type="element-query"/>
@@ -85,10 +81,6 @@
                 <optional caption="Filter" group="Query" javaType="java.lang.String" name="filter" type="element-query"/>
             </attributes>
         </list-orders-shipments>
-         -->
-         
-         
-         
         <delete-order-shipment-track>
             <attributes>
                 <required caption="Shipment Id" group="General" javaType="java.lang.String" name="shipmentId" type="string"/>
@@ -215,17 +207,11 @@
             </attributes>
         </list-customer-addresses>
         <list-customer-groups/>
-        
-        
-        <!-- 
         <list-customers>
             <attributes>
                 <optional caption="Filter" group="Query" javaType="java.lang.String" name="filter" type="element-query"/>
             </attributes>
         </list-customers>
-         -->
-         
-         
         <update-customer>
             <attributes>
                 <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer"/>
@@ -747,21 +733,13 @@
             </attributes>
             <childElements/>
         </get-product>
-        
-        
-        
-        <!-- 
           <list-products> 
              <attributes> 
                  <optional caption="Filter" group="Query" javaType="java.lang.String" name="filter" type="element-query"/> 
                  <optional caption="Store View Id Or Code" group="General" javaType="java.lang.String" name="storeViewIdOrCode" type="string"/> 
              </attributes> 
          </list-products> 
-           -->
-
-
-
-        <update-product-special-price>
+             <update-product-special-price>
             <attributes>
                 <optional caption="Product Id" group="General" javaType="java.lang.Integer" name="productId" type="integer"/>
                 <optional caption="Product Sku" group="General" javaType="java.lang.String" name="productSku" type="string"/>
