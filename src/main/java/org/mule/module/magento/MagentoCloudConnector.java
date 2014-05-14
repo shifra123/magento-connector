@@ -595,7 +595,7 @@ public class MagentoCloudConnector {
      * @return the new customer id
      */
     @Processor
-    public int createCustomer(@Placement(group = "Customer Attributes") CustomerCustomerEntityToCreate customer) {
+    public int createCustomer( @Default("#[payload]") @Placement(group = "Customer Attributes") CustomerCustomerEntityToCreate customer) {
         return customerClient.createCustomer(customer);
     }
 
@@ -726,7 +726,7 @@ public class MagentoCloudConnector {
      * @return update result
      */
     @Processor
-    public boolean updateCustomerAddress(int addressId, @Placement(group = "Address Attributes to Update") CustomerAddressEntityCreate customerAddress) {
+    public boolean updateCustomerAddress(int addressId,  @Default("#[payload]")  @Placement(group = "Address Attributes to Update") CustomerAddressEntityCreate customerAddress) {
         return customerClient.updateCustomerAddress(addressId, customerAddress);
     }
 
@@ -1791,7 +1791,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean moveShoppingCartProductToCustomerQuote(int quoteId,
-                                                   @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
+                                                   @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
                                                    @Optional String storeId) {
         return shoppingCartClient.moveShoppingCartProductToCustomerQuote(quoteId, products, storeId);
     }

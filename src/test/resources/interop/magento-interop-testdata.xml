@@ -11,7 +11,6 @@
         </config>
     </global-config>
     <message-processors>
-        <!--
         <add-order-shipment-comment>
             <attributes>
                 <required caption="Shipment Id" group="General" javaType="java.lang.String" name="shipmentId" type="string"/>
@@ -264,11 +263,9 @@
                 </required>
             </childElements>
         </update-customer-address>
-        -->
         <list-stock-items>
             <childElements/>
         </list-stock-items>
-        <!--
         <update-stock-item>
             <attributes>
                 <required caption="Product Id Or Sku" group="General" javaType="java.lang.String" name="productIdOrSku" type="string"/>
@@ -736,13 +733,13 @@
             </attributes>
             <childElements/>
         </get-product>
-        <list-products>
-            <attributes>
-                <optional caption="Filter" group="Query" javaType="java.lang.String" name="filter" type="element-query"/>
-                <optional caption="Store View Id Or Code" group="General" javaType="java.lang.String" name="storeViewIdOrCode" type="string"/>
-            </attributes>
-        </list-products>
-        <update-product-special-price>
+          <list-products> 
+             <attributes> 
+                 <optional caption="Filter" group="Query" javaType="java.lang.String" name="filter" type="element-query"/> 
+                 <optional caption="Store View Id Or Code" group="General" javaType="java.lang.String" name="storeViewIdOrCode" type="string"/> 
+             </attributes> 
+         </list-products> 
+             <update-product-special-price>
             <attributes>
                 <optional caption="Product Id" group="General" javaType="java.lang.Integer" name="productId" type="integer"/>
                 <optional caption="Product Sku" group="General" javaType="java.lang.String" name="productSku" type="string"/>
@@ -945,7 +942,6 @@
                 <optional caption="Store Id" group="General" javaType="java.lang.String" name="storeId" type="string"/>
             </attributes>
         </remove-shopping-cart-coupon>
-        -->
     </message-processors>
     <inbound-endpoint/>
     <outbound-endpoints/>
