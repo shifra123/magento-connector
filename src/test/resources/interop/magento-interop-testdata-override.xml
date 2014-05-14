@@ -19,8 +19,8 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Shipment Id" group="General" javaType="java.lang.String" name="shipmentId" type="string">10025</required>
-                <required caption="Comment" group="General" javaType="java.lang.String" name="comment" type="string">Comment Information goes here</required>
+                <required caption="Shipment Id" group="General" javaType="java.lang.String" name="shipmentId" type="string">GH965274</required>
+                <required caption="Comment" group="General" javaType="java.lang.String" name="comment" type="string">Comment about shipment</required>
             </attributes>
             <childElements/>
         </add-order-shipment-comment>
@@ -29,10 +29,10 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Shipment Id" group="General" javaType="java.lang.String" name="shipmentId" type="string">10025</required>
-                <required caption="Carrier Code" group="General" javaType="java.lang.String" name="carrierCode" type="string">UPS</required>
-                <required caption="Title" group="General" javaType="java.lang.String" name="title" type="string">Fast Delivery</required>
-                <required caption="Track Id" group="General" javaType="java.lang.String" name="trackId" type="string">GB128740523</required>
+                <required caption="Shipment Id" group="General" javaType="java.lang.String" name="shipmentId" type="string">GH965274</required>
+                <required caption="Carrier Code" group="General" javaType="java.lang.String" name="carrierCode" type="string">DHL</required>
+                <required caption="Title" group="General" javaType="java.lang.String" name="title" type="string">Shipment Title</required>
+                <required caption="Track Id" group="General" javaType="java.lang.String" name="trackId" type="string">GB52696214</required>
             </attributes>
             <childElements/>
         </add-order-shipment-track>
@@ -41,7 +41,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">00596120140409</required>
+                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">0012420140505</required>
             </attributes>
             <childElements/>
         </cancel-order>
@@ -50,7 +50,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">00596120140409</required>
+                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">0012420140505</required>
             </attributes>
             <childElements/>
         </create-order-shipment>
@@ -59,7 +59,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">00596120140409</required>
+                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">0012420140505</required>
             </attributes>
             <childElements/>
         </get-order>
@@ -68,7 +68,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Invoice Id" group="General" javaType="java.lang.String" name="invoiceId" type="string">00625120140309</required>
+                <required caption="Invoice Id" group="General" javaType="java.lang.String" name="invoiceId" type="string">1113620140505</required>
             </attributes>
             <childElements/>
         </get-order-invoice>
@@ -77,7 +77,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">00625120140309</required>
+                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">0012420140505</required>
             </attributes>
             <childElements/>
         </get-order-shipment-carriers>
@@ -86,7 +86,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Shipment Id" group="General" javaType="java.lang.String" name="shipmentId" type="string">3985001</required>
+                <required caption="Shipment Id" group="General" javaType="java.lang.String" name="shipmentId" type="string">GH965274</required>
             </attributes>
             <childElements/>
         </get-order-shipment>
@@ -95,10 +95,14 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">00625120140409</required>
+                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">0012420140505</required>
             </attributes>
             <childElements/>
         </hold-order>
+        
+        
+        
+        <!-- 
         <list-orders name="List orders">
             <datamapper input="List&lt;SalesOrderListEntity&gt;" output=""/>
             <auto-paging>false</auto-paging>
@@ -120,13 +124,18 @@
             <attributes/>
             <childElements/>
         </list-orders-shipments>
+         -->
+         
+         
+         
+         
         <delete-order-shipment-track name="Delete order shipment track">
             <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Shipment Id" group="General" javaType="java.lang.String" name="shipmentId" type="string">3985001</required>
-                <required caption="Track Id" group="General" javaType="java.lang.String" name="trackId" type="string">GB01852689</required>
+                <required caption="Shipment Id" group="General" javaType="java.lang.String" name="shipmentId" type="string">GH965274</required>
+                <required caption="Track Id" group="General" javaType="java.lang.String" name="trackId" type="string">GB52696214</required>
             </attributes>
             <childElements/>
         </delete-order-shipment-track>
@@ -135,9 +144,9 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">00625120140409</required>
-                <required caption="Status" group="General" javaType="java.lang.String" name="status" type="string">Paid</required>
-                <required caption="Comment" group="General" javaType="java.lang.String" name="comment" type="string">Order Comment goes here</required>
+                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">0012420140505</required>
+                <required caption="Status" group="General" javaType="java.lang.String" name="status" type="string">pending</required>
+                <required caption="Comment" group="General" javaType="java.lang.String" name="comment" type="string">Order Comment</required>
             </attributes>
             <childElements/>
         </add-order-comment>
@@ -146,7 +155,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">00625120140409</required>
+                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">0012420140505</required>
             </attributes>
             <childElements/>
         </unhold-order>
@@ -155,7 +164,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">00625120140409</required>
+                <required caption="Order Id" group="General" javaType="java.lang.String" name="orderId" type="string">0012420140505</required>
             </attributes>
             <childElements/>
         </create-order-invoice>
@@ -164,8 +173,8 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Invoice Id" group="General" javaType="java.lang.String" name="invoiceId" type="string">00625120140309</required>
-                <required caption="Comment" group="General" javaType="java.lang.String" name="comment" type="string">Comment goes here</required>
+                <required caption="Invoice Id" group="General" javaType="java.lang.String" name="invoiceId" type="string">1113620140505</required>
+                <required caption="Comment" group="General" javaType="java.lang.String" name="comment" type="string">Invoice Comment</required>
             </attributes>
             <childElements/>
         </add-order-invoice-comment>
@@ -174,7 +183,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Invoice Id" group="General" javaType="java.lang.String" name="invoiceId" type="string">00625120140309</required>
+                <required caption="Invoice Id" group="General" javaType="java.lang.String" name="invoiceId" type="string">1113620140505</required>
             </attributes>
             <childElements/>
         </capture-order-invoice>
@@ -183,7 +192,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Invoice Id" group="General" javaType="java.lang.String" name="invoiceId" type="string">00625120140309</required>
+                <required caption="Invoice Id" group="General" javaType="java.lang.String" name="invoiceId" type="string">1113620140505</required>
             </attributes>
             <childElements/>
         </void-order-invoice>
@@ -192,7 +201,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Invoice Id" group="General" javaType="java.lang.String" name="invoiceId" type="string">00625120140309</required>
+                <required caption="Invoice Id" group="General" javaType="java.lang.String" name="invoiceId" type="string">1113620140505</required>
             </attributes>
             <childElements/>
         </cancel-order-invoice>
@@ -201,7 +210,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer">1036944</required>
+                <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer">0012674</required>
             </attributes>
             <childElements/>
         </create-customer-address>
@@ -214,7 +223,7 @@
                 <required group="Customer Attributes" name="customer">
                     <attributes caption="Define attributes" controlled="complex" controllerType="radioBoolean"/>
                     <attributes caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
-                        <required caption="Customer Reference" javaType="java.lang.String" name="ref" type="string">CustomRef</required>
+                        <required caption="Customer Reference" javaType="java.lang.String" name="ref" type="string">1234</required>
                     </attributes>
                     <childElements/>
                 </required>
@@ -225,7 +234,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer">1036944</required>
+                <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer">0012674</required>
             </attributes>
             <childElements/>
         </delete-customer>
@@ -234,16 +243,16 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Address Id" group="General" javaType="int" name="addressId" type="integer">50632</required>
+                <required caption="Address Id" group="General" javaType="int" name="addressId" type="integer">40</required>
             </attributes>
             <childElements/>
         </delete-customer-address>
         <get-customer name="Get customer">
-            <datamapper input="CustomerCustomerEntity" output="List&lt;String&gt;"/>
+            <datamapper input="CustomerCustomerEntity" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer">1036944</required>
+                <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer">0012674</required>
             </attributes>
             <childElements/>
         </get-customer>
@@ -252,7 +261,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Address Id" group="General" javaType="int" name="addressId" type="integer">50632</required>
+                <required caption="Address Id" group="General" javaType="int" name="addressId" type="integer">40</required>
             </attributes>
             <childElements/>
         </get-customer-address>
@@ -261,7 +270,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer">1036944</required>
+                <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer">0012674</required>
             </attributes>
             <childElements/>
         </list-customer-addresses>
@@ -272,6 +281,9 @@
             <attributes/>
             <childElements/>
         </list-customer-groups>
+        
+        
+        <!-- 
         <list-customers name="List customers">
             <datamapper input="List&lt;CustomerCustomerEntity&gt;" output=""/>
             <auto-paging>false</auto-paging>
@@ -279,12 +291,15 @@
             <attributes/>
             <childElements/>
         </list-customers>
+         -->
+         
+         
         <update-customer name="Update customer">
             <datamapper input="" output="CustomerCustomerEntityToCreate"/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer">1036944</required>
+                <required caption="Customer Id" group="General" javaType="int" name="customerId" type="integer">0012674</required>
             </attributes>
             <childElements/>
         </update-customer>
@@ -293,20 +308,20 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Address Id" group="General" javaType="int" name="addressId" type="integer">50326</required>
+                <required caption="Address Id" group="General" javaType="int" name="addressId" type="integer">40</required>
             </attributes>
             <childElements>
                 <required group="Address Attributes to Update" name="customer-address">
                     <attributes caption="Define attributes" controlled="complex" controllerType="radioBoolean"/>
                     <attributes caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
-                        <required caption="Customer Address Reference" javaType="java.lang.String" name="ref" type="string">CustomerRef</required>
+                        <required caption="Customer Address Reference" javaType="java.lang.String" name="ref" type="string">CustRef</required>
                     </attributes>
                     <childElements/>
                 </required>
             </childElements>
         </update-customer-address>
         <list-stock-items name="List stock items">
-            <datamapper input="List&lt;CatalogInventoryStockItemEntity&gt;" output="List&lt;String&gt;"/>
+            <datamapper input="List&lt;CatalogInventoryStockItemEntity&gt;" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes/>
@@ -317,7 +332,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Product Id Or Sku" group="General" javaType="java.lang.String" name="productIdOrSku" type="string">HDD00256</required>
+                <required caption="Product Id Or Sku" group="General" javaType="java.lang.String" name="productIdOrSku" type="string">SSD1024</required>
             </attributes>
             <childElements/>
         </update-stock-item>
@@ -333,54 +348,54 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Country Id" group="General" javaType="java.lang.String" name="countryId" type="string">500</required>
+                <required caption="Country Id" group="General" javaType="java.lang.String" name="countryId" type="string">102</required>
             </attributes>
             <childElements/>
         </list-directory-regions>
         <add-product-link name="Add product link">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output="CatalogProductLinkEntity"/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
                 <required caption="Type" group="General" javaType="java.lang.String" name="type" type="string">simple</required>
-                <required caption="Linked Product Id Or Sku" group="General" javaType="java.lang.String" name="linkedProductIdOrSku" type="string">HDD00256</required>
+                <required caption="Linked Product Id Or Sku" group="General" javaType="java.lang.String" name="linkedProductIdOrSku" type="string">025496</required>
             </attributes>
             <childElements/>
         </add-product-link>
         <create-product-attribute-media name="Create product attribute media">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output="CatalogProductAttributeMediaCreateEntity"/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Mime Type" group="General" javaType="org.mule.module.magento.api.catalog.model.MediaMimeType" name="mimeType" type="enum">gif</required>
+                <required caption="Mime Type" group="General" javaType="org.mule.module.magento.api.catalog.model.MediaMimeType" name="mimeType" type="enum">GIF</required>
             </attributes>
             <childElements/>
         </create-product-attribute-media>
         <delete-product-attribute-media name="Delete product attribute media">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="File Name" group="General" javaType="java.lang.String" name="fileName" type="string">HDD00256.gif</required>
+                <required caption="File Name" group="General" javaType="java.lang.String" name="fileName" type="string">ssd1024.gif</required>
             </attributes>
             <childElements/>
         </delete-product-attribute-media>
         <delete-product-link name="Delete product link">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
                 <required caption="Type" group="General" javaType="java.lang.String" name="type" type="string">simple</required>
-                <required caption="Linked Product Id Or Sku" group="General" javaType="java.lang.String" name="linkedProductIdOrSku" type="string">HDD00256</required>
+                <required caption="Linked Product Id Or Sku" group="General" javaType="java.lang.String" name="linkedProductIdOrSku" type="string">SSD1024</required>
             </attributes>
             <childElements/>
         </delete-product-link>
         <get-product-attribute-media name="Get product attribute media">
-            <datamapper input="CatalogProductImageEntity" output="Integer"/>
+            <datamapper input="CatalogProductImageEntity" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="File Name" group="General" javaType="java.lang.String" name="fileName" type="string">HDD00256.gif</required>
+                <required caption="File Name" group="General" javaType="java.lang.String" name="fileName" type="string">ssd1024.gif</required>
             </attributes>
             <childElements/>
         </get-product-attribute-media>
@@ -396,7 +411,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Store View Id Or Code" group="General" javaType="java.lang.String" name="storeViewIdOrCode" type="string">SSD00958</required>
+                <required caption="Store View Id Or Code" group="General" javaType="java.lang.String" name="storeViewIdOrCode" type="string">STV1284</required>
             </attributes>
             <childElements/>
         </update-category-attribute-store-view>
@@ -412,12 +427,12 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Attribute Id" group="General" javaType="java.lang.String" name="attributeId" type="string">Description</required>
+                <required caption="Attribute Id" group="General" javaType="java.lang.String" name="attributeId" type="string">30</required>
             </attributes>
             <childElements/>
         </list-category-attribute-options>
         <list-product-attribute-media name="List product attribute media">
-            <datamapper input="List&lt;CatalogProductImageEntity&gt;" output="Integer"/>
+            <datamapper input="List&lt;CatalogProductImageEntity&gt;" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes/>
@@ -428,7 +443,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Set Id" group="General" javaType="int" name="setId" type="integer">45</required>
+                <required caption="Set Id" group="General" javaType="int" name="setId" type="integer">30</required>
             </attributes>
             <childElements/>
         </list-product-attribute-media-types>
@@ -437,7 +452,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Attribute Id" group="General" javaType="java.lang.String" name="attributeId" type="string">Description</required>
+                <required caption="Attribute Id" group="General" javaType="java.lang.String" name="attributeId" type="string">30</required>
             </attributes>
             <childElements/>
         </list-product-attribute-options>
@@ -446,7 +461,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Set Id" group="General" javaType="int" name="setId" type="integer">63</required>
+                <required caption="Set Id" group="General" javaType="int" name="setId" type="integer">30</required>
             </attributes>
             <childElements/>
         </list-product-attributes>
@@ -458,18 +473,18 @@
             <childElements/>
         </list-product-attribute-sets>
         <list-product-attribute-tier-prices name="List product attribute tier prices">
-            <datamapper input="List&lt;CatalogProductTierPriceEntity&gt;" output="Integer"/>
+            <datamapper input="List&lt;CatalogProductTierPriceEntity&gt;" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes/>
             <childElements/>
         </list-product-attribute-tier-prices>
         <list-product-link name="List product link">
-            <datamapper input="List&lt;CatalogProductLinkEntity&gt;" output="Integer"/>
+            <datamapper input="List&lt;CatalogProductLinkEntity&gt;" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Type" group="General" javaType="java.lang.String" name="type" type="string">Hardware</required>
+                <required caption="Type" group="General" javaType="java.lang.String" name="type" type="string">simple</required>
             </attributes>
             <childElements/>
         </list-product-link>
@@ -497,28 +512,28 @@
             <childElements/>
         </list-product-types>
         <update-product-attribute-media name="Update product attribute media">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output="CatalogProductAttributeMediaCreateEntity"/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="File Name" group="General" javaType="java.lang.String" name="fileName" type="string">HDD00256.gif</required>
+                <required caption="File Name" group="General" javaType="java.lang.String" name="fileName" type="string">ssd1024.gif</required>
             </attributes>
             <childElements/>
         </update-product-attribute-media>
         <update-product-attribute-tier-price name="Update product attribute tier price">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output="CatalogProductTierPriceEntity"/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes/>
             <childElements/>
         </update-product-attribute-tier-price>
         <update-product-link name="Update product link">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output="CatalogProductLinkEntity"/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
                 <required caption="Type" group="General" javaType="java.lang.String" name="type" type="string">simple</required>
-                <required caption="Linked Product Id Or Sku" group="General" javaType="java.lang.String" name="linkedProductIdOrSku" type="string">HDD00256</required>
+                <required caption="Linked Product Id Or Sku" group="General" javaType="java.lang.String" name="linkedProductIdOrSku" type="string">SSD1024</required>
             </attributes>
             <childElements/>
         </update-product-link>
@@ -527,16 +542,16 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">75</required>
+                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">63</required>
             </attributes>
             <childElements/>
         </list-category-products>
         <add-category-product name="Add category product">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">75</required>
+                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">63</required>
             </attributes>
             <childElements/>
         </add-category-product>
@@ -545,7 +560,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Parent Id" group="General" javaType="int" name="parentId" type="integer">30</required>
+                <required caption="Parent Id" group="General" javaType="int" name="parentId" type="integer">10</required>
             </attributes>
             <childElements/>
         </create-category>
@@ -554,16 +569,16 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">75</required>
+                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">63</required>
             </attributes>
             <childElements/>
         </delete-category>
         <get-category name="Get category">
-            <datamapper input="CatalogCategoryInfo" output="List&lt;String&gt;"/>
+            <datamapper input="CatalogCategoryInfo" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">75</required>
+                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">63</required>
             </attributes>
             <childElements/>
         </get-category>
@@ -579,17 +594,17 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">75</required>
-                <required caption="Parent Id" group="General" javaType="int" name="parentId" type="integer">30</required>
+                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">63</required>
+                <required caption="Parent Id" group="General" javaType="int" name="parentId" type="integer">10</required>
             </attributes>
             <childElements/>
         </move-category>
         <delete-category-product name="Delete category product">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">75</required>
+                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">63</required>
             </attributes>
             <childElements/>
         </delete-category-product>
@@ -598,7 +613,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Parent Id" group="General" javaType="java.lang.String" name="parentId" type="string">30</required>
+                <required caption="Parent Id" group="General" javaType="java.lang.String" name="parentId" type="string">10</required>
             </attributes>
             <childElements/>
         </get-category-tree>
@@ -607,29 +622,29 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">75</required>
+                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">63</required>
             </attributes>
             <childElements/>
         </update-category>
         <update-category-product name="Update category product">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">75</required>
-                <required caption="Position" group="General" javaType="java.lang.String" name="position" type="string">Hardware</required>
+                <required caption="Category Id" group="General" javaType="int" name="categoryId" type="integer">63</required>
+                <required caption="Position" group="General" javaType="java.lang.String" name="position" type="string">centre</required>
             </attributes>
             <childElements/>
         </update-category-product>
         <list-inventory-stock-items name="List inventory stock items">
-            <datamapper input="List&lt;CatalogInventoryStockItemEntity&gt;" output="List&lt;String&gt;"/>
+            <datamapper input="List&lt;CatalogInventoryStockItemEntity&gt;" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes/>
             <childElements/>
         </list-inventory-stock-items>
         <update-inventory-stock-item name="Update inventory stock item">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output="CatalogInventoryStockItemUpdateEntity"/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes/>
@@ -642,49 +657,58 @@
             <attributes>
                 <required caption="Type" group="General" javaType="java.lang.String" name="type" type="string">simple</required>
                 <required caption="Set" group="General" javaType="int" name="set" type="integer">4</required>
-                <required caption="Sku" group="General" javaType="java.lang.String" name="sku" type="string">HDD00256</required>
+                <required caption="Sku" group="General" javaType="java.lang.String" name="sku" type="string">SSD1024</required>
             </attributes>
             <childElements/>
         </create-product>
         <delete-product name="Delete product">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes/>
             <childElements/>
         </delete-product>
         <get-product-special-price name="Get product special price">
-            <datamapper input="CatalogProductReturnEntity" output="Integer"/>
+            <datamapper input="CatalogProductReturnEntity" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes/>
             <childElements/>
         </get-product-special-price>
         <get-product name="Get product">
-            <datamapper input="CatalogProductReturnEntity" output="Integer"/>
+            <datamapper input="CatalogProductReturnEntity" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes/>
             <childElements/>
         </get-product>
-        <list-products name="List products">
-            <datamapper input="List&lt;CatalogProductEntity&gt;" output=""/>
-            <auto-paging>false</auto-paging>
-            <query-support>true</query-support>
-            <attributes/>
-            <childElements/>
-        </list-products>
+        
+
+
+	<!--  
+         <list-products name="List products"> 
+             <datamapper input="List&lt;CatalogProductEntity&gt;" output=""/> 
+             <auto-paging>false</auto-paging> 
+             <query-support>true</query-support> 
+             <attributes/> 
+             <childElements/> 
+         </list-products> 
+        -->   
+
+
+
+
         <update-product-special-price name="Update product special price">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Special Price" group="General" javaType="java.lang.String" name="specialPrice" type="string">63.50</required>
+                <required caption="Special Price" group="General" javaType="java.lang.String" name="specialPrice" type="string">50.75</required>
             </attributes>
             <childElements/>
         </update-product-special-price>
         <update-product name="Update product">
-            <datamapper input="" output="Integer"/>
+            <datamapper input="" output="CatalogProductCreateEntity"/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes/>
@@ -702,7 +726,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </get-info-shopping-cart>
@@ -711,16 +735,16 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </list-shopping-cart-totals>
         <create-shopping-cart-order name="Create shopping cart order">
-            <datamapper input="" output="List&lt;String&gt;"/>
+            <datamapper input="" output=""/>
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </create-shopping-cart-order>
@@ -729,7 +753,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </list-shopping-cart-licenses>
@@ -738,7 +762,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </add-shopping-cart-product>
@@ -747,7 +771,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </update-shopping-cart-product>
@@ -756,7 +780,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </remove-shopping-cart-product>
@@ -765,7 +789,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </list-shopping-cart-products>
@@ -774,7 +798,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </move-shopping-cart-product-to-customer-quote>
@@ -783,7 +807,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </set-shopping-cart-customer>
@@ -792,7 +816,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </set-shopping-cart-customer-addresses>
@@ -801,8 +825,8 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
-                <required caption="Method" group="General" javaType="java.lang.String" name="method" type="string">Delivery</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
+                <required caption="Method" group="General" javaType="java.lang.String" name="method" type="string">Postal</required>
             </attributes>
             <childElements/>
         </set-shopping-cart-shipping-method>
@@ -811,7 +835,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </list-shopping-cart-shipping-methods>
@@ -820,7 +844,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </set-shopping-cart-payment-method>
@@ -829,7 +853,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </list-shopping-cart-payment-methods>
@@ -838,8 +862,8 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
-                <required caption="Coupon Code" group="General" javaType="java.lang.String" name="couponCode" type="string">CODE1245</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
+                <required caption="Coupon Code" group="General" javaType="java.lang.String" name="couponCode" type="string">CODE</required>
             </attributes>
             <childElements/>
         </add-shopping-cart-coupon>
@@ -848,7 +872,7 @@
             <auto-paging>false</auto-paging>
             <query-support>false</query-support>
             <attributes>
-                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">00145220140309</required>
+                <required caption="Quote Id" group="General" javaType="int" name="quoteId" type="integer">3652412</required>
             </attributes>
             <childElements/>
         </remove-shopping-cart-coupon>
