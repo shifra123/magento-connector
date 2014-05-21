@@ -1,0 +1,4976 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Magento Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../favicon.ico" />
+<title>
+
+  AxisMagentoCatalogClient
+
+
+| Mule Magento Connector
+
+</title>
+<link href="../../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/jquery-toc.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../../", "../../../../../../../assets/");
+</script>
+<script src="../../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Magento Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Magento Connector</span>
+    
+    <ul id="header-tabs" class="">
+    
+    	<li id="guide"><a href="../../../../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    
+    	<li id="java"><a href="../../../../../../../java/packages.html">
+	    	<span class="en">Java API Reference</span>
+    	</a></li>
+    
+    	<li id="mule"><a href="../../../../../../../mule/modules.html">
+	    	<span class="en">Mule API Reference</span>
+    	</a></li>
+    
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../../java/classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/package-summary.html">com.magento.api</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/holders/package-summary.html">com.magento.api.holders</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/com/magento/api/transformers/package-summary.html">com.magento.api.transformers</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/package-summary.html">org.mule.module.magento</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/adapter/package-summary.html">org.mule.module.magento.adapter</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/adapters/package-summary.html">org.mule.module.magento.adapters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/agents/package-summary.html">org.mule.module.magento.agents</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/package-summary.html">org.mule.module.magento.api</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/catalog/package-summary.html">org.mule.module.magento.api.catalog</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/package-summary.html">org.mule.module.magento.api.catalog.model</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/transformers/package-summary.html">org.mule.module.magento.api.catalog.model.transformers</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/customer/package-summary.html">org.mule.module.magento.api.customer</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/directory/package-summary.html">org.mule.module.magento.api.directory</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/inventory/package-summary.html">org.mule.module.magento.api.inventory</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/order/package-summary.html">org.mule.module.magento.api.order</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/order/model/package-summary.html">org.mule.module.magento.api.order.model</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/shoppingCart/package-summary.html">org.mule.module.magento.api.shoppingCart</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/api/util/package-summary.html">org.mule.module.magento.api.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/basic/package-summary.html">org.mule.module.magento.basic</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/callback/package-summary.html">org.mule.module.magento.callback</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/config/package-summary.html">org.mule.module.magento.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/connection/package-summary.html">org.mule.module.magento.connection</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/connectivity/package-summary.html">org.mule.module.magento.connectivity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/devkit/package-summary.html">org.mule.module.magento.devkit</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/filters/package-summary.html">org.mule.module.magento.filters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/oauth/package-summary.html">org.mule.module.magento.oauth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/process/package-summary.html">org.mule.module.magento.process</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../java/org/mule/module/magento/processors/package-summary.html">org.mule.module.magento.processors</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;ExceptionType&nbsp;extends&nbsp;Exception&gt;</li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html">AxisMagentoCatalogClient</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+   
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+
+
+
+  <a href="#inhfields">Inherited Fields</a>
+  
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1>AxisMagentoCatalogClient</h1>
+
+
+
+  
+  
+  
+
+  
+    extends <a href="../../../../../../../java/org/mule/module/magento/api/AbstractMagentoClient.html">AbstractMagentoClient</a><br/>
+  
+  
+  
+
+  
+  
+      implements 
+      
+        <a href="../../../../../../../java/org/mule/module/magento/api/catalog/MagentoCatalogClient.html">MagentoCatalogClient</a>&lt;ExceptionType&nbsp;extends&nbsp;Exception&gt; 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/module/magento/api/AbstractMagentoClient.html">org.mule.module.magento.api.AbstractMagentoClient</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.api.catalog.AxisMagentoCatalogClient</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="inhfields" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Fields</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-org.mule.module.magento.api.AbstractMagentoClient" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-org.mule.module.magento.api.AbstractMagentoClient-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../../../../../org/mule/module/magento/api/AbstractMagentoClient.html">org.mule.module.magento.api.AbstractMagentoClient</a>
+<div id="inherited-fields-org.mule.module.magento.api.AbstractMagentoClient">
+  <div id="inherited-fields-org.mule.module.magento.api.AbstractMagentoClient-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-fields-org.mule.module.magento.api.AbstractMagentoClient-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          final
+          <a href="../../../../../../../java/org/mule/module/magento/api/AxisPortProvider.html">AxisPortProvider</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/module/magento/api/AbstractMagentoClient.html#provider">provider</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+
+</table>
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#AxisMagentoCatalogClient(org.mule.module.magento.api.AxisPortProvider)">AxisMagentoCatalogClient</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/AxisPortProvider.html">AxisPortProvider</a> provider)</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#addCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">addCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</nobr>
+        
+        <div class="jd-descrdiv">Assign product to category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#addProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)">addProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</nobr>
+        
+        <div class="jd-descrdiv">Links two products</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#createCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">createCategory</a></span>(int parentId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#createProduct(java.lang.String, int, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">createProduct</a></span>(String type, int set, String sku, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new product</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#createProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.io.InputStream, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String, java.lang.String)">createProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, InputStream content, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new product media.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteCategory(int)">deleteCategory</a></span>(int categoryId)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier)">deleteCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
+        
+        <div class="jd-descrdiv">Remove a product assignment.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier)">deleteProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a product.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file)</nobr>
+        
+        <div class="jd-descrdiv">Removes a product image.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#deleteProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a product's link</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#getCatalogCurrentStoreView()">getCatalogCurrentStoreView</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Answers the current default catalog store view id for this session</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/magento/api/CatalogCategoryInfo.html">CatalogCategoryInfo</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#getCategory(int, java.lang.String, java.util.List<java.lang.String>)">getCategory</a></span>(int categoryId, String storeView, List&lt;String&gt; attributeNames)</nobr>
+        
+        <div class="jd-descrdiv">Answers category attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/magento/api/CatalogCategoryTree.html">CatalogCategoryTree</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#getCategoryTree(java.lang.String, java.lang.String)">getCategoryTree</a></span>(String parentId, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve hierarchical tree.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#getProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)">getProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView, List&lt;String&gt; attributeNames, List&lt;String&gt; additionalAttributeNames)</nobr>
+        
+        <div class="jd-descrdiv">Answers a product's attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#getProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.lang.String)">getProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Answers product image attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#getProductSpecialPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">getProductSpecialPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Answers a product special price.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listCategoryAttributeOptions(java.lang.String, java.lang.String)">listCategoryAttributeOptions</a></span>(String attributeId, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves attribute options.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listCategoryAttributes()">listCategoryAttributes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves category attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityNoChildren.html">CatalogCategoryEntityNoChildren</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listCategoryLevels(java.lang.String, java.lang.String, java.lang.String)">listCategoryLevels</a></span>(String website, String storeView, String parentCategory)</nobr>
+        
+        <div class="jd-descrdiv">Answers levels of categories for a website, store view and parente category@return</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAssignedProduct.html">CatalogAssignedProduct</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listCategoryProducts(int)">listCategoryProducts</a></span>(int categoryId)</nobr>
+        
+        <div class="jd-descrdiv">Lists product of a given category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listInventoryStockItems(java.util.List<java.lang.String>)">listInventoryStockItems</a></span>(List&lt;String&gt; products)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">listProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product image list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaTypeEntity.html">CatalogProductAttributeMediaTypeEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProductAttributeMediaTypes(int)">listProductAttributeMediaTypes</a></span>(int setId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve product image types.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProductAttributeOptions(java.lang.String, java.lang.String)">listProductAttributeOptions</a></span>(String attributeId, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Answers the product attribute options.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductAttributeSetEntity.html">CatalogProductAttributeSetEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProductAttributeSets()">listProductAttributeSets</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product attribute sets.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProductAttributeTierPrices(org.mule.module.magento.api.catalog.model.ProductIdentifier)">listProductAttributeTierPrices</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve product tier prices.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProductAttributes(int)">listProductAttributes</a></span>(int setId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product attributes list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier)">listProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
+        
+        <div class="jd-descrdiv">Lists linked products to the given product and for the given link type</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductLinkAttributeEntity.html">CatalogProductLinkAttributeEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProductLinkAttributes(java.lang.String)">listProductLinkAttributes</a></span>(String type)</nobr>
+        
+        <div class="jd-descrdiv">Lists all the attributes for the given product link type</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;String&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProductLinkTypes()">listProductLinkTypes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieve product link types</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductTypeEntity.html">CatalogProductTypeEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProductTypes()">listProductTypes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product types.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#listProducts(java.lang.String, java.lang.String)">listProducts</a></span>(String filters, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve products list by filters
+ See catalog-product-list SOAP method.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#moveCategory(int, int, java.lang.String)">moveCategory</a></span>(int categoryId, int parentId, String afterId)</nobr>
+        
+        <div class="jd-descrdiv">Move category in tree.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateCatalogCurrentStoreView(java.lang.String)">updateCatalogCurrentStoreView</a></span>(String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Set the default catalog store view for this session</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">updateCategory</a></span>(int categoryId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Updates a category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">updateCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateInventoryStockItem(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateInventoryStockItem</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</nobr>
+        
+        <div class="jd-descrdiv">Updates an stock inventory item</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">updateProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Updates a product.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)">updateProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String fileName, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Updates product media.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateProductAttributeTierPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductTierPriceEntity)">updateProductAttributeTierPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> attributes)</nobr>
+        
+        <div class="jd-descrdiv">Updates a single product tier price.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)">updateProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProduct, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</nobr>
+        
+        <div class="jd-descrdiv">Update product link</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/AxisMagentoCatalogClient.html#updateProductSpecialPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">updateProductSpecialPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String specialPrice, String fromDate, String toDate, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Sets a product special price.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.api.AbstractMagentoClient" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.module.magento.api.AbstractMagentoClient-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../../../org/mule/module/magento/api/AbstractMagentoClient.html">org.mule.module.magento.api.AbstractMagentoClient</a>
+
+<div id="inherited-methods-org.mule.module.magento.api.AbstractMagentoClient">
+  <div id="inherited-methods-org.mule.module.magento.api.AbstractMagentoClient-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.module.magento.api.AbstractMagentoClient-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/AbstractMagentoClient.html#fromIntegerString(java.lang.String)">fromIntegerString</a></span>(String value)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../../../../../java/com/magento/api/Mage_Api_Model_Server_V2_HandlerPortType.html">Mage_Api_Model_Server_V2_HandlerPortType</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/AbstractMagentoClient.html#getPort()">getPort</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/AbstractMagentoClient.html#getSessionId()">getSessionId</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            &lt;K,&nbsp;V&gt;
+            Map&lt;K,&nbsp;V&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/AbstractMagentoClient.html#nullToEmpty(java.util.Map<K, V>)">nullToEmpty</a></span>(Map&lt;K,&nbsp;V&gt; attributes)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            &lt;T&gt;
+            Collection&lt;T&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/AbstractMagentoClient.html#nullToEmpty(java.util.Collection<T>)">nullToEmpty</a></span>(Collection&lt;T&gt; collection)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            &lt;T&gt;
+            T[]</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/AbstractMagentoClient.html#toArray(java.util.Collection<T>, java.lang.Class<T>)">toArray</a></span>(Collection&lt;T&gt; collection, Class&lt;T&gt; clazz)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/AbstractMagentoClient.html#toIntegerString(boolean)">toIntegerString</a></span>(boolean value)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.magento.api.catalog.MagentoCatalogClient" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.module.magento.api.catalog.MagentoCatalogClient-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html">org.mule.module.magento.api.catalog.MagentoCatalogClient</a>
+
+<div id="inherited-methods-org.mule.module.magento.api.catalog.MagentoCatalogClient">
+  <div id="inherited-methods-org.mule.module.magento.api.catalog.MagentoCatalogClient-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.module.magento.api.catalog.MagentoCatalogClient-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#addCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">addCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</nobr>
+        
+        <div class="jd-descrdiv">Assign product to category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#addProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)">addProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</nobr>
+        
+        <div class="jd-descrdiv">Links two products</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">createCategory</a></span>(int parentId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createProduct(java.lang.String, int, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">createProduct</a></span>(String type, int set, String sku, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new product</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#createProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.io.InputStream, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String, java.lang.String)">createProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, InputStream content, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Creates a new product media.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteCategory(int)">deleteCategory</a></span>(int categoryId)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier)">deleteCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
+        
+        <div class="jd-descrdiv">Remove a product assignment.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier)">deleteProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a product.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file)</nobr>
+        
+        <div class="jd-descrdiv">Removes a product image.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#deleteProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">deleteProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku)</nobr>
+        
+        <div class="jd-descrdiv">Deletes a product's link</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getCatalogCurrentStoreView()">getCatalogCurrentStoreView</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Answers the current default catalog store view id for this session</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/magento/api/CatalogCategoryInfo.html">CatalogCategoryInfo</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getCategory(int, java.lang.String, java.util.List<java.lang.String>)">getCategory</a></span>(int categoryId, String storeView, List&lt;String&gt; attributeNames)</nobr>
+        
+        <div class="jd-descrdiv">Answers category attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/magento/api/CatalogCategoryTree.html">CatalogCategoryTree</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getCategoryTree(java.lang.String, java.lang.String)">getCategoryTree</a></span>(String parentId, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve hierarchical tree.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)">getProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView, List&lt;String&gt; attributeNames, List&lt;String&gt; additionalAttributeNames)</nobr>
+        
+        <div class="jd-descrdiv">Answers a product's specified attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.lang.String)">getProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Answers product image attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#getProductSpecialPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">getProductSpecialPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Answers a product special price.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listCategoryAttributeOptions(java.lang.String, java.lang.String)">listCategoryAttributeOptions</a></span>(String attributeId, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves attribute options.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listCategoryAttributes()">listCategoryAttributes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves category attributes.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityNoChildren.html">CatalogCategoryEntityNoChildren</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listCategoryLevels(java.lang.String, java.lang.String, java.lang.String)">listCategoryLevels</a></span>(String website, String storeView, String parentCategory)</nobr>
+        
+        <div class="jd-descrdiv">Answers levels of categories for a website, store view and parente category@return</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAssignedProduct.html">CatalogAssignedProduct</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listCategoryProducts(int)">listCategoryProducts</a></span>(int categoryId)</nobr>
+        
+        <div class="jd-descrdiv">Lists product of a given category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listInventoryStockItems(java.util.List<java.lang.String>)">listInventoryStockItems</a></span>(List&lt;String&gt; products)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">listProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product image list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaTypeEntity.html">CatalogProductAttributeMediaTypeEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeMediaTypes(int)">listProductAttributeMediaTypes</a></span>(int setId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve product image types.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeOptions(java.lang.String, java.lang.String)">listProductAttributeOptions</a></span>(String attributeId, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Answers the product attribute options.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductAttributeSetEntity.html">CatalogProductAttributeSetEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeSets()">listProductAttributeSets</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product attribute sets.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributeTierPrices(org.mule.module.magento.api.catalog.model.ProductIdentifier)">listProductAttributeTierPrices</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve product tier prices.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductAttributes(int)">listProductAttributes</a></span>(int setId)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product attributes list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier)">listProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</nobr>
+        
+        <div class="jd-descrdiv">Lists linked products to the given product and for the given link type</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductLinkAttributeEntity.html">CatalogProductLinkAttributeEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductLinkAttributes(java.lang.String)">listProductLinkAttributes</a></span>(String type)</nobr>
+        
+        <div class="jd-descrdiv">Lists all the attributes for the given product link type</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;String&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductLinkTypes()">listProductLinkTypes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieve product link types</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductTypeEntity.html">CatalogProductTypeEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProductTypes()">listProductTypes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves product types.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#listProducts(java.lang.String, java.lang.String)">listProducts</a></span>(String filters, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve products list by filters See catalog-product-list SOAP method.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#moveCategory(int, int, java.lang.String)">moveCategory</a></span>(int categoryId, int parentId, String afterId)</nobr>
+        
+        <div class="jd-descrdiv">Move category in tree.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateCatalogCurrentStoreView(java.lang.String)">updateCatalogCurrentStoreView</a></span>(String storeViewIdOrCode)</nobr>
+        
+        <div class="jd-descrdiv">Set the default catalog store view for this session</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)">updateCategory</a></span>(int categoryId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Updates a category.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)">updateCategoryProduct</a></span>(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateInventoryStockItem(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogInventoryStockItemUpdateEntity)">updateInventoryStockItem</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</nobr>
+        
+        <div class="jd-descrdiv">Updates an stock inventory item</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)">updateProduct</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Updates a product.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)">updateProductAttributeMedia</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String fileName, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Updates product media.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductAttributeTierPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductTierPriceEntity)">updateProductAttributeTierPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> attributes)</nobr>
+        
+        <div class="jd-descrdiv">Updates a single product tier price.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)">updateProductLink</a></span>(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProduct, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</nobr>
+        
+        <div class="jd-descrdiv">Update product link</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/module/magento/api/catalog/MagentoCatalogClient.html#updateProductSpecialPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">updateProductSpecialPrice</a></span>(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String specialPrice, String fromDate, String toDate, String storeView)</nobr>
+        
+        <div class="jd-descrdiv">Sets a product special price.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="AxisMagentoCatalogClient(org.mule.module.magento.api.AxisPortProvider)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">AxisMagentoCatalogClient</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/AxisPortProvider.html">AxisPortProvider</a> provider)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>provider</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="addCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">addCategoryProduct</span>
+      <span class="normal">(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Assign product to category. See catalog-category-assignProduct SOAP method</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>categoryId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>position</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="addProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">addProductLink</span>
+      <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Links two products</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>type</td>
+          <td>The product type</td>
+        </tr>
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>linkedProductIdOrSku</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributes</td>
+          <td>The link attributes
+</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">createCategory</span>
+      <span class="normal">(int parentId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new category. See catalog-category-create SOAP method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parentId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributes</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the new category id
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createProduct(java.lang.String, int, java.lang.String, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">createProduct</span>
+      <span class="normal">(String type, int set, String sku, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new product</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>type</td>
+          <td>The new product's type</td>
+        </tr>
+        <tr>
+          <th>set</td>
+          <td>The new product's set</td>
+        </tr>
+        <tr>
+          <th>sku</td>
+          <td>The new product's sku</td>
+        </tr>
+        <tr>
+          <th>attributes</td>
+          <td>The standard attributes of the new product</td>
+        </tr>
+        <tr>
+          <th>additionalAttributes</td>
+          <td>The non standard attributes of the new product</td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the new product's id
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.io.InputStream, org.mule.module.magento.api.catalog.model.MediaMimeType, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">createProductAttributeMedia</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, InputStream content, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/MediaMimeType.html">MediaMimeType</a> mimeType, String baseFileName, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new product media. See catalog-product-attribute-media-create SOAP
+ method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributes</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>content</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>mimeType</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>baseFileName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the new image filename
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="deleteCategory(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">deleteCategory</span>
+      <span class="normal">(int categoryId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Deletes a category. See  catalog-category-delete SOAP method</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>categoryId</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the category is deleted
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="deleteCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">deleteCategoryProduct</span>
+      <span class="normal">(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Remove a product assignment. See catalog-category-removeProduct SOAP method. </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>categoryId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the product is removed from the category
+ 
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="deleteProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">deleteProduct</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Deletes a product.
+  See catalog-product-delete SOAP method. </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td>The product identifier</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the product is deleted
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="deleteProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">deleteProductAttributeMedia</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes a product image. See catalog-product-attribute-media-remove SOAP
+ method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>file</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the image is removed from a product
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="deleteProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">deleteProductLink</span>
+      <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProductIdOrSku)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Deletes a product's link</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>type</td>
+          <td>Link type</td>
+        </tr>
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>linkedProductIdOrSku</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>if the link is removed from a product
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCatalogCurrentStoreView()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getCatalogCurrentStoreView</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Answers the current default catalog store view id for this session</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the current default store view id
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCategory(int, java.lang.String, java.util.List<java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../java/com/magento/api/CatalogCategoryInfo.html">CatalogCategoryInfo</a>
+      </span>
+      <span class="sympad">getCategory</span>
+      <span class="normal">(int categoryId, String storeView, List&lt;String&gt; attributeNames)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Answers category attributes. See catalog-category-info  SOAP method.  </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>categoryId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributeNames</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the category attributes
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCategoryTree(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../java/com/magento/api/CatalogCategoryTree.html">CatalogCategoryTree</a>
+      </span>
+      <span class="sympad">getCategoryTree</span>
+      <span class="normal">(String parentId, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve hierarchical tree. See  catalog-category-tree SOAP method. </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parentId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.util.List<java.lang.String>, java.util.List<java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a>
+      </span>
+      <span class="sympad">getProduct</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView, List&lt;String&gt; attributeNames, List&lt;String&gt; additionalAttributeNames)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Answers a product's attributes. See catalog-product-info SOAP method. </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributeNames</td>
+          <td>The list of standard attributes to be returned</td>
+        </tr>
+        <tr>
+          <th>additionalAttributeNames</td>
+          <td>The list of non standard attributes to be
+            returned in the additionalAttributes attribute</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the product attributes
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a>
+      </span>
+      <span class="sympad">getProductAttributeMedia</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String file, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Answers product image attributes. See catalog-product-attribute-media-info
+ SOAP method</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>file</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the product attributes
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getProductSpecialPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../java/com/magento/api/CatalogProductReturnEntity.html">CatalogProductReturnEntity</a>
+      </span>
+      <span class="sympad">getProductSpecialPrice</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Answers a product special price. 
+ 
+ See catalog-product-getSpecialPrice SOAP method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listCategoryAttributeOptions(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;
+      </span>
+      <span class="sympad">listCategoryAttributeOptions</span>
+      <span class="normal">(String attributeId, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves attribute options. See catalog-category-attribute-options SOAP
+ method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>attributeId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of attributes
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listCategoryAttributes()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;
+      </span>
+      <span class="sympad">listCategoryAttributes</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves category attributes. See catalog-category-attribute-list SOAP
+ method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of attributes
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listCategoryLevels(java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityNoChildren.html">CatalogCategoryEntityNoChildren</a>&gt;
+      </span>
+      <span class="sympad">listCategoryLevels</span>
+      <span class="normal">(String website, String storeView, String parentCategory)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Answers levels of categories for a website, store view and parente category@return</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>website</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parentCategory</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listCategoryProducts(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAssignedProduct.html">CatalogAssignedProduct</a>&gt;
+      </span>
+      <span class="sympad">listCategoryProducts</span>
+      <span class="normal">(int categoryId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Lists product of a given category. See  catalog-category-assignedProducts SOAP method.   </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>categoryId</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the listing of category products
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listInventoryStockItems(java.util.List<java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemEntity.html">CatalogInventoryStockItemEntity</a>&gt;
+      </span>
+      <span class="sympad">listInventoryStockItems</span>
+      <span class="normal">(List&lt;String&gt; products)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>products</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductImageEntity.html">CatalogProductImageEntity</a>&gt;
+      </span>
+      <span class="sympad">listProductAttributeMedia</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String storeViewIdOrCode)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves product image list. See catalog-product-attribute-media-list SOAP
+ method</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeViewIdOrCode</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProductAttributeMediaTypes(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaTypeEntity.html">CatalogProductAttributeMediaTypeEntity</a>&gt;
+      </span>
+      <span class="sympad">listProductAttributeMediaTypes</span>
+      <span class="normal">(int setId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve product image types. See catalog-product-attribute-media-types SOAP
+ method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>setId</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProductAttributeOptions(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeOptionEntity.html">CatalogAttributeOptionEntity</a>&gt;
+      </span>
+      <span class="sympad">listProductAttributeOptions</span>
+      <span class="normal">(String attributeId, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Answers the product attribute options. See catalog-product-attribute-options
+ SOAP method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>attributeId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the attributes list
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProductAttributeSets()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductAttributeSetEntity.html">CatalogProductAttributeSetEntity</a>&gt;
+      </span>
+      <span class="sympad">listProductAttributeSets</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves product attribute sets. See catalog-product-attribute-set-list SOAP
+ method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The list of product attributes sets
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProductAttributeTierPrices(org.mule.module.magento.api.catalog.model.ProductIdentifier)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a>&gt;
+      </span>
+      <span class="sympad">listProductAttributeTierPrices</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve product tier prices. See catalog-product-attribute-tier-price-info
+ SOAP Method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of product attributes
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProductAttributes(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogAttributeEntity.html">CatalogAttributeEntity</a>&gt;
+      </span>
+      <span class="sympad">listProductAttributes</span>
+      <span class="normal">(int setId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves product attributes list. See catalog-product-attribute-list SOAP
+ methods</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>setId</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of product attributes
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a>&gt;
+      </span>
+      <span class="sympad">listProductLink</span>
+      <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Lists linked products to the given product and for the given link type</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>type</td>
+          <td>The link type</td>
+        </tr>
+        <tr>
+          <th>productId</td>
+          <td>The linked product</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of links to the product
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProductLinkAttributes(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductLinkAttributeEntity.html">CatalogProductLinkAttributeEntity</a>&gt;
+      </span>
+      <span class="sympad">listProductLinkAttributes</span>
+      <span class="normal">(String type)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Lists all the attributes for the given product link type</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>type</td>
+          <td>The product type</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the listing of product attributes
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProductLinkTypes()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;String&gt;
+      </span>
+      <span class="sympad">listProductLinkTypes</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve product link types</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of product link types
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProductTypes()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductTypeEntity.html">CatalogProductTypeEntity</a>&gt;
+      </span>
+      <span class="sympad">listProductTypes</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves product types. See catalog-product-type-list SOAP method</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of product types
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="listProducts(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../../java/com/magento/api/CatalogProductEntity.html">CatalogProductEntity</a>&gt;
+      </span>
+      <span class="sympad">listProducts</span>
+      <span class="normal">(String filters, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve products list by filters
+ See catalog-product-list SOAP method. </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>filters</td>
+          <td>An optional filtering expression</td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td>An optional storeView</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of product attributes that match the given optional filtering expression
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="moveCategory(int, int, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">moveCategory</span>
+      <span class="normal">(int categoryId, int parentId, String afterId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Move category in tree. See  catalog-category-move SOAP method. </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>categoryId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>parentId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>afterId</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="updateCatalogCurrentStoreView(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">updateCatalogCurrentStoreView</span>
+      <span class="normal">(String storeViewIdOrCode)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set the default catalog store view for this session</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>storeViewIdOrCode</td>
+          <td>The id or code of the store view to set as default
+            for this session
+</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="updateCategory(int, com.magento.api.CatalogCategoryEntityCreate, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">updateCategory</span>
+      <span class="normal">(int categoryId, <a href="../../../../../../../java/com/magento/api/CatalogCategoryEntityCreate.html">CatalogCategoryEntityCreate</a> attributes, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Updates a category. See catalog-category-update SOAP method</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>categoryId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributes</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="updateCategoryProduct(int, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">updateCategoryProduct</span>
+      <span class="normal">(int categoryId, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String position)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>categoryId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>position</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="updateInventoryStockItem(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogInventoryStockItemUpdateEntity)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">updateInventoryStockItem</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogInventoryStockItemUpdateEntity.html">CatalogInventoryStockItemUpdateEntity</a> attributes)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Updates an stock inventory item</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributes</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="updateProduct(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductCreateEntity, java.util.List<com.magento.api.AssociativeEntity>, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">updateProduct</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductCreateEntity.html">CatalogProductCreateEntity</a> attributes, List&lt;<a href="../../../../../../../java/com/magento/api/AssociativeEntity.html">AssociativeEntity</a>&gt; additionalAttributes, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Updates a product. At least one of attributes or additionalAttributes 
+ must be non null and non empty. See catalog-category-updateProduct SOAP method</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributes</td>
+          <td>Attributes to update</td>
+        </tr>
+        <tr>
+          <th>additionalAttributes</td>
+          <td>Non standard product attributes to update
+</td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="updateProductAttributeMedia(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductAttributeMediaCreateEntity, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">updateProductAttributeMedia</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String fileName, <a href="../../../../../../../java/com/magento/api/CatalogProductAttributeMediaCreateEntity.html">CatalogProductAttributeMediaCreateEntity</a> attributes, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Updates product media. See catalog-product-attribute-media-update</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>fileName</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributes</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="updateProductAttributeTierPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, com.magento.api.CatalogProductTierPriceEntity)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">updateProductAttributeTierPrice</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, <a href="../../../../../../../java/com/magento/api/CatalogProductTierPriceEntity.html">CatalogProductTierPriceEntity</a> attributes)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Updates a single product tier price. See catalog-product-attribute-tier-price-update
+ SOAP method.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributes</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="updateProductLink(java.lang.String, org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, com.magento.api.CatalogProductLinkEntity)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">updateProductLink</span>
+      <span class="normal">(String type, <a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String linkedProduct, <a href="../../../../../../../java/com/magento/api/CatalogProductLinkEntity.html">CatalogProductLinkEntity</a> attributes)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Update product link</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>type</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>linkedProduct</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>attributes</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="updateProductSpecialPrice(org.mule.module.magento.api.catalog.model.ProductIdentifier, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">updateProductSpecialPrice</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/module/magento/api/catalog/model/ProductIdentifier.html">ProductIdentifier</a> productId, String specialPrice, String fromDate, String toDate, String storeView)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets a product special price. See catalog-product-setSpecialPrice  SOAP method</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>productId</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>specialPrice</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>fromDate</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>toDate</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>storeView</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>RemoteException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>
