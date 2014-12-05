@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Priority;
 import org.mule.api.ConnectionException;
 import org.mule.api.ConnectionExceptionCode;
 import org.mule.api.annotations.Connect;
@@ -116,7 +117,10 @@ public class MagentoCloudConnector {
         try {
             getCatalogCurrentStoreView();
         } catch (Exception e) {
-            throw new ConnectionException(ConnectionExceptionCode.INCORRECT_CREDENTIALS, null, e.getMessage());
+            final ConnectionException connectionException = new ConnectionException(ConnectionExceptionCode.INCORRECT_CREDENTIALS, null, e.getMessage());
+            connectionException.initCause(e);
+            throw connectionException;
+
         }
     }
 
