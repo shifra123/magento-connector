@@ -117,7 +117,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  MagentoCloudConnectorConnectionKey
+  MagentoCloudConnectorManagedConnectionProcessTemplate
 
 
 | Mule Magento Connector
@@ -309,9 +309,9 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionFactory.html">MagentoCloudConnectorConnectionFactory</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html">MagentoCloudConnectorConnectionKey</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html">MagentoCloudConnectorConnectionKey</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionManager.html">MagentoCloudConnectorConnectionManager</a></li>
-          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/magento/connectivity/MagentoCloudConnectorManagedConnectionProcessTemplate.html">MagentoCloudConnectorManagedConnectionProcessTemplate</a>&lt;P&gt;</li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/module/magento/connectivity/MagentoCloudConnectorManagedConnectionProcessTemplate.html">MagentoCloudConnectorManagedConnectionProcessTemplate</a>&lt;P&gt;</li>
       </ul>
     </li>
               
@@ -354,6 +354,13 @@
 <div id="api-info-block">
 
 
+
+  
+   
+  
+  
+  
+  
 
   
    
@@ -413,7 +420,7 @@ Summary:
      
     
     class
-<h1>MagentoCloudConnectorConnectionKey</h1>
+<h1>MagentoCloudConnectorManagedConnectionProcessTemplate</h1>
 
 
 
@@ -424,6 +431,11 @@ Summary:
   
 
   
+  
+      implements 
+      
+        ProcessTemplate&lt;T,&nbsp;O&gt; 
+      
   
   
 
@@ -446,7 +458,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.connectivity.MagentoCloudConnectorConnectionKey</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.magento.connectivity.MagentoCloudConnectorManagedConnectionProcessTemplate&lt;P&gt;</td>
     </tr>
     
 
@@ -460,11 +472,6 @@ Summary:
 
 <div class="jd-descr">
 
-
-<h2>Class Overview</h2>
-<p>A tuple of connection parameters
- 
-</p>
 
 
 
@@ -518,31 +525,9 @@ Summary:
           <td class="jd-typecol"><nobr>
           private
           
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#address">address</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#password">password</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          private
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#username">username</a></td>
+          final
+          ProcessInterceptor&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorConnectionIdentifierAdapter.html">MagentoCloudConnectorConnectionIdentifierAdapter</a>&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorManagedConnectionProcessTemplate.html#processInterceptor">processInterceptor</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -572,7 +557,7 @@ Summary:
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#MagentoCloudConnectorConnectionKey(java.lang.String, java.lang.String, java.lang.String)">MagentoCloudConnectorConnectionKey</a></span>(String username, String password, String address)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorManagedConnectionProcessTemplate.html#MagentoCloudConnectorManagedConnectionProcessTemplate(org.mule.module.magento.connection.ConnectionManager<org.mule.module.magento.connectivity.MagentoCloudConnectorConnectionKey, org.mule.module.magento.adapters.MagentoCloudConnectorConnectionIdentifierAdapter>, org.mule.api.MuleContext)">MagentoCloudConnectorManagedConnectionProcessTemplate</a></span>(<a href="../../../../../../java/org/mule/module/magento/connection/ConnectionManager.html">ConnectionManager</a>&lt;<a href="../../../../../../java/org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html">MagentoCloudConnectorConnectionKey</a>,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorConnectionIdentifierAdapter.html">MagentoCloudConnectorConnectionIdentifierAdapter</a>&gt; connectionManager, MuleContext muleContext)</nobr>
         
   </td></tr>
 
@@ -598,10 +583,10 @@ Summary:
             
             
             
-            boolean</nobr>
+            P</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#equals(java.lang.Object)">equals</a></span>(Object o)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorManagedConnectionProcessTemplate.html#execute(org.mule.security.oauth.callback.ProcessCallback<P, org.mule.module.magento.adapters.MagentoCloudConnectorConnectionIdentifierAdapter>, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)">execute</a></span>(ProcessCallback&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorConnectionIdentifierAdapter.html">MagentoCloudConnectorConnectionIdentifierAdapter</a>&gt; processCallback, MessageProcessor messageProcessor, MuleEvent event)</nobr>
         
   </td></tr>
 
@@ -614,125 +599,11 @@ Summary:
             
             
             
-            String</nobr>
+            P</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#getAddress()">getAddress</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorManagedConnectionProcessTemplate.html#execute(org.mule.security.oauth.callback.ProcessCallback<P, org.mule.module.magento.adapters.MagentoCloudConnectorConnectionIdentifierAdapter>, org.mule.api.routing.filter.Filter, org.mule.api.MuleMessage)">execute</a></span>(ProcessCallback&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorConnectionIdentifierAdapter.html">MagentoCloudConnectorConnectionIdentifierAdapter</a>&gt; processCallback, Filter filter, MuleMessage message)</nobr>
         
-        <div class="jd-descrdiv">Retrieves address
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#getPassword()">getPassword</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Retrieves password
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#getUsername()">getUsername</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Retrieves username
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            int</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#hashCode()">hashCode</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#setAddress(java.lang.String)">setAddress</a></span>(String value)</nobr>
-        
-        <div class="jd-descrdiv">Sets address</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#setPassword(java.lang.String)">setPassword</a></span>(String value)</nobr>
-        
-        <div class="jd-descrdiv">Sets password</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html#setUsername(java.lang.String)">setUsername</a></span>(String value)</nobr>
-        
-        <div class="jd-descrdiv">Sets username</div>
-  
   </td></tr>
 
 
@@ -952,6 +823,64 @@ From class
 </td></tr>
 
 
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.devkit.ProcessTemplate" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.devkit.ProcessTemplate-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.api.devkit.ProcessTemplate
+
+<div id="inherited-methods-org.mule.api.devkit.ProcessTemplate">
+  <div id="inherited-methods-org.mule.api.devkit.ProcessTemplate-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.api.devkit.ProcessTemplate-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            T</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">execute</span>(ProcessCallback&lt;T,&nbsp;O&gt; arg0, Filter arg1, MuleMessage arg2)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            T</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">execute</span>(ProcessCallback&lt;T,&nbsp;O&gt; arg0, MessageProcessor arg1, MuleEvent arg2)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -984,77 +913,17 @@ From class
 
 
 
-<A NAME="address"></A>
+<A NAME="processInterceptor"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         private 
          
-         
-        String
+        final 
+        ProcessInterceptor&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorConnectionIdentifierAdapter.html">MagentoCloudConnectorConnectionIdentifierAdapter</a>&gt;
       </span>
-        address
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="password"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        String
-      </span>
-        password
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="username"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        String
-      </span>
-        username
+        processInterceptor
     </h4>
       <div class="api-level">
         
@@ -1083,7 +952,7 @@ From class
 
 
 
-<A NAME="MagentoCloudConnectorConnectionKey(java.lang.String, java.lang.String, java.lang.String)"></A>
+<A NAME="MagentoCloudConnectorManagedConnectionProcessTemplate(org.mule.module.magento.connection.ConnectionManager<org.mule.module.magento.connectivity.MagentoCloudConnectorConnectionKey, org.mule.module.magento.adapters.MagentoCloudConnectorConnectionIdentifierAdapter>, org.mule.api.MuleContext)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1095,8 +964,8 @@ From class
          
         
       </span>
-      <span class="sympad">MagentoCloudConnectorConnectionKey</span>
-      <span class="normal">(String username, String password, String address)</span>
+      <span class="sympad">MagentoCloudConnectorManagedConnectionProcessTemplate</span>
+      <span class="normal">(<a href="../../../../../../java/org/mule/module/magento/connection/ConnectionManager.html">ConnectionManager</a>&lt;<a href="../../../../../../java/org/mule/module/magento/connectivity/MagentoCloudConnectorConnectionKey.html">MagentoCloudConnectorConnectionKey</a>,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorConnectionIdentifierAdapter.html">MagentoCloudConnectorConnectionIdentifierAdapter</a>&gt; connectionManager, MuleContext muleContext)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1113,15 +982,11 @@ From class
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>username</td>
+          <th>connectionManager</td>
           <td></td>
         </tr>
         <tr>
-          <th>password</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>address</td>
+          <th>muleContext</td>
           <td></td>
         </tr>
       </table>
@@ -1146,7 +1011,7 @@ From class
 
 
 
-<A NAME="equals(java.lang.Object)"></A>
+<A NAME="execute(org.mule.security.oauth.callback.ProcessCallback<P, org.mule.module.magento.adapters.MagentoCloudConnectorConnectionIdentifierAdapter>, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1156,10 +1021,10 @@ From class
          
          
          
-        boolean
+        P
       </span>
-      <span class="sympad">equals</span>
-      <span class="normal">(Object o)</span>
+      <span class="sympad">execute</span>
+      <span class="normal">(ProcessCallback&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorConnectionIdentifierAdapter.html">MagentoCloudConnectorConnectionIdentifierAdapter</a>&gt; processCallback, MessageProcessor messageProcessor, MuleEvent event)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1176,17 +1041,34 @@ From class
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>o</td>
+          <th>processCallback</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>messageProcessor</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>event</td>
           <td></td>
         </tr>
       </table>
   </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>Exception</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
 
 
-<A NAME="getAddress()"></A>
+<A NAME="execute(org.mule.security.oauth.callback.ProcessCallback<P, org.mule.module.magento.adapters.MagentoCloudConnectorConnectionIdentifierAdapter>, org.mule.api.routing.filter.Filter, org.mule.api.MuleMessage)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1196,109 +1078,10 @@ From class
          
          
          
-        String
+        P
       </span>
-      <span class="sympad">getAddress</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Retrieves address
- 
-</p></div>
-
-    </div>
-</div>
-
-
-<A NAME="getPassword()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">getPassword</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Retrieves password
- 
-</p></div>
-
-    </div>
-</div>
-
-
-<A NAME="getUsername()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">getUsername</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Retrieves username
- 
-</p></div>
-
-    </div>
-</div>
-
-
-<A NAME="hashCode()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        int
-      </span>
-      <span class="sympad">hashCode</span>
-      <span class="normal">()</span>
+      <span class="sympad">execute</span>
+      <span class="normal">(ProcessCallback&lt;P,&nbsp;<a href="../../../../../../java/org/mule/module/magento/adapters/MagentoCloudConnectorConnectionIdentifierAdapter.html">MagentoCloudConnectorConnectionIdentifierAdapter</a>&gt; processCallback, Filter filter, MuleMessage message)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1311,126 +1094,29 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<A NAME="setAddress(java.lang.String)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setAddress</span>
-      <span class="normal">(String value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets address</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
+          <th>processCallback</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>filter</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>message</td>
+          <td></td>
         </tr>
       </table>
   </div>
-
-    </div>
-</div>
-
-
-<A NAME="setPassword(java.lang.String)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setPassword</span>
-      <span class="normal">(String value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets password</p></div>
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
         <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setUsername(java.lang.String)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setUsername</span>
-      <span class="normal">(String value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets username</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
+            <th>Exception</td>
+            <td></td>
         </tr>
       </table>
   </div>
