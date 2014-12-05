@@ -9,6 +9,8 @@
 package org.mule.module.magento;
 
 import com.magento.api.*;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 import org.mule.api.ConnectionException;
 import org.mule.api.ConnectionExceptionCode;
 import org.mule.api.annotations.*;
@@ -61,6 +63,8 @@ public class MagentoCloudConnector {
     private MagentoDirectoryClient<MagentoException> directoryClient;
     private MagentoCatalogClient<MagentoException> catalogClient;
     private MagentoShoppingCartClient<MagentoException> shoppingCartClient;
+    private static final Logger logger = Logger.getLogger(MagentoCloudConnector.class);
+
 
     /**
      *
@@ -95,7 +99,10 @@ public class MagentoCloudConnector {
         try {
             getCatalogCurrentStoreView();
         } catch (Exception e) {
-            throw new ConnectionException(ConnectionExceptionCode.INCORRECT_CREDENTIALS, null, e.getMessage());
+            logger.log(Priority.ERROR,e);
+            final ConnectionException connectionException = new ConnectionException(ConnectionExceptionCode.INCORRECT_CREDENTIALS, null, e.getMessage());
+            connectionException.initCause(e);
+            throw connectionException;
         }
     }
 
