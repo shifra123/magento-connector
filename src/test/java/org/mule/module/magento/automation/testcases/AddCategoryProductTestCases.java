@@ -8,85 +8,60 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class AddCategoryProductTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context
-					.getBean("addCategoryProduct");
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("addCategoryProduct");
 
-			MessageProcessor createCategoryFlow = lookupFlowConstruct("create-category");
-			MuleEvent res = createCategoryFlow
-					.process(getTestEvent(testObjects));
-			Integer categoryId = (Integer) res.getMessage().getPayload();
-			testObjects.put("categoryId", categoryId);
+        Integer categoryId = runFlowAndGetPayload("create-category");
+        upsertOnTestRunMessage("categoryId", categoryId);
 
-			MessageProcessor createProductFlow = lookupFlowConstruct("create-product");
-			MuleEvent res2 = createProductFlow
-					.process(getTestEvent(testObjects));
-			Integer productId = (Integer) res2.getMessage().getPayload();
-			testObjects.put("productId", productId);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+        Integer productId = runFlowAndGetPayload("create-product");
+        upsertOnTestRunMessage("productId", productId);
+    }
 
-	@Category({ SmokeTests.class, RegressionTests.class })
-	@Test
-	public void testAddCategoryProduct() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("add-category-product");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+    @Category({SmokeTests.class, RegressionTests.class})
+    @Test
+    public void testAddCategoryProduct() {
+        try {
+            Boolean result = runFlowAndGetPayload("add-category-product");
+            assertTrue(result);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
 
-			Boolean result = (Boolean) response.getMessage().getPayload();
-			assertTrue(result);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @Category({SmokeTests.class, RegressionTests.class})
+    @Test
+    public void testAddCategoryProduct_without_position() {
+        try {
+            Boolean result = runFlowAndGetPayload("add-category-product-without-position");
+            assertTrue(result);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
 
-	@Category({ SmokeTests.class, RegressionTests.class })
-	@Test
-	public void testAddCategoryProduct_without_position() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("add-category-product-without-position");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-
-			Boolean result = (Boolean) response.getMessage().getPayload();
-			assertTrue(result);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			int productId = (Integer) testObjects.get("productId");
-			int categoryId = (Integer) testObjects.get("categoryId");
-			deleteProductById(productId);
-			deleteCategory(categoryId);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @After
+    public void tearDown() {
+        try {
+            int productId = getTestRunMessageValue("productId");
+            int categoryId = getTestRunMessageValue("categoryId");
+            deleteProductById(productId);
+            deleteCategory(categoryId);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
 
 }

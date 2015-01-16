@@ -22,13 +22,12 @@ import org.mule.api.processor.MessageProcessor;
 
 public class AddProductLinkTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("addProductLink");
+			initializeTestRunMessage("addProductLink");
 
-			MessageProcessor createProductFlow = lookupFlowConstruct("create-product");
+			MessageProcessor createProductFlow = runFlowAndGetPayload("create-product");
 			MuleEvent res = createProductFlow.process(getTestEvent(testObjects));
 			Integer productId = (Integer) res.getMessage().getPayload();
 			testObjects.put("productId", productId);

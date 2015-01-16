@@ -29,21 +29,20 @@ import com.magento.api.ShoppingCartCustomerAddressEntity;
 import com.magento.api.ShoppingCartCustomerEntity;
 import com.magento.api.ShoppingCartPaymentMethodEntity;
 import com.magento.api.ShoppingCartProductEntity;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 public class AddOrderShipmentCommentTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
 	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("addOrderShipmentComment");
+	public void setUp() throws Exception {
+			initializeTestRunMessage("addOrderShipmentComment");
 			
-			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
-			List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
-			String shippingMethod = testObjects.get("shippingMethod").toString();
-			ShoppingCartPaymentMethodEntity paymentMethod = (ShoppingCartPaymentMethodEntity) testObjects.get("paymentMethod");
+			ShoppingCartCustomerEntity customer = getTestRunMessageValue("customer");
+			List<ShoppingCartCustomerAddressEntity> addresses = getTestRunMessageValue("customerAddresses");
+			String shippingMethod = getTestRunMessageValue("shippingMethod");
+			ShoppingCartPaymentMethodEntity paymentMethod = getTestRunMessageValue("paymentMethod");
 			
-			List<HashMap<String, Object>> products = (List<HashMap<String, Object>>) testObjects.get("products");
+			List<HashMap<String, Object>> products = getTestRunMessageValue("products");
 			List<ShoppingCartProductEntity> shoppingCartProducts = new ArrayList<ShoppingCartProductEntity>();
 			List<Integer> productIds = new ArrayList<Integer>();
 			
@@ -69,14 +68,14 @@ public class AddOrderShipmentCommentTestCases extends MagentoTestParent {
 				shoppingCartProducts.add(shoppingCartProduct);
 				productIds.add(productId);
 			}
-			testObjects.put("productIds", productIds);
-			testObjects.put("shoppingCartProducts", shoppingCartProducts);
 
-			String storeId = testObjects.get("storeId").toString();
+			upsertOnTestRunMessage("shoppingCartProducts", shoppingCartProducts);
+
+			String storeId = getTestRunMessageValue("storeId");
 			int quoteId = createShoppingCart(storeId);
 			
 			String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
-			testObjects.put("orderId", orderId);
+			upsertOnTestRunMessage("orderId", orderId);
 			
 			List<OrderItemIdQty> quantities = new ArrayList<OrderItemIdQty>();
 			
@@ -86,43 +85,34 @@ public class AddOrderShipmentCommentTestCases extends MagentoTestParent {
 			}
 			
 			String shipmentId = createOrderShipment(orderId, quantities);
-			testObjects.put("shipmentId", shipmentId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}	
+			initializeTestRunMessage("addOrderShipmentComment");
+			upsertOnTestRunMessage("productIds", productIds);
+			upsertOnTestRunMessage("shipmentId", shipmentId);
+	}
 	
 	@Category({RegressionTests.class})
 	@Test
 	public void testAddOrderShipmentComment() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("add-order-shipment-comment");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			Boolean result = (Boolean) response.getMessage().getPayload();
+			Boolean result = runFlowAndGetPayload("add-order-shipment-comment");
 			assertTrue(result);
 		}
 		catch (Exception e) {
-			e.printStackTrace();
-			fail();
+			fail(ConnectorTestUtils.getStackTrace(e));
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {
-			List<Integer> productIds = (List<Integer>) testObjects.get("productIds");
+			List<Integer> productIds = getTestRunMessageValue("productIds");
 			for (Integer productId : productIds) {
 				deleteProductById(productId);
 			}	
 			clearSalesTables();
 		}
 		catch (Exception e) {
-			e.printStackTrace();
-			fail();
+			fail(ConnectorTestUtils.getStackTrace(e));
 		}
 	}
 	
