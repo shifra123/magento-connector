@@ -8,56 +8,37 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
+import com.magento.api.CatalogCategoryEntityCreate;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CatalogCategoryEntityCreate;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class DeleteCategoryTestCases extends MagentoTestParent {
 
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("deleteCategory");
-			
-			int parentId = (Integer) testObjects.get("parentId");
-			CatalogCategoryEntityCreate category = (CatalogCategoryEntityCreate) testObjects.get("catalogCategoryEntityRef");
-			
-			Integer categoryId = createCategory(parentId, category);
-			
-			testObjects.put("categoryId", categoryId);			
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({SmokeTests.class, RegressionTests.class})
-	@Test
-	public void testDeleteCategory() {
-		try {
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("deleteCategory");
 
-			MessageProcessor flow = lookupFlowConstruct("delete-category");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			boolean result = (Boolean) response.getMessage().getPayload();
-						
-			assertTrue(result);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
+        int parentId = getTestRunMessageValue("parentId");
+        CatalogCategoryEntityCreate category = getTestRunMessageValue("catalogCategoryEntityRef");
+        Integer categoryId = createCategory(parentId, category);
+        upsertOnTestRunMessage("categoryId", categoryId);
+    }
+
+    @Category({SmokeTests.class, RegressionTests.class})
+    @Test
+    public void testDeleteCategory() {
+        try {
+            Boolean response = runFlowAndGetPayload("delete-category");
+            assertTrue(response);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
 }

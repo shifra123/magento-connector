@@ -8,74 +8,49 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
+import com.magento.api.CatalogProductCreateEntity;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CatalogProductCreateEntity;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class DeleteCategoryProductTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("deleteCategoryProduct");
-			
-			MessageProcessor createCategoryFlow = lookupFlowConstruct("create-category");
-			MuleEvent res =  createCategoryFlow.process(getTestEvent(testObjects));
-			Integer categoryId = (Integer) res.getMessage().getPayload();
-			testObjects.put("categoryId", categoryId);
-			
-			CatalogProductCreateEntity catalogProductCreateEntity = (CatalogProductCreateEntity) testObjects.get("attributesRef");
-			catalogProductCreateEntity.setCategory_ids(new String[] { String.valueOf(categoryId) } );
-			
-			MessageProcessor createProductFlow = lookupFlowConstruct("create-product");
-			MuleEvent res2 = createProductFlow.process(getTestEvent(testObjects));
-			Integer productId = (Integer) res2.getMessage().getPayload();
-			testObjects.put("productId", productId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({RegressionTests.class})
-	@Test
-	public void testDeleteCategoryProduct() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("delete-category-product");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			assertTrue((Boolean) response.getMessage().getPayload());
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			int productId = (Integer) testObjects.get("productId");
-			int categoryId = (Integer) testObjects.get("categoryId");
-			deleteProductById(productId);
-			deleteCategory(categoryId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("deleteCategoryProduct");
+
+        Integer categoryId = runFlowAndGetPayload("create-category");
+        upsertOnTestRunMessage("categoryId", categoryId);
+
+        CatalogProductCreateEntity catalogProductCreateEntity = getTestRunMessageValue("attributesRef");
+        catalogProductCreateEntity.setCategory_ids(new String[]{String.valueOf(categoryId)});
+        Integer productId = runFlowAndGetPayload("create-product");
+        upsertOnTestRunMessage("productId", productId);
+
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testDeleteCategoryProduct() {
+        try {
+            Boolean response = runFlowAndGetPayload("delete-category-product");
+            assertTrue(response);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        int productId = getTestRunMessageValue("productId");
+        int categoryId = getTestRunMessageValue("categoryId");
+        deleteProductById(productId);
+        deleteCategory(categoryId);
+    }
+
 }
