@@ -8,80 +8,52 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import java.io.InputStream;
-import java.util.HashMap;
-
+import com.magento.api.CatalogProductImageEntity;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CatalogProductImageEntity;
+import java.io.InputStream;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class GetProductAttributeMediaTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	// This test depends on there being an img.gif file in the classpath (when writing this test there was such a file in src/test/resources).
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("getProductAttributeMedia");
-			MessageProcessor createProductFlow = lookupFlowConstruct("create-product");
-			MuleEvent response = createProductFlow.process(getTestEvent(testObjects));
-			response.getMessage().getPayload();
-			
-			testObjects.put("productId", response.getMessage().getPayload());
-			
-			MessageProcessor flow = lookupFlowConstruct("create-product-attribute-media");
-			InputStream is = this.getClass().getClassLoader().getResourceAsStream("img.gif");
-			MuleEvent event = getTestEvent(is);
-			
-			for(String key : testObjects.keySet()) {
-				event.setFlowVariable(key, testObjects.get(key));
-			}
-			
-			MuleEvent responseFileName = flow.process(event);
-			String newImageFilename = (String) responseFileName.getMessage().getPayload();
-			
-			testObjects.put("fileName", newImageFilename);
-			
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({RegressionTests.class})
-	@Test
-	public void testGetProductAttributeMedia() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("get-product-attribute-media");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			CatalogProductImageEntity result = (CatalogProductImageEntity) response.getMessage().getPayload();
-			assertNotNull(result);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			int productId = (Integer) testObjects.get("productId");
-			deleteProductById(productId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
+    Integer productId;
+
+    @Before
+    // This test depends on there being an img.gif file in the classpath
+    // (when writing this test there was such a file in src/test/resources).
+    public void setUp() throws Exception {
+        initializeTestRunMessage("getProductAttributeMedia");
+        productId = runFlowAndGetPayload("create-product");
+
+
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream("img.gif");
+        upsertPayloadContentOnTestRunMessage(is);
+        String newImageFilename = runFlowAndGetPayload("create-product-attribute-media");
+        upsertOnTestRunMessage("fileName", newImageFilename);
+        upsertOnTestRunMessage("productId", productId);
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testGetProductAttributeMedia() {
+        try {
+            CatalogProductImageEntity result = runFlowAndGetPayload("get-product-attribute-media");
+            assertNotNull(result);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        int productId = getTestRunMessageValue("productId");
+        deleteProductById(productId);
+    }
+
 }

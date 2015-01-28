@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.mule.tools.devkit</groupId>
 		<artifactId>mule-devkit-parent</artifactId>
-		<version>3.5.2</version>
+		<version>3.6.0</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -34,6 +34,7 @@
 						<goals>
 							<goal>javacc</goal>
 						</goals>
+						<phase>validate</phase>
 					</execution>
 				</executions>
 			</plugin>
