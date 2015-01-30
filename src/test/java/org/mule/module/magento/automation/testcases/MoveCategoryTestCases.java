@@ -8,73 +8,53 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
+import com.magento.api.CatalogCategoryEntityCreate;
+import com.magento.api.CatalogCategoryInfo;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CatalogCategoryEntityCreate;
-import com.magento.api.CatalogCategoryInfo;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class MoveCategoryTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("moveCategory");
-			
-			int beforeParentId = (Integer) testObjects.get("beforeParentId");
-			
-			CatalogCategoryEntityCreate category = (CatalogCategoryEntityCreate) testObjects.get("category");
-			int categoryId = createCategory(beforeParentId, category);
-			
-			testObjects.put("categoryId", categoryId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({RegressionTests.class})
-	@Test
-	public void testMoveCategory() {
-		try {
-			int categoryId = (Integer) testObjects.get("categoryId");
-			int afterParentId = (Integer) testObjects.get("afterParentId");
-			
-			testObjects.put("parentId", afterParentId);
-			
-			MessageProcessor flow = lookupFlowConstruct("move-category");
-			flow.process(getTestEvent(testObjects));
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("moveCategory");
 
-			CatalogCategoryInfo movedCategory = getCategory(categoryId);
-			assertTrue(movedCategory.getCategory_id().equals(Integer.toString(categoryId)));
-			assertTrue(movedCategory.getParent_id().equals(Integer.toString(afterParentId)));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			int categoryId = (Integer) testObjects.get("categoryId");
-			deleteCategory(categoryId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
+        int beforeParentId = getTestRunMessageValue("beforeParentId");
+
+        CatalogCategoryEntityCreate category = getTestRunMessageValue("category");
+        int categoryId = createCategory(beforeParentId, category);
+
+        initializeTestRunMessage("moveCategory");
+        upsertOnTestRunMessage("categoryId", categoryId);
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testMoveCategory() {
+        try {
+            int categoryId = getTestRunMessageValue("categoryId");
+            int afterParentId = getTestRunMessageValue("afterParentId");
+
+            upsertOnTestRunMessage("parentId", afterParentId);
+
+            CatalogCategoryInfo movedCategory = runFlowAndGetPayload("move-category");
+            assertTrue(movedCategory.getCategory_id().equals(Integer.toString(categoryId)));
+            assertTrue(movedCategory.getParent_id().equals(Integer.toString(afterParentId)));
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        int categoryId = getTestRunMessageValue("categoryId");
+        deleteCategory(categoryId);
+    }
+
 }

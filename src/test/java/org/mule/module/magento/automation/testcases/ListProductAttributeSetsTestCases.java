@@ -8,34 +8,27 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import com.magento.api.CatalogProductAttributeSetEntity;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import java.util.List;
 
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
-
-import com.magento.api.CatalogProductAttributeSetEntity;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class ListProductAttributeSetsTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Category({RegressionTests.class })
-	@Test
-	public void testListProductAttributeSets() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("list-product-attribute-sets");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			List<CatalogProductAttributeSetEntity> catalogProductAttributeSetEntities = (List<CatalogProductAttributeSetEntity>) response
-					.getMessage().getPayload();
-			assertNotNull(catalogProductAttributeSetEntities);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @Category({RegressionTests.class})
+    @Test
+    public void testListProductAttributeSets() {
+        try {
+            List<CatalogProductAttributeSetEntity> catalogProductAttributeSetEntities =
+                    runFlowAndGetPayload("list-product-attribute-sets");
+            assertNotNull(catalogProductAttributeSetEntities);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
 }

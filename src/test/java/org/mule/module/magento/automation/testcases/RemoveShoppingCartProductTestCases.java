@@ -8,110 +8,89 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import com.magento.api.CatalogProductCreateEntity;
+import com.magento.api.CatalogProductEntity;
+import com.magento.api.ShoppingCartProductEntity;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
-
-import com.magento.api.CatalogProductCreateEntity;
-import com.magento.api.CatalogProductEntity;
-import com.magento.api.ShoppingCartProductEntity;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class RemoveShoppingCartProductTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("removeShoppingCartProduct");
+    @SuppressWarnings("unchecked")
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("removeShoppingCartProduct");
 
-			List<HashMap<String, Object>> productDefinitions = (List<HashMap<String, Object>>) testObjects.get("products");
-			
-			List<ShoppingCartProductEntity> shoppingCartEntities = new ArrayList<ShoppingCartProductEntity>();
-			List<Integer> productIds = new ArrayList<Integer>();
-			
-			// Iterate over each product definition and insert
-			for (HashMap<String, Object> productDefinition : productDefinitions) {
-				String productType = (String) productDefinition.get("type");
-				int productSet = (Integer) productDefinition.get("set");
-				String productSKU = (String) productDefinition.get("sku");
-				CatalogProductCreateEntity attributes = (CatalogProductCreateEntity) productDefinition.get("attributesRef");
-			
-				// Get the product ID and the number of items we want to place in the shopping cart
-				int productId = createProduct(productType, productSet, productSKU, attributes);
-				double qtyToPurchase = (Double) productDefinition.get("qtyToPurchase");
-				
-				productIds.add(productId);
-				
-				ShoppingCartProductEntity shoppingCartEntity = new ShoppingCartProductEntity();
-				shoppingCartEntity.setProduct_id(productId + "");
-				shoppingCartEntity.setQty(qtyToPurchase);
-								
-				shoppingCartEntities.add(shoppingCartEntity);
-			}
-			testObjects.put("productIds", productIds);
-			
-			// Create the shopping cart
-			String storeId = testObjects.get("storeId").toString();
-			int shoppingCartId = createShoppingCart(storeId);
-			testObjects.put("quoteId", shoppingCartId);
+        List<HashMap<String, Object>> productDefinitions = getTestRunMessageValue("products");
 
-			addProductsToShoppingCart(shoppingCartId, shoppingCartEntities);
-			testObjects.put("shoppingCartEntities", shoppingCartEntities);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Category({RegressionTests.class})
-	@Test
-	public void testRemoveShoppingCartProduct() {
-		try {
-			List<ShoppingCartProductEntity> products = (List<ShoppingCartProductEntity>) testObjects.get("shoppingCartEntities");
-			testObjects.put("productsRef", products);
-			
-			MessageProcessor flow = lookupFlowConstruct("remove-shopping-cart-product");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			boolean result = (Boolean) response.getMessage().getPayload();
-			assertTrue(result);
-			
-			flow = lookupFlowConstruct("list-shopping-cart-products");
-			response = flow.process(getTestEvent(testObjects));
-			
-			List<CatalogProductEntity> shoppingCartProducts = (List<CatalogProductEntity>) response.getMessage().getPayload();
-			assertTrue(shoppingCartProducts.isEmpty());
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@SuppressWarnings("unchecked")
-	@After
-	public void tearDown() {
-		try {
-			List<Integer> productIds = (List<Integer>) testObjects.get("productIds");
-			for (Integer productId : productIds) {
-				deleteProductById(productId);
-			}
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+        List<ShoppingCartProductEntity> shoppingCartEntities = new ArrayList<ShoppingCartProductEntity>();
+        List<Integer> productIds = new ArrayList<Integer>();
+
+        // Iterate over each product definition and insert
+        for (HashMap<String, Object> productDefinition : productDefinitions) {
+            String productType = (String) productDefinition.get("type");
+            int productSet = (Integer) productDefinition.get("set");
+            String productSKU = (String) productDefinition.get("sku");
+            CatalogProductCreateEntity attributes = (CatalogProductCreateEntity) productDefinition.get("attributesRef");
+
+            // Get the product ID and the number of items we want to place in the shopping cart
+            int productId = createProduct(productType, productSet, productSKU, attributes);
+            double qtyToPurchase = (Double) productDefinition.get("qtyToPurchase");
+
+            productIds.add(productId);
+
+            ShoppingCartProductEntity shoppingCartEntity = new ShoppingCartProductEntity();
+            shoppingCartEntity.setProduct_id(productId + "");
+            shoppingCartEntity.setQty(qtyToPurchase);
+
+            shoppingCartEntities.add(shoppingCartEntity);
+        }
+
+
+        // Create the shopping cart
+        String storeId = getTestRunMessageValue("storeId").toString();
+        int shoppingCartId = createShoppingCart(storeId);
+        upsertOnTestRunMessage("quoteId", shoppingCartId);
+
+        addProductsToShoppingCart(shoppingCartId, shoppingCartEntities);
+        initializeTestRunMessage("removeShoppingCartProduct");
+        upsertOnTestRunMessage("shoppingCartEntities", shoppingCartEntities);
+        upsertOnTestRunMessage("productIds", productIds);
+
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testRemoveShoppingCartProduct() {
+        try {
+            List<ShoppingCartProductEntity> products = getTestRunMessageValue("shoppingCartEntities");
+            upsertOnTestRunMessage("productsRef", products);
+
+            boolean result = runFlowAndGetPayload("remove-shopping-cart-product");
+            assertTrue(result);
+
+            List<CatalogProductEntity> shoppingCartProducts = runFlowAndGetPayload("list-shopping-cart-products");
+            assertTrue(shoppingCartProducts.isEmpty());
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        List<Integer> productIds = getTestRunMessageValue("productIds");
+        for (Integer productId : productIds) {
+            deleteProductById(productId);
+        }
+    }
 }

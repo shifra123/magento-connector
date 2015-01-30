@@ -8,52 +8,36 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-import java.util.List;
-
+import com.magento.api.DirectoryRegionEntity;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.DirectoryRegionEntity;
+import java.util.List;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class ListDirectoryRegionsTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("listDirectoryRegions");
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Category({RegressionTests.class})
-	@Test
-	public void testListDirectoryRegions() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("list-directory-regions");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-		
-			List<DirectoryRegionEntity> regions = (List<DirectoryRegionEntity>) response.getMessage().getPayload();
-			assertNotNull(regions);
-			for (DirectoryRegionEntity region : regions) {
-				assertNotNull(region);
-			}
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-		
+    @Before
+    public void setUp() {
+        initializeTestRunMessage("listDirectoryRegions");
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testListDirectoryRegions() {
+        try {
+            List<DirectoryRegionEntity> regions = runFlowAndGetPayload("list-directory-regions");
+            assertNotNull(regions);
+            for (DirectoryRegionEntity region : regions) {
+                assertNotNull(region);
+            }
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
 }

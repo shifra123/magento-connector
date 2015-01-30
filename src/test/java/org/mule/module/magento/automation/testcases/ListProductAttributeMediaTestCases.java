@@ -8,65 +8,41 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-import java.util.List;
-
+import com.magento.api.CatalogProductImageEntity;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CatalogProductImageEntity;
+import java.util.List;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class ListProductAttributeMediaTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("listProductAttributeMedia");
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("listProductAttributeMedia");
+        Integer productId = runFlowAndGetPayload("create-product");
+        upsertOnTestRunMessage("productId", productId);
+    }
 
-			MessageProcessor createProductFlow = lookupFlowConstruct("create-product");
-			MuleEvent res = createProductFlow.process(getTestEvent(testObjects));
-			Integer productId = (Integer) res.getMessage().getPayload();
-			testObjects.put("productId", productId);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @Category({RegressionTests.class})
+    @Test
+    public void testListProductAttributeMedia() {
+        try {
+            List<CatalogProductImageEntity> catalogProductImageEntities = runFlowAndGetPayload("list-product-attribute-media");
+            assertNotNull(catalogProductImageEntities);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
 
-	@SuppressWarnings("unchecked")
-	@Category({RegressionTests.class })
-	@Test
-	public void testListProductAttributeMedia() {
-		try {
-			MessageProcessor listProductLinkFlow = lookupFlowConstruct("list-product-attribute-media");
-			MuleEvent res = listProductLinkFlow.process(getTestEvent(testObjects));
-			List<CatalogProductImageEntity> catalogProductImageEntities = (List<CatalogProductImageEntity>) res.getMessage().getPayload();
-			
-			assertNotNull(catalogProductImageEntities);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-
-	@After
-	public void tearDown() {
-		try {
-			int productId = (Integer) testObjects.get("productId");
-			deleteProductById(productId);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-
+    @After
+    public void tearDown() throws Exception {
+        int productId = getTestRunMessageValue("productId");
+        deleteProductById(productId);
+    }
 }
