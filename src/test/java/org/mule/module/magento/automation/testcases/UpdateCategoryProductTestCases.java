@@ -22,16 +22,13 @@ import org.mule.api.processor.MessageProcessor;
 
 public class UpdateCategoryProductTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context
-					.getBean("updateCategoryProduct");
+			initializeTestRunMessage("updateCategoryProduct");
 
 			MessageProcessor createCategoryFlow = lookupFlowConstruct("create-category");
-			MuleEvent res = createCategoryFlow
-					.process(getTestEvent(testObjects));
+			MuleEvent res = createCategoryFlow.process(getTestEvent(testObjects));
 			Integer categoryId = (Integer) res.getMessage().getPayload();
 			testObjects.put("categoryId", categoryId);
 

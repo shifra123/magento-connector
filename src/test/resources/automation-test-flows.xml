@@ -512,8 +512,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	
 	<flow name="update-product-attribute-tier-price">
 		<magento:update-product-attribute-tier-price productId="#[flowVars.productId]">
-<!-- 			This is ignored. The CatalogProductTierPriceEntity needs to be the flowVars. -->
-<!-- 			<magento:catalog-product-tier-price-entity ref="#[flowVars.catalogProductTierPriceEntityRef]"/> -->
+ 			<magento:catalog-product-tier-price-entity ref="#[flowVars.catalogProductTierPriceEntityRef]"/>
 		</magento:update-product-attribute-tier-price>
 	</flow>
 	

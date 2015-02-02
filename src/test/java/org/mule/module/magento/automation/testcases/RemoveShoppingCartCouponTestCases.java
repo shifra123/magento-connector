@@ -65,7 +65,7 @@ public class RemoveShoppingCartCouponTestCases extends MagentoTestParent {
 
         upsertOnTestRunMessage("productIds", productIds);
 
-        String couponCode = getTestRunMessageValue("couponCode").toString();
+        String couponCode = getTestRunMessageValue("couponCode");
 
         setShoppingCartCustomer(quoteId, customer);
         addProductsToShoppingCart(quoteId, shoppingCartProducts);

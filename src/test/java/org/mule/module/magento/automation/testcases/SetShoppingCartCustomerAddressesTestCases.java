@@ -24,6 +24,7 @@ public class SetShoppingCartCustomerAddressesTestCases extends MagentoTestParent
         String storeId = getTestRunMessageValue("storeId");
 
         int quoteId = createShoppingCart(storeId);
+        initializeTestRunMessage("setShoppingCartCustomerAddresses");
         upsertOnTestRunMessage("quoteId", quoteId);
     }
 

@@ -58,12 +58,13 @@ public class RemoveShoppingCartProductTestCases extends MagentoTestParent {
 
 
         // Create the shopping cart
-        String storeId = getTestRunMessageValue("storeId").toString();
+        String storeId = getTestRunMessageValue("storeId");
         int shoppingCartId = createShoppingCart(storeId);
-        upsertOnTestRunMessage("quoteId", shoppingCartId);
+
 
         addProductsToShoppingCart(shoppingCartId, shoppingCartEntities);
         initializeTestRunMessage("removeShoppingCartProduct");
+        upsertOnTestRunMessage("quoteId", shoppingCartId);
         upsertOnTestRunMessage("shoppingCartEntities", shoppingCartEntities);
         upsertOnTestRunMessage("productIds", productIds);
 
