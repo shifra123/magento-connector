@@ -62,7 +62,7 @@ public class CaptureOrderInvoiceTestCases extends MagentoTestParent {
         }
 
         upsertOnTestRunMessage("shoppingCartProducts", shoppingCartProducts);
-        String storeId = getTestRunMessageValue("storeId").toString();
+        String storeId = getTestRunMessageValue("storeId");
         int quoteId = createShoppingCart(storeId);
 
         String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
@@ -92,15 +92,11 @@ public class CaptureOrderInvoiceTestCases extends MagentoTestParent {
     }
 
     @After
-    public void tearDown() {
-        try {
-            List<Integer> productIds = getTestRunMessageValue("productIds");
-            for (Integer productId : productIds) {
-                deleteProductById(productId);
-            }
-            clearSalesTables();
-        } catch (Exception e) {
-            fail(ConnectorTestUtils.getStackTrace(e));
+    public void tearDown() throws Exception {
+        List<Integer> productIds = getTestRunMessageValue("productIds");
+        for (Integer productId : productIds) {
+            deleteProductById(productId);
         }
+        clearSalesTables();
     }
 }

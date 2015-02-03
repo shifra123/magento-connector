@@ -27,16 +27,14 @@ public class ListShoppingCartPaymentMethodsTestCases extends MagentoTestParent {
     @Before
     public void setUp() throws Exception {
         initializeTestRunMessage("listShoppingCartPaymentMethods");
-
         String storeId = getTestRunMessageValue("storeId");
-
-        int quoteId = createShoppingCart(storeId);
-        upsertOnTestRunMessage("quoteId", quoteId);
-
         ShoppingCartPaymentMethodEntity paymentMethod = getTestRunMessageValue("paymentMethod");
         List<ShoppingCartCustomerAddressEntity> customerAddresses = getTestRunMessageValue("customerAddresses");
+        int quoteId = createShoppingCart(storeId);
         setCustomerAddressesToShoppingCart(quoteId, customerAddresses);
         setShoppingCartPaymentMethod(quoteId, paymentMethod);
+        initializeTestRunMessage("listShoppingCartPaymentMethods");
+        upsertOnTestRunMessage("quoteId", quoteId);
     }
 
     @Category({RegressionTests.class})

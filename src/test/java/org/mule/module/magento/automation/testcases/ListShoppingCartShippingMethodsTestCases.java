@@ -25,19 +25,14 @@ public class ListShoppingCartShippingMethodsTestCases extends MagentoTestParent 
     @Before
     public void setUp() throws Exception {
         initializeTestRunMessage("listShoppingCartShippingMethods");
-
         String storeId = getTestRunMessageValue("storeId");
-
-        int quoteId = createShoppingCart(storeId);
-        initializeTestRunMessage("listShoppingCartShippingMethods");
-        upsertOnTestRunMessage("quoteId", quoteId);
-
         List<ShoppingCartCustomerAddressEntity> customerAddresses = getTestRunMessageValue("customerAddresses");
+        int quoteId = createShoppingCart(storeId);
         setCustomerAddressesToShoppingCart(quoteId, customerAddresses);
         initializeTestRunMessage("listShoppingCartShippingMethods");
+        upsertOnTestRunMessage("quoteId", quoteId);
     }
 
-    @SuppressWarnings("unchecked")
     @Category({RegressionTests.class})
     @Test
     public void testListShoppingCartShippingMethods() {

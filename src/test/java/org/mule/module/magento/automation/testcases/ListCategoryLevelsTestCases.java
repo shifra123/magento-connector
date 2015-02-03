@@ -19,8 +19,7 @@ import org.mule.modules.tests.ConnectorTestUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class ListCategoryLevelsTestCases extends MagentoTestParent {
 
@@ -34,6 +33,7 @@ public class ListCategoryLevelsTestCases extends MagentoTestParent {
             int categoryId = createCategory(parentCategoryId, category);
             categoryIds.add(categoryId);
         }
+        initializeTestRunMessage("listCategoryLevels");
         upsertOnTestRunMessage("categoryIds", categoryIds);
 
     }
@@ -45,7 +45,7 @@ public class ListCategoryLevelsTestCases extends MagentoTestParent {
             List<Integer> categoryIds = getTestRunMessageValue("categoryIds");
             List<CatalogCategoryEntityNoChildren> categories =
                     runFlowAndGetPayload("list-category-levels-with-parent-category");
-            assertTrue(categories.size() == categoryIds.size());
+            assertEquals(categoryIds.size() + 1, categories.size());
             for (CatalogCategoryEntityNoChildren category : categories) {
                 categoryIds.contains(category.getCategory_id());
             }

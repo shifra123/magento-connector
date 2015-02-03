@@ -41,7 +41,6 @@ public class ListProductLinkTestCases extends MagentoTestParent {
         runFlowAndGetPayload("add-product-link");
     }
 
-    @SuppressWarnings("unchecked")
     @Category({SmokeTests.class, RegressionTests.class})
     @Test
     public void testListProductLink() {

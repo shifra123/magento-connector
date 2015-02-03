@@ -29,6 +29,10 @@ public class DeleteOrderShipmentTrackTestCases extends MagentoTestParent {
     public void setUp() throws Exception {
         initializeTestRunMessage("deleteOrderShipmentTrack");
 
+        String carrierCode = getTestRunMessageValue("carrierCode");
+        String title = getTestRunMessageValue("title");
+        String trackId = getTestRunMessageValue("trackId");
+
         ShoppingCartCustomerEntity customer = getTestRunMessageValue("customer");
         List<ShoppingCartCustomerAddressEntity> addresses = getTestRunMessageValue("customerAddresses");
         String shippingMethod = getTestRunMessageValue("shippingMethod");
@@ -60,8 +64,6 @@ public class DeleteOrderShipmentTrackTestCases extends MagentoTestParent {
             shoppingCartProducts.add(shoppingCartProduct);
             productIds.add(productId);
         }
-        upsertOnTestRunMessage("productIds", productIds);
-        upsertOnTestRunMessage("shoppingCartProducts", shoppingCartProducts);
 
         String storeId = getTestRunMessageValue("storeId");
         int quoteId = createShoppingCart(storeId);
@@ -79,12 +81,10 @@ public class DeleteOrderShipmentTrackTestCases extends MagentoTestParent {
         String shipmentId = createOrderShipment(orderId, quantities);
         upsertOnTestRunMessage("shipmentId", shipmentId);
 
-        String carrierCode = getTestRunMessageValue("carrierCode");
-        String title = getTestRunMessageValue("title");
-        String trackId = getTestRunMessageValue("trackId");
-
         int shipmentTrackId = addOrderShipmentTrack(shipmentId, carrierCode, title, trackId);
         upsertOnTestRunMessage("shipmentTrackId", shipmentTrackId);
+        upsertOnTestRunMessage("productIds", productIds);
+        upsertOnTestRunMessage("shoppingCartProducts", shoppingCartProducts);
     }
 
     @Category({RegressionTests.class})

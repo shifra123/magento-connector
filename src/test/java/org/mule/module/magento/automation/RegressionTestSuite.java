@@ -204,7 +204,7 @@ import org.mule.module.magento.automation.testcases.VoidOrderInvoiceTestCases;
 	UpdateProductTestCases.class,
 	UpdateShoppingCartProductTestCases.class,
 	UpdateStockItemTestCases.class,
-	VoidOrderInvoiceTestCases.class,
+	VoidOrderInvoiceTestCases.class
 })
 public class RegressionTestSuite {
 

@@ -26,12 +26,12 @@ import static org.junit.Assert.fail;
 
 public class RemoveShoppingCartProductTestCases extends MagentoTestParent {
 
-    @SuppressWarnings("unchecked")
     @Before
     public void setUp() throws Exception {
         initializeTestRunMessage("removeShoppingCartProduct");
 
         List<HashMap<String, Object>> productDefinitions = getTestRunMessageValue("products");
+        String storeId = getTestRunMessageValue("storeId");
 
         List<ShoppingCartProductEntity> shoppingCartEntities = new ArrayList<ShoppingCartProductEntity>();
         List<Integer> productIds = new ArrayList<Integer>();
@@ -55,19 +55,13 @@ public class RemoveShoppingCartProductTestCases extends MagentoTestParent {
 
             shoppingCartEntities.add(shoppingCartEntity);
         }
-
-
         // Create the shopping cart
-        String storeId = getTestRunMessageValue("storeId");
         int shoppingCartId = createShoppingCart(storeId);
-
-
         addProductsToShoppingCart(shoppingCartId, shoppingCartEntities);
         initializeTestRunMessage("removeShoppingCartProduct");
         upsertOnTestRunMessage("quoteId", shoppingCartId);
         upsertOnTestRunMessage("shoppingCartEntities", shoppingCartEntities);
         upsertOnTestRunMessage("productIds", productIds);
-
     }
 
     @Category({RegressionTests.class})

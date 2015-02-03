@@ -19,8 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class ListOrdersTestCases extends MagentoTestParent {
 
@@ -62,20 +61,15 @@ public class ListOrdersTestCases extends MagentoTestParent {
 
                 cartProducts.add(cartProduct);
             }
-
-
             int quoteId = createShoppingCart(storeId);
             String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, cartProducts);
             orderIds.add(orderId);
-            initializeTestRunMessage("listOrders");
-            upsertOnTestRunMessage("orderIds", orderIds);
-            upsertOnTestRunMessage("productIds", productIds);
         }
-
-
+        initializeTestRunMessage("listOrders");
+        upsertOnTestRunMessage("orderIds", orderIds);
+        upsertOnTestRunMessage("productIds", productIds);
     }
 
-    @SuppressWarnings("unchecked")
     @Category({RegressionTests.class})
     @Test
     public void testListOrders_NoFilter() {
@@ -83,7 +77,7 @@ public class ListOrdersTestCases extends MagentoTestParent {
             List<String> orderIds = getTestRunMessageValue("orderIds");
 
             List<SalesOrderListEntity> orders = runFlowAndGetPayload("list-orders-unfiltered");
-            assertTrue(orders.size() == orderIds.size());
+            assertEquals(orders.size(), orderIds.size());
             for (SalesOrderListEntity order : orders) {
                 assertTrue(orderIds.contains(order.getIncrement_id()));
             }
@@ -92,7 +86,6 @@ public class ListOrdersTestCases extends MagentoTestParent {
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Category({RegressionTests.class})
     @Test
     public void testListOrders_Pending() {
@@ -103,7 +96,7 @@ public class ListOrdersTestCases extends MagentoTestParent {
             upsertOnTestRunMessage("filter", filter);
 
             List<SalesOrderListEntity> orders = runFlowAndGetPayload("list-orders");
-            assertTrue(orders.size() == orderIds.size());
+            assertEquals(orders.size(), orderIds.size());
             for (SalesOrderListEntity order : orders) {
                 assertTrue(orderIds.contains(order.getIncrement_id()));
             }
@@ -112,7 +105,6 @@ public class ListOrdersTestCases extends MagentoTestParent {
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Category({RegressionTests.class})
     @Test
     public void testListOrders_Cancelled() {
@@ -127,7 +119,6 @@ public class ListOrdersTestCases extends MagentoTestParent {
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Category({RegressionTests.class})
     @Test
     public void testListOrders_Completed() {
@@ -148,7 +139,6 @@ public class ListOrdersTestCases extends MagentoTestParent {
         for (int productId : productIds) {
             deleteProductById(productId);
         }
-
         clearSalesTables();
 
     }

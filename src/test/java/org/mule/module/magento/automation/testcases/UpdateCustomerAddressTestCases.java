@@ -24,13 +24,10 @@ public class UpdateCustomerAddressTestCases extends MagentoTestParent {
     @Before
     public void setUp() throws Exception {
         initializeTestRunMessage("updateCustomerAddress");
-
         CustomerCustomerEntityToCreate customer = getTestRunMessageValue("customerRef");
-        int customerId = createCustomer(customer);
-
         CustomerAddressEntityCreate address = getTestRunMessageValue("customerAddressBefore");
+        int customerId = createCustomer(customer);
         int addressId = createCustomerAddress(customerId, address);
-
         initializeTestRunMessage("updateCustomerAddress");
         upsertOnTestRunMessage("customerId", customerId);
         upsertOnTestRunMessage("addressId", addressId);
@@ -42,7 +39,6 @@ public class UpdateCustomerAddressTestCases extends MagentoTestParent {
         try {
             CustomerAddressEntityCreate addressAfter = getTestRunMessageValue("customerAddressAfter");
             upsertOnTestRunMessage("customerAddressRef", addressAfter);
-
             Boolean result = runFlowAndGetPayload("update-customer-address");
             assertTrue(result);
         } catch (Exception e) {
@@ -53,9 +49,8 @@ public class UpdateCustomerAddressTestCases extends MagentoTestParent {
     @After
     public void tearDown() throws Exception {
         int addressId = getTestRunMessageValue("addressId");
-        deleteCustomerAddress(addressId);
-
         int customerId = getTestRunMessageValue("customerId");
+        deleteCustomerAddress(addressId);
         deleteCustomer(customerId);
     }
 

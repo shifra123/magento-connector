@@ -30,13 +30,11 @@ public class GetProductAttributeMediaTestCases extends MagentoTestParent {
     public void setUp() throws Exception {
         initializeTestRunMessage("getProductAttributeMedia");
         productId = runFlowAndGetPayload("create-product");
-
-
         InputStream is = this.getClass().getClassLoader().getResourceAsStream("img.gif");
         upsertPayloadContentOnTestRunMessage(is);
+        upsertOnTestRunMessage("productId", productId);
         String newImageFilename = runFlowAndGetPayload("create-product-attribute-media");
         upsertOnTestRunMessage("fileName", newImageFilename);
-        upsertOnTestRunMessage("productId", productId);
     }
 
     @Category({RegressionTests.class})
@@ -52,7 +50,6 @@ public class GetProductAttributeMediaTestCases extends MagentoTestParent {
 
     @After
     public void tearDown() throws Exception {
-        int productId = getTestRunMessageValue("productId");
         deleteProductById(productId);
     }
 

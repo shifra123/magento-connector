@@ -27,15 +27,11 @@ public class GetCustomerAddressTestCases extends MagentoTestParent {
     @Before
     public void setUp() throws Exception {
         initializeTestRunMessage("getCustomerAddress");
-
         CustomerCustomerEntityToCreate customer = getTestRunMessageValue("customerRef");
-        customerId = createCustomer(customer);
-
-        upsertOnTestRunMessage("customerId", customerId);
-
         CustomerAddressEntityCreate address = getTestRunMessageValue("customerAddressRef");
+        customerId = createCustomer(customer);
         addressId = createCustomerAddress(customerId, address);
-
+        upsertOnTestRunMessage("customerId", customerId);
         upsertOnTestRunMessage("addressId", addressId);
     }
 
@@ -45,7 +41,7 @@ public class GetCustomerAddressTestCases extends MagentoTestParent {
         try {
             CustomerAddressEntityItem address = runFlowAndGetPayload("get-customer-address");
             assertNotNull(address);
-            assertTrue(addressId == address.getCustomer_address_id());
+            assertEquals(addressId, address.getCustomer_address_id());
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));
         }

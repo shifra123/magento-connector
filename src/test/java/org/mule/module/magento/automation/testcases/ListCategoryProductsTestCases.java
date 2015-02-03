@@ -44,7 +44,8 @@ public class ListCategoryProductsTestCases extends MagentoTestParent {
             assertEquals("There should be one product in the category", 1, catalogAssignedProducts.size());
 
             CatalogAssignedProduct catalogAssignedProduct = catalogAssignedProducts.get(0);
-            assertEquals("Assert that the product id is what it is expected to be", getTestRunMessageValue("productId"), catalogAssignedProduct.getProduct_id());
+            assertEquals("Assert that the product id is what it is expected to be",
+                    getTestRunMessageValue("productId"), catalogAssignedProduct.getProduct_id());
 
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));

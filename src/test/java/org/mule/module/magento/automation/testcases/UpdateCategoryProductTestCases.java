@@ -8,70 +8,44 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class UpdateCategoryProductTestCases extends MagentoTestParent {
 
-	@Before
-	public void setUp() {
-		try {
-			initializeTestRunMessage("updateCategoryProduct");
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("updateCategoryProduct");
+        Integer categoryId = runFlowAndGetPayload("create-category");
+        upsertOnTestRunMessage("categoryId", categoryId);
+        Integer productId = runFlowAndGetPayload("create-product");
+        upsertOnTestRunMessage("productId", productId);
+        runFlowAndGetPayload("add-category-product");
+    }
 
-			MessageProcessor createCategoryFlow = lookupFlowConstruct("create-category");
-			MuleEvent res = createCategoryFlow.process(getTestEvent(testObjects));
-			Integer categoryId = (Integer) res.getMessage().getPayload();
-			testObjects.put("categoryId", categoryId);
+    @Category({RegressionTests.class})
+    @Test
+    public void testUpdateCategoryProduct() {
+        try {
+            Boolean result = runFlowAndGetPayload("update-category-product");
+            assertTrue(result);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
 
-			MessageProcessor createProductFlow = lookupFlowConstruct("create-product");
-			MuleEvent res2 = createProductFlow
-					.process(getTestEvent(testObjects));
-			Integer productId = (Integer) res2.getMessage().getPayload();
-			testObjects.put("productId", productId);
-			
-			MessageProcessor addCategoryProductFlow = lookupFlowConstruct("add-category-product");
-			addCategoryProductFlow.process(getTestEvent(testObjects));
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-
-	@Category({RegressionTests.class })
-	@Test
-	public void testUpdateCategoryProduct() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("update-category-product");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-
-			Boolean result = (Boolean) response.getMessage().getPayload();
-			assertTrue(result);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			int productId = (Integer) testObjects.get("productId");
-			int categoryId = (Integer) testObjects.get("categoryId");
-			deleteProductById(productId);
-			deleteCategory(categoryId);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @After
+    public void tearDown() throws Exception {
+        int productId = getTestRunMessageValue("productId");
+        int categoryId = getTestRunMessageValue("categoryId");
+        deleteProductById(productId);
+        deleteCategory(categoryId);
+    }
 
 }

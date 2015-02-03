@@ -11,6 +11,7 @@ package org.mule.module.magento.automation.testcases;
 import com.magento.api.*;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
@@ -73,12 +74,13 @@ public class ListOrdersShipmentsTestCases extends MagentoTestParent {
         }
 
         String shipmentId = createOrderShipment(orderId, quantities);
-
+        initializeTestRunMessage("listOrderInvoices");
         upsertOnTestRunMessage("productIds", productIds);
         upsertOnTestRunMessage("shoppingCartProducts", shoppingCartProducts);
         upsertOnTestRunMessage("shipmentId", shipmentId);
     }
 
+    @Ignore
     @Category({RegressionTests.class})
     @Test
     public void testOrdersShipments_withoutFilter() {
@@ -93,6 +95,7 @@ public class ListOrdersShipmentsTestCases extends MagentoTestParent {
         }
     }
 
+    @Ignore
     @Category({RegressionTests.class})
     @Test
     public void testOrdersShipments_withFilter() {

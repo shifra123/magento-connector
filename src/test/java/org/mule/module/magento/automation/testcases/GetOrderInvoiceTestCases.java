@@ -60,8 +60,6 @@ public class GetOrderInvoiceTestCases extends MagentoTestParent {
             productIds.add(productId);
         }
 
-        upsertOnTestRunMessage("shoppingCartProducts", shoppingCartProducts);
-
         String storeId = getTestRunMessageValue("storeId");
         int quoteId = createShoppingCart(storeId);
 
@@ -78,13 +76,14 @@ public class GetOrderInvoiceTestCases extends MagentoTestParent {
         upsertOnTestRunMessage("invoiceItems", quantities);
         upsertOnTestRunMessage("invoiceId", invoiceId);
         upsertOnTestRunMessage("productIds", productIds);
+        upsertOnTestRunMessage("shoppingCartProducts", shoppingCartProducts);
     }
 
     @Category({RegressionTests.class})
     @Test
     public void testGetOrderInvoice() {
         try {
-            String invoiceId = getTestRunMessageValue("invoiceId").toString();
+            String invoiceId = getTestRunMessageValue("invoiceId");
             SalesOrderInvoiceEntity invoice = runFlowAndGetPayload("get-order-invoice");
             assertTrue(invoice.getIncrement_id().equals(invoiceId));
         } catch (Exception e) {
@@ -94,10 +93,10 @@ public class GetOrderInvoiceTestCases extends MagentoTestParent {
 
     @After
     public void tearDown() throws Exception {
-            List<Integer> productIds = getTestRunMessageValue("productIds");
-            for (Integer productId : productIds) {
-                deleteProductById(productId);
-            }
-            clearSalesTables();
+        List<Integer> productIds = getTestRunMessageValue("productIds");
+        for (Integer productId : productIds) {
+            deleteProductById(productId);
+        }
+        clearSalesTables();
     }
 }

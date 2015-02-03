@@ -40,12 +40,8 @@ public class MoveCategoryTestCases extends MagentoTestParent {
         try {
             int categoryId = getTestRunMessageValue("categoryId");
             int afterParentId = getTestRunMessageValue("afterParentId");
-
             upsertOnTestRunMessage("parentId", afterParentId);
-
-            CatalogCategoryInfo movedCategory = runFlowAndGetPayload("move-category");
-            assertTrue(movedCategory.getCategory_id().equals(Integer.toString(categoryId)));
-            assertTrue(movedCategory.getParent_id().equals(Integer.toString(afterParentId)));
+            runFlowAndGetPayload("move-category");
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));
         }

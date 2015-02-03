@@ -33,6 +33,8 @@ public class ListShoppingCartTotalsTestCases extends MagentoTestParent {
         initializeTestRunMessage("listShoppingCartTotals");
 
         List<HashMap<String, Object>> productDefinitions = getTestRunMessageValue("products");
+        List<ShoppingCartCustomerAddressEntity> addresses = getTestRunMessageValue("addresses");
+        String storeId = getTestRunMessageValue("storeId");
 
         double totalProductPrice = 0;
         HashMap<Integer, Double> productPrices = new HashMap<Integer, Double>();
@@ -61,26 +63,23 @@ public class ListShoppingCartTotalsTestCases extends MagentoTestParent {
             totalProductPrice += totalPrice;
             productPrices.put(productId, totalPrice);
         }
-        upsertOnTestRunMessage("productPrices", productPrices);
-        upsertOnTestRunMessage("shoppingCartEntities", shoppingCartEntities);
-        upsertOnTestRunMessage("totalPrice", totalProductPrice);
 
         // Create the shopping cart
-        String storeId = getTestRunMessageValue("storeId");
         int shoppingCartId = createShoppingCart(storeId);
-        upsertOnTestRunMessage("quoteId", shoppingCartId);
+
 
         // Add the products to the shopping cart
         addProductsToShoppingCart(shoppingCartId, shoppingCartEntities);
 
         // Add the customer addresses
-        List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) getTestRunMessageValue("addresses");
+
         setCustomerAddressesToShoppingCart(shoppingCartId, addresses);
 
         initializeTestRunMessage("listShoppingCartTotals");
         upsertOnTestRunMessage("productPrices", productPrices);
         upsertOnTestRunMessage("shoppingCartEntities", shoppingCartEntities);
         upsertOnTestRunMessage("totalPrice", totalProductPrice);
+        upsertOnTestRunMessage("quoteId", shoppingCartId);
     }
 
 

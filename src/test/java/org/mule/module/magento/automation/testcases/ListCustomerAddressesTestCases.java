@@ -20,16 +20,17 @@ import org.mule.modules.tests.ConnectorTestUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class ListCustomerAddressesTestCases extends MagentoTestParent {
+
+    int customerId;
 
     @Before
     public void setUp() throws Exception {
         initializeTestRunMessage("listCustomerAddresses");
         CustomerCustomerEntityToCreate customer = getTestRunMessageValue("customerRef");
-        int customerId = createCustomer(customer);
+        customerId = createCustomer(customer);
 
         initializeTestRunMessage("listCustomerAddresses");
         upsertOnTestRunMessage("customerId", customerId);
@@ -51,7 +52,7 @@ public class ListCustomerAddressesTestCases extends MagentoTestParent {
         try {
             List<Integer> addressIds = getTestRunMessageValue("addressIds");
             List<CustomerAddressEntityItem> customerAddresses = runFlowAndGetPayload("list-customer-addresses");
-            assertTrue(customerAddresses.size() == addressIds.size());
+            assertEquals(addressIds.size(), customerAddresses.size());
             for (CustomerAddressEntityItem address : customerAddresses) {
                 assertTrue(addressIds.contains(address.getCustomer_address_id()));
             }
@@ -66,8 +67,6 @@ public class ListCustomerAddressesTestCases extends MagentoTestParent {
         for (int addressId : addressIds) {
             deleteCustomerAddress(addressId);
         }
-        int customerId = getTestRunMessageValue("customerId");
         deleteCustomer(customerId);
-
     }
 }

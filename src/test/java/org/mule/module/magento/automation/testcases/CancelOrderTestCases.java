@@ -59,7 +59,7 @@ public class CancelOrderTestCases extends MagentoTestParent {
             shoppingCartProducts.add(shoppingCartProduct);
             productIds.add(productId);
         }
-        String storeId = getTestRunMessageValue("storeId").toString();
+        String storeId = getTestRunMessageValue("storeId");
         int quoteId = createShoppingCart(storeId);
 
         String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
@@ -86,7 +86,7 @@ public class CancelOrderTestCases extends MagentoTestParent {
             try {
                 deleteProductById(productId);
             } catch (Exception e) {
-                fail(ConnectorTestUtils.getStackTrace(e));
+                // ignore the exceptions
             }
         }
     }

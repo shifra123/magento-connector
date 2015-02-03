@@ -11,6 +11,7 @@ package org.mule.module.magento.automation.testcases;
 import com.magento.api.*;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
@@ -21,6 +22,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@Ignore
 public class ListOrdersInvoicesTestCases extends MagentoTestParent {
 
     @Before
@@ -73,12 +75,14 @@ public class ListOrdersInvoicesTestCases extends MagentoTestParent {
         }
 
         String invoiceId = createOrderInvoice(orderId, quantities);
+        initializeTestRunMessage("listOrderInvoices");
         upsertOnTestRunMessage("invoiceId", invoiceId);
         upsertOnTestRunMessage("productIds", productIds);
         upsertOnTestRunMessage("shoppingCartProducts", shoppingCartProducts);
 
     }
 
+    @Ignore
     @Category({RegressionTests.class})
     @Test
     public void testOrdersInvoices_withoutFilter() {
@@ -91,6 +95,7 @@ public class ListOrdersInvoicesTestCases extends MagentoTestParent {
         }
     }
 
+    @Ignore
     @Category({RegressionTests.class})
     @Test
     public void testOrdersInvoices_withFilter() {

@@ -360,7 +360,7 @@
             </bean>
         </entry>
         <!-- Coupon code -->
-        <entry key="couponCode" value="CODE"/>
+        <entry key="couponCode" value="CODE12345678"/>
     </util:map>
 
     <util:map id="listOrders" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object"
@@ -756,7 +756,7 @@
             </bean>
         </entry>
         <!-- Coupon code -->
-        <entry key="couponCode" value="CODE"/>
+        <entry key="couponCode" value="CODE12345678"/>
     </util:map>
 
     <util:map id="createShoppingCartOrder" map-class="java.util.HashMap" key-type="java.lang.String"

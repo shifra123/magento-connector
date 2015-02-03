@@ -35,6 +35,8 @@ public class ListCustomersTestCases extends MagentoTestParent {
             Integer customerId = createCustomer(customer);
             customerIds.add(customerId);
         }
+
+        initializeTestRunMessage("listCustomers");
         upsertOnTestRunMessage("customerIds", customerIds);
     }
 
@@ -43,11 +45,19 @@ public class ListCustomersTestCases extends MagentoTestParent {
     public void testListCustomers_WithoutFilter() {
         try {
             List<Integer> customerIds = getTestRunMessageValue("customerIds");
-
             List<CustomerCustomerEntity> customers = runFlowAndGetPayload("list-customers-without-filter");
-            for (CustomerCustomerEntity customer : customers) {
-                Integer temp = customer.getCustomer_id();
-                assertTrue(customerIds.contains(temp));
+
+            for (Integer custId : customerIds) {
+                boolean match = false;
+                for (CustomerCustomerEntity customer : customers) {
+                    if (custId.equals(customer.getCustomer_id())) {
+                        match = true;
+                        break;
+                    }
+                }
+                if (!match) {
+                    fail("Customer id does not match.");
+                }
             }
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));

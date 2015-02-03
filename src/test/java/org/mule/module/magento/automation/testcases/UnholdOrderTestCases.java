@@ -59,19 +59,13 @@ public class UnholdOrderTestCases extends MagentoTestParent {
             shoppingCartProducts.add(shoppingCartProduct);
             productIds.add(productId);
         }
-
-
         String storeId = getTestRunMessageValue("storeId");
         int quoteId = createShoppingCart(storeId);
-
         String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
-
         holdOrder(orderId);
-
         initializeTestRunMessage("unholdOrder");
         upsertOnTestRunMessage("orderId", orderId);
         upsertOnTestRunMessage("productIds", productIds);
-
     }
 
     @Category({RegressionTests.class})

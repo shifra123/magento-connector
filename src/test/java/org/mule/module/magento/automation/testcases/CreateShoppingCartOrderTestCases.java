@@ -77,7 +77,7 @@ public class CreateShoppingCartOrderTestCases extends MagentoTestParent {
         setCustomerAddressesToShoppingCart(quoteId, customerAddresses);
 
         // Set the shipping method
-        String shippingMethod = getTestRunMessageValue("shippingMethod").toString();
+        String shippingMethod = getTestRunMessageValue("shippingMethod");
         setShoppingCartShippingMethod(quoteId, shippingMethod);
 
         // Set the payment method

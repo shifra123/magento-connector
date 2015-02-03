@@ -27,20 +27,17 @@ public class RemoveShoppingCartCouponTestCases extends MagentoTestParent {
     @Before
     public void setUp() throws Exception {
         initializeTestRunMessage("removeShoppingCartCoupon");
-
-        String storeId = getTestRunMessageValue("storeId");
-        int quoteId = createShoppingCart(storeId);
-        upsertOnTestRunMessage("quoteId", quoteId);
-
-        ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) getTestRunMessageValue("customer");
-        List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) getTestRunMessageValue("customerAddresses");
-        String shippingMethod = getTestRunMessageValue("shippingMethod").toString();
-        ShoppingCartPaymentMethodEntity paymentMethod = (ShoppingCartPaymentMethodEntity) getTestRunMessageValue("paymentMethod");
-
-        List<HashMap<String, Object>> products = (List<HashMap<String, Object>>) getTestRunMessageValue("products");
+        ShoppingCartCustomerEntity customer = getTestRunMessageValue("customer");
+        List<ShoppingCartCustomerAddressEntity> addresses = getTestRunMessageValue("customerAddresses");
+        String shippingMethod = getTestRunMessageValue("shippingMethod");
+        ShoppingCartPaymentMethodEntity paymentMethod = getTestRunMessageValue("paymentMethod");
+        List<HashMap<String, Object>> products = getTestRunMessageValue("products");
         List<ShoppingCartProductEntity> shoppingCartProducts = new ArrayList<ShoppingCartProductEntity>();
         List<Integer> productIds = new ArrayList<Integer>();
 
+        String storeId = getTestRunMessageValue("storeId");
+        String couponCode = getTestRunMessageValue("couponCode");
+        int quoteId = createShoppingCart(storeId);
         for (HashMap<String, Object> product : products) {
             // Get the product data
             String productType = (String) product.get("type");
@@ -62,17 +59,16 @@ public class RemoveShoppingCartCouponTestCases extends MagentoTestParent {
             shoppingCartProducts.add(shoppingCartProduct);
             productIds.add(productId);
         }
-
-        upsertOnTestRunMessage("productIds", productIds);
-
-        String couponCode = getTestRunMessageValue("couponCode");
-
         setShoppingCartCustomer(quoteId, customer);
         addProductsToShoppingCart(quoteId, shoppingCartProducts);
         setCustomerAddressesToShoppingCart(quoteId, addresses);
         setShoppingCartPaymentMethod(quoteId, paymentMethod);
         setShoppingCartShippingMethod(quoteId, shippingMethod);
         addShoppingCartCoupon(quoteId, couponCode);
+
+        initializeTestRunMessage("removeShoppingCartCoupon");
+        upsertOnTestRunMessage("quoteId", quoteId);
+        upsertOnTestRunMessage("productIds", productIds);
     }
 
     @Category({RegressionTests.class})

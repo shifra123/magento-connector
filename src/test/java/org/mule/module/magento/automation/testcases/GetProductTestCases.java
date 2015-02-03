@@ -58,8 +58,8 @@ public class GetProductTestCases extends MagentoTestParent {
     public void testGetProduct() {
         try {
             CatalogProductReturnEntity catalogProductReturnEntity = runFlowAndGetPayload("get-product");
-            assertEquals("The sku of the retrieved object should be " + getTestRunMessageValue("sku"),
-                    getTestRunMessageValue("sku"), catalogProductReturnEntity.getSku());
+            assertEquals("The sku of the retrieved object should be " + getTestRunMessageValue("productSku"),
+                    getTestRunMessageValue("productSku"), catalogProductReturnEntity.getSku());
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));
         }

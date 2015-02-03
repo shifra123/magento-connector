@@ -24,14 +24,10 @@ public class GetInfoShoppingCartTestCases extends MagentoTestParent {
     @Before
     public void setUp() throws Exception {
         initializeTestRunMessage("getInfoShoppingCart");
-
-        String storeId = getTestRunMessageValue("storeId").toString();
-
-        quoteId = createShoppingCart(storeId);
-
+        String storeId = getTestRunMessageValue("storeId");
         ShoppingCartCustomerEntity customer = getTestRunMessageValue("customer");
+        quoteId = createShoppingCart(storeId);
         setShoppingCartCustomer(quoteId, customer);
-
         upsertOnTestRunMessage("quoteId", quoteId);
     }
 
@@ -41,7 +37,7 @@ public class GetInfoShoppingCartTestCases extends MagentoTestParent {
         try {
             ShoppingCartInfoEntity result = runFlowAndGetPayload("get-info-shopping-cart");
             assertNotNull(result);
-            assertTrue(quoteId == result.getQuote_id());
+            assertEquals(quoteId, result.getQuote_id());
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));
         }

@@ -75,6 +75,12 @@ public class AddShoppingCartCouponTestCases extends MagentoTestParent {
 
     }
 
+    /**
+     * A pre-requisite for this test is the availability of coupon code CODE12345678
+     * in the Magento installation.
+     *
+     */
+
     @Category({SmokeTests.class, RegressionTests.class})
     @Test
     public void testAddShoppingCartCoupon() {

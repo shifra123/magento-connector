@@ -24,15 +24,14 @@ public class DeleteCustomerAddressTestCases extends MagentoTestParent {
     @Before
     public void setUp() throws Exception {
         initializeTestRunMessage("deleteCustomerAddress");
+        CustomerAddressEntityCreate address = getTestRunMessageValue("customerAddressRef");
 
         CustomerCustomerEntityToCreate customer = getTestRunMessageValue("customerRef");
         int customerId = createCustomer(customer);
 
-        upsertOnTestRunMessage("customerId", customerId);
-
-        CustomerAddressEntityCreate address = getTestRunMessageValue("customerAddressRef");
         int addressId = createCustomerAddress(customerId, address);
-
+        initializeTestRunMessage("deleteCustomerAddress");
+        upsertOnTestRunMessage("customerId", customerId);
         upsertOnTestRunMessage("addressId", addressId);
     }
 

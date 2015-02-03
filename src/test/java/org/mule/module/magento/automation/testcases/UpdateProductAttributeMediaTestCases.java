@@ -31,7 +31,6 @@ public class UpdateProductAttributeMediaTestCases extends MagentoTestParent {
         InputStream is = this.getClass().getClassLoader().getResourceAsStream("img.gif");
         upsertPayloadContentOnTestRunMessage(is);
         String newImageFilename = runFlowAndGetPayload("create-product-attribute-media");
-
         upsertOnTestRunMessage("fileName", newImageFilename);
     }
 
@@ -48,7 +47,7 @@ public class UpdateProductAttributeMediaTestCases extends MagentoTestParent {
 
     @After
     public void tearDown() throws Exception {
-        int productId = (Integer) getTestRunMessageValue("productId");
+        int productId = getTestRunMessageValue("productId");
         deleteProductById(productId);
     }
 

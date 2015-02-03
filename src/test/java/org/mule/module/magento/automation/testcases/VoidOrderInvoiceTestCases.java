@@ -33,13 +33,12 @@ public class VoidOrderInvoiceTestCases extends MagentoTestParent {
         List<ShoppingCartCustomerAddressEntity> addresses = getTestRunMessageValue("customerAddresses");
         String shippingMethod = getTestRunMessageValue("shippingMethod").toString();
         ShoppingCartPaymentMethodEntity paymentMethod = getTestRunMessageValue("paymentMethod");
-
+        String storeId = getTestRunMessageValue("storeId");
         List<HashMap<String, Object>> products = getTestRunMessageValue("products");
         List<ShoppingCartProductEntity> shoppingCartProducts = new ArrayList<ShoppingCartProductEntity>();
         List<Integer> productIds = new ArrayList<Integer>();
 
         for (HashMap<String, Object> product : products) {
-
             // Get the product data
             String productType = (String) product.get("type");
             int productSet = (Integer) product.get("set");
@@ -60,24 +59,25 @@ public class VoidOrderInvoiceTestCases extends MagentoTestParent {
             shoppingCartProducts.add(shoppingCartProduct);
             productIds.add(productId);
         }
-        upsertOnTestRunMessage("productIds", productIds);
-        upsertOnTestRunMessage("shoppingCartProducts", shoppingCartProducts);
 
-        String storeId = getTestRunMessageValue("storeId").toString();
         int quoteId = createShoppingCart(storeId);
 
-        String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod, shippingMethod, shoppingCartProducts);
-        upsertOnTestRunMessage("orderId", orderId);
+        String orderId = createShoppingCartOrder(quoteId, customer, addresses, paymentMethod,
+                shippingMethod, shoppingCartProducts);
 
         List<OrderItemIdQty> quantities = new ArrayList<OrderItemIdQty>();
         for (ShoppingCartProductEntity shoppingCartProduct : shoppingCartProducts) {
-            OrderItemIdQty item = new OrderItemIdQty(Integer.parseInt(shoppingCartProduct.getProduct_id()), shoppingCartProduct.getQty());
+            OrderItemIdQty item = new OrderItemIdQty(Integer.parseInt(shoppingCartProduct.getProduct_id()),
+                    shoppingCartProduct.getQty());
             quantities.add(item);
         }
 
         String invoiceId = createOrderInvoice(orderId, quantities);
         initializeTestRunMessage("voidOrderInvoice");
         upsertOnTestRunMessage("invoiceId", invoiceId);
+        upsertOnTestRunMessage("productIds", productIds);
+        upsertOnTestRunMessage("shoppingCartProducts", shoppingCartProducts);
+        upsertOnTestRunMessage("orderId", orderId);
     }
 
     @Category({RegressionTests.class})

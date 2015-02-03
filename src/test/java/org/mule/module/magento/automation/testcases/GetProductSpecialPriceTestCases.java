@@ -17,7 +17,8 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class GetProductSpecialPriceTestCases extends MagentoTestParent {
 
@@ -30,6 +31,7 @@ public class GetProductSpecialPriceTestCases extends MagentoTestParent {
         int set = getTestRunMessageValue("set");
         CatalogProductCreateEntity productAttributes = getTestRunMessageValue("attributesRef");
         int productId = createProduct(type, set, sku, productAttributes);
+        initializeTestRunMessage("getProductSpecialPrice");
         upsertOnTestRunMessage("attributes", productAttributes);
         upsertOnTestRunMessage("specialPrice", productAttributes.getSpecial_price());
         upsertOnTestRunMessage("productId", productId);
@@ -41,11 +43,10 @@ public class GetProductSpecialPriceTestCases extends MagentoTestParent {
     public void testGetProductSpecialPrice() {
         try {
             String specialPrice = getTestRunMessageValue("specialPrice");
-            int productId = getTestRunMessageValue("productId");
+            Integer productId = getTestRunMessageValue("productId");
             CatalogProductReturnEntity specialPriceResult = runFlowAndGetPayload("get-product-special-price");
-            assertTrue(productId == Integer.parseInt(specialPriceResult.getProduct_id()));
-            assertNotNull(specialPriceResult.getSpecial_price());
-            assertTrue(specialPriceResult.getSpecial_price().equals(specialPrice));
+            assertEquals(productId, Integer.valueOf(specialPriceResult.getProduct_id()));
+            assertEquals(specialPrice, specialPriceResult.getSpecial_price());
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));
         }
