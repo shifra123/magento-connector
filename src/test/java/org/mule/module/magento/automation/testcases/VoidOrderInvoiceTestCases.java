@@ -98,7 +98,6 @@ public class VoidOrderInvoiceTestCases extends MagentoTestParent {
         for (Integer productId : productIds) {
             deleteProductById(productId);
         }
-        clearSalesTables();
     }
 
 }

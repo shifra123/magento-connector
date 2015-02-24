@@ -85,6 +85,5 @@ public class UnholdOrderTestCases extends MagentoTestParent {
         for (Integer productId : productIds) {
             deleteProductById(productId);
         }
-        clearSalesTables();
     }
 }

@@ -97,6 +97,5 @@ public class GetOrderInvoiceTestCases extends MagentoTestParent {
         for (Integer productId : productIds) {
             deleteProductById(productId);
         }
-        clearSalesTables();
     }
 }

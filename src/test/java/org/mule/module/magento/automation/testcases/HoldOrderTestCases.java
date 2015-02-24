@@ -84,6 +84,5 @@ public class HoldOrderTestCases extends MagentoTestParent {
         for (Integer productId : productIds) {
             deleteProductById(productId);
         }
-        clearSalesTables();
     }
 }

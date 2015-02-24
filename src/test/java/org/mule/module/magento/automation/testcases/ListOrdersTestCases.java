@@ -139,8 +139,6 @@ public class ListOrdersTestCases extends MagentoTestParent {
         for (int productId : productIds) {
             deleteProductById(productId);
         }
-        clearSalesTables();
-
     }
 
 }

@@ -100,6 +100,5 @@ public class GetOrderShipmentCarriersTestCases extends MagentoTestParent {
         for (Integer productId : productIds) {
             deleteProductById(productId);
         }
-        clearSalesTables();
     }
 }

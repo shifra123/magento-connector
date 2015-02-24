@@ -82,16 +82,10 @@ public class AddOrderCommentTestCases extends MagentoTestParent {
     }
 
     @After
-    public void tearDown() {
-        try {
-            List<Integer> productIds = getTestRunMessageValue("productIds");
-            for (Integer productId : productIds) {
-                deleteProductById(productId);
-            }
-
-            clearSalesTables();
-        } catch (Exception e) {
-            fail(ConnectorTestUtils.getStackTrace(e));
+    public void tearDown() throws Exception {
+        List<Integer> productIds = getTestRunMessageValue("productIds");
+        for (Integer productId : productIds) {
+            deleteProductById(productId);
         }
     }
 
