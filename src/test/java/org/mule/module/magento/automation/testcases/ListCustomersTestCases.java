@@ -12,6 +12,7 @@ import com.magento.api.CustomerCustomerEntity;
 import com.magento.api.CustomerCustomerEntityToCreate;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
@@ -22,6 +23,7 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+@Ignore
 public class ListCustomersTestCases extends MagentoTestParent {
 
     @Before

@@ -11,6 +11,7 @@ package org.mule.module.magento.automation.testcases;
 import com.magento.api.*;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
@@ -21,6 +22,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@Ignore
 public class ListOrdersTestCases extends MagentoTestParent {
 
     @Before

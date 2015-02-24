@@ -13,6 +13,7 @@ import com.magento.api.CatalogProductReturnEntity;
 import com.magento.api.ShoppingCartProductEntity;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
@@ -22,6 +23,7 @@ import java.util.HashMap;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+@Ignore
 public class GetProductTestCases extends MagentoTestParent {
 
     int productId;

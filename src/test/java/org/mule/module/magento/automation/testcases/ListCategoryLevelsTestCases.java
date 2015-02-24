@@ -12,6 +12,7 @@ import com.magento.api.CatalogCategoryEntityCreate;
 import com.magento.api.CatalogCategoryEntityNoChildren;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
@@ -21,6 +22,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@Ignore
 public class ListCategoryLevelsTestCases extends MagentoTestParent {
 
     @Before
@@ -56,6 +58,7 @@ public class ListCategoryLevelsTestCases extends MagentoTestParent {
 
     @Category({RegressionTests.class})
     @Test
+    @Ignore
     public void testListCategoryLevels() {
         try {
             List<CatalogCategoryEntityNoChildren> categories = runFlowAndGetPayload("list-category-levels");

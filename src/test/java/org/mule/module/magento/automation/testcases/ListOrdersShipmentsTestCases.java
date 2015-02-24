@@ -22,6 +22,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@Ignore
 public class ListOrdersShipmentsTestCases extends MagentoTestParent {
 
     @Before
@@ -95,7 +96,6 @@ public class ListOrdersShipmentsTestCases extends MagentoTestParent {
         }
     }
 
-    @Ignore
     @Category({RegressionTests.class})
     @Test
     public void testOrdersShipments_withFilter() {
