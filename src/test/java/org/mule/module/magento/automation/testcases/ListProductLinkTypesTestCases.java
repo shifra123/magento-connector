@@ -8,32 +8,26 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import java.util.List;
 
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class ListProductLinkTypesTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Category({RegressionTests.class })
-	@Test
-	public void testListProductLinkTypes() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("list-product-link-types");
+    @Category({RegressionTests.class})
+    @Test
+    public void testListProductLinkTypes() {
+        try {
+            List<String> productLinkTypes = runFlowAndGetPayload("list-product-link-types");
 
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			List<String> productLinkTypes = (List<String>) response.getMessage().getPayload();
-			assertNotNull(productLinkTypes);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+            assertNotNull(productLinkTypes);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
 }

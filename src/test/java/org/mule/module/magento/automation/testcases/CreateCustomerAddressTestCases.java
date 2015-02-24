@@ -8,70 +8,49 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
+import com.magento.api.CustomerCustomerEntityToCreate;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CustomerCustomerEntityToCreate;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class CreateCustomerAddressTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("createCustomerAddress");
-			
-			CustomerCustomerEntityToCreate customer = (CustomerCustomerEntityToCreate) testObjects.get("customerRef");
-			int customerId = createCustomer(customer);
-			
-			testObjects.put("customerId", customerId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({SmokeTests.class, RegressionTests.class})
-	@Test
-	public void testCreateCustomerAddress() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("create-customer-address");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			Integer customerAddressId = (Integer) response.getMessage().getPayload();
-			assertNotNull(customerAddressId);
-		
-			testObjects.put("customerAddressId", customerAddressId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			int customerAddressId = (Integer) testObjects.get("customerAddressId");
-			deleteCustomerAddress(customerAddressId);
-			
-			int customerId = (Integer) testObjects.get("customerId");
-			deleteCustomer(customerId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
+    int customerId;
+
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("createCustomerAddress");
+
+        CustomerCustomerEntityToCreate customer = getTestRunMessageValue("customerRef");
+        customerId = createCustomer(customer);
+
+        initializeTestRunMessage("createCustomerAddress");
+        upsertOnTestRunMessage("customerId", customerId);
+    }
+
+    @Category({SmokeTests.class, RegressionTests.class})
+    @Test
+    public void testCreateCustomerAddress() {
+        try {
+            Integer customerAddressId = runFlowAndGetPayload("create-customer-address");
+            assertNotNull(customerAddressId);
+            upsertOnTestRunMessage("customerAddressId", customerAddressId);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        int customerAddressId = getTestRunMessageValue("customerAddressId");
+        deleteCustomerAddress(customerAddressId);
+
+        deleteCustomer(customerId);
+    }
+
 }

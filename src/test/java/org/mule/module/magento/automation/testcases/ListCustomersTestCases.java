@@ -8,111 +8,90 @@
 
 package org.mule.module.magento.automation.testcases;
 
+import com.magento.api.CustomerCustomerEntity;
+import com.magento.api.CustomerCustomerEntityToCreate;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.mule.modules.tests.ConnectorTestUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
-
-import com.magento.api.CustomerCustomerEntity;
-import com.magento.api.CustomerCustomerEntityToCreate;
-
+@Ignore
 public class ListCustomersTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("listCustomers");
-			
-			List<Integer> customerIds = new ArrayList<Integer>();
-			
-			List<CustomerCustomerEntityToCreate> customers = (List<CustomerCustomerEntityToCreate>) testObjects.get("customers");
-			
-			// Create the customers
-			for (CustomerCustomerEntityToCreate customer : customers) {
-				Integer customerId = createCustomer(customer);
-				customerIds.add(customerId);
-			}
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("listCustomers");
+        List<Integer> customerIds = new ArrayList<Integer>();
+        List<CustomerCustomerEntityToCreate> customers = getTestRunMessageValue("customers");
 
-			testObjects.put("customerIds", customerIds);
-			
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Category({RegressionTests.class})
-	@Test
-	public void testListCustomers_WithoutFilter() {
-		try {
-			List<Integer> customerIds = (List<Integer>) testObjects.get("customerIds");
-			
-			MessageProcessor flow = lookupFlowConstruct("list-customers-without-filter");
-			MuleEvent event = flow.process(getTestEvent(testObjects));
-			
-			List<CustomerCustomerEntity> customers = (List<CustomerCustomerEntity>) event.getMessage().getPayload();
-			for (CustomerCustomerEntity customer : customers) {
-				Integer temp = customer.getCustomer_id();
-				assertTrue(customerIds.contains(temp));
-			}			
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Category({RegressionTests.class})
-	@Test
-	public void testListCustomers_WithFilter() {
-		try {
-			
-			String emailFilter = testObjects.get("emailFilter").toString();
-			List<Integer> customerIds = (List<Integer>) testObjects.get("customerIds");
-			
-			MessageProcessor flow = lookupFlowConstruct("list-customers-with-filter");
-			MuleEvent event = flow.process(getTestEvent(testObjects));
-			
-			List<CustomerCustomerEntity> retrievedCustomers = (List<CustomerCustomerEntity>) event.getMessage().getPayload();
-			assertTrue(retrievedCustomers.size() == 1);
-			
-			CustomerCustomerEntity customer = retrievedCustomers.get(0);
-			assertTrue(customerIds.contains(customer.getCustomer_id()));
-			assertTrue(customer.getEmail().equals(emailFilter));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@SuppressWarnings("unchecked")
-	@After
-	public void tearDown() {
-		try {
-			List<Integer> customerIds = (List<Integer>) testObjects.get("customerIds");
+        // Create the customers
+        for (CustomerCustomerEntityToCreate customer : customers) {
+            Integer customerId = createCustomer(customer);
+            customerIds.add(customerId);
+        }
 
-			// Delete the customers
-			for (Integer customerId : customerIds) {
-				deleteCustomer(customerId);
-			}
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+        initializeTestRunMessage("listCustomers");
+        upsertOnTestRunMessage("customerIds", customerIds);
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testListCustomers_WithoutFilter() {
+        try {
+            List<Integer> customerIds = getTestRunMessageValue("customerIds");
+            List<CustomerCustomerEntity> customers = runFlowAndGetPayload("list-customers-without-filter");
+
+            for (Integer custId : customerIds) {
+                boolean match = false;
+                for (CustomerCustomerEntity customer : customers) {
+                    if (custId.equals(customer.getCustomer_id())) {
+                        match = true;
+                        break;
+                    }
+                }
+                if (!match) {
+                    fail("Customer id does not match.");
+                }
+            }
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testListCustomers_WithFilter() {
+        try {
+
+            String emailFilter = getTestRunMessageValue("emailFilter");
+            List<Integer> customerIds = getTestRunMessageValue("customerIds");
+
+            List<CustomerCustomerEntity> retrievedCustomers = runFlowAndGetPayload("list-customers-with-filter");
+            assertTrue(retrievedCustomers.size() == 1);
+
+            CustomerCustomerEntity customer = retrievedCustomers.get(0);
+            assertTrue(customerIds.contains(customer.getCustomer_id()));
+            assertTrue(customer.getEmail().equals(emailFilter));
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        List<Integer> customerIds = getTestRunMessageValue("customerIds");
+
+        // Delete the customers
+        for (Integer customerId : customerIds) {
+            deleteCustomer(customerId);
+        }
+    }
 }
