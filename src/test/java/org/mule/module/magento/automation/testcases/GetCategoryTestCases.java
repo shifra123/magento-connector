@@ -8,71 +8,49 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
+import com.magento.api.CatalogCategoryEntityCreate;
+import com.magento.api.CatalogCategoryInfo;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CatalogCategoryEntityCreate;
-import com.magento.api.CatalogCategoryInfo;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class GetCategoryTestCases extends MagentoTestParent {
-	
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("getCategory");
-			
-			int parentId = (Integer) testObjects.get("parentId");
-			CatalogCategoryEntityCreate category = (CatalogCategoryEntityCreate) testObjects.get("catalogCategoryEntityRef");
-			int categoryId = createCategory(parentId, category);
-		
-			testObjects.put("categoryId", categoryId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({SmokeTests.class, RegressionTests.class})
-	@Test
-	public void testGetCategory() {
-		try {
-		
-			int categoryId = (Integer) testObjects.get("categoryId");
-			int parentId = (Integer) testObjects.get("parentId");
-			
-			MessageProcessor flow = lookupFlowConstruct("get-category");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			CatalogCategoryInfo category = (CatalogCategoryInfo) response.getMessage().getPayload();
-			assertTrue(category.getParent_id().equals(Integer.toString(parentId)));
-			assertTrue(category.getCategory_id().equals(Integer.toString(categoryId)));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			int categoryId = (Integer) testObjects.get("categoryId");
-			deleteCategory(categoryId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("getCategory");
+        int parentId = getTestRunMessageValue("parentId");
+        CatalogCategoryEntityCreate category = getTestRunMessageValue("catalogCategoryEntityRef");
+        int categoryId = createCategory(parentId, category);
+
+        initializeTestRunMessage("getCategory");
+        upsertOnTestRunMessage("categoryId", categoryId);
+    }
+
+
+    @Category({SmokeTests.class, RegressionTests.class})
+    @Test
+    public void testGetCategory() {
+        try {
+
+            int categoryId = getTestRunMessageValue("categoryId");
+            int parentId = getTestRunMessageValue("parentId");
+            CatalogCategoryInfo category = runFlowAndGetPayload("get-category");
+            assertTrue(category.getParent_id().equals(Integer.toString(parentId)));
+            assertTrue(category.getCategory_id().equals(Integer.toString(categoryId)));
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        int categoryId = getTestRunMessageValue("categoryId");
+        deleteCategory(categoryId);
+    }
 }

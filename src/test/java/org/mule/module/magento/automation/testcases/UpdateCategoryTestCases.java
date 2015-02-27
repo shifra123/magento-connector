@@ -8,69 +8,46 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
+import com.magento.api.CatalogCategoryEntityCreate;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CatalogCategoryEntityCreate;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class UpdateCategoryTestCases extends MagentoTestParent {
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("updateCategory");
-			
-			int parentId = (Integer) testObjects.get("parentId");
-			
-			CatalogCategoryEntityCreate beforeCategory = (CatalogCategoryEntityCreate) testObjects.get("beforeCategory");
-			int categoryId = createCategory(parentId, beforeCategory);
-			
-			testObjects.put("categoryId", categoryId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({ RegressionTests.class })
-	@Test
-	public void testUpdateCategory() {
-		try {
-			CatalogCategoryEntityCreate afterCategory = (CatalogCategoryEntityCreate) testObjects.get("afterCategory");
-			
-			testObjects.put("catalogCategoryEntityRef", afterCategory);
-			
-			MessageProcessor flow = lookupFlowConstruct("update-category");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-		
-			Boolean result = (Boolean) response.getMessage().getPayload();
-			assertTrue(result);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			int categoryId = (Integer) testObjects.get("categoryId");
-			deleteCategory(categoryId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("updateCategory");
+
+        int parentId = getTestRunMessageValue("parentId");
+
+        CatalogCategoryEntityCreate beforeCategory = getTestRunMessageValue("beforeCategory");
+        int categoryId = createCategory(parentId, beforeCategory);
+
+        initializeTestRunMessage("updateCategory");
+        upsertOnTestRunMessage("categoryId", categoryId);
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testUpdateCategory() {
+        try {
+            CatalogCategoryEntityCreate afterCategory = getTestRunMessageValue("afterCategory");
+            upsertOnTestRunMessage("catalogCategoryEntityRef", afterCategory);
+            Boolean result = runFlowAndGetPayload("update-category");
+            assertTrue(result);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        int categoryId = getTestRunMessageValue("categoryId");
+        deleteCategory(categoryId);
+    }
 }

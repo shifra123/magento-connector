@@ -8,79 +8,48 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
+import com.magento.api.CustomerAddressEntityCreate;
+import com.magento.api.CustomerAddressEntityItem;
+import com.magento.api.CustomerCustomerEntityToCreate;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CustomerAddressEntityCreate;
-import com.magento.api.CustomerAddressEntityItem;
-import com.magento.api.CustomerCustomerEntityToCreate;
+import static org.junit.Assert.*;
 
 public class GetCustomerAddressTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("getCustomerAddress");
-			
-			CustomerCustomerEntityToCreate customer = (CustomerCustomerEntityToCreate) testObjects.get("customerRef");
-			int customerId = createCustomer(customer);
-			
-			testObjects.put("customerId", customerId);
-			
-			CustomerAddressEntityCreate address = (CustomerAddressEntityCreate) testObjects.get("customerAddressRef");
-			int addressId = createCustomerAddress(customerId, address);
-		
-			testObjects.put("addressId", addressId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({ RegressionTests.class})
-	@Test
-	public void testGetCustomerAddress() {
-		try {
-			
-			int addressId = (Integer) testObjects.get("addressId");
-			
-			MessageProcessor flow = lookupFlowConstruct("get-customer-address");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+    Integer addressId;
+    Integer customerId;
 
-			CustomerAddressEntityItem address = (CustomerAddressEntityItem) response.getMessage().getPayload();			
-			assertNotNull(address);
-			assertTrue(addressId == address.getCustomer_address_id());
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			int customerAddressId = (Integer) testObjects.get("addressId");
-			deleteCustomerAddress(customerAddressId);
-			
-			int customerId = (Integer) testObjects.get("customerId");
-			deleteCustomer(customerId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("getCustomerAddress");
+        CustomerCustomerEntityToCreate customer = getTestRunMessageValue("customerRef");
+        CustomerAddressEntityCreate address = getTestRunMessageValue("customerAddressRef");
+        customerId = createCustomer(customer);
+        addressId = createCustomerAddress(customerId, address);
+        upsertOnTestRunMessage("customerId", customerId);
+        upsertOnTestRunMessage("addressId", addressId);
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testGetCustomerAddress() {
+        try {
+            CustomerAddressEntityItem address = runFlowAndGetPayload("get-customer-address");
+            assertNotNull(address);
+            assertEquals(addressId, address.getCustomer_address_id());
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        deleteCustomerAddress(addressId);
+        deleteCustomer(customerId);
+    }
 }

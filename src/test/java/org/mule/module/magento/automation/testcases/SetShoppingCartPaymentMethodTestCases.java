@@ -8,56 +8,41 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-import java.util.List;
-
+import com.magento.api.ShoppingCartCustomerAddressEntity;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.ShoppingCartCustomerAddressEntity;
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class SetShoppingCartPaymentMethodTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("setShoppingCartPaymentMethod");
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("setShoppingCartPaymentMethod");
+        List<ShoppingCartCustomerAddressEntity> addresses = getTestRunMessageValue("customerAddresses");
+        String storeId = getTestRunMessageValue("storeId");
+        int quoteId = createShoppingCart(storeId);
 
-			String storeId = testObjects.get("storeId").toString();
-			
-			int quoteId = createShoppingCart(storeId);
-			testObjects.put("quoteId", quoteId);
-			
-			List<ShoppingCartCustomerAddressEntity> addresses = (List<ShoppingCartCustomerAddressEntity>) testObjects.get("customerAddresses");
-			setCustomerAddressesToShoppingCart(quoteId, addresses);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({SmokeTests.class, RegressionTests.class})
-	@Test
-	public void testSetShoppingCartPaymentMethodTestCases() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("set-shopping-cart-payment-method");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			Boolean result = (Boolean) response.getMessage().getPayload();
-			assertTrue(result);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-		
+        setCustomerAddressesToShoppingCart(quoteId, addresses);
+
+        initializeTestRunMessage("setShoppingCartPaymentMethod");
+        upsertOnTestRunMessage("quoteId", quoteId);
+    }
+
+    @Category({SmokeTests.class, RegressionTests.class})
+    @Test
+    public void testSetShoppingCartPaymentMethodTestCases() {
+        try {
+            Boolean result = runFlowAndGetPayload("set-shopping-cart-payment-method");
+            assertTrue(result);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
 }

@@ -75,9 +75,9 @@ import com.magento.api.*;
 @Connector(name = "magento", schemaVersion = "1.1", friendlyName = "Magento", minMuleVersion = "3.5", metaData=MetaDataSwitch.ON)
 public class MagentoCloudConnector {
 
-	private static final String ENTITY_PACKAGE = "com.magento.api";
-	
-	private MagentoOrderClient<MagentoException> orderClient;
+    private static final String ENTITY_PACKAGE = "com.magento.api";
+
+    private MagentoOrderClient<MagentoException> orderClient;
     private MagentoCustomerClient<MagentoException> customerClient;
     private MagentoInventoryClient<MagentoException> inventoryClient;
     private MagentoDirectoryClient<MagentoException> directoryClient;
@@ -139,106 +139,106 @@ public class MagentoCloudConnector {
         setCatalogClient(null);
         setShoppingCartClient(null);
     }
-    
+
     @ConnectionIdentifier
     public String connectionId() {
         return String.format("%s-at-%s", getUser(), getServerAddress());
     }
-    
+
     private MetaDataKey createKey(Class<?> cls) {
         return new DefaultMetaDataKey(cls.getSimpleName(), cls.getSimpleName());
     }
-    
+
     @MetaDataKeyRetriever
     public List<MetaDataKey> getMetadataKeys() {
-    	List<MetaDataKey> keys = new ArrayList<MetaDataKey>();
-    	keys.add(this.createKey(ApiEntity.class));
-    	keys.add(this.createKey(ApiMethodEntity.class));
-    	keys.add(this.createKey(AssociativeEntity.class));
-    	keys.add(this.createKey(AssociativeMultiEntity.class));
-    	keys.add(this.createKey(CatalogAttributeEntity.class));
-    	keys.add(this.createKey(CatalogAttributeOptionEntity.class));
-    	keys.add(this.createKey(CatalogCategoryEntity.class));
-    	keys.add(this.createKey(CatalogInventoryStockItemEntity.class));
-    	keys.add(this.createKey(CatalogInventoryStockItemUpdateEntity.class));
-    	keys.add(this.createKey(CatalogProductAdditionalAttributesEntity.class));
-    	keys.add(this.createKey(CatalogProductAttributeEntity.class));
-    	keys.add(this.createKey(CatalogProductAttributeFrontendLabelEntity.class));
-    	keys.add(this.createKey(CatalogProductAttributeMediaCreateEntity.class));
-    	keys.add(this.createKey(CatalogProductAttributeMediaTypeEntity.class));
-    	keys.add(this.createKey(CatalogProductAttributeOptionLabelEntity.class));
-    	keys.add(this.createKey(CatalogProductAttributeSetEntity.class));
-    	keys.add(this.createKey(CatalogProductCreateEntity.class));
-    	keys.add(this.createKey(CatalogProductCustomOptionAdditionalFieldsEntity.class));
-    	keys.add(this.createKey(CatalogProductCustomOptionInfoEntity.class));
-    	keys.add(this.createKey(CatalogProductCustomOptionListEntity.class));
-    	keys.add(this.createKey(CatalogProductCustomOptionTypesEntity.class));
-    	keys.add(this.createKey(CatalogProductCustomOptionValueAddEntity.class));
-    	keys.add(this.createKey(CatalogProductCustomOptionValueInfoEntity.class));
-    	keys.add(this.createKey(CatalogProductCustomOptionValueListEntity.class));
-    	keys.add(this.createKey(CatalogProductCustomOptionValueUpdateEntity.class));
-    	keys.add(this.createKey(CatalogProductDownloadableLinkAddEntity.class));
-    	keys.add(this.createKey(CatalogProductDownloadableLinkAddSampleEntity.class));
-    	keys.add(this.createKey(CatalogProductDownloadableLinkEntity.class));
-    	keys.add(this.createKey(CatalogProductDownloadableLinkFileEntity.class));
-    	keys.add(this.createKey(CatalogProductDownloadableLinkFileInfoEntity.class));
-    	keys.add(this.createKey(CatalogProductDownloadableLinkInfoEntity.class));
-    	keys.add(this.createKey(CatalogProductDownloadableLinkSampleEntity.class));
-    	keys.add(this.createKey(CatalogProductEntity.class));
-    	keys.add(this.createKey(CatalogProductImageEntity.class));
-    	keys.add(this.createKey(CatalogProductImageFileEntity.class));
-    	keys.add(this.createKey(CatalogProductLinkAttributeEntity.class));
-    	keys.add(this.createKey(CatalogProductLinkEntity.class));
-    	keys.add(this.createKey(CatalogProductReturnEntity.class));
-    	keys.add(this.createKey(CatalogProductTagAddEntity.class));
-    	keys.add(this.createKey(CatalogProductTagInfoEntity.class));
-    	keys.add(this.createKey(CatalogProductTagListEntity.class));
-    	keys.add(this.createKey(CatalogProductTagUpdateEntity.class));
-    	keys.add(this.createKey(CatalogProductTierPriceEntity.class));
-    	keys.add(this.createKey(CatalogProductTypeEntity.class));
-    	keys.add(this.createKey(CustomerCustomerEntity.class));
-    	keys.add(this.createKey(CustomerGroupEntity.class));
-    	keys.add(this.createKey(DirectoryCountryEntity.class));
-    	keys.add(this.createKey(DirectoryRegionEntity.class));
-    	keys.add(this.createKey(ExistsFaltureEntity.class));
-    	keys.add(this.createKey(GiftMessageAssociativeProductsEntity.class));
-    	keys.add(this.createKey(MagentoInfoEntity.class));
-    	keys.add(this.createKey(SalesOrderAddressEntity.class));
-    	keys.add(this.createKey(SalesOrderCreditmemoCommentEntity.class));
-    	keys.add(this.createKey(SalesOrderCreditmemoEntity.class));
-    	keys.add(this.createKey(SalesOrderCreditmemoItemEntity.class));
-    	keys.add(this.createKey(SalesOrderEntity.class));
-    	keys.add(this.createKey(SalesOrderInvoiceCommentEntity.class));
-    	keys.add(this.createKey(SalesOrderInvoiceEntity.class));
-    	keys.add(this.createKey(SalesOrderInvoiceItemEntity.class));
-    	keys.add(this.createKey(SalesOrderItemEntity.class));
-    	keys.add(this.createKey(SalesOrderListEntity.class));
-    	keys.add(this.createKey(SalesOrderPaymentEntity.class));
-    	keys.add(this.createKey(SalesOrderShipmentCommentEntity.class));
-    	keys.add(this.createKey(SalesOrderShipmentEntity.class));
-    	keys.add(this.createKey(SalesOrderShipmentItemEntity.class));
-    	keys.add(this.createKey(SalesOrderShipmentTrackEntity.class));
-    	keys.add(this.createKey(SalesOrderStatusHistoryEntity.class));
-    	keys.add(this.createKey(ShoppingCartAddressEntity.class));
-    	keys.add(this.createKey(ShoppingCartCustomerAddressEntity.class));
-    	keys.add(this.createKey(ShoppingCartCustomerEntity.class));
-    	keys.add(this.createKey(ShoppingCartInfoEntity.class));
-    	keys.add(this.createKey(ShoppingCartItemEntity.class));
-    	keys.add(this.createKey(ShoppingCartLicenseEntity.class));
-    	keys.add(this.createKey(ShoppingCartPaymentEntity.class));
-    	keys.add(this.createKey(ShoppingCartPaymentMethodEntity.class));
-    	keys.add(this.createKey(ShoppingCartProductEntity.class));
-    	keys.add(this.createKey(ShoppingCartShippingMethodEntity.class));
-    	keys.add(this.createKey(ShoppingCartTotalsEntity.class));
-    	keys.add(this.createKey(StoreEntity.class));
-    	 
-    	return keys;
+        List<MetaDataKey> keys = new ArrayList<MetaDataKey>();
+        keys.add(this.createKey(ApiEntity.class));
+        keys.add(this.createKey(ApiMethodEntity.class));
+        keys.add(this.createKey(AssociativeEntity.class));
+        keys.add(this.createKey(AssociativeMultiEntity.class));
+        keys.add(this.createKey(CatalogAttributeEntity.class));
+        keys.add(this.createKey(CatalogAttributeOptionEntity.class));
+        keys.add(this.createKey(CatalogCategoryEntity.class));
+        keys.add(this.createKey(CatalogInventoryStockItemEntity.class));
+        keys.add(this.createKey(CatalogInventoryStockItemUpdateEntity.class));
+        keys.add(this.createKey(CatalogProductAdditionalAttributesEntity.class));
+        keys.add(this.createKey(CatalogProductAttributeEntity.class));
+        keys.add(this.createKey(CatalogProductAttributeFrontendLabelEntity.class));
+        keys.add(this.createKey(CatalogProductAttributeMediaCreateEntity.class));
+        keys.add(this.createKey(CatalogProductAttributeMediaTypeEntity.class));
+        keys.add(this.createKey(CatalogProductAttributeOptionLabelEntity.class));
+        keys.add(this.createKey(CatalogProductAttributeSetEntity.class));
+        keys.add(this.createKey(CatalogProductCreateEntity.class));
+        keys.add(this.createKey(CatalogProductCustomOptionAdditionalFieldsEntity.class));
+        keys.add(this.createKey(CatalogProductCustomOptionInfoEntity.class));
+        keys.add(this.createKey(CatalogProductCustomOptionListEntity.class));
+        keys.add(this.createKey(CatalogProductCustomOptionTypesEntity.class));
+        keys.add(this.createKey(CatalogProductCustomOptionValueAddEntity.class));
+        keys.add(this.createKey(CatalogProductCustomOptionValueInfoEntity.class));
+        keys.add(this.createKey(CatalogProductCustomOptionValueListEntity.class));
+        keys.add(this.createKey(CatalogProductCustomOptionValueUpdateEntity.class));
+        keys.add(this.createKey(CatalogProductDownloadableLinkAddEntity.class));
+        keys.add(this.createKey(CatalogProductDownloadableLinkAddSampleEntity.class));
+        keys.add(this.createKey(CatalogProductDownloadableLinkEntity.class));
+        keys.add(this.createKey(CatalogProductDownloadableLinkFileEntity.class));
+        keys.add(this.createKey(CatalogProductDownloadableLinkFileInfoEntity.class));
+        keys.add(this.createKey(CatalogProductDownloadableLinkInfoEntity.class));
+        keys.add(this.createKey(CatalogProductDownloadableLinkSampleEntity.class));
+        keys.add(this.createKey(CatalogProductEntity.class));
+        keys.add(this.createKey(CatalogProductImageEntity.class));
+        keys.add(this.createKey(CatalogProductImageFileEntity.class));
+        keys.add(this.createKey(CatalogProductLinkAttributeEntity.class));
+        keys.add(this.createKey(CatalogProductLinkEntity.class));
+        keys.add(this.createKey(CatalogProductReturnEntity.class));
+        keys.add(this.createKey(CatalogProductTagAddEntity.class));
+        keys.add(this.createKey(CatalogProductTagInfoEntity.class));
+        keys.add(this.createKey(CatalogProductTagListEntity.class));
+        keys.add(this.createKey(CatalogProductTagUpdateEntity.class));
+        keys.add(this.createKey(CatalogProductTierPriceEntity.class));
+        keys.add(this.createKey(CatalogProductTypeEntity.class));
+        keys.add(this.createKey(CustomerCustomerEntity.class));
+        keys.add(this.createKey(CustomerGroupEntity.class));
+        keys.add(this.createKey(DirectoryCountryEntity.class));
+        keys.add(this.createKey(DirectoryRegionEntity.class));
+        keys.add(this.createKey(ExistsFaltureEntity.class));
+        keys.add(this.createKey(GiftMessageAssociativeProductsEntity.class));
+        keys.add(this.createKey(MagentoInfoEntity.class));
+        keys.add(this.createKey(SalesOrderAddressEntity.class));
+        keys.add(this.createKey(SalesOrderCreditmemoCommentEntity.class));
+        keys.add(this.createKey(SalesOrderCreditmemoEntity.class));
+        keys.add(this.createKey(SalesOrderCreditmemoItemEntity.class));
+        keys.add(this.createKey(SalesOrderEntity.class));
+        keys.add(this.createKey(SalesOrderInvoiceCommentEntity.class));
+        keys.add(this.createKey(SalesOrderInvoiceEntity.class));
+        keys.add(this.createKey(SalesOrderInvoiceItemEntity.class));
+        keys.add(this.createKey(SalesOrderItemEntity.class));
+        keys.add(this.createKey(SalesOrderListEntity.class));
+        keys.add(this.createKey(SalesOrderPaymentEntity.class));
+        keys.add(this.createKey(SalesOrderShipmentCommentEntity.class));
+        keys.add(this.createKey(SalesOrderShipmentEntity.class));
+        keys.add(this.createKey(SalesOrderShipmentItemEntity.class));
+        keys.add(this.createKey(SalesOrderShipmentTrackEntity.class));
+        keys.add(this.createKey(SalesOrderStatusHistoryEntity.class));
+        keys.add(this.createKey(ShoppingCartAddressEntity.class));
+        keys.add(this.createKey(ShoppingCartCustomerAddressEntity.class));
+        keys.add(this.createKey(ShoppingCartCustomerEntity.class));
+        keys.add(this.createKey(ShoppingCartInfoEntity.class));
+        keys.add(this.createKey(ShoppingCartItemEntity.class));
+        keys.add(this.createKey(ShoppingCartLicenseEntity.class));
+        keys.add(this.createKey(ShoppingCartPaymentEntity.class));
+        keys.add(this.createKey(ShoppingCartPaymentMethodEntity.class));
+        keys.add(this.createKey(ShoppingCartProductEntity.class));
+        keys.add(this.createKey(ShoppingCartShippingMethodEntity.class));
+        keys.add(this.createKey(ShoppingCartTotalsEntity.class));
+        keys.add(this.createKey(StoreEntity.class));
+
+        return keys;
     }
-    
+
     @MetaDataRetriever
     public MetaData getMetadata(MetaDataKey key) throws ClassNotFoundException {
-         Class<?> clazz = Class.forName(String.format("%s.%s", ENTITY_PACKAGE, key.getId()));
-         return new DefaultMetaData(new DefaultPojoMetaDataModel(clazz));
+        Class<?> clazz = Class.forName(String.format("%s.%s", ENTITY_PACKAGE, key.getId()));
+        return new DefaultMetaData(new DefaultPojoMetaDataModel(clazz));
     }
 
     /**
@@ -255,8 +255,8 @@ public class MagentoCloudConnector {
     @Processor
     public boolean addOrderShipmentComment(String shipmentId,
                                            String comment,
-                                           @Optional @Default("false") boolean sendEmail,
-                                           @Optional @Default("false") boolean includeCommentInEmail)
+                                           @Default("false") boolean sendEmail,
+                                           @Default("false") boolean includeCommentInEmail)
 
     {
         return orderClient.addOrderShipmentComment(shipmentId, comment, sendEmail, includeCommentInEmail);
@@ -308,10 +308,10 @@ public class MagentoCloudConnector {
      */
     @Processor
     public String createOrderShipment(String orderId,
-                                      @Optional @Default("#[payload]") @Placement(group = "Item Ids and Quantities") List<OrderItemIdQty> itemsQuantities,
+                                      @Default("#[payload]") @Placement(group = "Item Ids and Quantities") List<OrderItemIdQty> itemsQuantities,
                                       @Optional String comment,
-                                      @Optional @Default("false") boolean sendEmail,
-                                      @Optional @Default("false") boolean includeCommentInEmail) {
+                                      @Default("false") boolean sendEmail,
+                                      @Default("false") boolean includeCommentInEmail) {
         return orderClient.createOrderShipment(orderId, itemsQuantities, comment, sendEmail, includeCommentInEmail);
     }
 
@@ -401,13 +401,13 @@ public class MagentoCloudConnector {
     public List<SalesOrderListEntity> listOrders(@org.mule.api.annotations.Query @Optional String filter) {
         return orderClient.listOrders(filter);
     }
-    
+
     @QueryTranslator
     public String toNativeQuery(Query query) {
-    	MagentoQueryVisitor visitor = new MagentoQueryVisitor();
-    	query.getFilterExpression().accept(visitor);
-    	
-    	return visitor.toQuery();
+        MagentoQueryVisitor visitor = new MagentoQueryVisitor();
+        query.getFilterExpression().accept(visitor);
+
+        return visitor.toQuery();
     }
 
     /**
@@ -478,7 +478,7 @@ public class MagentoCloudConnector {
     public boolean addOrderComment(String orderId,
                                    String status,
                                    String comment,
-                                   @Optional @Default("false") boolean sendEmail) {
+                                   @Default("false") boolean sendEmail) {
         return orderClient.addOrderComment(orderId, status, comment, sendEmail);
     }
 
@@ -510,10 +510,10 @@ public class MagentoCloudConnector {
      */
     @Processor
     public String createOrderInvoice(String orderId,
-                                     @Optional @Default("#[payload]") @Placement(group = "Item Ids and Quantities") List<OrderItemIdQty> itemsQuantities,
+                                     @Default("#[payload]") @Placement(group = "Item Ids and Quantities") List<OrderItemIdQty> itemsQuantities,
                                      @Optional String comment,
-                                     @Optional @Default("false") boolean sendEmail,
-                                     @Optional @Default("false") boolean includeCommentInEmail) {
+                                     @Default("false") boolean sendEmail,
+                                     @Default("false") boolean includeCommentInEmail) {
         return orderClient.createOrderInvoice(orderId, itemsQuantities, comment, sendEmail,
                 includeCommentInEmail);
     }
@@ -532,8 +532,8 @@ public class MagentoCloudConnector {
     @Processor
     public boolean addOrderInvoiceComment(String invoiceId,
                                           String comment,
-                                          @Optional @Default("false") boolean sendEmail,
-                                          @Optional @Default("false") boolean includeCommentInEmail) {
+                                          @Default("false") boolean sendEmail,
+                                          @Default("false") boolean includeCommentInEmail) {
         return orderClient.addOrderInvoiceComment(invoiceId, comment, sendEmail, includeCommentInEmail);
     }
 
@@ -585,8 +585,8 @@ public class MagentoCloudConnector {
      * @return a new customer address id
      */
     @Processor
-    public int createCustomerAddress(int customerId, @Optional @Default("#[payload]")
-            @Placement(group = "Address Attributes") CustomerAddressEntityCreate customerAddress) {
+    public int createCustomerAddress(int customerId, @Default("#[payload]")
+    @Placement(group = "Address Attributes") CustomerAddressEntityCreate customerAddress) {
         return customerClient.createCustomerAddress(customerId, customerAddress);
     }
 
@@ -599,7 +599,7 @@ public class MagentoCloudConnector {
      * @return the new customer id
      */
     @Processor
-    public int createCustomer( @Default("#[payload]") @Placement(group = "Customer Attributes") CustomerCustomerEntityToCreate customer) {
+    public int createCustomer(@Default("#[payload]") @Placement(group = "Customer Attributes") CustomerCustomerEntityToCreate customer) {
         return customerClient.createCustomer(customer);
     }
 
@@ -634,7 +634,6 @@ public class MagentoCloudConnector {
      * retrieved
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:getCustomer}
-     *
      *
      * @param customerId     the id of the customer to retrieve
      * @param attributeNames the attributes to retrieve. Not empty
@@ -716,7 +715,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean updateCustomer(int customerId,
-                                  @Optional @Default("#[payload]") @Placement(group = "Customer Attributes to Update") CustomerCustomerEntityToCreate customer) {
+                                  @Default("#[payload]") @Placement(group = "Customer Attributes to Update") CustomerCustomerEntityToCreate customer) {
         return customerClient.updateCustomer(customerId, customer);
     }
 
@@ -730,7 +729,7 @@ public class MagentoCloudConnector {
      * @return update result
      */
     @Processor
-    public boolean updateCustomerAddress(int addressId,  @Default("#[payload]")  @Placement(group = "Address Attributes to Update") CustomerAddressEntityCreate customerAddress) {
+    public boolean updateCustomerAddress(int addressId, @Default("#[payload]") @Placement(group = "Address Attributes to Update") CustomerAddressEntityCreate customerAddress) {
         return customerClient.updateCustomerAddress(addressId, customerAddress);
     }
 
@@ -760,7 +759,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public int updateStockItem(String productIdOrSku,
-                               @Optional @Default("#[payload]") @Placement(group = "Attributes to Update") CatalogInventoryStockItemUpdateEntity stockItem) {
+                               @Default("#[payload]") @Placement(group = "Attributes to Update") CatalogInventoryStockItemUpdateEntity stockItem) {
         return inventoryClient.updateStockItem(productIdOrSku, stockItem);
     }
 
@@ -801,8 +800,8 @@ public class MagentoCloudConnector {
      *                             in case you are sure the source product identifier is a
      *                             product id
      * @param productSku           the sku of the source product. Use it instead of productIdOrSku
- *                             in case you are sure the source product identifier is a
- *                             product sku
+     *                             in case you are sure the source product identifier is a
+     *                             product sku
      * @param productIdOrSku       the id or sku of the source product.
      * @param linkedProductIdOrSku the destination product id or sku.
      * @param productLinkEntity           the link attributes
@@ -814,7 +813,7 @@ public class MagentoCloudConnector {
                                   @Optional String productSku,
                                   @Optional String productIdOrSku,
                                   String linkedProductIdOrSku,
-                                  @Optional @Default("#[payload]") @Placement(group = "Address Attributes to Update") CatalogProductLinkEntity productLinkEntity) {
+                                  @Default("#[payload]") @Placement(group = "Address Attributes to Update") CatalogProductLinkEntity productLinkEntity) {
         return catalogClient.addProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku,
                 productLinkEntity);
     }
@@ -844,7 +843,7 @@ public class MagentoCloudConnector {
     public String createProductAttributeMedia(@Optional Integer productId,
                                               @Optional String productSku,
                                               @Optional String productIdOrSku,
-                                              @Optional @Default("#[payload]") @Placement(group = "Media Attributes") CatalogProductAttributeMediaCreateEntity catalogProductAttributeMediaEntity,
+                                              @Default("#[payload]") @Placement(group = "Media Attributes") CatalogProductAttributeMediaCreateEntity catalogProductAttributeMediaEntity,
                                               @Optional String storeViewIdOrCode,
                                               @Payload Object payload,
                                               MediaMimeType mimeType,
@@ -884,9 +883,9 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean deleteProductAttributeMedia(@Optional Integer productId,
-                                            @Optional String productSku,
-                                            @Optional String productIdOrSku,
-                                            String fileName)
+                                               @Optional String productSku,
+                                               @Optional String productIdOrSku,
+                                               String fileName)
 
     {
         return catalogClient.deleteProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku), fileName);
@@ -910,10 +909,10 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean deleteProductLink(String type,
-                                  @Optional Integer productId,
-                                  @Optional String productSku,
-                                  @Optional String productIdOrSku,
-                                  String linkedProductIdOrSku) {
+                                     @Optional Integer productId,
+                                     @Optional String productSku,
+                                     @Optional String productIdOrSku,
+                                     String linkedProductIdOrSku) {
         return catalogClient.deleteProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku);
     }
 
@@ -1185,7 +1184,7 @@ public class MagentoCloudConnector {
                                                @Optional String productSku,
                                                @Optional String productIdOrSku,
                                                String fileName,
-                                               @Optional @Default("#[payload]") @Placement(group = "Media Attributes to Update") CatalogProductAttributeMediaCreateEntity catalogProductAttributeMediaEntity,
+                                               @Default("#[payload]") @Placement(group = "Media Attributes to Update") CatalogProductAttributeMediaCreateEntity catalogProductAttributeMediaEntity,
                                                @Optional String storeViewIdOrCode) {
         return catalogClient.updateProductAttributeMedia(ProductIdentifiers.from(productSku, productId, productIdOrSku), fileName,
                 catalogProductAttributeMediaEntity, storeViewIdOrCode);
@@ -1210,7 +1209,7 @@ public class MagentoCloudConnector {
     public int updateProductAttributeTierPrice(@Optional Integer productId,
                                                @Optional String productSku,
                                                @Optional String productIdOrSku,
-                                               @Optional @Default("#[payload]") @Placement(group = "Tier Price Attributes to Update") CatalogProductTierPriceEntity catalogProductTierPriceEntity) {
+                                               @Default("#[payload]") @Placement(group = "Tier Price Attributes to Update") CatalogProductTierPriceEntity catalogProductTierPriceEntity) {
         return catalogClient.updateProductAttributeTierPrice(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogProductTierPriceEntity);
     }
 
@@ -1225,8 +1224,8 @@ public class MagentoCloudConnector {
      *                             in case you are sure the source product identifier is a
      *                             product id
      * @param productSku           the sku of the source product. Use it instead of productIdOrSku
- *                             in case you are sure the source product identifier is a
- *                             product sku
+     *                             in case you are sure the source product identifier is a
+     *                             product sku
      * @param productIdOrSku       the id or sku of the source product.
      * @param linkedProductIdOrSku the destination product id or sku.
      * @param catalogProductLinkEntity           the link attributes
@@ -1238,7 +1237,7 @@ public class MagentoCloudConnector {
                                      @Optional String productSku,
                                      @Optional String productIdOrSku,
                                      String linkedProductIdOrSku,
-                                     @Optional @Default("#[payload]") @Placement(group = "Link Attributes to Update") CatalogProductLinkEntity catalogProductLinkEntity) {
+                                     @Default("#[payload]") @Placement(group = "Link Attributes to Update") CatalogProductLinkEntity catalogProductLinkEntity) {
         return catalogClient.updateProductLink(type, ProductIdentifiers.from(productSku, productId, productIdOrSku), linkedProductIdOrSku,
                 catalogProductLinkEntity);
     }
@@ -1266,7 +1265,7 @@ public class MagentoCloudConnector {
      * @param productId      the id of the product. Use it instead of productIdOrSku in
      *                       case you are sure the product identifier is a product id
      * @param productSku     the sku of the product. Use it instead of productIdOrSku in
- *                       case you are sure the product identifier is a product sku
+     *                       case you are sure the product identifier is a product sku
      * @param productIdOrSku the id or sku of the product.
      * @param position       the position of this product
      * @return true if the operation was successful
@@ -1293,7 +1292,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public int createCategory(int parentId,
-                              @Optional @Default("#[payload]") @Placement(group = "Category Attributes") CatalogCategoryEntityCreate catalogCategoryEntity,
+                              @Default("#[payload]") @Placement(group = "Category Attributes") CatalogCategoryEntityCreate catalogCategoryEntity,
                               @Optional String storeViewIdOrCode) {
         return catalogClient.createCategory(parentId, catalogCategoryEntity, storeViewIdOrCode);
     }
@@ -1384,9 +1383,9 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean deleteCategoryProduct(int categoryId,
-                                      @Optional Integer productId,
-                                      @Optional String productSku,
-                                      @Optional String productIdOrSku) {
+                                         @Optional Integer productId,
+                                         @Optional String productSku,
+                                         @Optional String productIdOrSku) {
         return catalogClient.deleteCategoryProduct(categoryId, ProductIdentifiers.from(productSku, productId, productIdOrSku));
     }
 
@@ -1420,7 +1419,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean updateCategory(int categoryId,
-                                  @Optional @Default("#[payload]") @Placement(group = "Category Attributes to Update") CatalogCategoryEntityCreate catalogCategoryEntity,
+                                  @Default("#[payload]") @Placement(group = "Category Attributes to Update") CatalogCategoryEntityCreate catalogCategoryEntity,
                                   @Optional String storeViewIdOrCode) {
         return catalogClient.updateCategory(categoryId, catalogCategoryEntity, storeViewIdOrCode);
     }
@@ -1434,7 +1433,7 @@ public class MagentoCloudConnector {
      * @param productId      the id of the product. Use it instead of productIdOrSku in
      *                       case you are sure the product identifier is a product id
      * @param productSku     the sku of the product. Use it instead of productIdOrSku in
- *                       case you are sure the product identifier is a product sku
+     *                       case you are sure the product identifier is a product sku
      * @param productIdOrSku the id or sku of the product.
      * @param position       the category position for ordering the category inside its level
      * @return update result
@@ -1479,7 +1478,7 @@ public class MagentoCloudConnector {
     public int updateInventoryStockItem(@Optional Integer productId,
                                         @Optional String productSku,
                                         @Optional String productIdOrSku,
-                                        @Optional @Default("#[payload]") @Placement(group = "Stock Item Attributes") CatalogInventoryStockItemUpdateEntity catalogInventoryStockItem) {
+                                        @Default("#[payload]") @Placement(group = "Stock Item Attributes") CatalogInventoryStockItemUpdateEntity catalogInventoryStockItem) {
         return catalogClient.updateInventoryStockItem(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogInventoryStockItem);
     }
 
@@ -1500,7 +1499,7 @@ public class MagentoCloudConnector {
     public int createProduct(String type,
                              int set,
                              String sku,
-                             @Optional @Default("#[payload]")  @Placement(group = "Standard Product Attributes") CatalogProductCreateEntity attributes,
+                             @Default("#[payload]") @Placement(group = "Standard Product Attributes") CatalogProductCreateEntity attributes,
                              @Placement(group = "Non-standard Product Attributes") @Optional List<AssociativeEntity> additionalAttributes,
                              @Optional String storeViewIdOrCode) {
         return catalogClient.createProduct(type, set, sku, attributes, additionalAttributes, storeViewIdOrCode);
@@ -1521,8 +1520,8 @@ public class MagentoCloudConnector {
      */
     @Processor
     public int deleteProduct(@Optional Integer productId,
-                              @Optional String productSku,
-                              @Optional String productIdOrSku) {
+                             @Optional String productSku,
+                             @Optional String productIdOrSku) {
         return catalogClient.deleteProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku));
     }
 
@@ -1648,7 +1647,7 @@ public class MagentoCloudConnector {
     public boolean updateProduct(@Optional Integer productId,
                                  @Optional String productSku,
                                  @Optional String productIdOrSku,
-                                 @Optional @Default("#[payload]") @Placement(group = "Standard Product Attributes to Update") CatalogProductCreateEntity catalogProductEntity,
+                                 @Default("#[payload]") @Placement(group = "Standard Product Attributes to Update") CatalogProductCreateEntity catalogProductEntity,
                                  @Placement(group = "Non-standard Product Attributes to Update") @Optional List<AssociativeEntity> additionalAttributes,
                                  @Optional String storeViewIdOrCode) {
         return catalogClient.updateProduct(ProductIdentifiers.from(productSku, productId, productIdOrSku), catalogProductEntity, additionalAttributes, storeViewIdOrCode);
@@ -1733,8 +1732,8 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean addShoppingCartProduct(int quoteId,
-                                   @Optional @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
-                                   @Optional String storeId) {
+                                          @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
+                                          @Optional String storeId) {
         return shoppingCartClient.addShoppingCartProduct(quoteId, products, storeId);
     }
 
@@ -1749,8 +1748,8 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean updateShoppingCartProduct(int quoteId,
-                                      @Optional @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
-                                      @Optional String storeId) {
+                                             @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
+                                             @Optional String storeId) {
         return shoppingCartClient.updateShoppingCartProduct(quoteId, products, storeId);
     }
 
@@ -1765,8 +1764,8 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean removeShoppingCartProduct(int quoteId,
-                                      @Optional @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
-                                      @Optional String storeId) {
+                                             @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
+                                             @Optional String storeId) {
         return shoppingCartClient.removeShoppingCartProduct(quoteId, products, storeId);
     }
 
@@ -1795,8 +1794,8 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean moveShoppingCartProductToCustomerQuote(int quoteId,
-                                                   @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
-                                                   @Optional String storeId) {
+                                                          @Default("#[payload]") @Placement(group = "Products attributes") List<ShoppingCartProductEntity> products,
+                                                          @Optional String storeId) {
         return shoppingCartClient.moveShoppingCartProductToCustomerQuote(quoteId, products, storeId);
     }
 
@@ -1811,7 +1810,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean setShoppingCartCustomer(int quoteId,
-                                           @Optional @Default("#[payload]") @Placement(group = "Customer attributes") ShoppingCartCustomerEntity customer,
+                                           @Default("#[payload]") @Placement(group = "Customer attributes") ShoppingCartCustomerEntity customer,
                                            @Optional String storeId) {
         return shoppingCartClient.setShoppingCartCustomer(quoteId, customer, storeId);
     }
@@ -1827,7 +1826,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean setShoppingCartCustomerAddresses(int quoteId,
-                                                    @Optional @Default("#[payload]") @Placement(group = "Addresses attributes") List<ShoppingCartCustomerAddressEntity> shoppingCartCustomerAddresses,
+                                                    @Default("#[payload]") @Placement(group = "Addresses attributes") List<ShoppingCartCustomerAddressEntity> shoppingCartCustomerAddresses,
                                                     @Optional String storeId) {
         return shoppingCartClient.setShoppingCartCustomerAddresses(quoteId, shoppingCartCustomerAddresses, storeId);
     }
@@ -1871,7 +1870,7 @@ public class MagentoCloudConnector {
      */
     @Processor
     public boolean setShoppingCartPaymentMethod(int quoteId,
-                                                @Optional @Default("#[payload]") @Placement(group = "Method attributes") ShoppingCartPaymentMethodEntity shoppingCartPaymentMethod,
+                                                @Default("#[payload]") @Placement(group = "Method attributes") ShoppingCartPaymentMethodEntity shoppingCartPaymentMethod,
                                                 @Optional String storeId) {
         return shoppingCartClient.setShoppingCartPaymentMethod(quoteId, shoppingCartPaymentMethod, storeId);
     }

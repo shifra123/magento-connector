@@ -8,75 +8,50 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
+import com.magento.api.CustomerCustomerEntity;
+import com.magento.api.CustomerCustomerEntityToCreate;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CustomerCustomerEntity;
-import com.magento.api.CustomerCustomerEntityToCreate;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class GetCustomerTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("getCustomer");
-			
-			MessageProcessor flow = lookupFlowConstruct("create-customer");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			int customerId = (Integer) response.getMessage().getPayload();
-			testObjects.put("customerId", customerId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({RegressionTests.class})
-	@Test
-	public void testGetCustomer() {
-		try {
-			
-			int customerId = (Integer) testObjects.get("customerId");
-			CustomerCustomerEntityToCreate customer = (CustomerCustomerEntityToCreate) testObjects.get("customerRef");
+    Integer customerId;
 
-			MessageProcessor flow = lookupFlowConstruct("get-customer");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			CustomerCustomerEntity createdCustomer = (CustomerCustomerEntity) response.getMessage().getPayload();
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("getCustomer");
+        customerId = runFlowAndGetPayload("create-customer");
+        upsertOnTestRunMessage("customerId", customerId);
+    }
 
-			assertTrue(createdCustomer.getCustomer_id() == customerId);
-			assertTrue(createdCustomer.getEmail().equals(customer.getEmail()));
-			assertTrue(createdCustomer.getFirstname().equals(customer.getFirstname()));
-			assertTrue(createdCustomer.getLastname().equals(customer.getLastname()));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("delete-customer");
-			flow.process(getTestEvent(testObjects));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
+    @Category({RegressionTests.class})
+    @Test
+    public void testGetCustomer() {
+        try {
+
+            int customerId = getTestRunMessageValue("customerId");
+            CustomerCustomerEntityToCreate customer = getTestRunMessageValue("customerRef");
+
+            CustomerCustomerEntity createdCustomer = runFlowAndGetPayload("get-customer");
+
+            assertTrue(createdCustomer.getCustomer_id() == customerId);
+            assertTrue(createdCustomer.getEmail().equals(customer.getEmail()));
+            assertTrue(createdCustomer.getFirstname().equals(customer.getFirstname()));
+            assertTrue(createdCustomer.getLastname().equals(customer.getLastname()));
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        runFlowAndGetPayload("delete-customer");
+    }
+
 }

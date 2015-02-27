@@ -8,81 +8,59 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
+import com.magento.api.CatalogCategoryEntity;
+import com.magento.api.CatalogCategoryEntityCreate;
+import com.magento.api.CatalogCategoryTree;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CatalogCategoryEntity;
-import com.magento.api.CatalogCategoryEntityCreate;
-import com.magento.api.CatalogCategoryTree;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class GetCategoryTreeTestCases extends MagentoTestParent {
-	
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("getCategoryTree");
-			
-			CatalogCategoryEntityCreate parentCategory = (CatalogCategoryEntityCreate) testObjects.get("parentCategory");
-			CatalogCategoryEntityCreate childCategory = (CatalogCategoryEntityCreate) testObjects.get("childCategory");
-			
-			int parentId = (Integer) testObjects.get("parentId");
-			int parentCategoryId = createCategory(parentId, parentCategory);
-			int childCategoryId = createCategory(parentCategoryId, childCategory);
-			
-			testObjects.put("parentCategoryId", parentCategoryId);
-			testObjects.put("childCategoryId", childCategoryId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({RegressionTests.class})
-	@Test
-	public void testGetCategoryTree() {
-		try {
-			int parentCategoryId = (Integer) testObjects.get("parentCategoryId");
-			int childCategoryId = (Integer) testObjects.get("childCategoryId");
-			
-			MessageProcessor flow = lookupFlowConstruct("get-category-tree");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			CatalogCategoryTree tree = (CatalogCategoryTree) response.getMessage().getPayload();
-			assertTrue(tree.getCategory_id() == parentCategoryId);
-			
-			CatalogCategoryEntity[] children = tree.getChildren();
-			CatalogCategoryEntity child = children[0]; // We only created 1 child.
-			
-			assertTrue(child.getCategory_id() == childCategoryId);
-			assertTrue(child.getParent_id() == parentCategoryId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			// Deleting the parent also deletes the child			
-			int parentCategoryId = (Integer) testObjects.get("parentCategoryId");
-			deleteCategory(parentCategoryId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("getCategoryTree");
+
+        CatalogCategoryEntityCreate parentCategory = getTestRunMessageValue("parentCategory");
+        CatalogCategoryEntityCreate childCategory = getTestRunMessageValue("childCategory");
+
+        int parentId = getTestRunMessageValue("parentId");
+        int parentCategoryId = createCategory(parentId, parentCategory);
+        int childCategoryId = createCategory(parentCategoryId, childCategory);
+
+        upsertOnTestRunMessage("parentCategoryId", parentCategoryId);
+        upsertOnTestRunMessage("childCategoryId", childCategoryId);
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testGetCategoryTree() {
+        try {
+            int parentCategoryId = getTestRunMessageValue("parentCategoryId");
+            int childCategoryId = getTestRunMessageValue("childCategoryId");
+
+            CatalogCategoryTree tree = runFlowAndGetPayload("get-category-tree");
+            assertTrue(tree.getCategory_id() == parentCategoryId);
+
+            CatalogCategoryEntity[] children = tree.getChildren();
+            CatalogCategoryEntity child = children[0]; // We only created 1 child.
+
+            assertTrue(child.getCategory_id() == childCategoryId);
+            assertTrue(child.getParent_id() == parentCategoryId);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        // Deleting the parent also deletes the child
+        int parentCategoryId = getTestRunMessageValue("parentCategoryId");
+        deleteCategory(parentCategoryId);
+    }
 }

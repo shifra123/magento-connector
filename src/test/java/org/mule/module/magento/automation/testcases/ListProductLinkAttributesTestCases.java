@@ -8,79 +8,55 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-import java.util.List;
-
+import com.magento.api.CatalogProductLinkAttributeEntity;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CatalogProductLinkAttributeEntity;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class ListProductLinkAttributesTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("listProductLinkAttributes");
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("listProductLinkAttributes");
+        Integer productId = runFlowAndGetPayload("create-product");
+        upsertOnTestRunMessage("productId", productId);
+        String sku = getTestRunMessageValue("sku");
+        // change the sku for the second product
+        upsertOnTestRunMessage("sku", sku + "abc");
+        Integer linkedProductId = runFlowAndGetPayload("create-product");
+        upsertOnTestRunMessage("linkedProductIdOrSku", linkedProductId);
 
-			MessageProcessor createProductFlow = lookupFlowConstruct("create-product");
-			MuleEvent res = createProductFlow.process(getTestEvent(testObjects));
-			Integer productId = (Integer) res.getMessage().getPayload();
-			testObjects.put("productId", productId);
-			
-			// change the sku for the second product
-			testObjects.put("sku", ((String) testObjects.get("sku")) + "abc");
-			res = createProductFlow.process(getTestEvent(testObjects));
-			Integer linkedProductId = (Integer) res.getMessage().getPayload();
-			testObjects.put("linkedProductIdOrSku", linkedProductId);
-			
-			String linkType = "related";
-			testObjects.put("type", linkType);
-			MessageProcessor addProductLinkFlow = lookupFlowConstruct("add-product-link");
-			addProductLinkFlow.process(getTestEvent(testObjects));
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+        String linkType = "related";
+        upsertOnTestRunMessage("type", linkType);
+        runFlowAndGetPayload("add-product-link");
+    }
 
-	@SuppressWarnings("unchecked")
-	@Category({RegressionTests.class })
-	@Test
-	public void testListProductLinkAttributes() {
-		try {
-			MessageProcessor listProductLinkFlow = lookupFlowConstruct("list-product-link-attributes");
-			MuleEvent res = listProductLinkFlow.process(getTestEvent(testObjects));
-			List<CatalogProductLinkAttributeEntity> catalogProductLinkAttributeEntities = (List<CatalogProductLinkAttributeEntity>) res.getMessage().getPayload();
-			
-			assertNotNull(catalogProductLinkAttributeEntities);
-			assertEquals(1, catalogProductLinkAttributeEntities.size());
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @Category({RegressionTests.class})
+    @Test
+    public void testListProductLinkAttributes() {
+        try {
+            List<CatalogProductLinkAttributeEntity> catalogProductLinkAttributeEntities =
+                    runFlowAndGetPayload("list-product-link-attributes");
 
-	@After
-	public void tearDown() {
-		try {
-			int productId = (Integer) testObjects.get("productId");
-			int linkedProductId = (Integer) testObjects.get("linkedProductIdOrSku");
-			deleteProductById(productId);
-			deleteProductById(linkedProductId);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+            assertNotNull(catalogProductLinkAttributeEntities);
+            assertEquals(1, catalogProductLinkAttributeEntities.size());
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        int productId = getTestRunMessageValue("productId");
+        int linkedProductId = getTestRunMessageValue("linkedProductIdOrSku");
+        deleteProductById(productId);
+        deleteProductById(linkedProductId);
+    }
 
 }

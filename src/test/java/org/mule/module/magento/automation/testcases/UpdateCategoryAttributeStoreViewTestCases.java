@@ -8,48 +8,31 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
+
+import static org.junit.Assert.*;
 
 public class UpdateCategoryAttributeStoreViewTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("updateCategoryAttributeStoreView");
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @Before
+    public void setUp() {
+        initializeTestRunMessage("updateCategoryAttributeStoreView");
+    }
 
-	@Category({RegressionTests.class})
-	@Test
-	public void testUpdateCategoryAttributeStoreViewTestCases() {
-		try {
-			MessageProcessor flow = lookupFlowConstruct("update-category-attribute-store-view");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			Integer result = (Integer) response.getMessage().getPayload();
-			assertNotNull(result);
-			Integer storeViewId = Integer.parseInt((String) testObjects.get("storeViewIdOrCode"));
-			assertEquals("Assert that the integer returned is the store view id which was set", storeViewId, result);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-		
+    @Category({RegressionTests.class})
+    @Test
+    public void testUpdateCategoryAttributeStoreViewTestCases() {
+        try {
+            Integer result = runFlowAndGetPayload("update-category-attribute-store-view");
+            assertNotNull(result);
+            assertEquals("Assert that the integer returned is the store view id which was set",
+                    getTestRunMessageValue("storeViewIdOrCode"), result + "");
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
 }

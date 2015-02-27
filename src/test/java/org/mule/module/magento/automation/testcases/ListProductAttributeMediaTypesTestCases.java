@@ -8,48 +8,34 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-import java.util.List;
-
+import com.magento.api.CatalogProductAttributeMediaTypeEntity;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.CatalogProductAttributeMediaTypeEntity;
+import java.util.List;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class ListProductAttributeMediaTypesTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("listProductAttributeMediaTypes");
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @Before
+    public void setUp() {
+        initializeTestRunMessage("listProductAttributeMediaTypes");
+    }
 
-	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
-	@Test
-	public void testListProductAttributeMediaTypes() {
-		try {
-			MessageProcessor listProductLinkFlow = lookupFlowConstruct("list-product-attribute-media-types");
-			MuleEvent res = listProductLinkFlow.process(getTestEvent(testObjects));
-			List<CatalogProductAttributeMediaTypeEntity> catalogProductAttributeMediaTypes = (List<CatalogProductAttributeMediaTypeEntity>) res.getMessage().getPayload();
-			
-			assertNotNull(catalogProductAttributeMediaTypes);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    @Category({SmokeTests.class, RegressionTests.class})
+    @Test
+    public void testListProductAttributeMediaTypes() {
+        try {
+            List<CatalogProductAttributeMediaTypeEntity> catalogProductAttributeMediaTypes =
+                    runFlowAndGetPayload("list-product-attribute-media-types");
+            assertNotNull(catalogProductAttributeMediaTypes);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
 
 }

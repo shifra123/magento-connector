@@ -1,13 +1,13 @@
 Magento Connector Release Notes
 ===============================
 
-Date: 12-MAY-2014
+Date: 24-FEB-2014
 
-Version: 2.1.2
+Version: 2.2.0
 
 Supported Mule Runtime Versions
 -------------------------------
-- Mule EE 3.5.0
+- Mule EE 3.5.2
 
 Magento Supported Versions
 --------------------------
@@ -16,8 +16,6 @@ Magento Supported Versions
 
 New Features and Functionality
 ------------------------------
-- Upgraded to Devkit 3.5.0
-- Added Query Support
 - Supported Operations
 	- addCategoryProduct
 	- addOrderComment

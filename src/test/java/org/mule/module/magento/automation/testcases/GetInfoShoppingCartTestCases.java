@@ -8,60 +8,39 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.Map;
-
+import com.magento.api.ShoppingCartCustomerEntity;
+import com.magento.api.ShoppingCartInfoEntity;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
 
-import com.magento.api.ShoppingCartCustomerEntity;
-import com.magento.api.ShoppingCartInfoEntity;
+import static org.junit.Assert.*;
 
 public class GetInfoShoppingCartTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (Map<String, Object>) context.getBean("getInfoShoppingCart");
-			
-			String storeId = testObjects.get("storeId").toString();
-			
-			int quoteId = createShoppingCart(storeId);
-			testObjects.put("quoteId", quoteId);
-			
-			ShoppingCartCustomerEntity customer = (ShoppingCartCustomerEntity) testObjects.get("customer");
-			setShoppingCartCustomer(quoteId, customer);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({RegressionTests.class})
-	@Test
-	public void testGetInfoShoppingCart() {
-		try {
-			int quoteId = (Integer) testObjects.get("quoteId");
-			
-			MessageProcessor flow = lookupFlowConstruct("get-info-shopping-cart");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			ShoppingCartInfoEntity result = (ShoppingCartInfoEntity) response.getMessage().getPayload();
-			assertNotNull(result);
-			assertTrue(quoteId == result.getQuote_id());
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-		
+    Integer quoteId;
+
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("getInfoShoppingCart");
+        String storeId = getTestRunMessageValue("storeId");
+        ShoppingCartCustomerEntity customer = getTestRunMessageValue("customer");
+        quoteId = createShoppingCart(storeId);
+        setShoppingCartCustomer(quoteId, customer);
+        upsertOnTestRunMessage("quoteId", quoteId);
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testGetInfoShoppingCart() {
+        try {
+            ShoppingCartInfoEntity result = runFlowAndGetPayload("get-info-shopping-cart");
+            assertNotNull(result);
+            assertEquals(quoteId, result.getQuote_id());
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
 }

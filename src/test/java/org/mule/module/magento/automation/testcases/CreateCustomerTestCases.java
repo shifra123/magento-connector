@@ -8,64 +8,42 @@
 
 package org.mule.module.magento.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import java.util.HashMap;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.processor.MessageProcessor;
+import org.mule.modules.tests.ConnectorTestUtils;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class CreateCustomerTestCases extends MagentoTestParent {
 
-	@SuppressWarnings("unchecked")
-	@Before
-	public void setUp() {
-		try {
-			testObjects = (HashMap<String, Object>) context.getBean("createCustomer");
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Category({SmokeTests.class, RegressionTests.class})
-	@Test
-	public void testCreateCustomer() {
-		try {
-			// Create the customer
-			MessageProcessor flow = lookupFlowConstruct("create-customer");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			
-			// Get the ID of the created customer
-			Integer customerId =(Integer) response.getMessage().getPayload();
-			assertNotNull(customerId);
-			
-			// Put the customerId in testObjects so that we can use it to delete
-			testObjects.put("customerId", customerId);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@After
-	public void tearDown() {
-		try {
-			// Delete the customer
-			MessageProcessor flow = lookupFlowConstruct("delete-customer");
-			flow.process(getTestEvent(testObjects));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
+    @SuppressWarnings("unchecked")
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("createCustomer");
+    }
+
+    @Category({SmokeTests.class, RegressionTests.class})
+    @Test
+    public void testCreateCustomer() {
+        try {
+            // Create the customer
+            Integer customerId = runFlowAndGetPayload("create-customer");
+            assertNotNull(customerId);
+
+            // Put the customerId in testObjects so that we can use it to delete
+            upsertOnTestRunMessage("customerId", customerId);
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        // Delete the customer
+        runFlowAndGetPayload("delete-customer");
+    }
+
 }
